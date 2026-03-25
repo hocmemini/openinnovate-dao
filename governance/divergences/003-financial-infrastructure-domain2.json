@@ -1,0 +1,14 @@
+{
+  "divergenceId": 1,
+  "decisionId": 4,
+  "proposalId": 3,
+  "title": "Divergence: D-U-N-S Registration — Standard vs. Expedited",
+  "divergedBy": "0xC91ED1978a1b89D0321fcF6BFf919a0f785d5EC7",
+  "date": "2026-03-24",
+  "domain": "Decision Domain 2: D-U-N-S Number & Business Credit Foundation",
+  "algorithmicManagerRecommendation": "Expedited registration ($50, 5-7 business days)",
+  "humanExecutorDecision": "Standard registration (free, ~30 days)",
+  "reasoning": "The Algorithmic Manager recommended expedited D-U-N-S registration on the basis that 3 weeks of accelerated credit-building compounds meaningfully over a 12-month horizon. The Human Executor disagrees: the credit profile will not be used for some time, so the compounding time-value argument does not apply to the current operational reality. $50 toward a 3-week acceleration has near-zero return when the credit facilities it enables are not needed in the near term. The standard free registration achieves the same outcome at $0 cost. This is not a rejection of the credit-building strategy — it is a recalibration of urgency.",
+  "maximAlignmentAssessment": "The divergence is consistent with the Root Thesis Maxim. Sovereign, self-sustaining systems do not waste resources on acceleration without demonstrated time pressure. Buffett's own principle — cited by the engine — counsels against deploying capital without expected return exceeding cost. At current operational tempo, $50 for 3 weeks produces no measurable return.",
+  "contactEmail": "collaborate@openinnovate.org"
+}
