@@ -1,0 +1,8 @@
+{
+  "decisionId": 7,
+  "proposalId": "006-governance-pipeline-integrity",
+  "executionSummary": "Both phases complete. Phase 1 (bdf0a9a): commitSha in evaluate.py, issue_manager.py with idempotent creation, DIVERGENCE-WORKFLOW.md, milestone manifest format in CLAUDE.md. Phase 2 (47809a4): verify.py --check-issues with deterministic/self-attestation separation, governance.yml workflow_dispatch + push-triggered verification, test suite 23/23 passing.",
+  "conditions": "All conditions from Decision #7 satisfied: commit SHA linkage via git rev-parse HEAD, issue_manager.py standalone with --body-file injection prevention, pending-review workflow, divergence-issue lifecycle documented, milestone manifest format defined, verify.py --check-issues with human-only closure, governance.yml restricted to workflow_dispatch, verify.py test suite built.",
+  "executedBy": "0xC91ED1978a1b89D0321fcF6BFf919a0f785d5EC7",
+  "date": "2026-03-25"
+}
