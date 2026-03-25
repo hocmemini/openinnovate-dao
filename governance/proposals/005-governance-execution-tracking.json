@@ -1,0 +1,32 @@
+{
+  "proposalId": 5,
+  "title": "Governance Execution Tracking via GitHub Projects",
+  "type": "governance-infrastructure",
+  "submittedBy": "0xC91ED1978a1b89D0321fcF6BFf919a0f785d5EC7",
+  "date": "2026-03-24",
+  "summary": "Establish a project management layer using GitHub Issues and GitHub Projects to track execution of multi-phase governance decisions. The current contract supports binary attestation (executed/not) but proposals like #003 (Financial Infrastructure) contain 90-day roadmaps with dozens of milestones. This proposal bridges the gap between on-chain attestation and real-world execution tracking.",
+  "body": "The governance pipeline currently has three states: proposed, decided, and attested/diverged. For single-action proposals (ratify a document, implement a script), this is sufficient. But for multi-phase proposals with sequential dependencies and time-delayed milestones, there is no mechanism to track incremental progress. Proposal #003 (Financial Infrastructure) approved a 90-day roadmap with 20+ action items across 7 domains, some of which depend on external approvals (Mercury, D-U-N-S) with multi-week timelines. The binary on-chain attestation cannot capture this complexity. This proposal introduces GitHub Projects as the execution tracking layer, with GitHub Issues as individual milestones. On-chain attestation happens at defined checkpoints when sufficient milestones are complete. The governance engine workflow is updated to auto-create issues from approved roadmaps.",
+  "proposedChanges": [
+    {
+      "component": "GitHub Project Board",
+      "change": "Create 'OpenInnovate Governance' project board with columns: Backlog, Blocked, In Progress, Done. Each approved proposal with a roadmap generates issues automatically."
+    },
+    {
+      "component": "Issue Template",
+      "change": "Create .github/ISSUE_TEMPLATE/governance-milestone.yml for structured milestone tracking with fields: proposal ID, domain, milestone, dependencies, target date, attestation checkpoint."
+    },
+    {
+      "component": "Execution Checkpoints",
+      "change": "Define checkpoint rules: on-chain attestation occurs when all milestones in a phase are complete. For #003: Phase 1 = bank + D-U-N-S (Week 1-2), Phase 2 = tradelines (Week 2-8), Phase 3 = store credit (Week 9-12), Phase 4 = credit cards (Month 5-8)."
+    },
+    {
+      "component": "governance-engine/.github/workflows/governance.yml",
+      "change": "Add post-evaluation step that parses approved roadmaps and creates GitHub Issues via gh CLI."
+    }
+  ],
+  "retroactiveApplication": {
+    "proposal003": "Create issues for all 20+ action items in the Financial Infrastructure roadmap. Mark Mercury application and D-U-N-S registration as Done. Remaining items as Backlog or Blocked.",
+    "proposal004": "Create single issue for verify.py implementation. Mark as Done (commit 9519023)."
+  },
+  "action": "Create GitHub Project board, issue templates, and retroactive issues for existing proposals. Update governance workflow to auto-create issues from future approved roadmaps."
+}
