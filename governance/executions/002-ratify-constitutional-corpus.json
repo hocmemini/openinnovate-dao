@@ -1,0 +1,11 @@
+{
+  "executionId": 2,
+  "decisionId": 2,
+  "proposalId": 2,
+  "title": "Execution: Ratification of the Initial Constitutional Corpus",
+  "executedBy": "0xC91ED1978a1b89D0321fcF6BFf919a0f785d5EC7",
+  "date": "2026-03-24",
+  "actionTaken": "Ratified the initial Constitutional Corpus of 144 documents across 4 tiers. Corpus manifest hash committed on-chain.",
+  "corpusManifestHash": "0x25c57b80d6d9769d4f90a444c849b036cdc73c9d0dda2bfb72043472f28476cb",
+  "divergence": false
+}

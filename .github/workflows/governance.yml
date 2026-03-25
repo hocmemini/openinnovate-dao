@@ -1,0 +1,110 @@
+name: Governance Proposal Pipeline
+
+on:
+  pull_request:
+    branches: [main]
+    types: [labeled]
+  workflow_dispatch:
+    inputs:
+      proposal:
+        description: "Path to proposal file (relative to repo root)"
+        required: true
+        type: string
+      dry_run:
+        description: "Dry run — evaluate but do not commit on-chain"
+        required: false
+        default: "true"
+        type: choice
+        options:
+          - "true"
+          - "false"
+
+jobs:
+  evaluate-proposal:
+    if: >
+      github.event_name == 'workflow_dispatch' ||
+      github.event.label.name == 'governance-proposal'
+    runs-on: ubuntu-latest
+    env:
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+      GOVERNANCE_MODEL: claude-opus-4-6
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install anthropic
+
+      - name: Determine proposal file
+        id: proposal
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "file=${{ github.event.inputs.proposal }}" >> "$GITHUB_OUTPUT"
+          else
+            # For PRs labeled 'governance-proposal', find the proposal file in the diff
+            PROPOSAL=$(git diff --name-only origin/main...HEAD | grep '^governance/proposals/' | head -1)
+            if [ -z "$PROPOSAL" ]; then
+              echo "::error::No proposal file found in PR diff under governance/proposals/"
+              exit 1
+            fi
+            echo "file=$PROPOSAL" >> "$GITHUB_OUTPUT"
+          fi
+          echo "Proposal: $(cat "$GITHUB_OUTPUT" | grep file | cut -d= -f2)"
+
+      - name: Evaluate proposal
+        id: evaluate
+        run: |
+          PROPOSAL="${{ steps.proposal.outputs.file }}"
+          DRY_RUN="${{ github.event.inputs.dry_run || 'true' }}"
+
+          ARGS="--proposal $PROPOSAL"
+
+          if [ "$DRY_RUN" = "true" ]; then
+            ARGS="$ARGS --dry-run"
+          fi
+
+          cd governance-engine
+          python evaluate.py $ARGS 2>&1 | tee /tmp/eval-output.txt
+
+          # Extract output path from the evaluation log
+          OUTPUT=$(grep "Reasoning tree saved to:" /tmp/eval-output.txt | sed 's/.*saved to: //')
+          if [ -n "$OUTPUT" ]; then
+            echo "output_path=$OUTPUT" >> "$GITHUB_OUTPUT"
+
+            # Compute hash
+            HASH=$(python3 -c "
+          from hashlib import sha3_256
+          with open('$OUTPUT', 'rb') as f:
+              print('0x' + sha3_256(f.read()).hexdigest())
+          ")
+            echo "reasoning_hash=$HASH" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Commit reasoning tree
+        if: github.event.inputs.dry_run == 'false' && steps.evaluate.outputs.output_path != ''
+        run: |
+          git config user.name "OpenInnovate Governance Bot"
+          git config user.email "governance-bot@openinnovate.dao"
+          git add governance/decisions/
+          git commit -m "gov: reasoning tree for ${{ steps.proposal.outputs.file }}
+
+          Hash: ${{ steps.evaluate.outputs.reasoning_hash }}
+          Model: ${{ env.GOVERNANCE_MODEL }}"
+          git push
+
+      - name: Summary
+        run: |
+          echo "## Governance Evaluation Complete" >> "$GITHUB_STEP_SUMMARY"
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+          echo "- **Proposal:** \`${{ steps.proposal.outputs.file }}\`" >> "$GITHUB_STEP_SUMMARY"
+          echo "- **Dry run:** ${{ github.event.inputs.dry_run || 'true' }}" >> "$GITHUB_STEP_SUMMARY"
+          if [ -n "${{ steps.evaluate.outputs.reasoning_hash }}" ]; then
+            echo "- **Reasoning hash:** \`${{ steps.evaluate.outputs.reasoning_hash }}\`" >> "$GITHUB_STEP_SUMMARY"
+            echo "- **Output:** \`${{ steps.evaluate.outputs.output_path }}\`" >> "$GITHUB_STEP_SUMMARY"
+          fi

@@ -1,0 +1,18 @@
+{
+  "proposalId": 1,
+  "title": "Ratification of the Operating Agreement",
+  "type": "foundational",
+  "submittedBy": "0xC91ED1978a1b89D0321fcF6BFf919a0f785d5EC7",
+  "date": "2026-03-24",
+  "summary": "Ratify the Operating Agreement of OpenInnovate DAO LLC as the governing document of the Company, supplementing the Articles of Organization and the Smart Contract in accordance with the constitutional hierarchy established by W.S. 17-31-115.",
+  "body": "This is the first Governance Act of OpenInnovate DAO LLC. The Operating Agreement defines the complete governance framework: the Algorithmic Manager's role and authority, the Human Executor's duties, the Divergence Protocol, the Constitutional Corpus structure, the governance decision pipeline, transparency obligations, and all other matters required by W.S. 17-31-106(c). Ratification commits the Agreement's keccak256 hash on-chain, establishing cryptographic proof of its contents at the time of the Company's formation.",
+  "references": {
+    "operatingAgreement": "legal/operating-agreement.md",
+    "agreementHash": "0xe391722a1a23f96c39acdbdaa027e3fc8d5df06837fde7d71b465b52f0054e85",
+    "articlesOfOrganization": "legal/articles-of-organization.md",
+    "wyomingFilingReference": "2026-001929314",
+    "smartContract": "0x3efDCccF7b141B5dA4B21478221B0bf0cfdF7536",
+    "chainId": 8453
+  },
+  "action": "Commit the Operating Agreement hash on-chain and publish the full text in the Public Repository. The Member signs the Agreement as sole Member and Human Executor."
+}

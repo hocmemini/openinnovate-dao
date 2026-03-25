@@ -1,0 +1,26 @@
+# Private working context
+openinnovate-complete-export.md
+filings/
+.claude/
+
+# Secrets
+.env
+.env.*
+
+# Foundry
+contracts/cache/
+contracts/out/
+contracts/broadcast/
+
+# Node
+node_modules/
+.next/
+
+# OS
+.DS_Store
+*:Zone.Identifier
+
+# Python
+__pycache__/
+*.pyc
+.venv/

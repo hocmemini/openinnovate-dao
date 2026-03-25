@@ -1,0 +1,1114 @@
+# Decentralized Governance of Stablecoins with Leverage and Staking
+# Authors: Ariah Klages-Mundt, Andreea Minca
+# Source: https://arxiv.org/pdf/2003.09108
+# Year: 2020
+# Retrieved: 2026-03-24
+# License: arXiv non-exclusive license
+
+FocalMix: Semi-Supervised Learning for 3D Medical Image Detection
+Dong Wang1*
+Yuan Zhang2*
+Kexin Zhang2,3†
+Liwei Wang1,2
+1Center for Data Science, Peking University
+2Key Laboratory of Machine Perception, MOE, School of EECS, Peking University
+3Yizhun Medical AI Co., Ltd
+{wangdongcis,yuan.z,zhangkexin,wanglw}@pku.edu.cn
+Abstract
+Applying artiﬁcial intelligence techniques in medical
+imaging is one of the most promising areas in medicine.
+However, most of the recent success in this area highly re-
+lies on large amounts of carefully annotated data, whereas
+annotating medical images is a costly process. In this pa-
+per, we propose a novel method, called FocalMix, which,
+to the best of our knowledge, is the ﬁrst to leverage re-
+cent advances in semi-supervised learning (SSL) for 3D
+medical image detection. We conducted extensive experi-
+ments on two widely used datasets for lung nodule detec-
+tion, LUNA16 and NLST. Results show that our proposed
+SSL methods can achieve a substantial improvement of up to
+17.3% over state-of-the-art supervised learning approaches
+with 400 unlabeled CT scans.
+1. Introduction
+Medical imaging plays an essential part in modern med-
+ical practice. One of the signiﬁcant trends in this area is to
+exploit advanced techniques in deep learning (DL) and arti-
+ﬁcial intelligence (AI) to achieve automatic medical image
+analysis. Prior work has already demonstrated promising
+results in various speciﬁc tasks, such as skin cancer classi-
+ﬁcation [8], retinal fundus image analysis [12], with some
+preliminary real-world applications, e.g., [5]. However, we
+argue that the success should be attributed to not only recent
+progress in deep learning techniques but also large volumes
+of carefully annotated data.
+On the one hand, annotating medical images is an expen-
+sive and time-consuming process. This process requires ex-
+perienced clinical experts to read examination reports, com-
+bine them with other test results, and sometimes consult
+with other experts. Furthermore, it is even more difﬁcult
+to manually annotate such 3D images as CT and MRI with
+*Equal contribution.
+†Part of this work was done during internship at Yizhun Medical AI.
+substantially more information. On the other hand, there are
+a large number of raw medical images stored in hospital in-
+formation systems. The cost of retrieving them is negligible
+relative to the high expenses of human annotation. There-
+fore, it becomes a necessary research question whether we
+can leverage these raw medical images with little annotation
+to improve the diagnostic accuracy of deep learning models.
+Meanwhile, semi-supervised learning (SSL) has at-
+tracted a lot of research efforts in recent years. Most of
+the latest SSL methods generally add an auxiliary loss term
+deﬁned on unlabeled data (e.g., consistency regularization
+term [30]), or even linear interpolations of both labeled and
+unlabeled data (i.e., MixUp augmentation [39]), into the
+loss function for better generalization capacities and hence
+better performances on the test set. Some of them have
+achieved great success on image classiﬁcation datasets such
+as CIFAR [16], which fully demonstrates the potential value
+of utilizing unlabeled data.
+Applying recent advances of SSL to medical imaging
+problems seems to be a tempting approach. However, since
+people are more concerned with lesion detection tasks in
+medical imaging as opposed to the widely studied classiﬁ-
+cation task in the existing SSL literature, many technical de-
+tails remain unexplored. For instance, modern SSL frame-
+works generally require the loss function to be able to deal
+with soft labels (e.g., a smooth probability over classes),
+whereas most one-stage lesion detection models use the fo-
+cal loss [22], which has no such natural extension. Also,
+state-of-the-art SSL methods use average ensembles to ob-
+tain pseudo-labels for unlabeled data.
+Nonetheless, it is
+hard to take the average over bounding boxes predicted by
+detection models. Last but not least, very few researches
+have touched on data augmentation for medical images,
+which, however, is almost an indispensable component for
+SSL approaches to achieve their recent success.
+In this paper, we discuss a principled method, called Fo-
+calMix, for tailoring modern SSL frameworks to overcome
+the issues mentioned above. First, we propose a generic
+generalization of the focal loss that allows the usage of soft-
+arXiv:2003.09108v1  [cs.CV]  20 Mar 2020
+target training labels with skewed distributions (analogous
+to class imbalance in discrete cases as encountered by most
+detection models) in Sect. 3.1. Then, practical designs are
+introduced to illustrate how we can extend essential com-
+ponents in an SSL framework for 3D medical image detec-
+tion. Speciﬁcally, we propose a target prediction strategy
+that leverages anchor-level ensembles of augmented image
+patches by rotation and ﬂipping (Sect. 3.2). Furthermore,
+the MixUp augmentation is adapted for medical image de-
+tection tasks at both the image level and object level in light
+of unique characteristics of the medical image detection
+tasks (Sect. 3.3). Throughout this paper, we mostly take
+a state-of-the-art SSL method, MixMatch [3], as a running
+example to provide a more clear and approachable presen-
+tation. The proposed method can be transferred to other
+modern SSL frameworks (e.g., UDA [37]) with little effort.
+Through extensive experiments on two widely-used
+datasets for pulmonary nodule detection on CT scans, we
+show that the proposed SSL method, FocalMix, can sub-
+stantially outperform well-tuned state-of-the-art supervised
+learning approaches (Sect.
+4.2).
+Ablation study further
+demonstrates the effectiveness of our proposed soft-target
+loss function, ensemble method for target prediction, and
+two levels of MixUp strategies (Sect. 4.3). In addition, the
+results show that FocalMix can still boost the performance
+of supervised learning when there is a reasonably large an-
+notated dataset already available (Sect. 4.4).
+To conclude, the main contributions of this paper are:
+• We propose FocalMix, a novel semi-supervised learn-
+ing framework for 3D medical image detection.
+• To the best of our knowledge, our work is the ﬁrst to in-
+vestigate the problem of semi-supervised learning for
+medical image detection.
+• Through extensive experiments, we demonstrate that
+the proposed semi-supervised approach can signiﬁ-
+cantly improve the performance of fully-supervised
+learning approaches.
+2. Background and Preliminaries
+2.1. Object Detection in 3D Medical Images
+This paper mainly focuses on the problem of 3D med-
+ical image detection, which is an essential task in medi-
+cal image analysis. In order to detect lesions of different
+scales, most works adopted anchor-based detectors, such as
+3D variants of feature pyramid networks (FPN) [21]. Mean-
+while, the focal loss is widely used to overcome the extreme
+foreground-background class imbalance [22]. This section
+provides a brief introduction to these methods.
+(a)
+(b)
+p=0.9
+p=0.9
+   p=0.01
+p=0.01
+pred
+ﬂip
+ﬂip
+Figure 1: (a) is an example of assigning targets to anchors. The
+dashed grids represent output feature maps where anchor boxes
+are deﬁned, and each bin in the grids corresponds to a point in the
+feature map. The pink box is a ground-truth bounding box. The
+orange box is a positive anchor and the blue boxes are negative an-
+chors. (b) is an example of our augmentation method used for tar-
+get prediction. We use ﬂip augmentation for the image patch and
+predict the probability for each anchor with the model. After that,
+an inverse transformation is applied to the patch and anchors. We
+only show two example anchors for illustration purposes and use
+consistent coloring for each anchor. Note that anchors in 3D im-
+ages are also three-dimensional, of which we only show 2D slices
+for better visualization.
+2.1.1
+Anchor boxes
+Anchor boxes are predeﬁned bounding boxes densely tiling
+on images to match targeted objects. Following [29], an-
+chor boxes are set to have different scales and aspect ratios
+in order to capture objects of different shapes. Each an-
+chor corresponds to a pixel in the output feature map from
+the detector and shares the same center with its receptive
+ﬁeld. Mini-networks implemented by convolutional layers
+are used to make prediction for each anchor in a sliding-
+window manner. During training, an anchor box is regarded
+as a positive anchor that matches an object if and only if it
+is highly overlapping with a certain ground-truth bounding
+box in terms of intersection over union (IoU). Figure 1(a)
+shows an example. During inference, the network predicts
+an objectness score (a.k.a. conﬁdence score) and coordi-
+nate offsets for each anchor box as output. Feature Pyramid
+Network [21] puts anchors on multi-scale feature maps to
+enhance the detection performance of small objects.
+2.1.2
+Focal Loss
+The anchor assignment method leads to very few posi-
+tive anchors relative to negative ones, which is called the
+foreground-background imbalance by Lin et al. [22]. To
+mitigate this problem, they introduce the focal loss:
+FL(pt) = −αt(1 −pt)γ log(pt)
+(1)
+pt =
+(
+p
+if y = 1
+1 −p
+otherwise.
+(2)
+2
+where y ∈{0, 1} is the ground-truth label for an anchor,
+p is the model’s estimated probability of the anchor being a
+positive example, while αt is a weighting factor for different
+classes (namely, α0 and α1 for class 0 and 1, respectively)
+to balance the importance for positive and negative exam-
+ples, γ is the focusing parameter. The meaning of pt can be
+considered as the prediction conﬁdence so that the second
+term in Eq. (1) is used to down-weight conﬁdent examples
+to make the model focus on hard (less conﬁdent) ones.
+2.2. Semi-supervised Learning
+Semi-supervised learning (SSL) aims to make use of
+unlabeled data to improve model performances.
+In this
+section, we brieﬂy review an SSL framework called Mix-
+Match [3], on which our work is mainly built. MixMatch is
+not only one of the state-of-the-art SSL approaches, but also
+a uniﬁed framework that integrates the spirits of most suc-
+cessful attempts in this line of research (e.g., entropy min-
+imization [11], consistency regularization [30] and MixUp
+augmentation [39]). The central thesis of this work is to take
+MixMatch as a typical example to show how, if feasible, to
+tailor a general SSL approach for the medical imaging do-
+main. In other words, our contribution is mostly orthogonal
+to the progress being made in SSL.
+MixMatch consists of two major components, target pre-
+diction for unlabeled data and MixUp augmentation. The
+ﬁrst component requires to deﬁne a set of stochastic trans-
+formations of a given datapoint (e.g., an image) in such a
+way that its semantics (e.g., class label) barely change. In
+the example of image classiﬁcation, rotating and shearing
+are two widely-used augmentations. MixMatch uses the av-
+erage ensemble of predictions by the current model parame-
+terized by θ on K augmented instances ˆuk of each unlabeled
+training sample u as ”guesses” for their labels, formally,
+¯y = 1
+K
+K
+X
+k=1
+pModel(ˆuk; θ).
+(3)
+Then, these guessed labels are further transformed by a
+sharpening operator before used as training targets. The
+sharpening operator (for the i-th of L classes) is deﬁned by
+Sharpen(¯y, T)i = ¯y
+1
+T
+i
+
+L
+X
+j=1
+¯y
+1
+T
+j ,
+(4)
+where T, termed as temperature, controls the smoothness
+of the output distribution (as T →0, the output becomes
+a one-hot vector). The sharpening operation implicitly en-
+forces the model to output low-entropy predictions on un-
+labeled data. Once training targets for unlabeled data are
+available, MixMatch further utilizes the MixUp augmenta-
+tion [39] for both labeled and unlabeled data. More speciﬁ-
+cally, given a labeled (or unlabeled) data point with its label
+(or predicted target) namely (x, y), MixUp augmentation
+produces a stochastic linear interpolation with another train-
+ing example (x′, y′), either labeled or unlabeled, as follows
+λ ∼Beta(η, η),
+(5)
+˜λ = max(λ, 1 −λ),
+(6)
+ˆx = ˜λx + (1 −˜λ)x′,
+(7)
+ˆy = ˜λy + (1 −˜λ)y′.
+(8)
+After the above procedures, we can get a collection of
+augmented training examples with supervision signals from
+both labeled and unlabeled data, and then use the supervised
+objectives to train model parameters.
+3. Methodology
+In this paper, we attempt to leverage modern semi-
+supervised learning methods in medical image detection.
+To achieve such goal, two essential components in the
+MixMatch framework introduced in Sect. 2.2 are tailored
+speciﬁcally for lesion detection tasks: target prediction
+and MixUp augmentation. Before that, we ﬁrst propose a
+generic generalization of the focal loss, which allows us
+to train detection models with soft training targets that oc-
+curred in most modern SSL frameworks. The overview of
+our proposed method is shown in Figure 2.
+3.1. Soft-target Focal Loss
+Semi-supervised learning often involves soft training tar-
+gets (e.g., ˆy in Eq. (8)). This has rarely been raised as an
+issue in SSL literature because most current work focuses
+on classiﬁcation tasks, and the cross-entropy loss used in
+classiﬁcation can naturally deal with soft labels. However,
+as introduced in Sect. 2.1, the state-of-the-art object detec-
+tion approaches generally use the focal loss that adds two
+weighting terms to the original cross-entropy loss, i.e., α(y)
+and β(y, p) = (1−pt)γ in Eq. (1). Both of the two terms are
+dependent on class labels, which is emphasized by writing
+them as functions of y, and, unfortunately, have no trivial
+extension if y can take any continuous value between 0 and
+1. This is one of the major factors that hinder us from di-
+rectly utilizing the off-the-shelf SSL methods. Therefore,
+our proposed approach generalizes these two terms to the
+case of soft targets accordingly.
+The ﬁrst term is originally designed for class imbalance
+and usually proportional to the inverse frequency of class
+y. More speciﬁcally, α for the less frequent positive exam-
+ples is larger than that for negative examples to prevent the
+latter from dominating the total loss. In our case, this prob-
+lem amounts to having a skewed distribution of soft labels.
+Hence, α(y) should preferably be inversely proportional to
+the probability density function of y. However, it is not very
+computationally feasible to do density estimation along the
+way of model training. Thus, we assume that the density
+function of y decays in roughly the same rate as 1/y, and
+3
+FPN
+…
+Target Prediction
+p=0.9
+p=0.8
+A: Augmentation by K times; B: Predicting with FPN; C: Reverse transformation; D: Average ensembling; E: Sharpening
+y=0.85
+y=0.92
+A
+B
+D
+E
+C
+…
+Unlabeled Images
+Labeled Images
+y=0.92
+y=1.0
+Input
+Soft-target
+Focal Loss
+Assigned Targets
+Predicted Targets
+Image-level
+MixUp
+y=0
+y=0.18
+y=0
+y=0.83
+y=0
+y=0.83
+Object-level
+MixUp
+y=0
+y=0.18
+Figure 2: Overview of our proposed method FocalMix. For an input batch, the training targets of anchors in labeled images are assigned
+according to annotated boxes, while the unlabeled are predicted with the current model as shown in the lower part of the ﬁgure. After
+applying two levels of MixUp to the entire batch, we use the proposed soft-target focal loss to train the model. Throughout this paper, we
+only show a slice of each 3D CT scan with 3D anchors on it for ease of presentation.
+the density at 0 and 1 are treated as hyper-parameters to be
+determined by cross-validation denoted by α0 and α1, re-
+spectively. Under this assumption, we can derive the form
+of α(y) for soft labels as α(y) = α0 + y(α1 −α0).
+The second term (1 −pt)γ is used to down-weight easy
+examples (esp., background anchors) that are pervasive in
+the training process of detection models. We can interpret
+this term as the discrepancy between prediction “conﬁdence
+score” pt and its target value (i.e., 1), by which the hardness
+of training examples can be measured to some extent. From
+this perspective, we can naturally generalize this term to
+soft-target labels by rewriting it as the γ-th power of the ab-
+solute difference between model prediction p and its train-
+ing target y, i.e., β(y, p) = |y −p|γ.
+To sum up, the proposed soft-target focal loss for SSL is
+SFL(p) = [α0 + y(α1 −α0)] · |y −p|γ · CE(y, p), (9)
+where CE(y, p) = −y log p−(1−y) log(1−p) denotes the
+cross-entropy loss. We can check that focal loss is a special
+case of our proposed soft-target focal loss when y ∈{0, 1}.
+3.2. Anchor-level Target Prediction
+Target prediction for unlabeled data is a widely used
+component in both traditional and modern approaches for
+SSL. However, how we can transfer existing target predic-
+tion methods from classiﬁcation to detection is not a trivial
+question, because detection models output bounding boxes
+for targeted objects as opposed to more structured class la-
+bels. In FocalMix, we propose to approach this problem at
+the anchor level.
+Following the common practice in computer vision, we
+sample patches of the same size (160 × 160 × 160 in our
+experiments) from original images during training. We also
+ensure that the edge length of image patches (e.g., 160) is
+divisible by the maximum strides (e.g., 16) used in FPN.
+Consequently, each anchor in an image patch can always
+fall into the position of another anchor after rotating or ﬂip-
+ping. We deﬁne the augmentation for each patch as apply-
+ing these two types of transformations on it. It is worthwhile
+mentioning that there are richer combinations of rotation
+and ﬂipping in different directions for 3D medical images
+than those in the 2D case (48 different combinations versus
+eight). Then, we use the model to predict the probability
+of each anchor matching an object in the transformed im-
+age patch. After that, we can obtain a guessed target for
+each anchor in the original patch by an inverse transforma-
+tion (rotating or ﬂipping backward). The reader can ﬁnd an
+intuitive example in Figure 1.
+As shown in Figure 2, we repeat the data augmentation
+procedure described above K times and generate K guessed
+targets for each anchor in a patch. Then, we aggregate these
+guessed targets for every anchor by the average ensemble.
+Finally, we apply an anchor-wise sharpening operation as in
+Eq. (4) to obtain a low-entropy predicted target for a given
+4
+patch to be used in model training.
+3.3. MixUp Augmentation for Detection
+MixUp augmentation is an important component in the
+MixMatch framework, which encourages the model to be-
+have linearly in-between training examples for better gen-
+eralization performance. The vanilla MixUp procedure is
+designed for image classiﬁcation settings where each im-
+age is associated with one class label, while medical images
+are annotated with bounding boxes for diagnosed lesions in
+our task. Thus, the vanilla MixUp augmentation cannot be
+utilized directly. In this paper, we introduce two adapted
+MixUp approaches for lesion detection in medical images:
+image-level MixUp and object-level MixUp (see Figure 4
+for illustrative examples).
+Image-level MixUp. The difﬁculty mainly lies in how to
+mixup training targets as we mixup two images. Although
+the actual labels for detection tasks in medical imaging are
+bounding boxes, we cannot get something as meaningful as
+soft classes in classiﬁcation by taking the linear interpola-
+tion of two sets of boxes. Instead, we propose to mixup
+training signals at the anchor level. Formally, given two
+medical images of the same size along with their training
+targets (either annotated labels or predicted targets) for each
+anchor, (x, {yi}) and (x′, {y′
+i}), we generate an augmented
+sample (ˆx, {ˆyi}) as follows.
+λ ∼Beta(η, η),
+(10)
+˜λ = max(λ, 1 −λ),
+(11)
+ˆx = ˜λx + (1 −˜λ)x′,
+(12)
+ˆyi = ˜λyi + (1 −˜λ)y′
+i, ∀i.
+(13)
+The image-level MixUp has a more intuitive interpre-
+tation in lesion detection tasks, the goal of which is to
+discriminate lesion from background textures. Anchor-to-
+anchor mixup requires the model to be able to detect lesions
+that are mixed with stronger background noises than usual,
+analogous to the idea of “altitude training”.
+Object-level MixUp. In medical imaging tasks, objects
+(i.e., lesions) contain much more information than back-
+ground textures, but the number of objects is often limited
+(only one lesion per medical image in most of the time).
+Therefore, we propose to generate extra object instances
+by mixing up different lesion patterns within each training
+batch. In other words, for each object within each image in a
+training batch, we randomly sample another object from the
+current batch, re-scale it to the same size, and then mixup
+the two objects in the same manner as in Eq. (10-12). Note
+that objects are simply the annotated boxes for labeled im-
+ages, while, for unlabeled ones, predicted boxes with high
+prediction conﬁdence are treated as detected objects. Since
+all of these objects have quite consistent targets (with high
+probabilities being a positive example), we no longer mixup
+training targets for simplicity.
+4. Experiments
+We evaluate our proposed semi-supervised framework
+FocalMix on the pulmonary nodule detection task. Experi-
+ments are conducted on the LUNA16 dataset, which is the
+most widely used one in pulmonary nodule detection litera-
+ture. We also use the NLST dataset as an additional source
+of unlabeled data for further evaluation.
+LUNA16 [31] is a high quality subset of the LIDC-IDRI
+dataset [2]. It consists of 888 thoracic CT scans in total,
+with 1186 annotated nodules larger than 3mm. All the an-
+notations are agreed by at least three (out of four) radiolo-
+gists. Other confusing nodules and non-nodules are marked
+as “irrelevant ﬁndings”, which are counted as neither false
+positive nor true positive during evaluation.
+NLST [35] (National Lung Screening Trial) was origi-
+nally built to compare the effectiveness of thoracic CT and
+chest X-ray for detecting lung cancer.
+There are about
+75,000 CT scans in the NLST dataset with the character-
+istics of participants, scanning test results, diagnostic pro-
+cedures, etc. Since such annotations as nodule locations
+are not available in this dataset, we only use it as an extra
+unlabeled dataset after a selection process as described in
+Sect. 4.4.
+Evaluation. Following [31], we use Free-Response Re-
+ceiver Operating Characteristic (FROC) and Competition
+Performance Metric (CPM) to measure detection perfor-
+mance. The overall score of CPM is deﬁned as the average
+recalls when false positive rates are 1/8, 1/4, 1/2, 1, 2, 4, and
+8 FPs per scan. Although some relevant literature uses 10-
+fold cross-validation on the LUNA16 dataset to calculate
+evaluation metrics, it is not very convenient in the semi-
+supervised setting where the numbers of labeled and unla-
+beled data might constantly change over different experi-
+ments. Instead, we resplit this dataset into 533 CT scans for
+training (60%) and 355 for testing (40%). All the labeled
+data and unlabeled data used in semi-supervised learning
+are sampled from the training set in our experiments.
+4.1. Experimental setup
+Detection Model. Following the recommendations in
+[26], we use exactly the same model, a 3D variant of
+FPN [21], as both the fully-supervised baseline and the base
+model for FocalMix. Since the codes used in prior work
+(e.g., [23]) are currently not available, we use our in-house
+implementation throughout the experiments. In our imple-
+mentation, the backbone network is a modiﬁed 3D resid-
+ual network [13] with 20 basic residual blocks. The 3D
+FPN outputs four levels of features with stride {2, 4, 8, 16}
+pixels with respect to the input image, and the base anchor
+5
+Labeled
+Unlabeled
+Recall(%) @ FPs
+CPM(%)
+Improv.
+0.125
+0.25
+0.5
+1
+2
+4
+8
+25
+-
+46.7
+54.0
+60.6
+68.6
+74.4
+79.1
+82.4
+66.6
+11.5 (17.3%)
+25
+400
+57.6
+64.5
+74.6
+80.5
+87.0
+90.1
+92.1
+78.1
+50
+-
+57.2
+65.7
+71.4
+77.9
+82.6
+85.6
+87.2
+75.4
+6.6 (8.8%)
+50
+400
+64.1
+71.0
+78.7
+85.2
+89.3
+92.3
+93.5
+82.0
+100
+-
+64.9
+73.8
+79.7
+85.2
+89.0
+92.3
+94.5
+82.8
+4.4 (5.3%)
+100
+400
+73.4
+80.9
+84.8
+88.6
+92.3
+94.7
+96.1
+87.2
+Table 1: Main results on the LUNA16 dataset. We evaluate FocalMix with {25, 50, 100} labeled CT scans, respectively. Improv. denotes
+the improvements in CPM over the fully-supervised baseline (relative improvements shown in parentheses).
+sizes are set to be {4, 8, 16, 32}, respectively. During train-
+ing, we ﬁrst resize the input volume to spacing= 1mm, and
+then randomly crop a 3D patch of size 160 × 160 × 160
+as the input of 3D FPN. For fully-supervised training, we
+use the focal loss for objectness classiﬁcation and smooth
+L1 loss for 3D bounding box regression as in [22]. We set
+α0 = 0.05, α1 = 0.95 and γ = 2.0 for the focal loss. An-
+chors that have an IoU with ground-truth box higher than
+0.3 and smaller than 0.1 are set to be positive and negative,
+respectively, while others are neglected during training. The
+model is trained end-to-end using the ADAM optimizer [15]
+with batch size 8. We start the learning rate from 0.001 and
+use cosine annealing strategy [24]. If not speciﬁed other-
+wise, we train the model for 800 epochs.
+Semi-supervised Learning. In the SSL setting, we use
+the same amount (more speciﬁcally, eight) of labeled data
+and unlabeled data in a batch of input.
+We apply soft-
+target focal loss on unlabeled data.
+We set α0 = 0.05
+and α1 = 0.95 in order to be consistent with those in the
+supervised loss. The other settings remain the same as in
+the supervised version. For MixUp augmentation, image-
+level MixUp is ﬁrst applied and then followed by object-
+level MixUp. We use η = 0.2 for MixUp and T = 0.7 for
+sharpening throughout the experiments.
+Fully-Supervised Baseline Performance. As suggested
+in [26], newly proposed SSL frameworks should be com-
+pared with and also built upon well-tuned strong fully-
+supervised baselines for fair evaluation. Therefore, before
+presenting the main results in our experiments, we ﬁrst
+compare the performance of our base model (i.e., an in-
+house implementation of 3D FPN) with the state-of-the-art
+results reported by other researchers on this dataset by using
+exactly the same 10-fold cross-validation protocol. The re-
+sults are shown in Table 2. Since we only focus on detection
+model itself, post-processing methods, such as lung seg-
+mentation to reduce false positives, are not used in our im-
+plementation, which can further improve the CPM scores.
+We can conclude from the table that our base model can
+achieve a comparable performance to various strong state-
+of-the-art single-stage detection methods. We also report
+its performance on our own data spilt, which is used as the
+Figure 3: Performance with different amounts of unlabeled
+data on LUNA16. We use 100 labeled images.
+fully-supervised baseline in the experiment with an addi-
+tional external source of unlabeled data (Sect. 4.4).
+Method
+Data Split
+CPM(%)
+DeepLung [41]
+10-fold
+84.2
+DeepSeed [19]
+10-fold
+86.2
+S4ND [14]
+10-fold
+89.7
+3D FPN [23]
+10-fold
+91.9
+Our base model
+10-fold
+91.2
+Our base model
+533/355
+89.2
+Table 2: Performance of the base model used in our experi-
+ments. Our re-implemented 3D FPN is comparable with state-of-
+the-art single-stage nodule detection models.
+4.2. Main Results
+Table 1 shows the performances of FocalMix on the
+LUNA16 dataset with different amounts of labeled data.
+Recalls at seven false positive rates along with the overall
+CPM score are reported. Note that, for a fair comparison,
+we use the same subset of labeled data for a ﬁxed amount
+of labeled data and the same set of unlabeled data for all
+cases, both sampled from the training set. We can con-
+clude that FocalMix can consistently outperform the fully-
+supervised baseline with 25, 50 and 100 annotated CT im-
+ages as labeled data, respectively, by leveraging 400 unla-
+beled raw images. When we have 25 labeled images, the
+fully-supervised model can only obtain a CPM score of
+66.6%, whereas FocalMix boosts it to 78.1% with a 17.3%
+relative improvement.
+On the other hand, with 100 la-
+6
+(a) Loss function.
+Loss Function
+CPM(%)
+Supervised
+82.8
+SFL w/o soft α, β
+Fail
+SFL w/o soft α
+84.4
+SFL w/o soft β
+83.7
+SFL
+85.2
+(b) Augmentation times (K).
+K
+CPM(%)
+1
+85.9
+2
+86.3
+4
+87.2
+8
+87.1
+(c) MixUp method.
+MixUp Level
+CPM(%)
+Image
+Object
+-
+-
+85.2
+✓
+-
+86.7
+✓
+✓
+87.2
+Table 3: Ablation study. Models are trained with 100 labeled scans and 400 unlabeled ones. Fail denotes a divergent result.
+beled data, even though the fully-supervised model already
+achieves a CPM of 82.8%, FocalMix can still substantially
+enhance its performance by a 4.4% absolute improvement.
+We can also observe from Table 1 that, by utilizing 400
+unlabeled CT scans, FocalMix can achieve a comparable
+result with the fully-supervised baseline that uses twice the
+amount of labeled data. In other words, merely collecting
+400 raw CT scans from databases has roughly the same ef-
+fect of having 50 carefully annotated ones. Furthermore,
+it is interesting to see that our proposed SSL approach Fo-
+calMix can get a reasonably close CPM score (87.2%) with
+100 labeled as well as 400 unlabeled scans to the fully-
+supervised learning result (89.2%) with 533 labeled scans.
+Figure 3 shows the performance with varying numbers
+of unlabeled CT scans.
+We can observe that, the CPM
+score consistently grows as the amount of unlabeled data in-
+creases, which proves the effectiveness of using unlabeled
+data in FocalMix.
+4.3. Ablation Study
+In this section, we investigate the effectiveness of dif-
+ferent components (viz., loss function, target prediction
+method, MixUp augmentation strategy) in our proposed
+semi-supervised approach through ablation studies on the
+LUNA16 dataset. Since too little labeled training data can
+lead to unstable results, we use 100 labeled images for all
+the following experiments.
+Loss Function. Our proposed soft-target focal loss gen-
+eralizes the focal loss by adapting each of its term to accom-
+modate soft targets. Since the cross-entropy loss can natu-
+rally deal with soft labels, only the ﬁrst two terms, namely
+α(y) and β(y, p), are modiﬁed. To study the contributions
+of our extension to each of these two terms respectively, we
+compare the proposed loss with its degenerated version by
+using “pseudo-hard targets”. That is, we regard soft targets
+with probability greater than 0.5 as positive examples, and
+the others as negative examples. In this way, we can use the
+α and β terms in the original focal loss in our SSL frame-
+work. As shown in Table 3(a), we can see that it hurts the
+detection performance by using either α or β in their de-
+generated version with pseudo-hard targets (even diverged
+when excluding both), which demonstrates the contribution
+of our designed soft-target generalization to the focal loss.
+Targets Prediction. During the target prediction stage,
+we ﬁrst make predictions on K different augmentations and
+ensemble the predictions by taking averaging at the anchor-
+level. To demonstrate the contribution of this ensemble pro-
+cess, we report the CPM scores of FocalMix over different
+K in Table 3(b). We see that it can only get a CPM score of
+85.9% when using a single augmentation for target predic-
+tion, while the CPM score improves by 1.3% as the number
+of augmentations K increases to 4, which validates the ef-
+fectiveness of our ensemble strategy. However, we can also
+notice that the performance starts to saturate when K = 4.
+Thus, we choose K = 4 throughout the experiments.
+MixUp Augmentation. In FocalMix, two MixUp strate-
+gies are designed for medical images: image-level MixUp
+and object-level MixUp. As shown in table 3, the image-
+level MixUp can boost the CPM score from 0.852 to 0.867,
+and the object-level MixUp further improves the result to
+0.872. We also illustrate some examples of MixUp in Fig-
+ure 4. Intuitively, the goal of image-level MixUp is to en-
+courage models to perform linearly between foreground and
+background, while object-level MixUp encourages models
+to detect lesions with richer patterns.
+4.4. SSL with More Labeled and Unlabeled Data
+In previous sections, we analyze the performance of Fo-
+calMix with relatively small amounts of labeled data. Al-
+though this is arguably the most common scenario in real-
+world applications, it is also an interesting research question
+whether SSL can still boost the performance of supervised
+learning when a large training set is available. In addition,
+there is usually a mismatch between data distributions of
+labeled data and unlabeled data. Therefore, we also evalu-
+ate our proposed SSL framework by using all the 533 CT
+scans from LUNA16 as labeled data and using an external
+database NLST (with potentially different data distribution
+to that of LUNA16) to sample unlabeled data.
+Data Selection. The NLST dataset contains ∼75,000
+CT scans, a large number of which do not contain nodule
+ﬁndings. Thus, we attempt to ﬁlter out these irrelevant im-
+ages without nodules. Speciﬁcally, we ﬁrst train a 3D FPN
+using LUNA16, make predictions on a random subset of
+NLST, and then pick out the CT scans that have at least
+one predicted nodule with high conﬁdence (the threshold
+for positive nodules is set to 0.8). After selection, we leave
+∼3,000 scans as unlabeled training data.
+7
+Patch A
+Patch B
+λ=0.8
+λ=0.6
+Nodule A
+Nodule B
+λ=0.8
+λ=0.6
+Image-level MixUp
+Object-level MixUp
+Figure 4: Illustrative examples for two MixUp methods. The left ﬁgure shows the image-level MixUp, where red arrows point to nodules
+in the original image. The right ﬁgure demonstrates the object-level MixUp, where we zoom in on the nodules and locate them in the center
+of each image patch for better visualization.
+Model
+CPM(%)
+Fully-supervised
+89.2
+Fully-supervised w/ MixUp
+90.0
+FocalMix
+90.7
+Table 4: FocalMix with larger scale labeled and unlabeled data.
+We use all the labeled data in LUNA16 and unlabeled data selected
+from NLST.
+Results. The results are shown in Table 4. We train all
+the models for 400 epochs. When using all the 533 anno-
+tated CT scans, our proposed MixUp strategies (i.e., anchor-
+level and object-level MixUp) alone can improve the CPM
+score of the fully-supervised learning approach from 89.2%
+to 90.0%. FocalMix further improves this result to 90.7%
+by leveraging around 3,000 images without annotation.
+5. Related Work
+Detection in 3D Medical Images. Due to limited space,
+we primarily review lung nodule detection methods, which
+is the most mature ﬁeld in 3D medical images due to pub-
+licly available datasets. Earlier lung nodule detectors use
+machine learning techniques with hand-craft features such
+as spherical ﬁlter [36, 38, 4, 1]. Recent prosperity of deep
+learning brings the success of modern object detection to
+the area of medical image detection. Ding et al. [7] propose
+to use 2D Faster R-CNN and 3D CNN for more accurate
+nodule detection. Another line of research [20, 41, 14, 19]
+uses 3D region proposal networks [29] or feature pyramid
+network [21] to detect nodule directly. Pezenshk et al. [27]
+and Liu et al. [23] further propose to use another network
+followed by 3D FPN to reduce false positives.
+Semi-Supervised Learning. Most of recent studies fo-
+cus on how to apply a loss term onto the unlabeled data for
+better generalization. Pseudo-label [18] uses the predicted
+classes with the highest conﬁdence as the training labels for
+unlabeled data. Π-Model [17] and Γ-Model [28] use con-
+sistency regularization terms to penalize inconsistent pre-
+dictions. Tarvainen and Valpola [34] propose to regularize
+models with a “mean teacher” using moving average of his-
+torical parameters. MixMatch [3] and UDA [37] integrate
+consistency regularization and modern data augmentation
+techniques into a uniﬁed framework, achieving a large im-
+provement. There are also some works focusing on improv-
+ing detection model by using extra images with image-level
+annotations [33, 10].
+SSL in Medical Image Processing. Due to the difﬁculty
+of data annotation, SSL is widely used in medical imaging
+processing. Su et al. [32] propose a semi-supervised nu-
+clei classiﬁcation method by using local and global consis-
+tency regularization. Ganaye et al. [9] and Chen et al. [6]
+also propose SSL approaches to get better segmentation re-
+sults in brain images. Zhou et al. [40] improve the perfor-
+mance of disease grading and lesion segmentation by semi-
+supervised learning. ASDNet [25] uses an attention-based
+semi-supervised learning method to boost the performance
+of medical image segmentation. These previous works are
+also limited to classiﬁcation and segmentation, while this
+paper focuses on a more important and more complicated
+task in medical imaging, lesion detection.
+6. Conclusion
+This paper discusses a novel semi-supervised learning
+framework, FocalMix, which utilizes raw medical images
+without annotation to boost the performance of supervised
+lesion detection models. Extensive experiments show that
+FocalMix can substantially improve the performance of
+fully-supervised learning baselines. Our work demonstrates
+the feasibility of leveraging modern SSL approaches in 3D
+medical detection tasks.
+7. Acknowledgement
+This work is supported by National Key R&D Program
+of China (2018YFB1402600), BJNSF (L172037) and Bei-
+jing Acedemy of Artiﬁcial Intelligence.
+8
+References
+[1] Sheeraz Akram, Muhammad Younus Javed, M Usman
+Akram, Usman Qamar, and Ali Hassan. Pulmonary nodules
+detection and classiﬁcation using hybrid features from com-
+puterized tomographic images. Journal of Medical Imaging
+and Health Informatics, 6(1):252–259, 2016.
+[2] Samuel G Armato III, Geoffrey McLennan, Luc Bidaut,
+Michael F McNitt-Gray, Charles R Meyer, Anthony P
+Reeves, Binsheng Zhao, Denise R Aberle, Claudia I Hen-
+schke, Eric A Hoffman, et al. The lung image database con-
+sortium (lidc) and image database resource initiative (idri):
+a completed reference database of lung nodules on ct scans.
+Medical physics, 38(2):915–931, 2011.
+[3] David Berthelot, Nicholas Carlini, Ian Goodfellow, Nicolas
+Papernot, Avital Oliver, and Colin A Raffel. MixMatch: A
+holistic approach to semi-supervised learning. In H. Wallach,
+H. Larochelle, A. Beygelzimer, F. d'Alch´e-Buc, E. Fox, and
+R. Garnett, editors, Advances in Neural Information Process-
+ing Systems 32, pages 5049–5059. Curran Associates, Inc.,
+2019.
+[4] Bin Chen, Takayuki Kitasaka, Hirotoshi Honma, Hirotsugu
+Takabatake, Masaki Mori, Hiroshi Natori, and Kensaku
+Mori. Automatic segmentation of pulmonary blood vessels
+and nodules based on local intensity structure analysis and
+surface propagation in 3d chest ct images. International jour-
+nal of computer assisted radiology and surgery, 7(3):465–
+482, 2012.
+[5] Po-Hsuan Chen, Krishna Gadepalli, Robert MacDonald, Yun
+Liu, Kunal Nagpal, Timo Kohlberger, Greg S Corrado, Ja-
+son D Hipp, and Martin C Stumpe.
+An augmented real-
+ity microscope for real-time automated detection of cancer.
+In Proc. Annu. Meeting American Association Cancer Re-
+search, 2018.
+[6] Shuai Chen, Gerda Bortsova, Antonio Garc´ıa-Uceda Ju´arez,
+Gijs van Tulder, and Marleen de Bruijne.
+Multi-task
+attention-based semi-supervised learning for medical image
+segmentation. In International Conference on Medical Im-
+age Computing and Computer-Assisted Intervention, pages
+457–465. Springer, 2019.
+[7] Jia Ding, Aoxue Li, Zhiqiang Hu, and Liwei Wang. Accu-
+rate pulmonary nodule detection in computed tomography
+images using deep convolutional neural networks.
+In In-
+ternational Conference on Medical Image Computing and
+Computer-Assisted Intervention, pages 559–567. Springer,
+2017.
+[8] Andre Esteva, Brett Kuprel, Roberto A Novoa, Justin Ko,
+Susan M Swetter, Helen M Blau, and Sebastian Thrun.
+Dermatologist-level classiﬁcation of skin cancer with deep
+neural networks. Nature, 542(7639):115, 2017.
+[9] Pierre-Antoine Ganaye, Micha¨el Sdika, and Hugues Benoit-
+Cattin.
+Semi-supervised learning for segmentation under
+semantic constraint. In International Conference on Medi-
+cal Image Computing and Computer-Assisted Intervention,
+pages 595–602. Springer, 2018.
+[10] Jiyang Gao, Jiang Wang, Shengyang Dai, Li-Jia Li, and
+Ram Nevatia. NOTE-RCNN: Noise tolerant ensemble rcnn
+for semi-supervised object detection. In Proceedings of the
+IEEE International Conference on Computer Vision, pages
+9508–9517, 2019.
+[11] Yves Grandvalet and Yoshua Bengio.
+Semi-supervised
+learning by entropy minimization.
+In Advances in neural
+information processing systems, pages 529–536, 2005.
+[12] Varun Gulshan, Lily Peng, Marc Coram, Martin C Stumpe,
+Derek Wu, Arunachalam Narayanaswamy, Subhashini Venu-
+gopalan, Kasumi Widner, Tom Madams, Jorge Cuadros,
+et al. Development and validation of a deep learning algo-
+rithm for detection of diabetic retinopathy in retinal fundus
+photographs. Jama, 316(22):2402–2410, 2016.
+[13] Kaiming He, Xiangyu Zhang, Shaoqing Ren, and Jian Sun.
+Deep residual learning for image recognition. In Proceed-
+ings of the IEEE conference on computer vision and pattern
+recognition, pages 770–778, 2016.
+[14] Naji Khosravan and Ulas Bagci. S4ND: Single-shot single-
+scale lung nodule detection. In International Conference on
+Medical Image Computing and Computer-Assisted Interven-
+tion, pages 794–802. Springer, 2018.
+[15] Diederik P. Kingma and Jimmy Ba. Adam: A method for
+stochastic optimization. In Yoshua Bengio and Yann LeCun,
+editors, 3rd International Conference on Learning Represen-
+tations, ICLR 2015, San Diego, CA, USA, May 7-9, 2015,
+Conference Track Proceedings, 2015.
+[16] Alex Krizhevsky, Geoffrey Hinton, et al. Learning multiple
+layers of features from tiny images. Technical report, Uni-
+versity of Toronto, 2009.
+[17] Samuli Laine and Timo Aila. Temporal ensembling for semi-
+supervised learning.
+In 5th International Conference on
+Learning Representations, ICLR 2017, Toulon, France, April
+24-26, 2017, Conference Track Proceedings, 2017.
+[18] Dong-Hyun Lee.
+Pseudo-label: The simple and efﬁcient
+semi-supervised learning method for deep neural networks.
+In Workshop on Challenges in Representation Learning,
+ICML, volume 3, page 2, 2013.
+[19] Yuemeng Li, Hangfan Liu, and Yong Fan. DeepSEED: 3D
+squeeze-and-excitation encoder-decoder convnets for pul-
+monary nodule detection. CoRR, abs/1904.03501, 2019.
+[20] Fangzhou Liao, Ming Liang, Zhe Li, Xiaolin Hu, and Sen
+Song. Evaluate the malignancy of pulmonary nodules using
+the 3-d deep leaky noisy-or network. IEEE transactions on
+neural networks and learning systems, 2019.
+[21] Tsung-Yi Lin, Piotr Doll´ar, Ross Girshick, Kaiming He,
+Bharath Hariharan, and Serge Belongie.
+Feature pyra-
+mid networks for object detection.
+In Proceedings of the
+IEEE conference on computer vision and pattern recogni-
+tion, pages 2117–2125, 2017.
+[22] Tsung-Yi Lin, Priya Goyal, Ross Girshick, Kaiming He, and
+Piotr Doll´ar. Focal loss for dense object detection. In Pro-
+ceedings of the IEEE international conference on computer
+vision, pages 2980–2988, 2017.
+[23] Jingya Liu, Liangliang Cao, Oguz Akin, and Yingli Tian.
+3DFPN-HS2: 3D feature pyramid network based high sen-
+sitivity and speciﬁcity pulmonary nodule detection. In In-
+ternational Conference on Medical Image Computing and
+Computer-Assisted Intervention, pages 513–521. Springer,
+2019.
+9
+[24] Ilya Loshchilov and Frank Hutter. SGDR: stochastic gradient
+descent with warm restarts. In 5th International Conference
+on Learning Representations, ICLR 2017, Toulon, France,
+April 24-26, 2017, Conference Track Proceedings, 2017.
+[25] Dong Nie, Yaozong Gao, Li Wang, and Dinggang Shen. AS-
+DNet: Attention based semi-supervised deep networks for
+medical image segmentation. In International Conference
+on Medical Image Computing and Computer-Assisted Inter-
+vention, pages 370–378. Springer, 2018.
+[26] Avital Oliver, Augustus Odena, Colin A Raffel, Ekin Dogus
+Cubuk, and Ian Goodfellow.
+Realistic evaluation of deep
+semi-supervised learning algorithms. In Advances in Neural
+Information Processing Systems, pages 3235–3246, 2018.
+[27] Aria Pezeshk, Sardar Hamidian, Nicholas Petrick, and Berk-
+man Sahiner. 3D convolutional neural networks for auto-
+matic detection of pulmonary nodules in chest ct. IEEE jour-
+nal of biomedical and health informatics, 2018.
+[28] Antti Rasmus, Mathias Berglund, Mikko Honkala, Harri
+Valpola, and Tapani Raiko. Semi-supervised learning with
+ladder networks. In Advances in neural information process-
+ing systems, pages 3546–3554, 2015.
+[29] Shaoqing Ren, Kaiming He, Ross Girshick, and Jian Sun.
+Faster R-CNN: Towards real-time object detection with re-
+gion proposal networks. In Advances in neural information
+processing systems, pages 91–99, 2015.
+[30] Mehdi Sajjadi, Mehran Javanmardi, and Tolga Tasdizen.
+Regularization with stochastic transformations and pertur-
+bations for deep semi-supervised learning. In Advances in
+Neural Information Processing Systems, pages 1163–1171,
+2016.
+[31] Arnaud Arindra Adiyoso Setio, Alberto Traverso, Thomas
+De Bel, Moira SN Berens, Cas van den Bogaard, Piergiorgio
+Cerello, Hao Chen, Qi Dou, Maria Evelina Fantacci, Bram
+Geurts, et al. Validation, comparison, and combination of
+algorithms for automatic detection of pulmonary nodules in
+computed tomography images: the luna16 challenge. Medi-
+cal image analysis, 42:1–13, 2017.
+[32] Hai Su, Xiaoshuang Shi, Jinzheng Cai, and Lin Yang. Local
+and global consistency regularized mean teacher for semi-
+supervised nuclei classiﬁcation. In International Conference
+on Medical Image Computing and Computer-Assisted Inter-
+vention, pages 559–567. Springer, 2019.
+[33] Yuxing Tang, Josiah Wang, Boyang Gao, Emmanuel Del-
+landr´ea, Robert Gaizauskas, and Liming Chen. Large scale
+semi-supervised object detection using visual and semantic
+knowledge transfer. In Proceedings of the IEEE Conference
+on Computer Vision and Pattern Recognition, pages 2119–
+2128, 2016.
+[34] Antti Tarvainen and Harri Valpola. Mean teachers are better
+role models: Weight-averaged consistency targets improve
+semi-supervised deep learning results. In Advances in neural
+information processing systems, pages 1195–1204, 2017.
+[35] National Lung Screening Trial Research Team.
+Reduced
+lung-cancer mortality with low-dose computed tomographic
+screening. New England Journal of Medicine, 365(5):395–
+409, 2011.
+[36] Sil van de Leemput, Frank Dorssers, and Babak Ehteshami
+Bejnordi.
+A novel spherical shell ﬁlter for reducing false
+positives in automatic detection of pulmonary nodules in tho-
+racic ct scans. In Medical Imaging 2015: Computer-Aided
+Diagnosis, volume 9414, page 94142P. International Society
+for Optics and Photonics, 2015.
+[37] Qizhe Xie, Zihang Dai, Eduard H. Hovy, Minh-Thang Lu-
+ong, and Quoc V. Le.
+Unsupervised data augmentation.
+CoRR, abs/1904.12848, 2019.
+[38] Takanobu Yanagihara and Hotaka Takizawa.
+Pulmonary
+nodule detection from x-ray ct images based on region
+shape analysis and appearance-based clustering. Algorithms,
+8(2):209–223, 2015.
+[39] Hongyi Zhang, Moustapha Ciss´e, Yann N. Dauphin, and
+David Lopez-Paz. Mixup: Beyond empirical risk minimiza-
+tion. In 6th International Conference on Learning Represen-
+tations, ICLR 2018, Vancouver, BC, Canada, April 30 - May
+3, 2018, Conference Track Proceedings. OpenReview.net,
+2018.
+[40] Yi Zhou, Xiaodong He, Lei Huang, Li Liu, Fan Zhu, Shan-
+shan Cui, and Ling Shao. Collaborative learning of semi-
+supervised segmentation and classiﬁcation for medical im-
+ages. In Proceedings of the IEEE Conference on Computer
+Vision and Pattern Recognition, pages 2079–2088, 2019.
+[41] Wentao Zhu, Chaochun Liu, Wei Fan, and Xiaohui Xie.
+Deeplung: Deep 3D dual path nets for automated pulmonary
+nodule detection and classiﬁcation.
+In 2018 IEEE Winter
+Conference on Applications of Computer Vision (WACV),
+pages 673–681. IEEE, 2018.
+10

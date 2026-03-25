@@ -1,0 +1,12 @@
+{
+  "version": "1.0.0",
+  "last_updated": "2026-03-24T00:00:00Z",
+  "last_updated_by": "initialization",
+  "global_tier_weights": {
+    "tier-1-governance": 1.0,
+    "tier-2-civic": 0.9,
+    "tier-3-systems": 0.8,
+    "tier-4-wyoming": 1.2
+  },
+  "documents": {}
+}

@@ -1,0 +1,1868 @@
+# A Survey on Decentralized Autonomous Organizations
+# Authors: Various
+# Source: https://arxiv.org/pdf/2201.12524
+# Year: 2022
+# Retrieved: 2026-03-24
+# License: arXiv non-exclusive license
+
+Accessible maps in a group of classical or quantum channels
+Koorosh Sadri,1 Fereshte Shahbeigi,1, 2 Zbigniew Pucha la,3, 4 and Karol ˙Zyczkowski4, 2
+1Department of Physics, Sharif University of Technology, Tehran, Iran
+2Center for Theoretical Physics, Polish Academy of Sciences, 02-668 Warsaw, Poland
+3Institute of Theoretical and Applied Informatics,
+Polish Academy of Sciences, 44-100 Gliwice, Poland
+4Faculty of Physics, Astronomy and Applied Computer Science, Jagiellonian University, 30-348 Krak´ow, Poland
+(Dated: January 28, 2022)
+We study the problem of accessibility in a set of classical and quantum channels admitting a group
+structure. Group properties of the set of channels, and the structure of the closure of the analyzed
+group G plays a pivotal role in this regard. The set of all convex combinations of the group elements
+contains a subset of channels that are accessible by a dynamical semigroup. We demonstrate that
+accessible channels are determined by probability vectors of weights of a convex combination of the
+group elements, which depend neither on the dimension of the space on which the channels act,
+nor on the speciﬁc representation of the group. Investigating geometric properties of the set A of
+accessible maps we show that this set is non-convex, but it enjoys the star-shape property with
+respect to the uniform mixture of all elements of the group. We demonstrate that the set A covers
+a positive volume in the polytope of all convex combinations of the elements of the group.
+Dedicated to the memory of Prof. Andrzej Kossakowski (1938 – 2021)
+I.
+INTRODUCTION
+The Schr¨odinger equation describes the time evolution of an isolated quantum system. However, for a system open
+to an environment, one needs a broader framework.
+Gorini, Kossakowski and Sudarshan [1], and independently
+Lindblad [2], derived such an equation of motion governing the evolution of open quantum systems – see [3] for
+historical remarks. The most general form of such a GKLS generator, acting on N dimensional systems in Hilbert
+space HN and implying Markovian dynamics, is given by
+L(⋅) = −i[H,⋅] + Λ(⋅) −1
+2{Λ∗(1l),⋅},
+(1)
+where H is the eﬀective Hamiltonian, Λ is a completely positive map, and ∗denotes the dual in the Heisenberg
+picture.
+The ﬁrst term on the right-hand side is responsible for the unitary part of the evolution, whereas the
+remaining terms describe the dissipation. Any operation L may be written in the GKLS form (1) if and only if it
+is (a) Hermiticity preserving, L(X†) = L(X)†, (b) trace suppressing, L∗(1l) = 0, and (c) conditionally completely
+positive, i.e. L ⊗1l(∣ψ+⟩⟨ψ+∣) is positive semideﬁnite in the subspace orthogonal to the maximally entangled state,
+∣ψ+⟩= ∑∣ii⟩/
+√
+N [4]. All terms in the above equation can generally be time-dependent. While a time-dependent
+Lindblad operation, Lt, governs a broader class of evolutions, the simple structure of a semigroup is predicated by a
+time-independent case, Lt = L.
+On the other hand, one may adopt yet another approach, namely quantum channels, applicable in a more general
+situation. Indeed, this method works whenever the physical system and its interacting the environment are initially
+disjoint [5], and even correlated in some cases [6–10].
+By a quantum channel, we mean a completely positive
+and trace-preserving map sending the convex set of N-dimensional quantum states into itself. Assuming that the
+time evolution of the system and environment is governed by the time-dependent unitary operator Ut, one has
+Et(ρ) = TrE [Ut(ρ ⊗σ)U †
+t ]. The Stinespring dilation [11] then guarantees that Et is a quantum channel. Accordingly,
+quantum channels may cover a broader set of evolutions rather than Markovian ones. Note that since Ut satisﬁes the
+Schr¨odinger equation, Et is a one parameter quantum channel continuous on t.
+The question of Markovianity is then brought up. It was introduced into quantum theory in 2008 [4]; however, the
+corresponding classical problem has a long history [12–15]. The question, if a given classical map described by a
+stochastic matrix is embeddable, so a continuous Markov process can generate it remains open, and it was recently
+generalized for the quantum case [16].
+Markovianity asks for a given quantum channel E whether there exists a Lindblad generator of the form (1) whose
+resulting quantum map is equal to E at some time t. For a general time-dependent Lindblad generator, the answer
+arXiv:2201.12524v1  [quant-ph]  29 Jan 2022
+2
+to this question is positive if and only if E is an inﬁnitesimal divisible channel [17, 18]. By deﬁnition, an inﬁnitesimal
+divisible channel is one that can be written as a concatenation of quantum maps arbitrarily close to identity [17].
+Here, we are more interested in the case with a time-independent Lindblad generator. Thus the central question for
+an assumed quantum channel E is to ﬁnd whether there exists a dynamical semigroup starting from identity and
+equal to E at some time t = T, i.e. if E = exp{TL} where L is a time-independent Lindblad generator in the form (1).
+Equivalently, one may ask if there exists a logarithm for a quantum channel E satisfying properties (a)-(c) mentioned
+above [4]. However, the non-uniqueness of logarithm for an assumed matrix leaves this a highly diﬃcult question.
+Indeed, it has been proved to be an NP-hard problem from the computational perspective as well [19].
+As a consequence, while for qubit channels more facts are revealed [20–23], less is known about Markovianity of
+quantum channels in higher dimensions [4, 24–26]. For instance, in the case of Pauli channels, E(ρ) = ∑3
+i=0 piσiρσ†
+i
+where σ0 = 1l2 and σi for i ∈{1,2,3} is one of Pauli matrices, the subset of Markovian channels can be divided into
+two classes [20]. The ﬁrst class contains three measure-zero subsets of the channels with two negative degenerated
+eigenvalues λ−satisfying λ2
+−≤λ+ where λ+ is the other nontrivial positive eigenvalue of the channel. While the second
+class is a subset of channels with positive eigenvalues such that eigenvalues satisfy λiλj ≤λk for all combinations of
+diﬀerent i,j,k. The latter set occupies 3/32 of the whole set of Pauli channels [25]. Interestingly, in the case of Pauli
+channels by taking a convex combination of three Lindblad generators of the form Li(ρ) = σiρσ†
+i −ρ for i = 1,2,3 as
+the generator of the semigroup, one can exhaust the entire volume of Markovian maps [21]. Motivated by this fact,
+a slightly diﬀerent and simpliﬁed version of the Markovianity problem called accessibility has been introduced [25].
+Given a set of quantum channels S = {Ei} with a not necessarily ﬁnite number of elements, in the accessibility
+problem one asks which quantum channels can be generated by a Lindblad generator of the form L(ρ) = ∑qiEi(ρ) −ρ
+for some probabilities qi.
+The accessibility problem was studied for mixed unitary channels given by a convex combination of Weyl unitary
+operators [27] – a unitary generalization of Pauli matrices to higher dimensions – which form the set S of extremal
+channels [25]. Thus accessible channels form a subset A of the polytope of all convex combinations of the elements of
+the generating set S. The set A can be obtained by proper Lindblad generators related to the elements of the set S
+of Weyl channels itself. Although the set A of accessible channels is a proper subset of Markovian ones by deﬁnition,
+like the Pauli channels, the accessible Weyl channels recover the full measure of Markovian maps. This volume is
+reduced by an increase in the dimension of the system [25]. In the general case, the set A of accessible maps occupies
+a positive volume of the set of channels.
+Another relevant fact about Markovian and accessible Pauli channels concerns the rank of these channels. It is known
+that Pauli channels of Choi rank 3 are neither accessible nor Markovian [20, 21]. In higher dimensions, to our best
+knowledge, the rank problem has been solved only for a mixture of qutrit Weyl channels accessible by a Lindblad
+semigroup conﬁrming the existence of accessible channels only of rank 1,3,9 [25]. The accessibility rank has been an
+open problem for Weyl channels in other dimensions as well as other quantum channels.
+The aim of this work is to study the problem of accessibility for a large class of quantum channels admitting a
+semigroup structure. Such a set contains Weyl channels as a special subset. We show that the group properties play
+an essential role in the accessibility problem. Applying such an approach, we can solve the accessibility rank for Weyl
+channels of any dimension and show which channels with admissible accessible ranks are Markovian. Furthermore,
+we obtain analytic results for the relative volume of the set A of accessible channels in some cases.
+The structure of the paper is as follows. In Section II the necessary notions of Lindblad dynamics and accessible
+channels are introduced.
+Subsequent Section III provides a detailed description of the set A of accessible maps
+generated by a given group G of quantum channels. Some key results of this work are presented in Section IV, in
+which we show that the set A is non-convex, but it has the star-shape property with respect to the uniform mixture
+of all elements of the group G. The following section discusses some further results on quantum channels, while the
+case of stochastic matrices and classical maps is described in Sec. VI. The ﬁnal Section VII concludes the work and
+presents a list of open problems. Derivation of the relative volume of the set A for cyclic and non-cyclic groups of
+order g = 4 is provided in Appendix A.
+3
+II.
+GENERAL PICTURE
+Consider a quantum channel E acting on N dimensional states and described by a set {Ka} of Kraus operators. The
+superoperator is then represented by a matrix of order N 2, which reads ΦE = ∑a Ka ⊗Ka, where overline denotes
+complex conjugation.
+Let Bα with α ∈{0,...,N 2 −1} form a basis of N 2 matrices of order N such that Tr(BαB†
+β) = δαβ for any α,β. Hence
+any operator X of dimension N can be expanded as X = ∑α xαBα. If a quantum channel E acts on X as the input,
+the output reads E(X) = ∑(ΦEx)αBα. Here the N 2 dimensional matrix (ΦE)α,β = Tr(B†
+α E(Bβ)) introduces the
+channel eﬀects to the vector x of same dimension formed by coeﬃcients xα of the input. Selecting Bα = Bij = ∣i⟩⟨j∣as
+the basis, the superoperator takes the standard form ∑Ka ⊗Ka. Using the Hermitian basis of generalized Gell-Mann
+matrices, with B0 =
+1
+√
+N 1lN, the aﬃne parameterization of quantum channels in terms of the generalized Bloch vector
+is obtained,
+ΦE = (1
+0
+t
+M).
+(2)
+Here M denotes a real matrix of dimension N 2 −1 called the distortion matrix, while t is a real translation vector
+of the same dimension presenting how the channel E shifts the identity. The same approach gives the superoperator
+assigned to a Lindblad generator L given in (1), as (LL)α,β = Tr(B†
+αL(Bβ)).
+Hereafter, quantum channels and
+Lindblad generators are denoted by their corresponding superoperators, Φ and L, and we will drop the subscripts E
+and L for the sake of brevity.
+If Φ denotes a quantum channel, then LΦ = Φ −1l is a Hermiticity preserving and trace suppressing map. Moreover,
+complete positivity of Φ imposes conditional complete positivity on LΦ resulting in a valid Lindblad generator assigned
+to any quantum channel [18]. It is possible to show this fact through Eq. (1) by choosing H = 1lN and Λ = E. Being
+trace preserving, E admits Λ∗(1l) = E∗(1l) = 1l which implies LE(⋅) = E(⋅) −1
+2{1lN,⋅}. However, the inverse is not valid,
+i.e. not all Lindblad generators can be obtained by subtracting the identity from a quantum channel. The operation
+LΦ = Φ −1l is a generator of a dynamical semigroup, etLΦ, which provides a completely positive and trace-preserving
+map at each moment, t ≥0, starting from e0LΦ = 1l and tending to a point in the set of quantum channels at t →∞.
+The quantum channel Φ, based on which LΦ is deﬁned, does not necessarily belong to the trajectory of etLΦ.
+Proposition 1. Let Φ denote a quantum channel and LΦ = Φ −1l be the corresponding Lindblad generator. The
+quantum channel etLΦ at t →∞is a projective map that preserves the invariant states of Φ.
+Proof. According to the Perron–Frobenius theorem, the spectrum of a superoperator Φ corresponding to a completely
+positive and trace-preserving map is conﬁned to the unit disk, and it contains a leading eigenvalue equal to unity.
+Hence the eigenvalues of the Lindblad generator LΦ = Φ−1l are either zero or have negative real parts. Therefore, the
+exponential etLΦ approaches the operator projecting on the vector subspace on which Φ acts as identity. This subspace
+is spanned by the the eigenvectors x satisfying Φx = x. As an example, note that a unitary channel, preserves the
+diagonal entries and therefore has (at least) N such eigenvectors; in such cases, limt→∞etLU will therefore be the
+decoherence channel.
+Corollary 2. For almost every channel Φ, the limit point limt→∞etLΦ is the completely depolarizing channel, i.e. the
+channel that sends all states to the maximally mixed one.
+Deﬁnition 3. A channel written as Ωt = exp(tL), where L = Φ−1l is a time-independent Lindblad generator determined
+by a quantum channel Φ from a referred set S of channels, is called accessible. The set of all accessible channels is
+denoted by A.
+There is no limitation on choosing the set S of channels; for example, it can be the set of all channels, all unital
+channels, or a subset of channels determined based on what one can apply in a lab. Here we demand that the set S
+be the semigroup formed by the convex hull of a group of channels. Hence the set S here consists of mixed unitary
+channels; therefore, all elements are unital.
+Let G be a group consisting of g = ∣G∣quantum channels acting on states in HN, which means that all Φ ∈G
+are unitary quantum channels, i.e.
+Φ = U ⊗U.
+As a convention, let us take Φ0 = 1l as the identity (neutral)
+element of the group.
+We deﬁne the corresponding set of Lindblad generators as FL(G) ∶= {LΦ = Φ −1l} where
+Φ ∈G −{1l}. Note that we have excluded by hand the useless generator corresponding to the identity from the set.
+4
+Now, we can investigate the accessibility problem, i.e. ask which quantum channels obtained by a convex combina-
+tion of the elements of FL(G) belong to the set A of accessible channels. As the following theorem shows, the set
+A is a subset of the convex hull of the group elements C(G) ∶= {Φ = ∑pµΦµ} with ∑µ pµ = 1, which is a semigroup itself.
+Theorem 4. Consider an identity map, Φ0 = 1l, and a set of maps Φµ which form a group G. Then the dynamical
+semigroup etL generated by L = ∑g−1
+µ=1 qµLΦµ, where LΦµ = Φµ −1l, is a convex combination of the group members,
+etL =
+g−1
+∑
+µ=0
+wµ(t)Φµ,
+(3)
+where the weights wµ depend on time.
+Proof. Consider a power series,
+etL = et(∑qµΦµ−1l) = e−t
+∞
+∑
+m=0
+(∑µ tqµΦµ)
+m
+m !
+.
+(4)
+Closure of the group guarantees that the last expression on the right-hand side can be expanded based on group
+members with non-negative coeﬃcients. Additionally, the left-hand side of this equation describes a trace-preserving
+quantum map at each moment in time.
+The above implies that the coeﬃcients form a probability vector which
+completes the proof.
+The explicit time-dependent form of the probabilities wµ(t) entering Eq. (3) relies on the group structure and not
+the speciﬁc representation of the group G. Therefore, any faithful representation with any dimension, which may not
+even present a quantum channel, can be adapted to compute the weights wµ(t). For example, one may think about
+the regular representation of a group. We remind the reader that the regular representation is written based on the
+standard form of the Cayley table of the group. In this special representation we assign a permutation matrix of
+dimension g, denoted by Rα, to each element of the group G with the same cardinality such that for any α and β we
+have Tr(RαR†
+β) = gδα,β, see Example 8 of [28]. Hence, wµ(t) can be obtained through the following lemma, which is
+a consequence of the orthogonality of the permutations Rα.
+Lemma 5. Let GΦ = {Φ0 = 1l,⋯,Φg−1} be a representation of the group G in terms of quantum channels. The group
+G also admits a regular representation based on orthogonal permutations of dimension g as G = {R0 = 1l,⋯,Rg−1}.
+An accessible quantum channel is deﬁned by Eq. (3), in which
+wµ(t) = 1
+g Tr(R†
+µexp[t(
+g−1
+∑
+ν=1
+qνRν −1l)]) = e−t
+g Tr(R†
+µexp[t
+g−1
+∑
+ν=1
+qνRν]).
+(5)
+Additionally, as the group, GΦ is assumed to be ﬁnite with unitary elements Φµ, a convex polytope with exactly
+g extreme points in the set of all quantum channels can be constructed from them. Theorem 4 tells us the set of
+accessible maps also belongs to this polytope. The question concerning the position of the trajectory etL in the
+polytope of the group is highly related to the group structure, its subgroups, and the non-zero interaction times
+(non-zero qµ). However, the trajectory is in the interior of the polytope once all qµ are non-zero. Moreover, it tends
+to the centre of the polytope as t →∞.
+Proposition 6. Let GΦ = {Φµ}g−1
+µ=0 be a group of g unitary quantum channels. The trajectory etL generated by a
+generic generator L = ∑qµΦµ −1l ends in the center of the polytope formed by the maps Φµ, i.e. the uniform mixture
+of all group members Φ∗= 1
+g ∑g−1
+µ=0 Φµ.
+Proof. It has been shown in Proposition 1 that the trajectory etL ends in the projector 1lV0 that projects on V0, the
+invariant subspace of Φ = ∑qµΦµ, i.e.
+V0 ≡{x ∣Φµx = x, ∀Φµ ∈GΦ}.
+(6)
+Now write H as a direct sum of irreducible representations as
+H = ⊕
+k
+Vk.
+(7)
+5
+On the other hand, note that for all µ we get ΦµΦ∗= Φ∗Φµ = Φ∗due to group rearrangement theorem. Applying
+Schur’s lemma, we get
+Φ∗= ⊕
+k
+ck1lVk.
+(8)
+The equality ΦµΦ∗= Φ∗implies ck = 0 for all k ≠0 and for k = 0, it is possible to directly verify c0 = 1. This shows
+Φ∗is the projector to the intersection of the invariant subspace of all group members and completes the proof.
+In the case with some vanishing weights, qµ, the situation will be completely diﬀerent. However, one gets the salient
+result from Theorem 4 that the trajectory remains in the subset characterized by the smallest subgroup containing
+all non-vanishing quantum channels appearing in the Lindblad generator. Such a curve ends in the centre of the
+polytope formed by the smallest subgroup as well. As an example, let us remind readers the group properties imply
+that every element Φµ ∈GΦ has order equal to the smallest integer and the positive number hµ such that Φhµ
+µ
+= 1l.
+The trajectory generated by LΦµ = Φµ −1l is deﬁned by
+etµLΦµ = etµ(Φµ−1l) = e−tµetµΦµ = e−tµ
+∞
+∑
+l=0
+(tµΦµ)l
+l !
+= e−tµ ⎛
+⎜
+⎝
+∑
+l∈M µ
+0
+tl
+µ
+l ! 1l + ∑
+l∈M µ
+1
+tl
+µ
+l ! Φµ + ⋅⋅⋅+
+∑
+l∈M µ
+hµ−1
+tl
+µ
+l ! Φhµ−1
+µ
+⎞
+⎟
+⎠
+.
+(9)
+Here M µ
+r is the set of all non-negative numbers congruent modulo hµ, whose remainder, when divided by hµ, is equal
+to r. Note that
+pr(tµ) ∶= e−tµ ∑
+l∈M µ
+r
+tl
+µ
+l ! = e−tµ
+∞
+∑
+n=0
+tnhµ+r
+µ
+(nhµ + r) ! = e−tµ
+hµ
+hµ−1
+∑
+s=0
+ω−sr
+µ
+exp[tµωs
+µ],
+(10)
+where ωµ = exp[ 2πi
+hµ ]. Provided that tµ > 0, these coeﬃcients are all positive numbers adding up to 1, i.e. they provide
+a probability vector of length hµ and none of its elements vanishes. Thus we can write
+etµLΦµ =
+hµ−1
+∑
+r=0
+pr(tµ)Φr
+µ.
+(11)
+which means at each moment of time we get a mixture of all hµ diﬀerent powers of Φµ. This implies etµLΦµ (with
+no summation on µ), for any tµ > 0, is located in the interior of the polytope formed by taking the convex hull of hµ
+extreme points each of which is assigned to diﬀerent powers of Φµ. Moreover, at tµ →∞the trajectory tends to the
+center of the polytope as discussed in Proposition 6, i.e. the uniform mixture of all diﬀerent powers of Φµ. To see it
+explicitly, we should note that Eq. (10) can also be written as
+pr(tµ) = 1
+hµ
+⎛
+⎝1 +
+hµ−1
+∑
+s=1
+ω−sr
+µ
+e−2tµ sin2(πs/hµ)e−itµ sin(2πs/hµ)⎞
+⎠.
+(12)
+This equation now shows that at large time scale limtµ→∞pr(tµ) =
+1
+hµ holds for any r.
+We emphasise that Eq. (10) is independent of the dimension and the individual channels that form the group. It only
+depends on the order of the element under investigation. Moreover, note that the set HΦµ ∶= {Φr
+µ} for r ∈{0,...,hµ−1}
+is actually a cyclic subgroup of GΦ of order hµ. For an arbitrary convex combination of Lindblad generators associ-
+ated with diﬀerent elements of HΦµ, the resultant trajectory cannot leave the polytope formed by the elements of HΦµ.
+In other words, if all quantum channels appearing in exp[t(∑qµΦ′
+µ −1l)] belong to a cyclic subgroup, then at each
+moment of time, the trajectory can be convexly expanded in terms of all members of the smallest cyclic subgroup
+containing all Φ′
+µ in this summation. Due to commutativity of the elements of a cyclic group, we get exp(tL) =
+exp(∑tµLΦ′µ) = ∏exp(tµLΦ′µ). Each term in the last formula can be expanded based on Eq. (11) in which probabilities
+are given by Eq. (10). To see this fact explicitly, let Φµ be the generator of HΦµ, i.e. HΦµ = {Φi
+µ}hµ−1
+i=0
+= {Φ′
+µ}hµ−1
+µ=0 ,
+then
+exp(∑tµLΦ′µ) = exp⎛
+⎝
+hµ−1
+∑
+i=1
+tµiLΦiµ
+⎞
+⎠=
+hµ−1
+∏
+i=1
+exp(tµiLΦiµ)
+=
+hµ−1
+∏
+i=1
+⎛
+⎝
+hµi−1
+∑
+j=0
+pj(tµi)Φij
+µ
+⎞
+⎠= ∑
+l
+Pl(tµ)Φl
+µ,
+(13)
+6
+where hµ, and hµi are the order of Φµ, and Φi
+µ, respectively. In the last equation l = (ij mod hµ) and
+Pl(tµ) ≡
+hµ−1
+∏
+i=1
+hµi−1
+∑
+j=0
+such that∶
+(ij mod hµ)=l
+pj(tµi).
+(14)
+Hence, we can ﬁnd the time-dependent probabilities in the convex combination. However, this is only one of the
+possibilities since, in a general case, the polytope formed by the set elements GΦ can diﬀer form the simplex.
+Consider now another quantum channel Φ′′
+α from the set GΦ such that there is no cyclic subgroup of GΦ including
+both Φµ and Φ′′
+α. To emphasize this fact, we will denote Φ′′
+α by Θα. If we want to add LΘα to the set discussed in
+Eq. (13) two diﬀerent cases are possible. First, if we assume [Φµ,Θα] = [LΦµ,LΘα] = 0, then
+exp(tαLΘα + ∑tµLΦ′µ) = exp(tαLΘα)exp⎛
+⎝
+hµ−1
+∑
+i=1
+tµiLΦiµ
+⎞
+⎠= ∑
+k,l
+pk(tα)Pl(tµ)Θk
+αΦl
+µ,
+(15)
+where hα and hµ are the order of Θα and Φµ, and pk(tα) and Pl(tµ) are introduced in Eqs. (10) and (14), respectively.
+Note that commutativity of Θα and Φµ imposes compatibility on any power of them, i.e. all elements of the cyclic
+subgroups HΘα and HΦµ commute. Moreover, as we assumed that there is no cyclic subgroup including both Θα and
+Φµ, thus HΘα and HΦµ have no element in common but the identity. This implies that the product of HΘα and HΦµ
+is a subgroup of GΦ of order hαhµ, i.e. ∀k,l ∶
+Θk
+αΦl
+µ belongs to a subgroup of GΦ formed by multiplication of its
+cyclic and commutative subgroups. Applying the above arguments, we can generalize these results as follows.
+Corollary 7. Let quantum channels Θ and Φ respectively denote the generators of the cyclic groups HΘ of order hΘ
+and HΦ of order hΦ. Assume that [Θ,Φ] = 0 and that HΘ and HΦ have no element in common but the identity.
+Consider any convex combination of the elements of {Θi −1l}hΘ−1
+i=1
+⋃{Φj −1l}hΦ−1
+j=1 .
+Then the dynamical semigroups generated by such Lindblad generators belong to the polytope constructed by the convex
+hull of hΘhΦextreme points related to diﬀerent elements of HΘ ×HΦ. The trajectory, exp(tL), starts from Θ0 = Φ0 = 1l
+when all interaction times tΘi and tΦj are zero, it goes inside the polytope if there exist i and j for which tΘi ≠0 and
+tΦj ≠0, and it tends to the projector at the centre of polytope at t →∞.
+Corollary 8. Consider an abelian group GΦ represented by the maps Φµ and the Lindblad generator of the form
+L = ∑µ qµΦµ −1l.
+Then the dynamical semigroup etL, generated by L, can be decomposed convexly based on the
+elements of a subgroup of GΦ obtained by the product of diﬀerent cyclic subgroups, each formed by powers of all the
+maps Φµ appearing in L.
+This Corollary can be proved through the fundamental theorem of abelian groups and the above discussion.
+The condition on commutativity in Corollary 7 may be relaxed in a general scenario, i.e. [Θ,Φ] ≠0. In that case,
+HΘ × HΦ is not necessarily a subgroup. Therefore, we need to add some other quantum channels from GΦ to the set
+HΘ ×HΦ so it satisﬁes closure. The smallest subgroup H of GΦ that includes all members of the set HΘ ×HΦ expands
+convexly the dynamical semigroups generated by Lindblad generators of our interest. This is a direct consequence of
+the closure property, as the group structure plays a crucial role for Theorem 4.
+III.
+EXEMPLARY GROUPS OF CHANNELS AND CORRESPONDING SETS OF ACCESSIBLE MAPS
+In this section we will apply the aforementioned theorems and relations for certain constructive examples. For some
+groups associated with quantum channels acting on N-dimensional systems and represented by matrices of size N 2 we
+demonstrate how to ﬁnd the quantum channels, their polytopes, and the subset of accessible maps inside the polytope.
+Before proceeding with the examples let us mention that if GΦ = {Φµ = Uµ ⊗U µ}g−1
+µ=0 is a group of g unitary channels,
+then the set of the corresponding Kraus operators denoted by ˜GU = {Uµ}g−1
+µ=0 is a group up to a phase, which is also
+called a projective representation of group G. Explicitly, in the set ˜GU: (i) there are no two elements which are
+equal up to a phase, i.e. if U ∈˜GU, then eiφU ∉˜GU, (ii) the set is closed up to a phase, i.e. if U1,U2 ∈˜GU, then
+eiφU1U2 ∈˜GU for some φ, (iii) and it contains an inverse up to a phase for each element, i.e. for any U1 ∈˜GU there
+exists an element U2 ∈˜GU and a phase φ such that U1U2 = eiφ1l. Clearly, the last two conditions imply that (iii’) the
+set possesses a neutral element up to a phase. Moreover, the set GΦ is abelian if and only if ˜GU is abelian up to a
+phase, i.e. ∀U1,U2 ∈˜GU one has U1U2 = eiφU2U1 for some phase φ.
+7
+Example 1 (The group of order g = 2). The ﬁrst non-trivial example is a group of order 2, GΦ = Z2 = {ΦZ2
+0 = 1l,ΦZ2
+1 }
+which is a cyclic group. The superscript Z2 is to emphasis that the group is a cyclic group of order 2. Since ΦZ2
+1
+is of
+group order h1 = 2, its spectrum contains only ±1. In order to have two distinguished elements in the group, there has
+to be −1 in the spectrum. Indeed, for an m from the set {1,...,[N/2]}, 2m(N −m) out of N 2 eigenvalues of ΦZ2
+1 may
+be equal to −1. To see that, let us denote by ˜GZ2
+U = {U Z2
+0
+= 1lN,U Z2
+1 } the group up to a phase of Kraus operators. To
+have two distinguished elements in ˜GZ2
+U at least one of the eigenvalues of U Z2
+1
+should possess a phase diﬀerence equal
+to π from other eigenvalues which are equal. However, there might be m eigenvalues with such a phase diﬀerence
+in the spectrum in the general case where m belongs to the aforementioned set. Note that 2m(N −m) negative
+eigenvalues will appear in the spectrum of the quantum channel ΦZ2
+1 = U Z2
+1
+⊗U
+Z2
+1 .
+The polytope related to the group, GΦ = Z2, is the simplex of dimension one, i.e. a line segment. The set of accessible
+maps, in this case, can be written as (11) with probabilities given by Eq. (10)
+Ωt = 1 + e−2t
+2
+1l + 1 −e−2t
+2
+ΦZ2
+1 .
+(16)
+Hence the trajectory starts from the identity and goes to the projector at the centre of the line at t →∞, see Fig.1(a).
+Thus, any map of the form Φ = w1l+(1−w)ΦZ2
+1 with w ≥1/2 is accessible. Note that the results do not depend on the
+dimension of the quantum channels, and such a simplex exists in all dimensions. As an explicit example, however,
+one may get the qubit channel ΦZ2
+1 = σi ⊗σi with one of the Pauli matrices.
+Example 2 (The group of order g = 3). A group of order 3 is still a cyclic and so an abelian group, GΦ = Z3 =
+{ΦZ3
+0 = 1l,ΦZ3
+1 ,ΦZ3
+2 }, where the superscript Z3 denotes the cyclic group of order 3. Since all the members of this group
+are unitary channels and so the extreme points of the set of quantum channels, these channels do not lie on the same
+line. Thus, they are linearly independent and the polytope of the group is a triangle for N-dimensional quantum
+channels. This triangle is regular with respect to the Hilbert-Schmidt distance between two unitary maps Φi and Φj,
+D(Φi,Φj) = ∥Φi −Φj∥2
+2 = 2N 2 −Tr(ΦiΦ†
+j) −Tr(Φ†
+iΦj).
+(17)
+In the case of the group of order 3 we get
+∀i ≠j ∶
+D(ΦZ3
+i ,ΦZ3
+j ) = 2N 2 −Tr(ΦZ3
+1 ) −Tr(ΦZ3
+2 ),
+(18)
+showing all elements of the group are equidistant. Therefore, the triangle is regular for N-dimensional quantum
+channels, and we deal with a 2-simplex.
+On the other hand, the order of both non-trivial elements are three,
+h1 = h2 = 3. Thus, through Eq. (13) and Eq. (14), accessible maps are given by Ωt = w0(t)1l + w1(t)ΦZ3
+1 + w2(t)ΦZ3
+2 ,
+where t = t1 + t2 and
+w0(t) = 1
+3 (1 + 2e
+−3
+2 (t1+t2) cos(
+√
+3
+2 (t1 −t2))),
+w1(t) = 1
+3 (1 −e
+−3
+2 (t1+t2) cos(
+√
+3
+2 (t1 −t2)) +
+√
+3e
+−3
+2 (t1+t2) sin(
+√
+3
+2 (t1 −t2))),
+w2(t) = 1
+3 (1 −e
+−3
+2 (t1+t2) cos(
+√
+3
+2 (t1 −t2)) −
+√
+3e
+−3
+2 (t1+t2) sin(
+√
+3
+2 (t1 −t2))).
+(19)
+These equations are already introduced in [25] in the study of accessible Weyl channels of dimension three. The
+simplex representing this group and the subset A of accessible maps are shown in Fig. 1b. Since the group has no
+non-trivial subgroup, there is no accessible map on the edges, as shown in this ﬁgure. Observe that this result is
+independent of the dimension of the quantum channels. Again, as an explicit example we may think of a group of
+three single-qubit unitary channels based on the group up to a phase, ˜GZ3
+U = {1l2, diag[e
+iπ
+3 ,e−iπ
+3 ], diag[e−iπ
+3 ,e
+iπ
+3 ]}.
+Existence of a faithful representation of qubit channels for this group guarantees the existence of a faithful represen-
+tation in higher dimensions. Note that the same non-convex subset of the equilateral triangle, plotted in Fig. 1b and
+bounded by two logarithmic spirals [25], was earlier identiﬁed in search of classical semigroups [16, 29] in the space
+of bistochastic matrices of order three.
+Concerning the spectrum, the fact that non-trivial elements are of order 3 implies that eigenvalues of these maps
+are EΦ = {1,e±i 2π
+3 }. Perron-Frobenius theorem in the space of quantum channels suggests all of these elements are
+8
+(a)
+(b)
+(c)
+(d)
+(f)
+(e)
+FIG. 1: The set A of accessible maps, indicated by blue, in (a) 1-simplex of a cyclic group of oreder 2, (b) 2-Simplex of a cyclic
+group of order 3, and the set of channels in the regular polygons of linearly dependent channels forming a cyclic group of order
+(c) 4, (d) 5, (e) 6, and (f) 7. The symbol 1lN2 denotes the identity map and the subscript N 2 is added to emphasize that it can
+be considered in any dimension N. The map Φ∗indicates the center of each polygon. All sets A are star-shaped.
+present in the spectrum of both ΦZ3
+1
+and ΦZ3
+2 . Due to the commutativity of these maps, the spectra of channels of
+the form Φ⃗p = ∑piΦi in the complex plane are embedded in the regular triangle whose vertices are given by the
+elements of the set EΦ above, see Fig. 2(a). Observe that the spectra of accessible maps in this the triangle form the
+same shape bounded by logarithmic spirals as the set A of accessible maps in the simplex of the group in the space
+of quantum channels – see Fig. 1(b).
+Example 3 (The groups of order g = 4). A group of order 4 is isomorphic either to a cyclic group GΦ = Z4 =
+{ΦZ4
+0
+= 1l,ΦZ4
+1 ,ΦZ4
+2 ,ΦZ4
+3 } or to a non-cyclic one, GΨ = {Ψ0 = 1l,Ψ1,Ψ2,Ψ3} with Ψ2
+i = 1l and ΨiΨj = Ψk for diﬀerent
+i,j,k ∈{1,2,3}. Both of these groups are still abelian so one can ﬁnd a set of common basis in which all the elements
+are diagonal. Let us ﬁrst consider the cyclic group, GΦ.
+1.
+The cyclic group of order g = 4
+The polytopes of this group can be two-dimensional or three-dimensional related to the linear dependency of the
+elements. The spectra of the group can determine this up to a phase of Kraus operators.
+Lemma 9. Consider the cyclic group GΦ = Z4 of order 4 of quantum channels acting on N-dimensional systems. Let
+ΦZ4
+1 = U Z4
+1 ⊗U Z4
+1
+denote its generator, i.e. ΦZ4
+i
+= (ΦZ4
+1 )i for i ∈{0,⋯,3}. So U Z4
+1
+is the generator of a cyclic group up
+to a phase of order 4, ˜GZ4
+U , whose spectrum up to a general phase is from the set EU = {±1,±i}. Moreover, both real
+and imaginary elements should be present in the spectrum of U Z4
+1
+to have four distinguished elements in the group GΦ.
+Then the elements of GΦ = Z4 are linearly dependent if and only if all the real elements appearing in the spectrum of
+U Z4
+1
+have the same sign and all the imaginary eigenvalues have also the same sign (can be diﬀerent from the sign of
+real ones).
+9
+(a)
+(b)
+(c)
+FIG. 2: The regular polygons in the complex plane represent support of spectra of the quantum channels forming a cyclic
+group of order (a) 3, (b) 4, and (c) 5. The blue region in each polygon determines the support of spectra of the accessible maps
+in the corresponding set. Note that the shape and boundaries of the blue regions above are exactly the same as the quantum
+channels in Fig. 1(b)-(d).
+Proof. For any unitary quantum channel Φ = U ⊗U, eigenvalues of the superoperator ΦU are determined by the eigen-
+values of U through λij(Φ) = λi(U)λj(U). Moreover, conditions on the spectrum of U Z4
+1
+imply that the eigenvalues
+of ΦZ4
+1
+read EΦZ4
+1
+= {1,±i}. Hence in the spectra of ΦZ4
+2
+and ΦZ4
+3
+corresponding to each ±i ∈EΦZ4
+1
+the numbers −1
+and ∓i appear, respectively. Accordingly, we get ΦZ4
+0 + ΦZ4
+2 = ΦZ4
+1 + ΦZ4
+3
+meaning that the group members are linearly
+dependent and the polytope of the group lies on a plane, see Fig. 1(c). On the other hand, once the condition on
+the spectrum of U Z4
+1
+is violated, then ±1 and ±i appear in the spectrum of ΦZ4
+1 . In this case, one can check that
+the equation ∑ciΦi = 0 implies ci = 0 for any i, suggesting the the group elements are linearly-independent, and the
+polytope is then a tetrahedron.
+We will change the superscript Z4 as Z4D and Z4I for the linearly dependent and linearly independent case, respectively,
+when we need to emphasise this property. An immediate result of the above lemma is the following corollary.
+Corollary 10. For the cyclic group of order 4 formed by qubit channels, acting on systems of dimension N = 2,
+elements are linearly dependent.
+However, in higher dimensions both two and three dimensional polytopes are possible. In order to study the regularity
+of the poytope, let r+ and r−denote the number of eigenvalues +1 and −1, respectively, in the spectrum of U Z4
+1 , deﬁned
+in Lemma 9. In a similar way let i+ and i−denote the number of eigenvalues +i and −i, so that r+ + r−+ i+ + i−= N.
+These numbers allow us to express the Hilbert-Schmidt distance (17) between the channels,
+D(ΦZ4
+0 ,ΦZ4
+1 ) = D(ΦZ4
+0 ,ΦZ4
+3 ) = D(ΦZ4
+1 ,ΦZ4
+2 ) = D(ΦZ4
+2 ,ΦZ4
+3 )
+= 2N 2 −TrΦZ4
+1 −TrΦZ4
+3 = 8r+r−+ 8i+i−+ 4(r+ + r−)(i+ + i−),
+D(ΦZ4
+0 ,ΦZ4
+2 ) = D(ΦZ4
+1 ,ΦZ4
+3 ) = 2N 2 −2TrΦZ4
+2 = 8(r+ + r−)(i+ + i−).
+(20)
+The above relations imply if the polytope is of dimension 2, it forms a square like the one in Fig. 1(c), while the
+three-dimensional case can be a (non-)regular tetrahedron – see Fig. 3. In particular, for a cyclic group of order
+4 of linearly-independent qutrit channels one out of four numbers r± and i± is zero due to Lemma 9, while the
+remaining three numbers are equal to 1. This implies that both distances in Eq. (20) are equal. Hence, the polytope
+is a regular tetrahedron for a cyclic group of order, 4 formed by linearly independent quantum channels acting on
+N = 3 dimensional systems. In higher dimensions, however, both regular and non-regular tetrahedrons, as well as
+the square, are possible, see Fig. 3. To emphasize the regularity of the polytope, we will denote cyclic groups of four
+linearly-independent channels with a regular and non-regular tetrahedrons by GZ4I
+Φ
+= {ΦZ4I
+0
+= 1l,ΦZ4I
+1
+,ΦZ4I
+2
+,ΦZ4I
+3
+} and
+GZ4I
+Γ
+= {ΓZ4I
+0
+= 1l,ΓZ4I
+1
+,ΓZ4I
+2
+,ΓZ4I
+3
+}, respectively.
+The shape of the polytope formed by the elements of the group G in the space of quantum channels and the dimension
+of the channels do not play any role by describing the boundary of the set A of accessible maps. Hence the group GZ4
+Φ
+denotes one of three diﬀerent types of the group: GZ4D
+Φ
+, GZ4I
+Φ , and GZ4I
+Γ . Due to Corollary 8, the order of the cyclic
+10
+subgroups (the order of elements) plays a pivotal role. Assuming ΦZ4
+1
+as the generator of GZ4
+Φ , we get h1 = h3 = 4
+while h2 = 2. This implies that
+et1LZ4
+Φ1 = e−t1
+2
+[(cosht1 + cost1)1l + (sinht1 + sint1)ΦZ4
+1 + (cosht1 −cost1)ΦZ4
+2 + (sinht1 −sint1)ΦZ4
+3 ],
+(21)
+while et2LZ4
+Φ2 is the same as Eq. (16) with substitution of t2 for t, and noting that ΦZ4
+2 = ΦZ2
+1 . The trajectory et3LZ4
+Φ3
+is the same as et1LZ4
+Φ1 by replacing t1 by t3 and ΦZ4
+1
+by ΦZ4
+3 . Hence for an accessible map of a cyclic group of order 4,
+we get Ωt = ∑wi(t)ΦZ4
+i
+with t = t1 + t2 + t3 independently of the shape of its polytope and dimension of the channels.
+In this way we arrive at equations
+w0(t) = 1
+4 (1 + e−(t1+t3) + 2e−2t2 cos(t1 −t3)),
+w1(t) = 1
+4 (1 −e−(t1+t3) + 2e−(t1+2t2+t3) sin(t1 −t3)),
+w2(t) = 1
+4 (1 + e−(t1+t3) −2e−2t2 cos(t1 −t3)),
+w3(t) = 1
+4 (1 −e−(t1+t3) −2e−(t1+2t2+t3) sin(t1 −t3)),
+(22)
+which allow us to represent any element of the set A of accessible maps as a convex combination of the group members.
+In the case of the group GZ4D
+Φ
+the set A of accessible maps forms a non-convex subset in the square – see Fig. 1(c).
+The spectra of superoperators obtained by a convex combination of the elements of this group are also embedded
+in a square in the complex plane whose vertices are {±1,±i}.
+The spectra corresponding to accessible maps are
+restricted to a shape equivalent to the shape of accessible maps in the set of quantum channels, see Fig. 2(b). As a
+simple example for such a group, one may think of the set of four qubit channels constructed by the group up to a
+phase ˜GZ4D
+U
+= {1l2, diag[e
+iπ
+4 ,e
+−iπ
+4 ], diag[i,−i], diag[e
+−iπ
+4 ,e
+iπ
+4 ]}. Having a qubit realization, this group can also ﬁnd
+representations in higher dimensions.
+Fig. 3 shows the subset of accessible maps in a regular and a non-regular tetrahedron.
+As mentioned in Corol-
+lary 10, it is impossible to ﬁnd such polytopes satisfying a cyclic group structure in the space of qubit channels.
+Let us ﬁrst consider the regular tetrahedron, Fig.
+3 (a) and (b).
+The simplest example of a cyclic group of
+order four with linearly-independent elements is a set of qutrit channels based on the group up to a phase,
+˜GZ4I
+U
+= {1l3, diag[1,−1,i], diag[1,1,−1], diag[1,−1,−i]}. Due to Lemma 9 existence of both 1 and −1 in the spectrum
+of these unitary operators implies that they are linearly independent. One can ﬁnd other examples of qutrit channels
+as well as channels in higher dimensions for this group. However, the shape of accessible maps inside the tetrahedron
+is independent of a particular example or even dimension of the channels.
+We shall now analyze the case of a non-regular tetrahedron, presented in Fig. 3 (c) and (d). This special non-regular
+tetrahedron is the polytope of a cyclic group of four linearly-independent members for which the distance of the
+channels are given by 2N 2 −TrΓZ4I
+1
+−TrΓZ4I
+3
+= 3
+4(2N 2 −2TrΓZ4I
+2
+), see Eq. (20). As it is not possible to represent
+such a group with qubit and qutrit channels, we are going to analyze the set of channels acting on 4-dimensional
+systems. A particular example is given by a group, GZ4I
+Γ
+= {ΓZ4I
+i
+= Vi ⊗V i}3
+i=0, formed according to the group up to
+a phase, ˜GZ4I
+V
+= {1l4, diag[1,1,i,−i], diag[1,1,−1,−1], diag[1,1,−i,i]}. Since both i and −i appear simultaneously in
+the spectrum of the generator V1, the elements of this group are linearly independent, although the elements of the
+group up to a phase are not linearly independent.
+Recall that a cyclic group of order 4 has one non-trivial subgroup of order 2. In all corresponding polytopes of this
+group, there exist accessible maps belonging to the line connecting the identity map to the channel corresponding
+to the generator of this subgroup. In tetrahedrons shown in Fig. 3 this edge of the polytope contains accessible
+maps, while the diagonal of the square in Fig. 1(c) also contains accessible channels. Moreover, let us emphasize
+that independently of the shape of the polytope representing a cyclic group of order 4, the spectra of superoperators
+corresponding to accessible channels form the same set in the complex plane as accessible maps in the square of the
+quantum channel itself, see Fig. 2 (b).
+11
+(a)
+(b)
+(d)
+(c)
+FIG. 3:
+The subset of accessible quantum channels speciﬁed inside the 3-simplex: (a) and (b) related to a cyclic group of
+order 4 from two diﬀerent perspectives, and (c) and (d) inside the tetrahedron of a cyclic group of order 4 whose elements are
+not equidistant. The length of the dashed black edges of the tetrahedrons is 1, and for the blue dashed ones, the length is equal
+to
+√
+3/2. Explicit examples of quantum channels forming such groups are provided in Section III 1. The volume of the subset
+of accessible maps in both regular and non-regular shapes is 3(1 −e−4π)/32 of its volume of the corresponding tetrahedron.
+2.
+The non-cyclic group of order 4
+As mentioned above the non-cyclic group GΨ = {Ψ0 = 1l,Ψ1,Ψ2,Ψ3} of order four is abelian. Due to the fundamental
+theorem of abelian groups, it can be obtained by the product of two cyclic groups of order 2 whose elements are
+compatible with each other. Since all non-trivial group members are of order 2, their spectrum consists of ±1. There
+exist distinguished elements of the group if there are subspaces in which the eigenvalues of all channels are not of
+the same sign. As for these non-trivial elements, relation ΨiΨj = Ψk holds; the negative eigenvalue should appear in
+the spectrum of two maps simultaneously in the same subspace, so the third channel possesses a positive eigenvalue.
+Taking into account all possibilities, one can prove that to have ∑ciΨi = 0 the only possibility is ci = 0 for any i. This
+means the elements of GΨ are linearly independent. Thus the polytope for this group, regardless of the dimension of
+the channels, is a tetrahedron, see Fig. 4. Moreover, one needs to study the distance of the channels to ﬁnd whether
+this tetrahedron is regular or not. In this case, the Hilbert-Schmidt distance (17) for diﬀerent maps are given by
+D(Ψ0,Ψi) = 2(N 2 −TrΨi),
+for i ∈{1,2,3},
+D(Ψi,Ψj) = 2(N 2 −TrΨk),
+for i ≠j ≠k and i,j,k ∈{1,2,3}.
+(23)
+12
+As mentioned in Example 1, the number of negative eigenvalues in a unitary channel of order h = 2 is 2m(N −m)
+for an m ∈{1,...,[N/2]}. In particular, for qubit and qutrit channels, the numbers of negative eigenvalues can be 2
+and 4, respectively. This means unitary qubit channels of order 2 are traceless and for any unitary qutrit channels
+of this order, the trace of all such channels is equal to 5 −4 = 1. Thus for qubit and qutrit channels, the tetrahedron
+spanned by the elements of the group is regular – see Fig. 4 (a) and (b).
+The group of Pauli channels is the well-known example of a non-cyclic group of order 4 whose accessibility has been
+studied in [20, 21]. As an example of qutrit channels forming such a group, consider three diﬀerent quantum channels
+gained by diﬀerent permutations of the unitary operator, U = diag[1,1,−1]. In higher dimensions, the tetrahedron can
+be non-regular, and to emphasize this fact, the channels will be denoted as GΓ = {Γ0 = 1l,Γ1,Γ2,Γ3}, but the group
+does not contain the superscript Z4I. An example of a regular tetrahedron spanned by channels in dimension N = 4
+we can take identity and three unitary operations obtained by three diﬀerent permutations of U = diag[1,1,−1,−1]
+corresponding to three diﬀerent quantum channels. To get a non-regular tetrahedron consider a group up to a phase,
+˜GU = {U0,U1,U2,U3} where U0 = 1l4, U1 = diag[1,−1,−1,1], U2 = diag[1,1,1,−1], and U3 = diag[−1,1,1,1]. This
+tetrahedron is similar to the non-regular tetrahedron of Example 3, in which the length of two non-connected edges
+are 2/
+√
+3 times the length of the other edges.
+Note that the property of accessibility of a channel is independent of the dimension and the form of the polytope, as
+it depends on the group structure. In the case of a non-cyclic group of order four all non-trivial elements are of order
+2, so individual trajectories, with only a single non-zero interaction time, are of the form (16). For an accessible map,
+Ψt = ∑wi(t)Ψi, with t = t1 + t2 + t3 we get
+w0(t) =1
+4 (1 + e−2(t2+t3) + e−2(t1+t3) + e−2(t1+t2)),
+w1(t) =1
+4 (1 + e−2(t2+t3) −e−2(t1+t3) −e−2(t1+t2)),
+w2(t) =1
+4 (1 −e−2(t2+t3) + e−2(t1+t3) −e−2(t1+t2)),
+w3(t) =1
+4 (1 −e−2(t2+t3) −e−2(t1+t3) + e−2(t1+t2)).
+(24)
+These results have already been reported for the Pauli channels [20, 21, 25]. However, here we see that they can
+be gained for any set of quantum channels admitting the same group structure. The subset of accessible maps in
+the regular and non-regular tetrahedrons are presented in Fig. 4. Note that a non-cyclic group of order 4 has three
+non-trivial subgroups, each of which is of order 2. Consequently, we see on the edges connecting the identity map to
+other three elements, accessible maps can be found.
+IV.
+GEOMETRIC PROPERTIES OF THE SET OF ACCESSIBLE MAPS
+In this section, we will study the geometric properties of the set A of accessible maps, which are obtained by a mixture
+of unitary maps forming a discrete group. Proposition 1 implies that any Lindblad operator determined by a quantum
+channel, LΦ = Φ −1l, generates a trajectory in the set of quantum channels which converges to the projector onto the
+invariant subspace of the channel Φ. For any quantum channel Φ, the line connecting the identity with Φ is a tangent
+line to the trajectory generated by LΦ at the beginning of the evolution. To see this, note that for the dynamical
+semigroup exp(tLΦ), one gets
+d
+dt e(tLΦ)∣
+t=0+ = LΦ e(tLΦ)∣
+t=0+ = Φ −1l,
+(25)
+which proves the claim that (1 −p)1l + pΦ deﬁnes the tangent line for the evolution at t = 0. Analyzing a ﬁnite group
+of quantum channels and the semigroup formed by convex combinations of elements of this group, a distinguished
+trajectory joins the identity with the centre Φ∗of the polytope, which follows the direction determined by the tangent
+line at the beginning of evolution. Stated in other words, we have the following result.
+Proposition 11. Let GΦ = {Φµ} deﬁne a ﬁnite group of g quantum channels. The line connecting identity to the
+centre of the polytope, Φ∗= 1
+g ∑g−1
+µ=0 Φµ, always belongs to the set A of accessible channels in this group.
+Proof. To show this we will start with the Lindbladian L∗=
+1
+g−1 ∑g−1
+µ=1 Φµ −1l. Note that in this deﬁnition we ignored
+the trivial generator LΦ0 = 0 to follow the convention adopted here. So L∗is not equal to Φ∗−1l, but L∗=
+g
+g−1(Φ∗−1l).
+13
+(a)
+(b)
+FIG. 4:
+The set A of accessible maps speciﬁed in the space of quantum channels forming a non-cyclic group of order 4 for (a) a
+3-simplex, regular tetrahedron which includes the case of Pauli channels [20, 21, 25]), and (b) a non-regular tetrahedron. Black
+dashed edges are of length 1, while blue dashed edges have the length
+√
+3/2. Explicit examples of these groups are discussed
+in Section III 2. Accessible maps in each of these polytopes occupy 3/32 of the volume of their corresponding tetrahedrons.
+However, they generate the same dynamics up to a rescaling of time.
+ϕ(t) ∶= etL∗= e
+−tg
+g−1 e
+tg
+g−1 Φ∗= e
+−tg
+g−1 ⎛
+⎝1l +
+∞
+∑
+m=1
+( tg
+g−1)m
+m!
+Φm
+∗
+⎞
+⎠
+= e
+−tg
+g−1 ⎛
+⎝1l +
+∞
+∑
+m=1
+( tg
+g−1)m
+m!
+Φ∗
+⎞
+⎠= e
+−tg
+g−1 1l + (1 −e
+−tg
+g−1 )Φ∗,
+(26)
+where we called the resultant channel ϕ(t) for future reference. Furthermore, in the ﬁrst equation of the second line,
+we used the fact that Φ∗is a projector; see Proposition 6. Eq. (26) shows the line connecting the identity to the
+centre of polytope always belongs to the set of accessible maps and completes the proof.
+The above proposition leads us to the following important result.
+Theorem 12. The set A of accessible maps occupies a positive measure in the polytope formed by the convex hull of
+the corresponding group elements.
+Proof. To prove, we will show that for any non-ending point in the interval connecting identity to the centre of the
+polytope, one can always ﬁnd a ball that belongs to the set of accessible maps. According to above proposition, any
+such non-ending point can be deﬁned as exp[(T + δT)L∗] for time t = T such that there exists δT with ∣δT∣<< T.
+Now let ∀µ ∈1,⋯,g −1 we have ∣ϵµ∣<< 1 and ∑g−1
+µ=1 ϵµ = 0. So we can deﬁne a family of valid ⃗ϵ-dependent Lindbladians
+as L⃗ϵ = ∑g−1
+µ=1( 1
+g−1 + ϵµ)Φµ −1l. Hence, for any ⃗ϵ satisfying above conditions exp(tL⃗ϵ) belongs to the set of accessible
+maps at each moment of time. Thus, for t = T + δT we get
+e(T +δT )L⃗ϵ = e(T +δT )(L∗+∑ϵµΦµ) = e(T +δT )L∗e(T +δT ) ∑ϵµΦµ
+≈ϕ(T + δT)⎛
+⎝1l + (T + δT)
+g−1
+∑
+µ=1
+ϵµΦµ
+⎞
+⎠
+≈ϕ(T) + e−T g
+g−1
+g−1
+∑
+µ=0
+ϵ′
+µΦµ,
+(27)
+14
+where ϵ′
+0 = −δT and ϵ′
+µ = Tϵµ + δT/(g −1) for µ ∈{1,⋯,g −1}. In writing these equations, we considered only the ﬁrst
+order of δT and ⃗ϵ and also ignored their products. Moreover, one may notice that Φ∗and consequently L∗commute
+with any channel in the polytope of the group as stated in Proposition 6. The left-hand side of Eq. (27) belongs to
+the set of accessible maps of the group GΦ, so does a neighbourhood of any ϕ(T) for a ﬁnite T in any direction. This
+completes the proof.
+The above result was intuitive because the trajectory generated by Lindbladian corresponding to any quantum channel
+starts in the tangent plane of the line connecting the identity element to the assumed channel. So the set of accessible
+maps inside a polytope is deﬁned by trajectories that go in all possible directions at the beginning. However, we
+will generalize the above approach concerning the point ϕ(T) in the sequel to show for an abelian group at a ﬁnite
+time for any point on the trajectory generated by a Lindbladian corresponding to a channel from the interior of the
+polytope such a ball exists. Before proceeding with such an extension, let us conclude the discussion on the volume
+by explicit calculation of the volume for the examples mentioned in the previous section.
+Proposition 13. The ratio of the volume of the set A of accessible maps to the volume of the corresponding polytope
+for the examples discussed in Section III reads:
+a) For any choice of a cyclic group of order g with exactly three linearly independent elements corresponding to a
+regular g-polygon in the plane, see Fig. 1, the ratio is given by
+Vacc
+VGZgD
+= 1 −e−2π tan(π/g)
+2g sin2(π/g)
+= 1 −π2
+g + O( 1
+g2 ).
+(28)
+b) For a cyclic group of order g = 4 with all linearly independent elements, for both regular and non-regular tetrahe-
+drons, see Fig. 3, the ratio is given by
+Vacc
+VGZ4I
+= 3
+32(1 −e−4π) ≈0.0937497.
+(29)
+c) For the non-cyclic group of order g = 4 the ratio is given by
+Vacc
+VGΨ
+= 3
+32 = 0.09375,
+(30)
+independently of the regularity of tetrahedron, see Fig. 4.
+The proof of this proposition is provided in Appendix A. Note that Eqs. (28) and (30) were already presented
+in [25] for the ratio of the spectra of accessible to the entire set of Weyl maps and for accessible Pauli channels,
+respectively. However, we should emphasize that these results are valid for any representation of the aforementioned
+groups independently of the dimension of the maps. In Remark 19 we show that for the speciﬁc example of Weyl
+channels, the volume of the set of accessible and Markovian Weyl channels are the same. Accordingly, in this case,
+the set A of the accessible maps forms a good approximation of the set of Markovian channels. Now we will apply
+the same approach of Theorem 12 to get the boundaries of the set A assigned to an abelian group.
+Theorem 14. The boundary ∂A of the set of accessible channels in the polytope of a ﬁnite abelian group of unitary
+maps is formed by Lindblad operators LΦ = Φ −1l, where Φ belongs to the boundaries of the polytope.
+Proof. Let L = ∑qµΦµ −1l denote the Lindblad generator such that the channels Φµ along with identity form a group
+of order g and qµ ≠0 for all µ. Then it is always possible to ﬁnd a probability q′
+µ = qµ + ϵµ for small enough ϵµ such
+that ∑ϵµ = 0. Similar to the proof of the previous theorem, we can deﬁne a family of valid ⃗ϵ-dependent Lindblad
+generators L⃗ϵ = ∑g−1
+µ=1(qµ + ϵµ)Φµ −1l. So for any ﬁnite time t = T there is δT such that ∣δT∣<< 1 and exp[(T + δT)L⃗ϵ]
+belongs to the set of accessible maps. On the other hand, we have
+e(T +δT )L⃗ϵ = e(T +δT )Le(T +δT ) ∑µ ϵµΦµ
+≈eT L ⎛
+⎝(1 −δT)1l + δT
+g−1
+∑
+µ=1
+qµΦµ
+⎞
+⎠
+⎛
+⎝1l + T
+g−1
+∑
+µ=1
+ϵµΦµ
+⎞
+⎠
+≈eT L + eT L ⎛
+⎝−δT1l +
+g−1
+∑
+µ=1
+(Tϵµ + qµδT)Φµ
+⎞
+⎠
+≈eT L +
+g−1
+∑
+α=0
+g−1
+∑
+µ=0
+wα(T)ϵ′
+µΦαΦµ = eT L +
+g−1
+∑
+i=0
+fi ( ⃗w(T), ⃗ϵ′)Φi,
+(31)
+15
+where ϵ′
+0 = −δT, ϵ′
+µ = Tϵµ + qµδT for µ ∈{1,⋯,g −1}, and wα(T) is the time-dependent probability by which the
+trajectory of exp(TL) is deﬁned, see Theorem 4. Note that due to rearrangement theorem for any ﬁxed α the term
+ΦαΦµ produces all group elements with diﬀerent order according to the group multiplication table. Thus we can
+deﬁne the g-dimensional vector ⃗f ( ⃗w(T), ⃗ϵ) by its element, fi ( ⃗w(T), ⃗ϵ) which can be gained by
+⃗f ( ⃗w(T), ⃗ϵ′) = (
+g−1
+∑
+α=0
+wα(T)Rα)⃗ϵ′;
+(32)
+where Rα is the regular representation of element α of the group G = {Φ0 = 1l,⋯,Φg−1} of dimension g × g deﬁned
+based on the group multiplication table see Lemma 5. Therefore, one can claim the vector ⃗f ( ⃗w(T), ⃗ϵ′) can deﬁne a
+ball around the point exp(TL) if the g-dimensional matrix ∑g−1
+α=0 wα(T)Rα is invertible. To show that we use Lemma 5
+that leads to
+g−1
+∑
+α=0
+wα(T)Rα = exp
+⎡⎢⎢⎢⎢⎣
+T ⎛
+⎝
+g−1
+∑
+µ=1
+qµRµ −1l⎞
+⎠
+⎤⎥⎥⎥⎥⎦
+.
+(33)
+This is an invertible matrix as long as T is ﬁnite, which is the case here, completing the proof.
+We should notice that the inverse of the theorem is not necessarily valid, i.e. not any point from the boundaries of
+a polytope formed by a ﬁnite abelian group of quantum channels can give a trajectory at the boundaries of the set
+of accessible maps. For a counterexample, see all the red dashed lines in Fig. 1c-f. These are trajectories generated
+by single Lindbladians corresponding to the channels at diﬀerent vertices of the polygons. Our conjecture is that the
+inverse is true when the elements are linearly-independent.
+To proceed with investigating more geometrical properties of accessible maps, in what follows, we show that this set
+is star-shaped with respect to the centre of its corresponding polytope. First, note that due to Proposition 11, the
+line segment [1l,Φ∗] is accessible by the generator L∗that commutes with all channels in the polytope. Applying this
+fact, we get that for any accessible Ωt
+pΩt + (1 −p)Φ∗= Ωt(p1l + (1 −p)Φ∗) = etLet∗L∗= et′L′,
+(34)
+and therefore, the line segment [Ωt,Φ∗] is accessible, proving the following result.
+Theorem 15. The set A of accessible maps in a polytope formed by a discrete ﬁnite group of quantum channels is
+star-shaped with respect to the centre of the polytope.
+Corollary 16. If a set A of accessible maps is planar, then accessible maps are star-shaped with respect to the whole
+interval [1l,Φ∗].
+Proof. This follows from the fact, that for any accessible ΩT = eT L, the set
+{petL + (1 −p)Φ∗}p∈[0,1], t∈[0,T ]
+(35)
+is accessible. Next using the fact, that this is a subset of a plane, we have for all q ∈[0,1], it contains intervals of a
+form
+{peT L + (1 −p)(q1l + (1 −q)Φ∗)}p∈[0,1].
+(36)
+Which shows the star shapeness with respect to the interval [1l,Φ∗].
+V.
+ACCESSIBILITY RANK, PAULI AND WEYL CHANNELS
+In this Section, we explicitly study some further examples of quantum channels forming a group and discuss the rank
+of accessible channels.
+16
+Example 4. Let λj = eiθj with j = 1,...,N 2 denote eigenvalues of a superoperator ΦU = U ⊗U corresponding to a
+unitary U. If ∀j ∶θj = 2πrj, where rj = mj/nj is a irreducible fraction of a rational number, then Φ can generate a
+discrete and ﬁnite cyclic group of order equal to the lowest common multiple of nj, denoted by n, i.e. GΦ = {Φi}n−1
+i=0 .
+As an example of such a group, one may consider a group of rotations around a ﬁxed axis with discrete angles. Let us
+focus on qubit channels. In this case a rotation around ˆn of magnitude θ is gained by applying U = ei θ
+2 (ˆn.⃗σ). Let us
+take θ to be one of the following angles {θj = 2πj
+l } with j = 0,1,...,l−1. It is easy to check that {Uj = exp(i θj
+2 (ˆn.⃗σ))}
+is an abelian group up to a phase of order l. Thus GΦ = {Φj = Uj ⊗U j}l−1
+j=0 is an abelian (more precisely a cyclic)
+group of the same order. Moreover, for every divisor d of l (l = dd′), GΦ has at most one cyclic subgroup HΦ of order
+d generated by diﬀerent powers of Φd′ = Ud′ ⊗U d′. Therefore, one can always ﬁnd an accessible map of order hΦ = d
+which has a convex expansion in terms of the subgroup members HΦ. The space of such a group is an l-polygon. For
+the l = 2,...,7, the set of channels and their corresponding accessible maps are given in Fig. 1.
+Example 5 (Group of commutative quantum maps forming an orthogonal basis). An abelian group of N 2
+unitary quantum maps forming an orthogonal basis, Tr(UµU †
+ν) = Nδµν, is one of the simplest non-trivial examples to
+investigate. Let ˜GU = {Uµ}N 2−1
+µ=0
+denote an abelian group up to a phase of such N 2 unitary matrices. Weyl unitary
+matrices [27] provide an example of such a set. Since we are dealing with an abelian group here, Corollary 8 clariﬁes
+the problem of accessibility. Since unitary matrices form an orthogonal basis in the Hilbert-Schmidt space of matrices
+and thus are linearly independent, the analyzed polytope forms a simplex in dimension N 2 −1. This implies that the
+convex combinations we get through Corollary 7 or Corollary 8 for the accessible maps are unique. Therefore, we can
+call the number of vertices appearing in such a unique convex combination the rank of the channel (and it equals to
+the Choi rank as well since the vertices are orthogonal maps). Accordingly, an immediate result of Corollary 8 is that
+not all quantum maps with any assumed rank can be accessible.
+Proposition 17. The set AQ
+N of accessible quantum maps of the form Φ = ∑pµΦµ, in which Φµ’s are unitary channels
+belong to an abelian group and satisfy Tr(ΦµΦ†
+ν) = N 2δµν, is formed by the maps of (Choi) rank equal to the order of
+possible cyclic subgroups of GΦ or their multiplications.
+Through the fundamental theorem of abelian groups this the theorem can be rephrased as follows.
+The set of
+accessible channels satisfying the above conditions is formed by the maps of Choi rank equal to the order of possible
+subgroups of GΦ. Note that through Corollary 8 it is possible not only to indicate the rank of accessible maps but
+also to ﬁnd which Φµ participated in the combination when an assumed tν is not zero. In summary, we should
+expand convexly an assumed quantum channel Φ in terms of extreme points Φµ. Such an expansion is unique here.
+If the extreme points participating in this expansion do not form a subgroup of GΦ, then the map Φ is not accessible.
+As an example let us consider Weyl channels more explicitly. Weyl channels are a unitary generalization of Pauli
+maps. These channels are based on N 2 unitary operators of the form Ukl = XkZl for k,l ∈{0,...,N −1} where
+X∣i⟩= ∣i ⊕1⟩and Z = diag[1,ωN,...,ωN−1
+N
+] with ωN = exp(i 2π
+N ). The accessibility in this set is already studied
+in [25]. In the case N = 2 of Pauli channels GΦ is of order 4. There are three diﬀerent cyclic subgroups of order 2,
+Hi = {1l,σi ⊗σi} for i ∈{1,2,3} multiplication of any two of them exhausts the group GΦ. Moreover, the identity
+element itself is always the only trivial cyclic subgroup of order 1. Therefore, there are: (i) The identity map as the
+only accessible map of rank 1. (ii) Accessible maps of rank two in the form of Φ = p1l + (1 −p)σi ⊗σi for i ∈{1,2,3}
+which are gained when the only non-vanishing interaction time is ti. (iii) The full-rank accessible maps, which are
+available when there are at least two diﬀerent ti ≠0. Fig. 4(a) presents the accessible maps among all Pauli channels.
+In the case of qutrit Weyl maps, GΦ is of order 9.
+There are four diﬀerent cyclic subgroups of order 3,
+HΦ = {1l,Φkl,Φ−k⊕N,l⊕N}. Again, the multiplication of any two subgroups makes the group GΦ. In addition, there
+is not any other nontrivial subgroup for GΦ. Therefore, the accessible maps belong to one of the following sets:
+(i) The identity map as the only rank one accessible map. (ii)Accessible maps of rank 3 which can be found on
+the face of the simplex speciﬁed by (1l,Φkl,Φ−k⊕N,−l⊕N) when tkl ≠0 or t−k⊕N,−l⊕N ≠0 and all other interaction
+times are zero. Fig. 1(b) can be considered as a cross section presenting such a subgroup. (iii)The full-rank acces-
+sible maps which are available when there are at least two diﬀerent tkl ≠0 and tk′l′ ≠0 where (k′,l′) ≠(−k⊕N,−l⊕N).
+The above results concerning the Weyl channels are mentioned in [25]. However, the group properties of Weyl channels
+help us to generalize these results to a general case of N-dimension. Any group of Weyl unitary maps acting on N-
+dimensional systems, formed by N + 1 cyclic subgroups of order N with no element in common but the identity. This
+implies that the direct product of any two of them forms the group entirely. So we get
+Corollary 18. In the case of Weyl quantum maps acting on N-level systems, there always exist accessible maps of
+rank 1, N and N 2. When N is prime, these are the only choices, however, for a composite N other ranks are possible
+17
+too. The ranks correspond to the cardinality of the subgroups.
+Before proceeding with the following example concerning local channels, let us mention the following simple and yet
+signiﬁcant remark about accessible Weyl channels.
+Remark 19. The accessible Weyl channels can recover the full measure of Markovian Weyl channels but not the
+entire set.
+The supporting evidence for this statement comes from the fact that the necessary and suﬃcient condition for ac-
+cessibility of Weyl channels introduced in [25] is the same as the necessary and suﬃcient condition stated in [4] for
+Markovianity of channels with non-negative eigenvalues. Note that in the case of channels with negative eigenvalue,
+Markovianity can only be deﬁned for the maps whose negative eigenvalues are even-fold degenerated [20]. Such a set
+is by deﬁnition of measure zero.
+Example
+6
+(Tensor
+product
+of
+quantum
+channels). Let us now generalize our results to channels
+acting locally in higher dimension.
+Note that the set
+˜GU⊗V
+= {Uµ ⊗Vα} is an abelian group up to a
+phase if ˜GU = {Uµ} and ˜GV
+= {Vα} are.
+Moreover, it contains a complete set of orthogonal matrices, i.e.
+Tr((Uµ ⊗Vα)(Uν ⊗Vβ)†) = Tr(UµU †
+ν)Tr(VαV †
+β ) = MNδµνδαβ, provided that ˜GU and ˜GV are two sets of orthogonal
+basis in the space of matrices of order M and N, respectively. Let GΥ denote the group formed by ˜GU⊗V . We
+will also assume that ˜GU and ˜GV are the sets of orthogonal basis and are abelian up to a phase. Therefore, the
+subgroups of GΥ are of order hΦhΨ where hΦ and hΨ are the cardinalities of the subgroups of GΦ = {Φα = Uα ⊗U α}
+and GΨ = {Ψµ = Vµ ⊗V µ}, respectively, and each of which is a group of orthogonal quantum maps.
+In a very particular case, when we restrict ourselves to GΦ = GΨ being the group related to Pauli channels, we get
+{1,2,4}⊗2 = {1,2,4,8,16} as the rank of an accessible map of the form EA ⊗EB acting on a two-qubit system. It is
+easy to generalize this result to the system of k qubits, each of them is subjected to an evolution described by a Pauli
+map.
+Corollary 20. Let G⊗k deﬁne the group obtained by a tensor product of Pauli channels. Hence each element is a
+map acting on a k-qubit system. Then channels accessible by Pauli semigroups can only be of rank equal to 2m with
+m = 0,...,2k.
+VI.
+CLASSICAL STOCHASTIC MAPS
+Any stochastic matrix T describes a Markov chain – a transition in space of N-point probability distributions, p′ = Tp.
+By construction, each colum on T forms an N-point probability vector itself. Return now back to the space of density
+matrices. The process of decoherence transforms a quantum state ρ into a classical probability vector embedded in
+its diagonal entries, ρd = ∆(ρ) = ∑ρii∣i⟩⟨i∣, where ∆denotes the decoherence channel. Similarly, a transition matrix
+T can be obtained from a quantum channel suﬀering the super-decoherence [30],
+Tij(E) = ⟨i∣E(∣j⟩⟨j∣)∣i⟩.
+(37)
+This eﬀect can be considered as a decoherence applied to the Choi matrix C = d(E ⊗I)P+, where P+ = ∣ψ+⟩⟨ψ+∣
+with ∣ψ+⟩= ∑i ∣i,i⟩/
+√
+N denotes the maximally entangled state. Hence the classical transition matrix T arises from
+reshaping of the N 2 diagonal entries of C into a square matrix of size N. Super decoherence of a quantum channel E
+can also be described by sandwiching it between repeated action of the decoherence channel,
+T(E) ≡∆○E ○∆.
+(38)
+If {Ka} denotes the set of Kraus operators of the channel E, then T(E) is given by Hadamard product, T(E) =
+∑a Ka ⊙Ka.
+Thus super-decoherence transforms a unitary quantum channel, ΦU = U ⊗¯U, into a unistochastic
+transition matrix, TU = U ⊙¯U. Moreover, one can apply the special ordering of Gell-Mann basis where B0 = 1lN
+√
+N , Bi’s
+for i = 1,...,N −1 are the diagonal elements, and for i = N,...,N 2 −1 denote other elements. In that case, we can
+divide the distortion matrix M of size N 2 −1 deﬁned in (2) into four blocks and the translation vector into two parts,
+Φ =
+⎛
+⎜
+⎝
+1
+0
+0
+k
+D
+Q
+k′
+Q′
+D′
+⎞
+⎟
+⎠
+,
+(39)
+18
+where D and D′ are square matrices of order N −1 and N 2 −N, respectively, and k, k′ are vectors with the same
+respective length. Oﬀ-diagonal blocks Q and Q′ are rectangular so that the dimension of Φ is N 2. Thus, Eq. (38)
+implies that the process of super-decoherence in the above basis results in a projection into a N-dimensional space
+[31],
+T(E) = (1
+0
+k
+D).
+(40)
+It is worth mentioning that super-decoherence sends Lindblad generators to the set of Kolmogorov operators, i.e. the
+generators of classical Markovian evolutions. This fact can be observed through the GKLS form (1). The Kolmogorov
+generators K, also called ‘transition rate matrices’, satisfy conditions: (a) Kij ≥0 for all i ≠j, and (b) ∑i Kij = 0 for
+all j.
+Lemma 21. Let Φ (39) be a quantum channel and T(E) (40) denote its corresponding classical transition gained by
+super-decoherence, then T n(E) = T(En) for all n ∈{1,...,r} if and only if (i) Q(D′)n−2k′ = 0, and (ii) Q(D′)n−2Q′ = 0
+for all n ∈{2,...,r}.
+Proof. The proof of this lemma follows from Eq. (38) and the fact that in the Bloch representation (39) for the
+decoherence map ∆we have D∆= 1lN−1, while other parameters vanish.
+If the above condition for a quantum channel holds, then the cyclic group generated by diﬀerent powers of this
+channel has its classical counterpart of the same order, such that each element ﬁnds its respective element in the
+classical set through super-decoherence.
+A trivial example of quantum channels satisfying Lemma 21 are those for which Q = Q′ = 0 and k′ = 0. This implies
+∆○E ○∆= E ○∆.
+(41)
+The set of quantum channels satisfying above equation are known as Maximally Incoherent Operation (MIO) in
+the context of resource theory of quantum coherence [32]. This is the largest set of operations which are not able
+to generate coherence in an incoherent state. So taking classical probabilities embedded in diagonal entries of an
+incoherent state ρd, the set MIO can be seen as classical operations. Note that the super-decoherence map from
+quantum channels to stochastic matrices is a surjective and non-injective function. However, we can always ﬁnd
+a maximally incoherent operation which is sent to any assumed classical transition through super-decoherence.
+Moreover, it is worth mentioning if E satisﬁes Eq. (41), then the corresponding Lindblad generator also satisﬁes the
+same condition. Such a generator can be thus called an incoherent generator. Interestingly, for any Kolmogorov
+generator K one can always ﬁnd an incoherent Lindblad generator L [16] whose trajectory is an incoherent quantum
+channel at each moment of time.
+In the classical case, GT = {Ti} deﬁnes a group if Ti are permutation matrices, i.e. the extreme points of Birkhoﬀ
+polytope. So the group GT is of order N! and an arbitrary convex combination is the most general bistochastic
+matrix. We assign to each element of GT the Kolmogorov generator KTi = Ti −1lN. As any classical transition matrix
+is equivalent to an MIO, and its Kolmogorov operator is equivalent to an incoherent Lindblad generator, all the
+results of Section II are also valid for classical transitions. However, we arrive at the same conclusion noting that
+the aforementioned results are obtained by adopting the group properties and not the fact that Φ is a quantum
+channel. Hence this approach can be applied to analyze the accessibility of classical bistochastic matrices by classical
+dynamical semigroups generated by a Kolmogorov generator.
+Based on the results of these work, one can easily show that a classical dynamical semigroup etK is a convex
+combination of the group members Ti.
+If we take the cyclic permutations as the assumed group, since cyclic
+permutations are orthogonal and thus linearly independent, the classical bistochastic matrices gained by their convex
+combination enjoy the following property. The set AC
+N of accessible circulant bistochastic matrices is formed by the
+matrices of rank equal to the order of possible cyclic subgroups of GT or their multiplications.
+The most general ﬁnite group in the classical domain is the set of all permutations forming the Birkhoﬀpolytope BN.
+The ﬁrst nontrivial case, which forms a non-abelian group, is the permutation group S3. The 6 permutation matrices
+and their convex combinations make the Birkhoﬀpolytope B3. This is a 4-dimensional set comprising the convex
+combination of two equilateral triangles in two orthogonal 2D planes. To demonstrate an exemplary application of
+our approach, we discuss the set of accessible bistochastic matrices of order three, initially analyzed in [33]. The
+19
+accessible set is found by exponentiating diﬀerent Lindblad generators formed by subtracting the identity from a map
+picked from the Birkhoﬀpolytope B3. The set of accessible classical channels remains in B3. We demonstrate this set
+in Fig. 5 by producing a million such accessible channels and projecting them on the orthogonal equilateral triangles.
+FIG. 5: The set of accessible maps in the Birkhoﬀpolytope B3 projected on the cross-sections corresponding to (a) the even
+subspace, and (b) the odd subspace. Pij corresponds to the binary permutation in i and j while P denotes the cyclic shift
+permutation (312). The red curve in (a) represents the boundary of the set A for the case of the cyclic group of order three
+analyzed in Sec. III and displayed in Fig. 1 (b). The three corners of the projection on the right (marked by Xi) are halfway
+between the centre of the triangle and the Pij permutations. These are accessible by the linear paths that start from the
+identity and end in (1l + Pij)/2.
+Note that the triangle with even permutations on its corners forms the convex hull of the cyclic group of order 3.
+Therefore we expect the projection of the accessible maps inside the B3 to at least cover the interior of the red curve
+– see Fig. 5 (a). The data suggest that there are no accessible maps whose projections fall outisde this curve. The
+case for the odd subspace is diﬀerent as there are no accessible channels that lie on the odd subspace other than
+the centre of the polytope. This is true because the spectrum of a matrix B = αP23 + βP13 + γP12 comprises of the
+values ±∣α + βe2πi/3 + γe−2πi/3∣and unity. Since a positive determinant is necessary for accessibility, we ﬁnd that any
+combination except for α = β = γ = 1/3 is not accessible.
+Another way to visualize the accessible matrices is to draw cross-sections with 2D planes parallel to the even or odd
+subspace with diﬀerent displacement vectors in the orthogonal subspace. Fig. 6 includes some of these cross-sections.
+The volume of the Birkhoﬀpolytope for N = 3 is known to be 9/8 [34]. Using a Monte Carlo sampling method based
+on a sample consisting of 2.2 × 107 points that were uniformly distributed in the BirkhoﬀPolytope B3, we estimated
+the relative volume of the set A3 of accessible maps as
+vol(A3)
+vol(B3) ≈(4.398 ± 0.004) × 10−2
+(42)
+20
+FIG. 6: Several cross sections of the set of accessible points (blue) with diﬀerent 2D planes. a, b, c) cross-sections parallel to
+the even subspace; d, e, f) cross-sections parallel to the odd subspace. The grey triangles correspond to the cross-sections of
+the polytope B3. The red dot inside the small triangles, shows the position of the planes in the orthogonal subspace.
+In order to decide if a particular bistochastic map was accessible or not, we computed the matrix logarithm and
+checked if it was possible to write it as a positive combination of the ﬁve generators in the form (P −1l).
+VII.
+CONCLUDING REMARKS
+The problem of characterization of Markovian quantum channels has attracted considerable attention in recent
+years [4, 24, 26]. The simplest case of single-qubit maps is already well-understood [20–23], while the general problem,
+in quantum and classical setup, remains open.
+Following [25] we analyzed in this work the set A of accessible quantum channels obtained by a Lindblad generator
+of the form, L(ρ) = ∑qiEi(ρ) −ρ, for some selected maps Ei and probabilities qi. This set forms a subset of the
+set of Markovian channels of a positive volume. Instead of analyzing the structure of A for a ﬁxed dimension N of
+the system and a concrete choice of the maps Ei, we studied the case in which the maps belong to a particular group G.
+The key result in this work consists in identifying properties of the set A of accessible maps which do not depend on
+the dimensionality N of the system but are determined by the properties of the group G. We demonstrated that this
+set has a positive volume and the star-shape property with respect to the uniform mixture of all the maps Ei forming
+the group. We computed the volume of the set of accessible maps and analyzed its structure for several groups – see
+Fig. 1 showing set A for linearly dependent channels forming cyclic groups of order 2 −7 and Fig. 3(b) obtained for
+cyclic groups of order 4 of linearly independent channels.
+It is worth mentioning that some of the results presented here are obtained only based on a group’s closure
+21
+property.
+Thus, they also hold once the set S of extremal channels is a semigroup.
+In this way, we can also
+generalize the results to the nonunital channels. For example consider the set S = {Φ0,Φ1,Φ2,Φ3,Φ4,Φ5} of qubit
+channels where Φ0 is the identity map, Φi for i ∈{1,2,3} are Pauli channels, the nonunital maps Φ4 and Φ5 are
+completely contractive channels into the states ∣0⟩⟨0∣and ∣1⟩⟨1∣, respectively. This set is a semigroup formed by six
+extreme channels. Hence, their convex hull has six vertices. However, the elements are not all linearly independent.
+They satisfy ∑3
+i=0 Φi = 2(Φ3 + Φ4).
+In this case, the set of accessible maps is still conﬁned in the convex hull
+of the semigroup.
+There are, however, some results that need other group properties.
+For example, note that
+the trajectory exp[t(∑qµΦµ −1l)] does not necessarily end in the centre of the polytope. A counterexample hap-
+pens when all probabilities qµ are equal to zero but q5. In this case, the trajectory will end in the vertex assigned to Φ5.
+Furthermore, we showed that when the vertices of the convex hull of the channels are linearly independent, the set
+of accessible channels contains quantum channels with (convexity) ranks satisfying certain constraints. The ﬁgures
+mentioned above illustrate the following three facts:
+(i) In the simplest case of g = 2, accessible maps are of ranks one and two.
+(ii) In the case of g = 3, the group of order 3, has only two trivial subgroups; identity and the group itself. Hence
+there exists an accessible map of rank 1, the identity map, and of rank 3. There is no accessible map of rank two,
+which correspond to the edges of the triangle.
+(iii) For g = 4, the group has (at least) a subgroup of order two. Thus, when we have a tetrahedron, the set consists
+of maps of (convexity) rank 1 (the identity map), rank 2 on the edges assigned to the maps generating the subgroup
+and maps of full rank r = 4. Note that there are no maps of rank three corresponding to the faces of the tetrahedrons
+shown in Fig. 3 and Fig. 4.
+We have also established more general results concerning ranks of accessible maps acting on larger systems.
+(iv) For quantum Weyl maps acting on N-level systems, the set A contains maps of rank 1, N and N 2. If N is prime,
+this list is complete.
+(v) For a group of Pauli channels acting on a k-qubit system the set A contains maps of rank 2m with m = 0,...,2k.
+Our approach can also be applied to the classical case. We also discussed when classical and quantum accessible maps
+could be compared directly. The present study leaves several questions open. Let us list here some of them.
+1. Characterize the set of points such that the set A has the star-shape property with respect to them.
+2. Find a criterion allowing one to decide whether a given channel is accessible with respect to a given set S of
+quantum maps Φi.
+3. What is the relative measure of the set A of accessible channels with respect to Markovian channels?
+Acknowledgments
+It is a pleasure to thank Seyed Javad Akhtarshenas, Dariusz Chru´sci´nski and Kamil Korzekwa for inspiring discussions
+and helpful remarks and David Amaro Alcal´a for useful correspondence. Financial support by Narodowe Centrum
+Nauki under the Maestro grant number DEC-2015/18/A/ST2/00274 and by Foundation for Polish Science under the
+Team-Net project no. POIR.04.04.00-00-17C1/18-00 are gratefully acknowledged.
+Appendix A: The Group Matrix/Table; Proof of Proposition 13
+In this Appendix, we try to calculate the accessibility volume fraction for some abelian groups thereby providing
+proof for the results presented in Proposition 13.
+The volume measure is induced from the Euclidean metric on the dynamical maps (see (2)). For unitary channels, or
+a mixture of unitary channels, the vector t is zero, and we need only consider the aﬃne matrix M. In fact, the aﬃne
+matrices themselves form a representation of our group of interest. Furthermore, for abelian groups, we may work in
+a basis in which all the aﬃne matrices are diagonal, thereby making all the convex mixtures diagonal as well. Finally,
+since we are only dealing with diagonal matrices, it sounds reasonable to write down the diagonal entries of each
+aﬃne matrix in the group in columns of a table. The table will therefore form a matrix with N 2 −1 rows (remember
+that the aﬃne matrices are of order N 2 −1 where N is the dimension of the Hilbert space.) and ∣G∣= g columns. For
+example, a possible group table for a qubit representation of the non-cyclic group with four members (Z2 × Z2) is the
+following 3 × 4 matrix
+22
+⎛
+⎜
+⎝
++1 +1 −1 −1
++1 −1 −1 +1
++1 −1 +1 −1
+⎞
+⎟
+⎠
+.
+(A1)
+In general the Z2 × Z2 table looks like below
+⎛
+⎜⎜⎜
+⎝
++1a −1a +1a −1a
++1b −1b −1b +1b
++1c +1c −1c −1c
++1d +1d +1d +1d
+⎞
+⎟⎟⎟
+⎠
+,
+(A2)
+where 1a denotes an a dimensional column vector with all its components being equal to unity and the height of the
+table is given by a + b + c + d = N 2 −1. Note that changing the values of a, b, c (and therefore d) changes the shape
+and size of the tetrahedron; however, as we will see, the accessibility volume fraction will remain invariant as long
+as the a,b,c,d parameters all remain positive. Part (c) of Proposition 13 can now be restated as regardless of the
+values (a,b,c,d) for the group Z2 ×Z2, the accessible channels cover a fraction 3/32 of the corresponding tetrahedron’s
+volume.
+Proof. Let 1l be the origin of the coordinate system and deﬁne the vectors
+e1 ≡(−2)
+⎛
+⎜⎜⎜
+⎝
+1a
+1b
+0c
+0d
+⎞
+⎟⎟⎟
+⎠
+;
+e2 ≡(−2)
+⎛
+⎜⎜⎜
+⎝
+0a
+1b
+1c
+0d
+⎞
+⎟⎟⎟
+⎠
+;
+e3 ≡(−2)
+⎛
+⎜⎜⎜
+⎝
+1a
+0b
+1c
+0d
+⎞
+⎟⎟⎟
+⎠
+.
+(A3)
+Then the tetrahedron consists of the diagonal matrices 1l + diag {x1e1 + x2e2 + x3e3} with the constraints
+x1,x2,x3 ≥0;
+x1 + x2 + x3 ≤1.
+(A4)
+The line-element is ds2 = hijdxidxj with the metric
+hij = ei.ej = 4
+⎛
+⎜
+⎝
+a + b
+b
+a
+b
+b + c
+c
+a
+c
+a + c
+⎞
+⎟
+⎠
+.
+(A5)
+Therefore the volume of the tetrahedron is given by
+Vtot. = ∫dx1dx2dx3 √
+∣h∣= 8
+3
+√
+abc.
+(A6)
+It remains to calculate the volume of the accessible channels. These are found by element-wise exponentiation of the
+diagonal vectors exp(x1e1 + x2e2 + x3e3) This time the only constraint is xi ≥0 and the metric is
+h = 4
+⎛
+⎜
+⎝
+a′ + b′
+b′
+a′
+b′
+b′ + c′
+c′
+a′
+c′
+a′ + c′
+⎞
+⎟
+⎠
+,
+(A7)
+with
+a′ = ae−4(x1+x3),
+b′ = be−4(x1+x2),
+c′ = ce−4(x2+x3),
+(A8)
+hence
+∣h∣= 44(abc)e−8(x1+x2+x3).
+(A9)
+Therefore, the volume is
+Vacc. = ∫dx1dx2dx3 √
+∣h∣= 1
+4
+√
+abc.
+(A10)
+Finally
+Vacc.
+Vtot.
+= 3
+32.
+(A11)
+23
+It is possible to repeat the same procedure for the Zn
+2 groups to prove the following.
+Proposition 22. The accessibility volume ratios for Zn
+2 are given by
+(2n)!
+2n2n
+For 3D cyclic groups of order 4, the result is slightly diﬀerent. Indeed, part (b) of Proposition 13 is now rephrased as
+for all values of (a,b,c) with b > 0, the accessible channels cover a fraction
+3
+32(1 −e−4π) of the tetrahedron’s volume.
+Proof. Let us start again with the group table.
+⎛
+⎜⎜⎜
+⎝
+1a
+i1a
+−1a −i1a
+1a −i1a −1a +i1a
+1b
+−1b
++1b
+−1b
+1c
++1c
++1c
++1c
+⎞
+⎟⎟⎟
+⎠
+.
+(A12)
+Since we are working with a real vector space, it is convenient to merge the diagonal imaginary matrix
+(i
+−i)
+(A13)
+with the real matrix
+J ≡(
+1
+−1
+).
+(A14)
+The group table then becomes
+⎛
+⎜
+⎝
+12a
+Ja
+−12a −Ja
+1b
+−1b
++1b
+−1b
+1c
++1c
++1c
++1c
+⎞
+⎟
+⎠
+(A15)
+with 2a + b + c = N 2 −1.
+Deﬁning ei as we did in the previous proof, we get the metric
+hij = ei.ej = 4
+⎛
+⎜
+⎝
+a + b
+a
+b
+a
+2a
+a
+b
+a
+a + b
+⎞
+⎟
+⎠
+,
+(A16)
+which leads to
+Vtot. = 8
+3a
+√
+b.
+(A17)
+Now for the accessible channels, if we use the xi coordinates, we get
+exp(x1e1 + x2e2 + x3e3) = (e−x1−2x2−x3[cos(x1 −x3) + J sin(x1 −x3)]2a
+e−2(x1+x3)1b
+)
+However, these coordinates are not injective: the periodic functions in the ﬁrst part will re-address the same point
+many times, leading to an overestimating of the volume by evaluating the integral as before. So let us use (y,z,φ)
+deﬁned as
+x1 ≡z + φ
+2
+;
+x2 = y;
+x3 = z −φ
+2
+.
+(A18)
+The constraints xi ≥0 become
+y ≥0;
+z ≥0;
+∣φ∣≤min(π,z).
+(A19)
+24
+Note that the angle φ is manually constrained to stay in the interval [−π,π). The metric is
+ds2 = 4be−4zdz2 + 2ae−2z−4y(dφ2 + dz2 + 4dy2 + 4dydz).
+(A20)
+Therefore
+√
+∣h∣= 8a
+√
+be−4z−4y.
+(A21)
+Finally, the accessible volume is
+Vacc. = 8a
+√
+b∫
+∞
+0
+e−4ydy ∫
+∞
+0
+dz e−4z[2min(π,z)]
+= 4a
+√
+b{∫
+π
+0
+ze−4zdz + π ∫
+∞
+π
+e−4zdz}
+= 1
+4a
+√
+b(1 −e−4π).
+(A22)
+A unitary channel for N-dimensional quantum systems has an aﬃne map (R,0) where R is an N 2 −1 dimensional
+rotation matrix. Dealing with Abelian subgroups allows us to diagonalize the rotation matrices simultaneously and
+only worry about the spectral conﬁguration of the group members, see also section 5 of [28].
+Proposition 23. For the 2 dimensional cyclic group {1l, R, ⋯, Rg−1}, where all the members lie on a 2D plane, a
+fraction
+1 −e−2π tan(π/g)
+2g sin2(π/g)
+= 1 −π2
+g + O(1/g2)
+(A23)
+of the 2D regular polygon is covered by exponentiating the Lindblad generators.
+Proof. Forgetting about the scale of the actual polygon, we may identify it with the complex polygon with vertices
+{1,e2πi/g,⋯,e−2πi/g}. Then the area of the polygon is
+A = g sin(π/g)cos(π/g).
+(A24)
+By exponentiating the Lindblad generators, we get the complex set
+{e−x+iy ∣x ≥0, ∣y∣<
+x
+tan(π/n)} = {reiφ ∣0 ≤r ≤1, ∣φ∣<
+−log r
+tan(π/n)}.
+(A25)
+A standard calculation of the area of this set leads to the claimed result.
+Observation: Any complex number z with ∣z∣< r∗= e−π tan(π/g) is inﬁnitesimally divisible. It may be interesting to
+calculate r∗for other groups as well.
+[1] V. Gorini, A. Kossakowski, and E. C. G. Sudarshan, “Completely positive dynamical semigroups of N-level systems”, J.
+Math. Phys. 17, 821 (1976).
+[2] G. Lindblad, “On the generators of quantum dynamical semigroups”, Commun. Math. Phys. 48, 119 (1976).
+[3] D. Chru´sci´nski and S. Pascazio, “A brief history of the GKLS Equation”, Open Syst. Inf. Dyn. 24, 1740001 (2017).
+[4] M. M. Wolf, J. Eisert, T.S. Cubitt, and J.I. Cirac, “Assessing non-Markovian dynamics”, Phys. Rev. Lett. 101, 150402
+(2008).
+[5] ´A. Rivas, and S. F. Huelga, Open Quantum Systems. An Introduction, (Springer, 2011).
+[6] A. Shabani, and D. A. Lidar, “Vanishing quantum discord is necessary and suﬃcient for completely positive maps”, Phys.
+Rev. Lett. 102, 100402 (2009).
+[7] A. Shabani, and D. A. Lidar, “Erratum: vanishing quantum discord is necessary and suﬃcient for completely positive
+maps [Phys. Rev. Lett. 102, 100402 (2009)]”, Phys. Rev. Lett. 116, 049901 (2016).
+[8] A. Brodutch, A. Datta, K. Modi, ´A. Rivas, and C. A. Rodr´ıguez-Rosario, “Vanishing quantum discord is not necessary for
+completely positive maps”, Phys. Rev. A 87, 042301 (2013).
+25
+[9] F. Buscemi, “Complete positivity, Markovianity, and the quantum data-processing inequality, in the presence of initial
+system-environment correlations”, Phys. Rev. Lett. 113, 140502 (2014).
+[10] J. M. Dominy, A. Shabani, and D. A. Lidar, “A general framework for complete positivity”, Quant. Inf. Process. 15, 465
+(2016).
+[11] W. F. Stinespring, “Positive functions on C∗-algebras”, Proceedings of the American Mathematical Society 6, 211 (1955).
+[12] J. F. C. Kingman, “The imbedding problem for ﬁnite Markov chains”, Probab. Theory Relat. Fields 1, 14 (1962).
+[13] J. T. Runnenburg, “On Elfving’s problem of imbedding a time-discrete Markov chain in a time-continuous one for ﬁnitely
+many states”, Proc. Kon. Ned. Akad. Wet. Ser. A 65, 536 (1962).
+[14] P. Carette, “Characterizations of embeddable 3 × 3 stochastic matrices with a negative eigenvalue”, New York J. Math 1,
+129 (1995).
+[15] E. B. Davies, “Embeddable Markov matrices”, Electron. J. Probab. 15, 1474 (2010).
+[16] K. Korzekwa, and M. Lostaglio, “Quantum advantage in simulating stochastic processes”, Phys. Rev. X 11, 021019 (2021).
+[17] L. V. Denisov, “Inﬁnitely divisible Markov mappings in quantum probability theory”, Theory Probab. Appl. 33, 392
+(1989).
+[18] M. M. Wolf, and J. I. Cirac, “Dividing quantum channels”, Comm. Math. Phys. 279, 147 (2008).
+[19] T. S. Cubitt, J. Eisert, and M. M. Wolf, “The complexity of relating quantum channels to master equations”, Commun.
+Math. Phys. 310, 383 (2012).
+[20] D. Davalos, M. Ziman, and C. Pineda, “Divisibility of qubit channels and dynamical maps”, Quantum 3, 144 (2019).
+[21] Z. Pucha la,  L. Rudnicki, and K. ˙Zyczkowski, “Pauli semigroups and unistochastic quantum channels”, Phys. Lett. A 383,
+2376 (2019).
+[22] S. Chakraborty, and D. Chru´sci´nski, “Information ﬂow versus divisibility for qubit evolution”, Phys. Rev. A 99, 042105
+(2019).
+[23] V. Jagadish, R. Srikanth, F. Petruccione, “Convex combinations of Pauli semigroups: geometry, measure and an applica-
+tion”, Phys. Rev. A 101, 062304 (2020).
+[24] K. Siudzi´nska and D. Chru´sci´nski, “Memory kernel approach to generalized Pauli channels: Markovian, semi-Markov, and
+beyond”, Phys. Rev. A 96, 022129 (2017).
+[25] F. Shahbeigi, D. Amaro-Alcal´a, Z. Pucha la, and K. ˙Zyczkowski, “Log-Convex set of Lindblad semigroups acting on N-level
+system”, J. Math. Phys. 62, 072105 (2021).
+[26] K. Siudzi´nska, “Markovian semigroup from mixing non-invertible dynamical maps”, Phys. Rev. A 103, 022605 (2021).
+[27] H. Weyl, “Quantenmechanik und Gruppentheorie”, Z. Physik 46, 1 (1927).
+[28] F. Shahbeigi, K. Sadri, M. Moradi, K. ˙Zyczkowski, and V. Karimipour, “Quasi-inversion of quantum and classical channels
+in ﬁnite dimensions”, Journal of Physics A: Mathematical and Theoretical, 54, 34 (2021).
+[29] P. Lencastre, F. Raischel, T. Rogers and P. G. Lind, “From empirical data to time-inhomogeneous continuous Markov
+processes”, Phys. Rev. E 93, 032135 (2016).
+[30] K. Korzekwa, S. Czach´orski, Z. Pucha la, and K. ˙Zyczkowski, “Coherifying quantum channels”, New J. Phys. 20, 043028
+(2018).
+[31] R. Kukulski, I. Nechita,  L. Pawela, Z. Pucha la, and K. ˙Zyczkowski, “Generating random quantum channels”, J. Math.
+Phys. 62, 062201 (2021).
+[32] T. Baumgratz, M. Cramer, and M. B. Plenio, “Quantifying coherence”, Phys. Rev. Lett. 113, 140401 (2014).
+[33] M. Snamina and E.J. Zak, “Dynamical semigroups in the Birkhoﬀpolytope of order 3 as a tool for analysis of quantum
+channels”, preprint arXiv:1811.09506
+[34] I. Bengtsson, A. Ericsson, M. Ku´s, W. Tadej, K. ˙Zyczkowski, “Birkhoﬀ’s polytope and unistochastic matrices, N=3 and
+N=4”, Commun. Math. Phys., 259, 307 (2005).
