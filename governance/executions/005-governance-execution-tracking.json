@@ -1,0 +1,8 @@
+{
+  "decisionId": 6,
+  "proposalId": "005-governance-execution-tracking",
+  "executionSummary": "GitHub Projects board 'OpenInnovate Governance' created with 15 issues across proposals #001-#006. Three views configured: Table, Kanban, Roadmap with Target Date field. Issue templates committed (governance-milestone.yml, governance-proposal.yml). Retroactive issues for proposals #001-#005 created and tracked. Commit bdbd27b.",
+  "conditions": "All conditions from Decision #6 satisfied: GitHub Projects board operational, milestone issues with dedup keys, kanban workflow, roadmap timeline view, issue templates for future proposals, retroactive tracking for existing proposals.",
+  "executedBy": "0xC91ED1978a1b89D0321fcF6BFf919a0f785d5EC7",
+  "date": "2026-03-25"
+}
