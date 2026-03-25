@@ -1,0 +1,68 @@
+name: Governance Milestone
+description: Track execution of an approved governance proposal milestone
+title: "[P00X-Y.Z] "
+labels: ["governance-execution"]
+body:
+  - type: input
+    id: proposal
+    attributes:
+      label: Proposal ID
+      description: "The proposal this milestone belongs to (e.g., 003)"
+      placeholder: "003"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: phase
+    attributes:
+      label: Phase
+      options:
+        - "Phase 1"
+        - "Phase 2"
+        - "Phase 3"
+        - "Phase 4"
+    validations:
+      required: true
+
+  - type: input
+    id: domain
+    attributes:
+      label: Domain
+      description: "The decision domain from the evaluation (e.g., Banking, Tradeline)"
+      placeholder: "Banking"
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Milestone Description
+      description: "What needs to be done and acceptance criteria"
+    validations:
+      required: true
+
+  - type: input
+    id: target_date
+    attributes:
+      label: Target Date
+      description: "Expected completion date"
+      placeholder: "2026-04-15"
+
+  - type: input
+    id: blocked_by
+    attributes:
+      label: Blocked By
+      description: "Issue numbers this milestone depends on (comma-separated)"
+      placeholder: "#7, #9"
+
+  - type: dropdown
+    id: attestation_checkpoint
+    attributes:
+      label: Attestation Checkpoint
+      description: "When this milestone triggers on-chain attestation"
+      options:
+        - "Phase completion (attest when all phase milestones done)"
+        - "Individual (attest this milestone independently)"
+        - "None (tracked only, no attestation)"
+    validations:
+      required: true

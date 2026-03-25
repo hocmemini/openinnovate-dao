@@ -1,0 +1,51 @@
+name: Governance Proposal
+description: Submit a new governance proposal for constitutional evaluation
+title: "[Proposal] "
+labels: ["governance-proposal"]
+body:
+  - type: textarea
+    id: summary
+    attributes:
+      label: Proposal Summary
+      description: "Brief description of what is being proposed"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: type
+    attributes:
+      label: Proposal Type
+      options:
+        - "governance-infrastructure"
+        - "financial"
+        - "operational"
+        - "constitutional-amendment"
+        - "corpus-maintenance"
+    validations:
+      required: true
+
+  - type: textarea
+    id: rationale
+    attributes:
+      label: Rationale
+      description: "Why is this proposal needed? What problem does it solve?"
+    validations:
+      required: true
+
+  - type: textarea
+    id: implementation
+    attributes:
+      label: Implementation Plan
+      description: "How will this be executed? Include milestones if multi-phase."
+
+  - type: input
+    id: estimated_cost
+    attributes:
+      label: Estimated Cost
+      placeholder: "$0 — infrastructure only"
+
+  - type: textarea
+    id: dependencies
+    attributes:
+      label: External Dependencies
+      description: "Any dependencies outside the DAO's direct control"
