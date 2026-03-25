@@ -1,0 +1,18 @@
+{
+  "executionId": 3,
+  "decisionId": 3,
+  "proposalId": 2,
+  "title": "Execution: Corpus Ratification with MODIFY Conditions Satisfied",
+  "executedBy": "0xC91ED1978a1b89D0321fcF6BFf919a0f785d5EC7",
+  "date": "2026-03-24",
+  "actionTaken": "Accepted MODIFY recommendation from real governance engine (v2 evaluation). All four conditions satisfied: (1) Fixed klages-mundt-dao-governance-mechanisms.txt — replaced FocalMix medical paper with correct Klages-Mundt stablecoins governance paper. (2) Spot-checked all Tier 3 files — discovered and fixed second corrupted file (dao-survey-2022.txt was quantum physics paper, replaced with correct DAO overview). (3) Regenerated corpus manifest hash after corrections. (4) Added US Constitution (Articles I-VII + Bill of Rights) to tier-2-civic, closing the known gap identified by the engine.",
+  "corpusManifestHash": "0x99c7bc8c1f0438c469e286035673d8a8ad3bb755510d4bf0e5ec89d9932d528f",
+  "modifyConditions": {
+    "condition1_fixCorruptedFile": "SATISFIED — both corrupted files fixed",
+    "condition2_spotCheckTier3": "SATISFIED — all 4 Tier 3 files verified",
+    "condition3_regenerateHash": "SATISFIED — new manifest hash 0x99c7bc8c...",
+    "condition4_usConstitution": "SATISFIED — added same day (Articles I-VII + Amendments I-X)"
+  },
+  "divergence": false,
+  "note": "Decision #3 is the v2 re-evaluation of Proposal #2 through the real corpus-grounded governance engine. Original Decision #2 (session-based, APPROVE/88) remains on-chain as historical record. Decision #3 (engine-based, MODIFY/88) supersedes it."
+}
