@@ -18,13 +18,16 @@ Usage:
 import argparse
 import json
 import re
+import subprocess
 import sys
+import tempfile
 from hashlib import sha3_256 as keccak256
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 CORPUS_DIR = ROOT / "corpus"
 MANIFEST_FILE = CORPUS_DIR / "manifest.json"
+REPO = "hocmemini/openinnovate-dao"
 
 
 # ---------------------------------------------------------------------------
@@ -138,18 +141,24 @@ def verify_corpus_integrity():
             ))
             continue
 
-        # Check hash
-        actual_hash = "0x" + keccak256(fpath.read_bytes()).hexdigest()
-        hash_match = actual_hash == entry["hash"]
-        if not hash_match:
-            results.append(VerificationResult(
-                f"corpus_hash: {entry['path']}", False,
-                f"manifest says {entry['hash'][:18]}..., file is {actual_hash[:18]}..."
-            ))
-        else:
-            results.append(VerificationResult(
-                f"corpus_hash: {entry['path']}", True, "hash matches manifest"
-            ))
+        # Check hash — manifest may use "hash" (keccak with 0x) or "sha256" (hex)
+        expected = entry.get("hash") or entry.get("sha256")
+        if expected:
+            if expected.startswith("0x"):
+                actual_hash = "0x" + keccak256(fpath.read_bytes()).hexdigest()
+            else:
+                import hashlib
+                actual_hash = hashlib.sha256(fpath.read_bytes()).hexdigest()
+            hash_match = actual_hash == expected
+            if not hash_match:
+                results.append(VerificationResult(
+                    f"corpus_hash: {entry['path']}", False,
+                    f"manifest says {expected[:18]}..., file is {actual_hash[:18]}..."
+                ))
+            else:
+                results.append(VerificationResult(
+                    f"corpus_hash: {entry['path']}", True, "hash matches manifest"
+                ))
 
         # Check content header for .txt files
         if fpath.suffix == ".txt":
@@ -220,6 +229,140 @@ def verify_decision_hash(decision_path):
 
 
 # ---------------------------------------------------------------------------
+# Issue integration
+# ---------------------------------------------------------------------------
+
+DETERMINISTIC_CHECKS = {"file_exists", "hash_match", "corpus_hash", "corpus_file", "manifest_hash", "decision_hash"}
+SELF_ATTESTATION_CHECKS = {"condition", "content_header"}
+
+
+def classify_result(result):
+    """Classify a verification result as deterministic or self-attestation."""
+    check_prefix = result.check_name.split(":")[0].strip()
+    if check_prefix in DETERMINISTIC_CHECKS:
+        return "deterministic"
+    if check_prefix in SELF_ATTESTATION_CHECKS:
+        return "self-attestation"
+    return "other"
+
+
+def format_results_for_issue(results):
+    """Format verification results as a Markdown comment for GitHub Issues."""
+    deterministic = []
+    attestation = []
+    other = []
+
+    for r in results:
+        cat = classify_result(r)
+        status = "PASS" if r.passed else "FAIL"
+        line = f"| `{r.check_name}` | {status} | {r.detail} |"
+        if cat == "deterministic":
+            deterministic.append(line)
+        elif cat == "self-attestation":
+            attestation.append(line)
+        else:
+            other.append(line)
+
+    passed = sum(1 for r in results if r.passed)
+    failed = sum(1 for r in results if not r.passed)
+    all_passed = failed == 0
+
+    lines = [
+        "## Verification Results",
+        "",
+        f"**Status:** {'ALL PASSED' if all_passed else f'{failed} FAILED'}",
+        f"**Checks:** {passed} passed, {failed} failed, {passed + failed} total",
+        "",
+    ]
+
+    if deterministic:
+        lines.extend([
+            "### Deterministic Checks",
+            "*These are objective, repeatable checks (hash matches, file existence).*",
+            "",
+            "| Check | Status | Detail |",
+            "|-------|--------|--------|",
+            *deterministic,
+            "",
+        ])
+
+    if attestation:
+        lines.extend([
+            "### Self-Attestation Checks",
+            "*These rely on string matching or heuristics — verify manually.*",
+            "",
+            "| Check | Status | Detail |",
+            "|-------|--------|--------|",
+            *attestation,
+            "",
+        ])
+
+    if other:
+        lines.extend([
+            "### Other Checks",
+            "",
+            "| Check | Status | Detail |",
+            "|-------|--------|--------|",
+            *other,
+            "",
+        ])
+
+    if all_passed:
+        lines.extend([
+            "---",
+            "**Recommendation:** All checks passed. Human Executor may close this issue after review.",
+            "*verify.py does NOT auto-close. HE must confirm and close manually.*",
+        ])
+    else:
+        lines.extend([
+            "---",
+            f"**Recommendation:** {failed} check(s) failed. Do NOT close until failures are resolved.",
+        ])
+
+    return "\n".join(lines)
+
+
+def post_to_issues(results, proposal_id=None):
+    """Post verification results as comments on matching GitHub issues."""
+    comment_body = format_results_for_issue(results)
+
+    with tempfile.NamedTemporaryFile(mode="w", suffix=".md", delete=False) as f:
+        f.write(comment_body)
+        body_file = f.name
+
+    # Find matching issues
+    cmd = ["gh", "issue", "list", "--repo", REPO, "--state", "open",
+           "--label", "governance-execution", "--limit", "200",
+           "--json", "title,number"]
+    result = subprocess.run(cmd, capture_output=True, text=True, cwd=ROOT)
+    if result.returncode != 0:
+        print(f"WARNING: Could not list issues: {result.stderr.strip()}")
+        Path(body_file).unlink(missing_ok=True)
+        return
+
+    issues = json.loads(result.stdout)
+    posted = 0
+
+    for issue in issues:
+        title = issue.get("title", "")
+        # Match by proposal ID in title key
+        if proposal_id and f"[P{proposal_id:03d}" in title:
+            subprocess.run(
+                ["gh", "issue", "comment", str(issue["number"]),
+                 "--repo", REPO, "--body-file", body_file],
+                capture_output=True, text=True, cwd=ROOT
+            )
+            print(f"  Posted verification results on #{issue['number']}: {title}")
+            posted += 1
+
+    Path(body_file).unlink(missing_ok=True)
+    if posted == 0:
+        print(f"  No open issues found for proposal {proposal_id}")
+    else:
+        print(f"  Posted to {posted} issue(s)")
+
+
+# ---------------------------------------------------------------------------
 # Main
 # ---------------------------------------------------------------------------
 
@@ -231,6 +374,10 @@ def main():
     parser.add_argument("--check-hash", action="store_true", help="Compute and display decision hash")
     parser.add_argument("--file-exists", help="Check if a file exists at path")
     parser.add_argument("--hash-match", nargs=2, metavar=("PATH", "HASH"), help="Check file hash against expected")
+    parser.add_argument("--check-issues", action="store_true",
+                        help="Post verification results as comments on matching GitHub issues")
+    parser.add_argument("--proposal-id", type=int,
+                        help="Proposal ID to match issues against (used with --check-issues)")
     args = parser.parse_args()
 
     results = []
@@ -272,6 +419,12 @@ def main():
 
     print("=" * 60)
     print(f"Results: {passed} passed, {failed} failed, {passed + failed} total")
+
+    if args.check_issues and args.proposal_id:
+        print(f"\nPosting results to GitHub issues for Proposal #{args.proposal_id}...")
+        post_to_issues(results, args.proposal_id)
+    elif args.check_issues and not args.proposal_id:
+        print("\nWARNING: --check-issues requires --proposal-id to match issues")
 
     if failed > 0:
         print("\nVERIFICATION FAILED")

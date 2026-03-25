@@ -1,9 +1,6 @@
 name: Governance Proposal Pipeline
 
 on:
-  pull_request:
-    branches: [main]
-    types: [labeled]
   workflow_dispatch:
     inputs:
       proposal:
@@ -18,12 +15,27 @@ on:
         options:
           - "true"
           - "false"
+      create_issues:
+        description: "Create GitHub issues from evaluation result"
+        required: false
+        default: "false"
+        type: choice
+        options:
+          - "true"
+          - "false"
+
+  push:
+    branches: [main]
+    paths:
+      - "governance/decisions/**"
+
+permissions:
+  contents: write
+  issues: write
 
 jobs:
   evaluate-proposal:
-    if: >
-      github.event_name == 'workflow_dispatch' ||
-      github.event.label.name == 'governance-proposal'
+    if: github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
     env:
       ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
@@ -41,27 +53,12 @@ jobs:
       - name: Install dependencies
         run: pip install anthropic
 
-      - name: Determine proposal file
-        id: proposal
-        run: |
-          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
-            echo "file=${{ github.event.inputs.proposal }}" >> "$GITHUB_OUTPUT"
-          else
-            # For PRs labeled 'governance-proposal', find the proposal file in the diff
-            PROPOSAL=$(git diff --name-only origin/main...HEAD | grep '^governance/proposals/' | head -1)
-            if [ -z "$PROPOSAL" ]; then
-              echo "::error::No proposal file found in PR diff under governance/proposals/"
-              exit 1
-            fi
-            echo "file=$PROPOSAL" >> "$GITHUB_OUTPUT"
-          fi
-          echo "Proposal: $(cat "$GITHUB_OUTPUT" | grep file | cut -d= -f2)"
-
       - name: Evaluate proposal
         id: evaluate
         run: |
-          PROPOSAL="${{ steps.proposal.outputs.file }}"
-          DRY_RUN="${{ github.event.inputs.dry_run || 'true' }}"
+          PROPOSAL="${{ github.event.inputs.proposal }}"
+          DRY_RUN="${{ github.event.inputs.dry_run }}"
+          CREATE_ISSUES="${{ github.event.inputs.create_issues }}"
 
           ARGS="--proposal $PROPOSAL"
 
@@ -69,15 +66,16 @@ jobs:
             ARGS="$ARGS --dry-run"
           fi
 
-          cd governance-engine
-          python evaluate.py $ARGS 2>&1 | tee /tmp/eval-output.txt
+          python governance-engine/evaluate.py $ARGS 2>&1 | tee /tmp/eval-output.txt
 
-          # Extract output path from the evaluation log
+          # Extract output path and recommendation
           OUTPUT=$(grep "Reasoning tree saved to:" /tmp/eval-output.txt | sed 's/.*saved to: //')
+          REC=$(grep "^Decision:" /tmp/eval-output.txt | sed 's/Decision: //')
+
           if [ -n "$OUTPUT" ]; then
             echo "output_path=$OUTPUT" >> "$GITHUB_OUTPUT"
+            echo "recommendation=$REC" >> "$GITHUB_OUTPUT"
 
-            # Compute hash
             HASH=$(python3 -c "
           from hashlib import sha3_256
           with open('$OUTPUT', 'rb') as f:
@@ -92,19 +90,69 @@ jobs:
           git config user.name "OpenInnovate Governance Bot"
           git config user.email "governance-bot@openinnovate.dao"
           git add governance/decisions/
-          git commit -m "gov: reasoning tree for ${{ steps.proposal.outputs.file }}
+          git commit -m "gov: reasoning tree for ${{ github.event.inputs.proposal }}
 
           Hash: ${{ steps.evaluate.outputs.reasoning_hash }}
           Model: ${{ env.GOVERNANCE_MODEL }}"
           git push
 
+      - name: Create issues from evaluation
+        if: >
+          github.event.inputs.dry_run == 'false' &&
+          github.event.inputs.create_issues == 'true' &&
+          steps.evaluate.outputs.output_path != '' &&
+          (steps.evaluate.outputs.recommendation == 'APPROVE' || steps.evaluate.outputs.recommendation == 'MODIFY')
+        run: |
+          python governance-engine/issue_manager.py \
+            --decision "${{ steps.evaluate.outputs.output_path }}" \
+            --proposal "${{ github.event.inputs.proposal }}"
+
       - name: Summary
         run: |
           echo "## Governance Evaluation Complete" >> "$GITHUB_STEP_SUMMARY"
           echo "" >> "$GITHUB_STEP_SUMMARY"
-          echo "- **Proposal:** \`${{ steps.proposal.outputs.file }}\`" >> "$GITHUB_STEP_SUMMARY"
-          echo "- **Dry run:** ${{ github.event.inputs.dry_run || 'true' }}" >> "$GITHUB_STEP_SUMMARY"
+          echo "- **Proposal:** \`${{ github.event.inputs.proposal }}\`" >> "$GITHUB_STEP_SUMMARY"
+          echo "- **Dry run:** ${{ github.event.inputs.dry_run }}" >> "$GITHUB_STEP_SUMMARY"
           if [ -n "${{ steps.evaluate.outputs.reasoning_hash }}" ]; then
+            echo "- **Recommendation:** ${{ steps.evaluate.outputs.recommendation }}" >> "$GITHUB_STEP_SUMMARY"
             echo "- **Reasoning hash:** \`${{ steps.evaluate.outputs.reasoning_hash }}\`" >> "$GITHUB_STEP_SUMMARY"
             echo "- **Output:** \`${{ steps.evaluate.outputs.output_path }}\`" >> "$GITHUB_STEP_SUMMARY"
           fi
+
+  verify-decisions:
+    if: github.event_name == 'push'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Identify changed decisions
+        id: changed
+        run: |
+          FILES=$(git diff --name-only HEAD~1 HEAD -- governance/decisions/ | tr '\n' ' ')
+          echo "files=$FILES" >> "$GITHUB_OUTPUT"
+          echo "Changed decisions: $FILES"
+
+      - name: Verify decision hashes
+        if: steps.changed.outputs.files != ''
+        run: |
+          for FILE in ${{ steps.changed.outputs.files }}; do
+            echo "Verifying: $FILE"
+            python governance-engine/verify.py --decision "$FILE" --check-hash
+          done
+
+      - name: Verify corpus integrity
+        run: python governance-engine/verify.py --corpus-integrity
+
+      - name: Summary
+        run: |
+          echo "## Verification Complete" >> "$GITHUB_STEP_SUMMARY"
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+          echo "- **Trigger:** push to governance/decisions/" >> "$GITHUB_STEP_SUMMARY"
+          echo "- **Changed:** \`${{ steps.changed.outputs.files }}\`" >> "$GITHUB_STEP_SUMMARY"
