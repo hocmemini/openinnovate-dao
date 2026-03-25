@@ -1,0 +1,60 @@
+{
+  "proposalId": 4,
+  "title": "Governance Engine Enhancement: Condition Verification Protocol",
+  "type": "governance-infrastructure",
+  "submittedBy": "0xC91ED1978a1b89D0321fcF6BFf919a0f785d5EC7",
+  "date": "2026-03-24",
+  "summary": "Add a condition verification mode to the governance evaluation engine that independently validates whether MODIFY conditions have been satisfied before execution attestation is permitted. This addresses a governance gap identified during the execution of Decision #3 (Corpus Ratification v2), where the same entity that recommended the MODIFY conditions also declared them satisfied without independent validation.",
+  "body": "During the execution of Decision #3 (re-evaluation of Proposal #002, Corpus Ratification), the Algorithmic Manager recommended MODIFY with four conditions: (1) fix corrupted corpus file, (2) spot-check Tier 3 files, (3) regenerate manifest hash, (4) add US Constitution within 30 days. All four conditions were satisfied — but the verification of satisfaction was performed by the same Claude instance that generated the conditions. The Human Executor signed the on-chain attestation based on this self-verification. This creates a governance gap: there is no independent verification step between condition generation and condition satisfaction claims. The smart contract records hashes, not content — it proves THAT a record was attested, not THAT the claims within it are true. This proposal adds two capabilities to the governance engine: (1) A --verify-conditions flag on evaluate.py that accepts an execution record JSON and re-evaluates whether the stated conditions are actually met by examining current repository state, file contents, and hashes. (2) A pre-attestation check that runs the verification before the Human Executor signs, producing a machine-readable pass/fail report. This is not a full re-evaluation (which would cost API credits). It is a targeted, automated check that can run locally without API calls for most condition types (file existence, hash verification, content validation).",
+  "governanceGap": {
+    "identified": "2026-03-24",
+    "identifiedBy": "Human Executor (Jonathan)",
+    "description": "No separation of concerns between condition generation and condition satisfaction verification. Self-verification by the same entity that generated the conditions.",
+    "precedent": "Decision #3 — Corpus Ratification v2 MODIFY conditions verified by same Claude instance"
+  },
+  "proposedChanges": [
+    {
+      "component": "governance-engine/evaluate.py",
+      "change": "Add --verify-conditions flag that accepts an execution record JSON path and validates each stated condition against current repo state"
+    },
+    {
+      "component": "governance-engine/verify.py (new)",
+      "change": "Standalone verification script that checks: file existence, content hash matching, corpus manifest integrity, and other machine-verifiable conditions without requiring API calls"
+    },
+    {
+      "component": "governance-engine/.github/workflows/governance.yml",
+      "change": "Add verification step before attestation in the CI pipeline"
+    }
+  ],
+  "verificationTypes": [
+    {
+      "type": "hash_match",
+      "description": "Verify that a file's current keccak256 hash matches a claimed hash",
+      "apiRequired": false
+    },
+    {
+      "type": "file_exists",
+      "description": "Verify that a file exists at a claimed path",
+      "apiRequired": false
+    },
+    {
+      "type": "content_validation",
+      "description": "Verify that file content matches its metadata (e.g., paper title matches actual content)",
+      "apiRequired": false,
+      "method": "Check first N lines for title/author metadata consistency"
+    },
+    {
+      "type": "corpus_integrity",
+      "description": "Verify all corpus files match manifest hashes and metadata headers match content",
+      "apiRequired": false
+    },
+    {
+      "type": "semantic_verification",
+      "description": "For conditions requiring judgment (e.g., 'adequate diversity'), use API call for independent re-assessment",
+      "apiRequired": true,
+      "note": "Only used when machine-verifiable checks are insufficient"
+    }
+  ],
+  "costImpact": "Minimal. Most verification types are local file operations with zero API cost. Semantic verification is the exception and should be used sparingly.",
+  "action": "Implement verify.py, update evaluate.py with --verify-conditions flag, update CI workflow, and run retroactive verification on Decision #3 execution record as validation test."
+}
