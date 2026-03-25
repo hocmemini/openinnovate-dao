@@ -1,871 +1,732 @@
 {
   "files": [
     {
-      "path": "tier-1-governance/buffett-letters/1977.txt",
-      "tier": "tier-1-governance",
-      "size": 8878,
-      "hash": "0x8421335ef32ff167321ff493acc5884e8c10fe3a0b83e57dd761d8cdb7344c4c"
-    },
-    {
-      "path": "tier-1-governance/buffett-letters/1978.txt",
-      "tier": "tier-1-governance",
-      "size": 12969,
-      "hash": "0xe6403af1ef8667e273d598d511838261280b80e7a6a6e2aa79a0fadcd7d5478e"
-    },
-    {
-      "path": "tier-1-governance/buffett-letters/1979.txt",
-      "tier": "tier-1-governance",
-      "size": 17792,
-      "hash": "0xb3cab3b646c6566cf227c25b37015fe8f0112d79f4f7ba554ddaf812aa867dd0"
-    },
-    {
-      "path": "tier-1-governance/buffett-letters/1980.txt",
-      "tier": "tier-1-governance",
-      "size": 14156,
-      "hash": "0x8ba6aef77adaa6243ff132834a743c6d6dec2f179252a5415fe8f3fcbd42b923"
-    },
-    {
-      "path": "tier-1-governance/buffett-letters/1981.txt",
-      "tier": "tier-1-governance",
-      "size": 44874,
-      "hash": "0xfcefb53f4cdcb095d60637a19ade27af8c1aaebafc430251459f5b4ec43906af"
-    },
-    {
-      "path": "tier-1-governance/buffett-letters/1982.txt",
-      "tier": "tier-1-governance",
-      "size": 52474,
-      "hash": "0x5bbf6f73db827910acd32e969716b475c6833d5bfe10180d5ae5991b8ce71b9c"
-    },
-    {
-      "path": "tier-1-governance/buffett-letters/1983.txt",
-      "tier": "tier-1-governance",
-      "size": 25920,
-      "hash": "0x7822ded825ab315678998b3b6a767d9520827f7b9a4d753c3b289f956cacdd1c"
-    },
-    {
-      "path": "tier-1-governance/buffett-letters/1984.txt",
-      "tier": "tier-1-governance",
-      "size": 82240,
-      "hash": "0x36107eeafd15b747392486cbf5542fffe34f81cfdacfc309d709a8f3e706c63a"
-    },
-    {
-      "path": "tier-1-governance/buffett-letters/1985.txt",
-      "tier": "tier-1-governance",
-      "size": 36279,
-      "hash": "0x91e4cacef9c2558cebfbe0db39dc061142b8033b975336abfb7ff0453f8c70c2"
-    },
-    {
-      "path": "tier-1-governance/buffett-letters/1986.txt",
-      "tier": "tier-1-governance",
-      "size": 26218,
-      "hash": "0xc5c1f84cf70aa597a12973809f41acab1b2eff622431ca649cb9c5ecf53573b2"
-    },
-    {
-      "path": "tier-1-governance/buffett-letters/1987.txt",
-      "tier": "tier-1-governance",
-      "size": 23613,
-      "hash": "0x6e24f1824b887413029e713adbfab3af0273536fe8859c90510af78102fd36a5"
-    },
-    {
-      "path": "tier-1-governance/buffett-letters/1988.txt",
-      "tier": "tier-1-governance",
-      "size": 75143,
-      "hash": "0xc13f4cb0b75280cd8c06b564632d1025f830c7d7d4a3d6f11046f5387738ff7d"
-    },
-    {
-      "path": "tier-1-governance/buffett-letters/1989.txt",
-      "tier": "tier-1-governance",
-      "size": 33615,
-      "hash": "0xfac9a7d74122f3974d414cc215177b812a12f2d4fe63cae1e65c707db0f12603"
-    },
-    {
-      "path": "tier-1-governance/buffett-letters/1990.txt",
-      "tier": "tier-1-governance",
-      "size": 96509,
-      "hash": "0x4464f4097e5bf25a04ab67a4388106256d397aa32bd7378ee6296d72a44fcd57"
-    },
-    {
-      "path": "tier-1-governance/buffett-letters/1991.txt",
-      "tier": "tier-1-governance",
-      "size": 24551,
-      "hash": "0xb1a39d50bec789838e9dbfce451269c17b6a7def2fefb5b8b57e24f9a1a487c0"
-    },
-    {
-      "path": "tier-1-governance/buffett-letters/1992.txt",
-      "tier": "tier-1-governance",
-      "size": 27595,
-      "hash": "0x44a515525193d4a60c1d9e84940c33fa0661b0f59d86216e9d90e5f2e9e16f17"
-    },
-    {
-      "path": "tier-1-governance/buffett-letters/1993.txt",
-      "tier": "tier-1-governance",
-      "size": 69842,
-      "hash": "0x836b3668815537d7822cb9aa94b252197f44e8c21ba4aa0f8177cbd94aa9576c"
-    },
-    {
-      "path": "tier-1-governance/buffett-letters/1994.txt",
-      "tier": "tier-1-governance",
-      "size": 60563,
-      "hash": "0x684b49c0ea5e1f2f2fe7772367e2b8c5c9951187f47c0e491d0c85a9d5cbb94a"
-    },
-    {
-      "path": "tier-1-governance/buffett-letters/1995.txt",
-      "tier": "tier-1-governance",
-      "size": 73504,
-      "hash": "0x5e43dcdeee6c4a300449275862a44f4b55a63c3465abb8106c1a415a0ea335dc"
-    },
-    {
-      "path": "tier-1-governance/buffett-letters/1996.txt",
-      "tier": "tier-1-governance",
-      "size": 73828,
-      "hash": "0x25478f0978256cddfe746c0f40369b2e87366c9ae3b13d9c5905dbca188e46b2"
-    },
-    {
-      "path": "tier-1-governance/buffett-letters/1997.txt",
-      "tier": "tier-1-governance",
-      "size": 23570,
-      "hash": "0x797ff0e5ca68c341686434feca89eb194e204d25fa25a699cdbe25583625d980"
-    },
-    {
-      "path": "tier-1-governance/buffett-letters/1998.txt",
-      "tier": "tier-1-governance",
-      "size": 71504,
-      "hash": "0x74a15b9ab8bed197f487267125fe23b8425f6b77055a644efadb1e5ddf7c0a1a"
-    },
-    {
-      "path": "tier-1-governance/buffett-letters/1999.txt",
-      "tier": "tier-1-governance",
-      "size": 77532,
-      "hash": "0x55dc4c880f2f331582de5f7deb0938888b43f9e7293e698feed477af292b26f9"
-    },
-    {
-      "path": "tier-1-governance/buffett-letters/2000.txt",
-      "tier": "tier-1-governance",
-      "size": 83984,
-      "hash": "0x1761aa8528a0cb217ac2a353a09270fe1e09aa10ea6737ae594e89808811f6c0"
-    },
-    {
-      "path": "tier-1-governance/buffett-letters/2001.txt",
-      "tier": "tier-1-governance",
-      "size": 78470,
-      "hash": "0x1dbb590ce48e9639e1fa2762983f17230bea212ea43911c08c6545da26b28173"
-    },
-    {
-      "path": "tier-1-governance/buffett-letters/2002.txt",
-      "tier": "tier-1-governance",
-      "size": 93708,
-      "hash": "0x7e7559015390b41d05815231f2a346b7d7482e6662800c86e09655dc6b1059d0"
-    },
-    {
-      "path": "tier-1-governance/buffett-letters/2003.txt",
-      "tier": "tier-1-governance",
-      "size": 87930,
-      "hash": "0x57842e4f5bf1a905f70eee2f9d43492c401da74b7ed53c873478ed903ddb61a9"
-    },
-    {
-      "path": "tier-1-governance/buffett-letters/2004.txt",
-      "tier": "tier-1-governance",
-      "size": 100346,
-      "hash": "0x2f203fb7fd64e9d7e3c5bb2f1c195e4c9ecb250ce16fbf1afe465f54b38b9db2"
-    },
-    {
-      "path": "tier-1-governance/buffett-letters/2005.txt",
-      "tier": "tier-1-governance",
-      "size": 89275,
-      "hash": "0x2e9905f5c99fc826539fe262de576816a61552011f2747338d480f549c8239a0"
-    },
-    {
-      "path": "tier-1-governance/buffett-letters/2006.txt",
-      "tier": "tier-1-governance",
-      "size": 95331,
-      "hash": "0x61e8a9c97653989346d77dd8cc3c5dae940ae0488dc9df0c6203497c183522c5"
-    },
-    {
-      "path": "tier-1-governance/buffett-letters/2007.txt",
-      "tier": "tier-1-governance",
-      "size": 81377,
-      "hash": "0xfdecc7f7379a777b0a918f832b26ca097c2754500a38b7c0c3259fd99f7d9e11"
-    },
-    {
-      "path": "tier-1-governance/buffett-letters/2008.txt",
-      "tier": "tier-1-governance",
-      "size": 89978,
-      "hash": "0xba43f4938082471179aac8aed87cb10fcfc20a16ee839f1fde77b3cd68dc1959"
-    },
-    {
-      "path": "tier-1-governance/buffett-letters/2009.txt",
-      "tier": "tier-1-governance",
-      "size": 77796,
-      "hash": "0xf40813036172a72123510c9fb1a34d49e2a17bf5db700a7c8f53463e893dad78"
-    },
-    {
-      "path": "tier-1-governance/buffett-letters/2010.txt",
-      "tier": "tier-1-governance",
-      "size": 104379,
-      "hash": "0x0942cfff37b3aace7fac148058afbe6a25c5ec390f40c22215a1524e134d3e8d"
-    },
-    {
-      "path": "tier-1-governance/buffett-letters/2011.txt",
-      "tier": "tier-1-governance",
-      "size": 94084,
-      "hash": "0xb629b6b5ead61e43ff7447ddf1234d50ce791eb70038c27f7d00e531fd53c3e3"
-    },
-    {
-      "path": "tier-1-governance/buffett-letters/2012.txt",
-      "tier": "tier-1-governance",
-      "size": 94475,
-      "hash": "0x0f05e62b7e67bf25a7854ba6937b7af2b536951c9e8cfd379daeb44454d710f7"
-    },
-    {
-      "path": "tier-1-governance/buffett-letters/2013.txt",
-      "tier": "tier-1-governance",
-      "size": 90769,
-      "hash": "0xd377332ac4b46604725147ed7334b0c83c616aca3472f4b60428fb90bac9e03b"
-    },
-    {
-      "path": "tier-1-governance/buffett-letters/2014.txt",
-      "tier": "tier-1-governance",
-      "size": 156133,
-      "hash": "0xa2dd2ce4f816f1ff803d9ce09b19c1fa6735d6cac410ae1fa9e3ef405076c1b9"
-    },
-    {
-      "path": "tier-1-governance/buffett-letters/2015.txt",
-      "tier": "tier-1-governance",
-      "size": 113011,
-      "hash": "0xe5b0798f2ffb33edddd51896f1366363cf047126fee2c954ce56db212187b9e7"
-    },
-    {
-      "path": "tier-1-governance/buffett-letters/2016.txt",
-      "tier": "tier-1-governance",
-      "size": 105162,
-      "hash": "0xdc6bd72946952780b4d2309b8fea119a3629985aaf3d88decef0f74322150225"
-    },
-    {
-      "path": "tier-1-governance/buffett-letters/2017.txt",
-      "tier": "tier-1-governance",
-      "size": 62435,
-      "hash": "0xbbfa4ce8620be0d83ff1d4ff459fd66c1e8b40b7026722ed89d282921edc9621"
-    },
-    {
-      "path": "tier-1-governance/buffett-letters/2018.txt",
-      "tier": "tier-1-governance",
-      "size": 51673,
-      "hash": "0x6dff81c35443c8504bb90c93e99ba670c420b86eaef165d362f1dc3766e2a259"
-    },
-    {
-      "path": "tier-1-governance/buffett-letters/2019.txt",
-      "tier": "tier-1-governance",
-      "size": 53651,
-      "hash": "0x7ff34842a5e38f541c0136b1e394e549e606cbd1b064aa2fcef4aa536ad767d3"
-    },
-    {
-      "path": "tier-1-governance/buffett-letters/2020.txt",
-      "tier": "tier-1-governance",
-      "size": 54044,
-      "hash": "0x88812720a2730352310803273b97990442b7e4af445da4b70419bb0165d7b575"
-    },
-    {
-      "path": "tier-1-governance/buffett-letters/2021.txt",
-      "tier": "tier-1-governance",
-      "size": 41449,
-      "hash": "0xde552b3d9e1ef02a69194994331bea317f3098ef6d5fd16dfdd82272a8745d27"
-    },
-    {
-      "path": "tier-1-governance/buffett-letters/2022.txt",
-      "tier": "tier-1-governance",
-      "size": 31407,
-      "hash": "0x4c070a9f3754881dd632abe35c706fa00b8e08c54d20530e4f40c26af8ea9fec"
-    },
-    {
-      "path": "tier-1-governance/buffett-letters/2023.txt",
-      "tier": "tier-1-governance",
-      "size": 51445,
-      "hash": "0x19348c829d448f71b652b696b7318066f5e11b76b17a9665cda94269eb62b669"
-    },
-    {
-      "path": "tier-1-governance/buffett-letters/2024.txt",
-      "tier": "tier-1-governance",
-      "size": 41229,
-      "hash": "0x8cece1e32ccee146b0335cb3804d7fbece5404b7cef5b9d68dba493fa08e6130"
+      "path": "weights.json",
+      "sha256": "d74eda5bd35cbd6cfaaa6148b329aeb7f9f95b54aa52b9458c8fb4d7c8317498",
+      "bytes": 265
     },
     {
       "path": "tier-1-governance/buffett-owners-manual.txt",
-      "tier": "tier-1-governance",
-      "size": 29826,
-      "hash": "0x0216e4f62e50f3b91f51a0267c76fb1ef8add2adb30c0738c7ce6b5bf8ea7c79"
+      "sha256": "3f456694a977ede9acea32f1046754ec1f88ea5619e5eb7df8a0ca6c92dc2e34",
+      "bytes": 29826
     },
     {
       "path": "tier-1-governance/munger-psychology-misjudgment.txt",
-      "tier": "tier-1-governance",
-      "size": 151542,
-      "hash": "0x6fee5e2789320b3f1692d1252018fcc1b6581865069da52c225bbee959cc3aaf"
+      "sha256": "60c9108e5244caa4406c018598a2a42d12a20b94041945338d25bddee047b04b",
+      "bytes": 151542
     },
     {
-      "path": "tier-2-civic/federalist-papers/fed01.txt",
-      "tier": "tier-2-civic",
-      "size": 9938,
-      "hash": "0x1a8a921cc9eadd69f0f69b85c9a8587bf4ca4aa254a2db28931c1d3dd07406e7"
+      "path": "tier-1-governance/buffett-letters/1977.txt",
+      "sha256": "ec98d414267b408760df7c95fc4bc964c06d0195767fe42a5e87cc4292a63dc3",
+      "bytes": 20804
     },
     {
-      "path": "tier-2-civic/federalist-papers/fed02.txt",
-      "tier": "tier-2-civic",
-      "size": 10561,
-      "hash": "0xfda01ec6febea3fdf19d677e9f20a135f26890c3c3a783aeb50def293282ceab"
+      "path": "tier-1-governance/buffett-letters/1978.txt",
+      "sha256": "048db378ec0432936082bbf8121f28f59b175aa1c2ea6b4965a0d41696f7c5e0",
+      "bytes": 29735
     },
     {
-      "path": "tier-2-civic/federalist-papers/fed03.txt",
-      "tier": "tier-2-civic",
-      "size": 9231,
-      "hash": "0x06d4b10a61396e25df2b30dcc0426d00c523193d6eb80f8a0638f29091c4defa"
+      "path": "tier-1-governance/buffett-letters/1979.txt",
+      "sha256": "550ead27751197b7a10d46a397eed4f3a121f64e87b5b1031bfc041d487b0ce3",
+      "bytes": 43269
     },
     {
-      "path": "tier-2-civic/federalist-papers/fed04.txt",
-      "tier": "tier-2-civic",
-      "size": 10208,
-      "hash": "0xee2a0bace5010b4ccedd71aab191759e6b9d26581147994640b5f6039beb8fa2"
+      "path": "tier-1-governance/buffett-letters/1980.txt",
+      "sha256": "e3a19e32568a7ca6c16f80e54517d60ee25bc28170b8d4d3553e04d770a5e389",
+      "bytes": 49548
     },
     {
-      "path": "tier-2-civic/federalist-papers/fed05.txt",
-      "tier": "tier-2-civic",
-      "size": 8729,
-      "hash": "0x3c6558a97beaa930ec57c501b2e26b2ef8d3436370c25f9c62822e9a73c9cded"
+      "path": "tier-1-governance/buffett-letters/1981.txt",
+      "sha256": "c5058882b9dc8cf5f2cd8986348136ad52540cd95e50670e564addbb9550f58a",
+      "bytes": 44874
     },
     {
-      "path": "tier-2-civic/federalist-papers/fed06.txt",
-      "tier": "tier-2-civic",
-      "size": 14171,
-      "hash": "0x4b199324889bb8df7143a95aaed9cc886e778aeed11cc18e4513661753a8b1af"
+      "path": "tier-1-governance/buffett-letters/1982.txt",
+      "sha256": "ca3c5a753fa718066bfda251142f5b147ab2e928f80e7454328b6c8f8daa4f1b",
+      "bytes": 52474
     },
     {
-      "path": "tier-2-civic/federalist-papers/fed07.txt",
-      "tier": "tier-2-civic",
-      "size": 14634,
-      "hash": "0x584dba19c90347595a6730b8ba03cebe5e3cef20178c6b09954ac3a685e1bee8"
+      "path": "tier-1-governance/buffett-letters/1983.txt",
+      "sha256": "af89ef0ec305f9133dbc1ad2ab8c106b00f718684004df7f1720aece61cba125",
+      "bytes": 74945
     },
     {
-      "path": "tier-2-civic/federalist-papers/fed08.txt",
-      "tier": "tier-2-civic",
-      "size": 13002,
-      "hash": "0x70e644b9eb2b33145f54584d533941d131ca11ea9bb8c1df1c3200a5c987657f"
+      "path": "tier-1-governance/buffett-letters/1984.txt",
+      "sha256": "e1db8a3c6d82488ec2777e3152d7afe7df87e514b176632fe308443e76625a73",
+      "bytes": 82240
     },
     {
-      "path": "tier-2-civic/federalist-papers/fed09.txt",
-      "tier": "tier-2-civic",
-      "size": 12601,
-      "hash": "0x364b4cd96a2d3d619538649381006436b56c7fe61ebd212eba3cc97a8e51be13"
+      "path": "tier-1-governance/buffett-letters/1985.txt",
+      "sha256": "0480c8f16bdc31732dd0cc4d8209bf7ae44280ab999df1c51817d80d9773ccd0",
+      "bytes": 87252
     },
     {
-      "path": "tier-2-civic/federalist-papers/fed10.txt",
-      "tier": "tier-2-civic",
-      "size": 18588,
-      "hash": "0xf18aa5b263960aa7535b13b641f036eafa4917e0b19829ff16f16586cc155506"
+      "path": "tier-1-governance/buffett-letters/1986.txt",
+      "sha256": "1c22f7ef7c06bac732e71a31f5baa8b8b5d99fd37753749dc540506592aaadbc",
+      "bytes": 88994
     },
     {
-      "path": "tier-2-civic/federalist-papers/fed11.txt",
-      "tier": "tier-2-civic",
-      "size": 15592,
-      "hash": "0x2c5c44f12506363695c5f2cc2ccb018cee222c60613f87bb624ae8ad02771c6f"
+      "path": "tier-1-governance/buffett-letters/1987.txt",
+      "sha256": "bcf040871d3cdc996d037cf32738c12d9505e7281af956f104052710f3a96f44",
+      "bytes": 79392
     },
     {
-      "path": "tier-2-civic/federalist-papers/fed12.txt",
-      "tier": "tier-2-civic",
-      "size": 13490,
-      "hash": "0xb0d52acfa83eba64a8c5531698d9658f244c2799b7c2434ed19b7e2a8de7b967"
+      "path": "tier-1-governance/buffett-letters/1988.txt",
+      "sha256": "6ee60640e711732b14136b08082d7abdb82a1e2c3f6ee1cbc5ae15692376e0ba",
+      "bytes": 75143
     },
     {
-      "path": "tier-2-civic/federalist-papers/fed13.txt",
-      "tier": "tier-2-civic",
-      "size": 6201,
-      "hash": "0x3b725ba65b4e5251525b4107780f1ed2027593a18c1ccda38fe39b5d4f292ed4"
+      "path": "tier-1-governance/buffett-letters/1989.txt",
+      "sha256": "b597adfe126abdf9d396591ddfed749de4edc56b583b547ebbd6a52416b20a74",
+      "bytes": 90198
     },
     {
-      "path": "tier-2-civic/federalist-papers/fed14.txt",
-      "tier": "tier-2-civic",
-      "size": 13256,
-      "hash": "0xb8e5eef79b939b46678f98fa10a67d2a1de51a7db88c4e62af59b29676192208"
+      "path": "tier-1-governance/buffett-letters/1990.txt",
+      "sha256": "0e4c323ecb6d7c50b9eb02feb7a8b1acdeac2924248d9ec9d89c2cf5a8757232",
+      "bytes": 96509
     },
     {
-      "path": "tier-2-civic/federalist-papers/fed15.txt",
-      "tier": "tier-2-civic",
-      "size": 19002,
-      "hash": "0xa9ce366fe2991c81bb450250f9f1a62bc5447d32411f255d87dd9ce07b6bd355"
+      "path": "tier-1-governance/buffett-letters/1991.txt",
+      "sha256": "35b24cb46d961a202f2b52a3df64c151ac4454972fe4267085742f2e76b81885",
+      "bytes": 60583
     },
     {
-      "path": "tier-2-civic/federalist-papers/fed16.txt",
-      "tier": "tier-2-civic",
-      "size": 12686,
-      "hash": "0xd77135569ad9d34f7d931356d7866e33349577dc679c63cb7aaa13452ffa8656"
+      "path": "tier-1-governance/buffett-letters/1992.txt",
+      "sha256": "61fbf74f141446d7e4e7d8f41075d7438266a9093dd3b4ce4fce1ff0e19632f7",
+      "bytes": 73415
     },
     {
-      "path": "tier-2-civic/federalist-papers/fed17.txt",
-      "tier": "tier-2-civic",
-      "size": 10230,
-      "hash": "0xa5eec92ac35ca1b9cc663f8b7a1abcfef7509ca31991262db41803adbdccfbc0"
+      "path": "tier-1-governance/buffett-letters/1993.txt",
+      "sha256": "268be5ec5915d3bcf5c1f5157a3b23a5ddf5e679f858f195a7cb87411c781d78",
+      "bytes": 69842
     },
     {
-      "path": "tier-2-civic/federalist-papers/fed18.txt",
-      "tier": "tier-2-civic",
-      "size": 13636,
-      "hash": "0xe506ddc0bace8c24865cf1d38b48da893fcb9d91797ca0a5434d20a4715083c1"
+      "path": "tier-1-governance/buffett-letters/1994.txt",
+      "sha256": "7fd094bc06e65a1357962e4d313d41cf816802a6eddf449ff86640a9e88ea08b",
+      "bytes": 60563
     },
     {
-      "path": "tier-2-civic/federalist-papers/fed19.txt",
-      "tier": "tier-2-civic",
-      "size": 13336,
-      "hash": "0x68dedd742158dd72b0fe5c99e2cd82531051d33c0effd5cb65426a09b6487acf"
+      "path": "tier-1-governance/buffett-letters/1995.txt",
+      "sha256": "8bfe38506417a3ed897a0a5fbfc18c76f16bac5aeb2bedca6bd0e6e3064e8153",
+      "bytes": 73504
     },
     {
-      "path": "tier-2-civic/federalist-papers/fed20.txt",
-      "tier": "tier-2-civic",
-      "size": 10247,
-      "hash": "0x5389caef162fa2352f977ecb7c924eba9a06ff2f56a6260ca266d4961d7ae371"
+      "path": "tier-1-governance/buffett-letters/1996.txt",
+      "sha256": "6136ea80eaae04f0eefc56b8934574a2621858aa81645cbae637131ed1d081c4",
+      "bytes": 73828
     },
     {
-      "path": "tier-2-civic/federalist-papers/fed21.txt",
-      "tier": "tier-2-civic",
-      "size": 12468,
-      "hash": "0x14d94a16ae9b4e5c9e12b0b8fd1f17222c6f52f6c59e992d21de42afc9635c3e"
+      "path": "tier-1-governance/buffett-letters/1997.txt",
+      "sha256": "eb688c1b900b5319fdf1f51bf75ff288f4f4d898769241f3687ee91a587c33af",
+      "bytes": 74753
     },
     {
-      "path": "tier-2-civic/federalist-papers/fed22.txt",
-      "tier": "tier-2-civic",
-      "size": 21852,
-      "hash": "0x12a54106169b661adcb4a2b73262315af10acc2c5a939e580b74b32048b4a538"
+      "path": "tier-1-governance/buffett-letters/1998.txt",
+      "sha256": "2a032f0fde99347e61d49d8e4fbca88e0027faaae35577591dc82f36b633b84c",
+      "bytes": 71504
     },
     {
-      "path": "tier-2-civic/federalist-papers/fed23.txt",
-      "tier": "tier-2-civic",
-      "size": 11307,
-      "hash": "0xdd6dc464b41b2a79c9e2d632577716c1739d898a8007df6b667b9cd8e49abd4a"
+      "path": "tier-1-governance/buffett-letters/1999.txt",
+      "sha256": "1555c7efcade82de7d670e1c1525d171d852216516b30a35faa6597f9301d81e",
+      "bytes": 77532
     },
     {
-      "path": "tier-2-civic/federalist-papers/fed24.txt",
-      "tier": "tier-2-civic",
-      "size": 12465,
-      "hash": "0x37aa05dd9749ed55386bfc7d2d1ff0e9e2cc5eddadfe1c16a87e2593c0c5d169"
+      "path": "tier-1-governance/buffett-letters/2000.txt",
+      "sha256": "8ec28d6be248a80bdb78ff7f0076a578f911940ea9772974bdb110676339a702",
+      "bytes": 83984
     },
     {
-      "path": "tier-2-civic/federalist-papers/fed25.txt",
-      "tier": "tier-2-civic",
-      "size": 12218,
-      "hash": "0x5237c20c0b6c6a76c6f9039d2ccfb7cc99256af814d876ae915bacb88612e9b5"
+      "path": "tier-1-governance/buffett-letters/2001.txt",
+      "sha256": "954321f16d62242fdb6a4b7e97928b519005e0fbf6756a742e2570ed40e72898",
+      "bytes": 78470
     },
     {
-      "path": "tier-2-civic/federalist-papers/fed26.txt",
-      "tier": "tier-2-civic",
-      "size": 14501,
-      "hash": "0x4c6d24ad9a258208c4fdf0246b77314be154dea32304bf2d208dcb9f7b46a88b"
+      "path": "tier-1-governance/buffett-letters/2002.txt",
+      "sha256": "3348f34420db468da0a888dd3125126630aa25999b0e79c8472e1b2a9a1e16f2",
+      "bytes": 93708
     },
     {
-      "path": "tier-2-civic/federalist-papers/fed27.txt",
-      "tier": "tier-2-civic",
-      "size": 9160,
-      "hash": "0x50031b023dbcb4e23b9ae5c204aab17e67934438d19deeb0d6f2887c851c08bc"
+      "path": "tier-1-governance/buffett-letters/2003.txt",
+      "sha256": "b6f107177b4439baebf684d5d1793733cb59da7306f3babf375effbd4bcbb197",
+      "bytes": 87930
     },
     {
-      "path": "tier-2-civic/federalist-papers/fed28.txt",
-      "tier": "tier-2-civic",
-      "size": 10113,
-      "hash": "0xe15e3da3c5f3915357d4449d2eb25deec7cd8620ff483433d9a480715f643302"
+      "path": "tier-1-governance/buffett-letters/2004.txt",
+      "sha256": "3e476fda33f409def649420001d0b20e839459f43081ba1ae2f5133292ac9ec2",
+      "bytes": 100346
     },
     {
-      "path": "tier-2-civic/federalist-papers/fed29.txt",
-      "tier": "tier-2-civic",
-      "size": 13437,
-      "hash": "0x28d242a46d68c457011a60b9da90b1fe5161357044c7d5afa0b5dea0bdba00fe"
+      "path": "tier-1-governance/buffett-letters/2005.txt",
+      "sha256": "67977c248afb57422594f75e57f2c3a41b90f333abf3029b53c15646860efb4a",
+      "bytes": 89275
     },
     {
-      "path": "tier-2-civic/federalist-papers/fed30.txt",
-      "tier": "tier-2-civic",
-      "size": 12149,
-      "hash": "0xdb0e28f1bcc2e05c00cedd8d839cf6b4c1d8e0a02a0d640ec8861268b02bb6a7"
+      "path": "tier-1-governance/buffett-letters/2006.txt",
+      "sha256": "3972357664ff7791c5b7d06eb1a2c58c0d3bd8bce1d70d5d255decce30760721",
+      "bytes": 95331
     },
     {
-      "path": "tier-2-civic/federalist-papers/fed31.txt",
-      "tier": "tier-2-civic",
-      "size": 10744,
-      "hash": "0x6b9e9d66e598686616334a78f6940d97816e21934aba9888f30d092967732ee1"
+      "path": "tier-1-governance/buffett-letters/2007.txt",
+      "sha256": "58a770cd9d045fddd64b411ef2ecec35ae9013d96edb28648db5ae5d441d0a65",
+      "bytes": 81377
     },
     {
-      "path": "tier-2-civic/federalist-papers/fed32.txt",
-      "tier": "tier-2-civic",
-      "size": 9321,
-      "hash": "0xd5bc97878898cfd21f827e2238278a5e9e296ffc475012cf9878ff434da89c60"
+      "path": "tier-1-governance/buffett-letters/2008.txt",
+      "sha256": "06a96343d1047c42ae96a800122a8627991f83f9b5644a9cd7edefa049e83385",
+      "bytes": 89978
     },
     {
-      "path": "tier-2-civic/federalist-papers/fed33.txt",
-      "tier": "tier-2-civic",
-      "size": 10307,
-      "hash": "0xa660724d0ecab775c7cd18d5ad156ed4c398e25c57b9503dde53ad5a66a54895"
+      "path": "tier-1-governance/buffett-letters/2009.txt",
+      "sha256": "ae49f51ee014a9e78315e3baa83f97322e6a19bba28d544e8b3307d11612b04d",
+      "bytes": 77796
     },
     {
-      "path": "tier-2-civic/federalist-papers/fed34.txt",
-      "tier": "tier-2-civic",
-      "size": 13443,
-      "hash": "0x8c3d3ae9635c5a435112edfbc2146c994e0d39093afa1de80b8c62491b31cec3"
+      "path": "tier-1-governance/buffett-letters/2010.txt",
+      "sha256": "c24d83648c717aa567f28b2ab36d08b1cab0f5e50744fc680375fcd200f10bc9",
+      "bytes": 104379
     },
     {
-      "path": "tier-2-civic/federalist-papers/fed35.txt",
-      "tier": "tier-2-civic",
-      "size": 13818,
-      "hash": "0x3ae2b584311d00a4e07d7ee7aa0d9aa64b7248618878552e0f230f5894efed6a"
+      "path": "tier-1-governance/buffett-letters/2011.txt",
+      "sha256": "ae08934d54e28db9fe23828b0a2d87b29b00318ac39649fc4338d318f147f211",
+      "bytes": 94084
     },
     {
-      "path": "tier-2-civic/federalist-papers/fed36.txt",
-      "tier": "tier-2-civic",
-      "size": 16514,
-      "hash": "0x6f709cfe973d02a87ee9a4adbb77485c529c093d1729322297f856e55459bbbe"
+      "path": "tier-1-governance/buffett-letters/2012.txt",
+      "sha256": "a52134386081584d444b3303f9dd6476d2d4d760f5a5e32dbc2a3306eeb4ad17",
+      "bytes": 94475
     },
     {
-      "path": "tier-2-civic/federalist-papers/fed37.txt",
-      "tier": "tier-2-civic",
-      "size": 17171,
-      "hash": "0xe5ec0229121246e56fce61a7e1510389991f8aa4d62f302162be6190a3d763c4"
+      "path": "tier-1-governance/buffett-letters/2013.txt",
+      "sha256": "15078201281fd0e9de4960b1d81ffd7d94420b9e10b18ce627e6e40102437fe9",
+      "bytes": 90769
     },
     {
-      "path": "tier-2-civic/federalist-papers/fed38.txt",
-      "tier": "tier-2-civic",
-      "size": 20039,
-      "hash": "0x30289a9035c6e9ba39c1cc59427ca760fce5361d08cefde000347647076d9555"
+      "path": "tier-1-governance/buffett-letters/2014.txt",
+      "sha256": "d2b41e4b9d4eacb3e4992cdcbc1fdccd1564f487d575466d908bcec8c432f30f",
+      "bytes": 156133
     },
     {
-      "path": "tier-2-civic/federalist-papers/fed39.txt",
-      "tier": "tier-2-civic",
-      "size": 16041,
-      "hash": "0x28b64057d5e207e463a27c7d41d49fcc8e0c9f8ab39a4c51c77c046eaa2121c2"
+      "path": "tier-1-governance/buffett-letters/2015.txt",
+      "sha256": "993bb878fe35f474bd37d69fb20487062c184f8ebd035b3b173780b76602635e",
+      "bytes": 113011
     },
     {
-      "path": "tier-2-civic/federalist-papers/fed40.txt",
-      "tier": "tier-2-civic",
-      "size": 18877,
-      "hash": "0x8866ef3115b595650def46278e812860434300b050d779222ec5bd256ee38196"
+      "path": "tier-1-governance/buffett-letters/2016.txt",
+      "sha256": "6c661fb7cb74f3297893d9b9c2da490a5f5e957b5ce8d4696fd3e1a1b1abd2c4",
+      "bytes": 105162
     },
     {
-      "path": "tier-2-civic/federalist-papers/fed41.txt",
-      "tier": "tier-2-civic",
-      "size": 21584,
-      "hash": "0x48427419d3d361d8da15ac90306706800c1aa70e1d029240c062206ba4c5a4ca"
+      "path": "tier-1-governance/buffett-letters/2017.txt",
+      "sha256": "fb629220b7831f8f8c30d7806e6114d3e2be30ceec32cc5e236c3baa869873f3",
+      "bytes": 62435
     },
     {
-      "path": "tier-2-civic/federalist-papers/fed42.txt",
-      "tier": "tier-2-civic",
-      "size": 17384,
-      "hash": "0x240f90cc47f5a2e191f527211b3b890f6abb0d6de13d7f27d1c213300298298b"
+      "path": "tier-1-governance/buffett-letters/2018.txt",
+      "sha256": "631800fe12cf0a550c5f2d250645906063f6e02d147531692f1783e2c833070e",
+      "bytes": 51673
     },
     {
-      "path": "tier-2-civic/federalist-papers/fed43.txt",
-      "tier": "tier-2-civic",
-      "size": 21199,
-      "hash": "0x5d93a77509e7048289bd5eba7c44390823577d0117d5cbe8a8849f62c7012cc0"
+      "path": "tier-1-governance/buffett-letters/2019.txt",
+      "sha256": "c72aff2c64d3f9bf1daff2817529a061dcbeb0693a2c40f33cd45cf6a27eeb7b",
+      "bytes": 53651
     },
     {
-      "path": "tier-2-civic/federalist-papers/fed44.txt",
-      "tier": "tier-2-civic",
-      "size": 17956,
-      "hash": "0x170baaea649338a45b7a387391228025c85f2200d53c03391e3f4ec649772348"
+      "path": "tier-1-governance/buffett-letters/2020.txt",
+      "sha256": "551e38641a3cdde112dcea928c9331aec17488d23cd4435955b25127c19d8a3d",
+      "bytes": 54044
     },
     {
-      "path": "tier-2-civic/federalist-papers/fed45.txt",
-      "tier": "tier-2-civic",
-      "size": 13367,
-      "hash": "0xcd95a6f0aed68eab1daa1aefb941b906ff7a8827a4eafe4ba17d4c32b47a1cf6"
+      "path": "tier-1-governance/buffett-letters/2021.txt",
+      "sha256": "a8d458e797309a46b1d96c970f859d220b194b529af574d39ffebe4c4d0fd6e7",
+      "bytes": 41449
     },
     {
-      "path": "tier-2-civic/federalist-papers/fed46.txt",
-      "tier": "tier-2-civic",
-      "size": 16250,
-      "hash": "0x809e3435954518152b8cb1f051a74878e3ba6c91a1e24f914041505ca8746417"
+      "path": "tier-1-governance/buffett-letters/2022.txt",
+      "sha256": "d9fc28b0ad72fb546acd1e9c409810434114ea101c41fce1738f6ba4ab3b2f56",
+      "bytes": 31407
     },
     {
-      "path": "tier-2-civic/federalist-papers/fed47.txt",
-      "tier": "tier-2-civic",
-      "size": 17446,
-      "hash": "0x556e25264f96f88a505654fadb16f0a3f11f2da1af9d9c58210e92e64dbfacda"
+      "path": "tier-1-governance/buffett-letters/2023.txt",
+      "sha256": "fa3716e7e9d122e8462f5e7c32e246a79e6e074c72d11a87e634b67c5fa77798",
+      "bytes": 51445
     },
     {
-      "path": "tier-2-civic/federalist-papers/fed48.txt",
-      "tier": "tier-2-civic",
-      "size": 12023,
-      "hash": "0xff593be91ef5a2e1ae67701ba65f6aba65acb6707fe2258f7876023d9ed00df7"
-    },
-    {
-      "path": "tier-2-civic/federalist-papers/fed49.txt",
-      "tier": "tier-2-civic",
-      "size": 10469,
-      "hash": "0xa3ef6655ffb7224029facb212d399ba794385436f74ddfa44046663daf72a762"
-    },
-    {
-      "path": "tier-2-civic/federalist-papers/fed50.txt",
-      "tier": "tier-2-civic",
-      "size": 7293,
-      "hash": "0x7cdc4c38f08364a95c668f50977dc59375b6bedd58d4624590dceb288c9542c1"
-    },
-    {
-      "path": "tier-2-civic/federalist-papers/fed51.txt",
-      "tier": "tier-2-civic",
-      "size": 12125,
-      "hash": "0x80ce6b02d89f5dbeae35ffa59d9faa9e1de10380a062c95afd06a5771ace71ab"
-    },
-    {
-      "path": "tier-2-civic/federalist-papers/fed52.txt",
-      "tier": "tier-2-civic",
-      "size": 11489,
-      "hash": "0xa3368d864136f4dfbe13b22aa2c39bc9d394076bd7c0c85d3f8ba5534c9211de"
-    },
-    {
-      "path": "tier-2-civic/federalist-papers/fed53.txt",
-      "tier": "tier-2-civic",
-      "size": 13509,
-      "hash": "0x551bc33869f33de97b489145135782b9cae70d27048aeb06ee78470743832547"
-    },
-    {
-      "path": "tier-2-civic/federalist-papers/fed54.txt",
-      "tier": "tier-2-civic",
-      "size": 12279,
-      "hash": "0xfe17018a80a4b2c6b4ac977c1fc94ceb55844c9051713b38db13b4bc84205a56"
-    },
-    {
-      "path": "tier-2-civic/federalist-papers/fed55.txt",
-      "tier": "tier-2-civic",
-      "size": 12511,
-      "hash": "0xc3030fbcf3d81293173a35fab54a1b8263f99cf3447b1cfeda519ddd8b11bcd6"
-    },
-    {
-      "path": "tier-2-civic/federalist-papers/fed56.txt",
-      "tier": "tier-2-civic",
-      "size": 10010,
-      "hash": "0x6cdadd3e816385434e5a8625d85494c439272b3e6d7cb11325f89ff4b54f7056"
-    },
-    {
-      "path": "tier-2-civic/federalist-papers/fed57.txt",
-      "tier": "tier-2-civic",
-      "size": 13544,
-      "hash": "0x68ae2d2c0429bc22a251a8b4034b96bc0e36090b990adc5365f7b3faec036435"
-    },
-    {
-      "path": "tier-2-civic/federalist-papers/fed58.txt",
-      "tier": "tier-2-civic",
-      "size": 13115,
-      "hash": "0x34be2e9c49a7a15d86f8c43ec5680bc1c342149f22554831941d81c579c8f02a"
-    },
-    {
-      "path": "tier-2-civic/federalist-papers/fed59.txt",
-      "tier": "tier-2-civic",
-      "size": 11707,
-      "hash": "0xee836698fc4332f6f22f8de0e384ecc3758dd0960a73e0acea744717146044bb"
-    },
-    {
-      "path": "tier-2-civic/federalist-papers/fed60.txt",
-      "tier": "tier-2-civic",
-      "size": 13807,
-      "hash": "0x0e1f3d263f0e87a02799fc4078d3fb1cd3b6f9f73818cb73fea025622489c7a6"
-    },
-    {
-      "path": "tier-2-civic/federalist-papers/fed61.txt",
-      "tier": "tier-2-civic",
-      "size": 9320,
-      "hash": "0x9f0a0aece7264b0dad0c9c7ecf8d79af3d5bf41d4c00bedc1a98fbc0e7d4cecf"
-    },
-    {
-      "path": "tier-2-civic/federalist-papers/fed62.txt",
-      "tier": "tier-2-civic",
-      "size": 14616,
-      "hash": "0xe214d1ef0eb2cc3e6eeba9c2ba4794a0bd9c431d8107344b5b47bbe4e8bcabf2"
-    },
-    {
-      "path": "tier-2-civic/federalist-papers/fed63.txt",
-      "tier": "tier-2-civic",
-      "size": 18759,
-      "hash": "0xbface0cf9c5f1e93667b37cca84a80c2de8bdb6cbba931749190a40f201921bf"
-    },
-    {
-      "path": "tier-2-civic/federalist-papers/fed64.txt",
-      "tier": "tier-2-civic",
-      "size": 13986,
-      "hash": "0x0b6866e3f50a0621549364485f4f213df5a9a7c622915a9bd50f252301342715"
-    },
-    {
-      "path": "tier-2-civic/federalist-papers/fed65.txt",
-      "tier": "tier-2-civic",
-      "size": 12313,
-      "hash": "0x4f09cc92559b9960b3a69a3772e7d2c4c0ad35e09f7e8de840d61b20e16f78e2"
-    },
-    {
-      "path": "tier-2-civic/federalist-papers/fed66.txt",
-      "tier": "tier-2-civic",
-      "size": 13831,
-      "hash": "0xcfb68f4839e5bd38c4b3ee65f0bb659bbf349539343eee611f45dab8e6306966"
-    },
-    {
-      "path": "tier-2-civic/federalist-papers/fed67.txt",
-      "tier": "tier-2-civic",
-      "size": 10391,
-      "hash": "0x5e2f3b58c6b2726d79bc8af03e61f627dd3ec0cd76b3f164254898f8c37d9b32"
-    },
-    {
-      "path": "tier-2-civic/federalist-papers/fed68.txt",
-      "tier": "tier-2-civic",
-      "size": 9240,
-      "hash": "0x95ba652dbacb1c702d92ee0fb15464d60ba5633900a87249c1898d05d863fc7d"
-    },
-    {
-      "path": "tier-2-civic/federalist-papers/fed69.txt",
-      "tier": "tier-2-civic",
-      "size": 17944,
-      "hash": "0x153706959f126da95547ef51f9db87b4b75cc583475df45009ae47cc1f4972a6"
-    },
-    {
-      "path": "tier-2-civic/federalist-papers/fed70.txt",
-      "tier": "tier-2-civic",
-      "size": 37993,
-      "hash": "0x6ff9e6ae8c5f9fc4de536834acf57a2abd8d07e94a929bc3073d582cc7f6d51e"
-    },
-    {
-      "path": "tier-2-civic/federalist-papers/fed71.txt",
-      "tier": "tier-2-civic",
-      "size": 10633,
-      "hash": "0x68e9fe69bf5927fd8bc25a22685bc145a49832ac5004f4452b96824ff7bd8377"
-    },
-    {
-      "path": "tier-2-civic/federalist-papers/fed72.txt",
-      "tier": "tier-2-civic",
-      "size": 12537,
-      "hash": "0x5d4149c3f63f3d6842cd784eb0a0969dd38c93307fdab72e5b442dbc974c8a33"
-    },
-    {
-      "path": "tier-2-civic/federalist-papers/fed73.txt",
-      "tier": "tier-2-civic",
-      "size": 14322,
-      "hash": "0xca39f6ca72ca88767452d2faf39c9e6741d25a92d8f597a827ade339805b55c2"
-    },
-    {
-      "path": "tier-2-civic/federalist-papers/fed74.txt",
-      "tier": "tier-2-civic",
-      "size": 6373,
-      "hash": "0x93d7c829d5745b785e2e990e48dae3b7d50052e3e800b1db931d227015e0df94"
-    },
-    {
-      "path": "tier-2-civic/federalist-papers/fed75.txt",
-      "tier": "tier-2-civic",
-      "size": 11800,
-      "hash": "0xeb830e13105a2f4d4385c80d41fc7cad50d56c2c55eee29f8fcba082c6e92f72"
-    },
-    {
-      "path": "tier-2-civic/federalist-papers/fed76.txt",
-      "tier": "tier-2-civic",
-      "size": 13823,
-      "hash": "0x66ead7d152de09df2f1f069948fe7bbd86feece3e5b8cf7b5fb7d4ccb073d556"
-    },
-    {
-      "path": "tier-2-civic/federalist-papers/fed77.txt",
-      "tier": "tier-2-civic",
-      "size": 12139,
-      "hash": "0x568653e35a9f595a4197332735739a17a559524bf9109d0c2b012a3cc87451b2"
-    },
-    {
-      "path": "tier-2-civic/federalist-papers/fed78.txt",
-      "tier": "tier-2-civic",
-      "size": 18774,
-      "hash": "0x65bdbb72d5c38a61c48f546de776f18616f7cf74a729464892e85a4aa5ce757a"
-    },
-    {
-      "path": "tier-2-civic/federalist-papers/fed79.txt",
-      "tier": "tier-2-civic",
-      "size": 6519,
-      "hash": "0x59a41bc88cbd8704733f3467bc611d44c061c5aaff045f01c90128730b11a5ef"
-    },
-    {
-      "path": "tier-2-civic/federalist-papers/fed80.txt",
-      "tier": "tier-2-civic",
-      "size": 15244,
-      "hash": "0xb7449338a8b98463ac91a0d73eff6b2171afa506522b693eb78c87559dd5cf6f"
-    },
-    {
-      "path": "tier-2-civic/federalist-papers/fed81.txt",
-      "tier": "tier-2-civic",
-      "size": 23419,
-      "hash": "0x56b3f8731f8fb4bcf46fc64d464a1f65b163ed9e95b7d6a5a87862a6bf87049b"
-    },
-    {
-      "path": "tier-2-civic/federalist-papers/fed82.txt",
-      "tier": "tier-2-civic",
-      "size": 9578,
-      "hash": "0x9bf41c4fd705498745d9d877d1d1b6d8e2609fa260e25c40a2818caf9a798f37"
-    },
-    {
-      "path": "tier-2-civic/federalist-papers/fed83.txt",
-      "tier": "tier-2-civic",
-      "size": 34617,
-      "hash": "0xf5a9b91f348b379084e91ff33623e78d3b1cf800079ab329a0d474ec635a0b40"
-    },
-    {
-      "path": "tier-2-civic/federalist-papers/fed84.txt",
-      "tier": "tier-2-civic",
-      "size": 25105,
-      "hash": "0x8a0c163d58848a3283a03ea993b9cb45e4eeda6838b82533ef2c355fc320a0b8"
-    },
-    {
-      "path": "tier-2-civic/federalist-papers/fed85.txt",
-      "tier": "tier-2-civic",
-      "size": 16348,
-      "hash": "0xa15d1cf1d3aabf4f4d46d5ba377bad6991e7911be5d08b9095afc038f279963b"
+      "path": "tier-1-governance/buffett-letters/2024.txt",
+      "sha256": "0064ce00d994cab6f33c2c57d8aa642353ddbf10eb020f5ef102fc169d660d0b",
+      "bytes": 41229
     },
     {
       "path": "tier-2-civic/ostrom-commons-principles.txt",
-      "tier": "tier-2-civic",
-      "size": 7812,
-      "hash": "0xb92e63562f136390b08a4954cf2b65f0b923e2a8a5dfdf7a13f6a5624a9a3cb0"
+      "sha256": "a7e61cfac2357b5fd6265c9519a18d4945e01cb610f69823aca870d2d944ff1e",
+      "bytes": 7812
     },
     {
       "path": "tier-2-civic/un-declaration-human-rights.txt",
-      "tier": "tier-2-civic",
-      "size": 11022,
-      "hash": "0xbd276d29e809389b1913c1ac9947ba1e7a0276d3db495386aee92ce2f15a9a99"
+      "sha256": "9eb78961817530f6ae91d8c30fa0b8cdaad2e31ef0b7affabef2665e4dea7cc9",
+      "bytes": 11022
     },
     {
       "path": "tier-2-civic/us-constitution.txt",
-      "tier": "tier-2-civic",
-      "size": 30097,
-      "hash": "0xad06fe39db172d489421badd6d68177145abf3beb982804d82915c8798805eab"
+      "sha256": "7776b0f0838c424b8cc1a559ffb4a6ce070e8bc3489545266173d843353874be",
+      "bytes": 46711
+    },
+    {
+      "path": "tier-2-civic/federalist-papers/fed01.txt",
+      "sha256": "8e16316d050ded18875dcd785c51d1ac765b5bfc458017b632ee97eb4ae09c79",
+      "bytes": 9938
+    },
+    {
+      "path": "tier-2-civic/federalist-papers/fed02.txt",
+      "sha256": "d1942135d801d897316f06411d9cdf1721d5b209ead58167c6fc4728b188ef8e",
+      "bytes": 10561
+    },
+    {
+      "path": "tier-2-civic/federalist-papers/fed03.txt",
+      "sha256": "2807ac970d867dda9931170b6b765542c51778e60b21957e2c3945121ebf3d06",
+      "bytes": 9231
+    },
+    {
+      "path": "tier-2-civic/federalist-papers/fed04.txt",
+      "sha256": "abe01a5804bec8c5782870dfa859be82335009da0c0fb7130ba5aa3483c5a157",
+      "bytes": 10208
+    },
+    {
+      "path": "tier-2-civic/federalist-papers/fed05.txt",
+      "sha256": "c18139525a02885a2cff6f9532f1b1207b9aea85cae0c281e6b92566964fed7b",
+      "bytes": 8729
+    },
+    {
+      "path": "tier-2-civic/federalist-papers/fed06.txt",
+      "sha256": "cc7ff5fdf472ddcf05597561b96800fac24a6164e1181c0035c41800486e9ad9",
+      "bytes": 14171
+    },
+    {
+      "path": "tier-2-civic/federalist-papers/fed07.txt",
+      "sha256": "03e6af56b6e6813a95917e990b77099da5567ee12d968df7316130db5afe69c3",
+      "bytes": 14634
+    },
+    {
+      "path": "tier-2-civic/federalist-papers/fed08.txt",
+      "sha256": "705a8aceabaf8e0b64fdd536e1d057b90fc75691c4596a2e3fc5c571497b897b",
+      "bytes": 13002
+    },
+    {
+      "path": "tier-2-civic/federalist-papers/fed09.txt",
+      "sha256": "edba3c6d3836f3dee9fd6adf5ca613450ffd935a83b294a1128b5eadde007447",
+      "bytes": 12601
+    },
+    {
+      "path": "tier-2-civic/federalist-papers/fed10.txt",
+      "sha256": "7c77d864f70da0f8a6b93a255a89c0cced265566e1eb653fedcda3840253bba9",
+      "bytes": 18588
+    },
+    {
+      "path": "tier-2-civic/federalist-papers/fed11.txt",
+      "sha256": "1989262598fa3d04ab652fca129ca0c787bae7e53ce099219c3aa0ddedf87288",
+      "bytes": 15592
+    },
+    {
+      "path": "tier-2-civic/federalist-papers/fed12.txt",
+      "sha256": "ac1163db0099eace8df6c40772f8f42ec08ad8dcc897e01b54e458180af2992c",
+      "bytes": 13490
+    },
+    {
+      "path": "tier-2-civic/federalist-papers/fed13.txt",
+      "sha256": "abe6118a5f163c732cee2d1b70dae78e745a7d15f27a3211597444108ad012de",
+      "bytes": 6201
+    },
+    {
+      "path": "tier-2-civic/federalist-papers/fed14.txt",
+      "sha256": "c9c45d91cce0053ca7f8de0da3e7a361e8605ddfc12217d287271ee345ed14d2",
+      "bytes": 13256
+    },
+    {
+      "path": "tier-2-civic/federalist-papers/fed15.txt",
+      "sha256": "d2b49074bc0d83cf876666df408e1473f1c3053fd41bfc76fe8d9f4b68f6ced5",
+      "bytes": 19002
+    },
+    {
+      "path": "tier-2-civic/federalist-papers/fed16.txt",
+      "sha256": "0a2a772bb80cf09f63c41a8253bd19dc5e29defad54b5eac6e48e0fa7de39d13",
+      "bytes": 12686
+    },
+    {
+      "path": "tier-2-civic/federalist-papers/fed17.txt",
+      "sha256": "64a74d0488f53571e005b201e48fe160f489645c3330a76815520754b53b726c",
+      "bytes": 10230
+    },
+    {
+      "path": "tier-2-civic/federalist-papers/fed18.txt",
+      "sha256": "114c178c40e1a1ceffc6d6956aa52d74d459ad71d43dcbe093db5c0c7b218827",
+      "bytes": 13636
+    },
+    {
+      "path": "tier-2-civic/federalist-papers/fed19.txt",
+      "sha256": "78a5a1094d9bfb3b8af5d85ddcf1c90f384af2db3d230b082909c65ed627aa9b",
+      "bytes": 13336
+    },
+    {
+      "path": "tier-2-civic/federalist-papers/fed20.txt",
+      "sha256": "373a1c60f3d98315638f20317bc30ebae374330bf09d79dc7b1332a3ba0f329e",
+      "bytes": 10247
+    },
+    {
+      "path": "tier-2-civic/federalist-papers/fed21.txt",
+      "sha256": "787a4ad01ef59900fdeb43ebb898515a06d9c8e1bef7abf716bf562ea116d063",
+      "bytes": 12468
+    },
+    {
+      "path": "tier-2-civic/federalist-papers/fed22.txt",
+      "sha256": "f829a2f81a317d566eeaa8ec90713ac47e1bdd540d7ff0261543ca5e9b4409f1",
+      "bytes": 21852
+    },
+    {
+      "path": "tier-2-civic/federalist-papers/fed23.txt",
+      "sha256": "904ab91540d0ea411e581ad2697491d1261926008cbf290675aefdb9c43b7006",
+      "bytes": 11307
+    },
+    {
+      "path": "tier-2-civic/federalist-papers/fed24.txt",
+      "sha256": "51f2d14f277c0d13e09f8d7385589c16e6a5987405b75defeb985ec4e4d27e9b",
+      "bytes": 12465
+    },
+    {
+      "path": "tier-2-civic/federalist-papers/fed25.txt",
+      "sha256": "6a7e051e231ea8114e190890121b7d69f13347e1897b60c552f2d20bce0508b4",
+      "bytes": 12218
+    },
+    {
+      "path": "tier-2-civic/federalist-papers/fed26.txt",
+      "sha256": "1fa233eaf2660507281206f4cae464bc4146c8fec8e12bf24b93296108b811e3",
+      "bytes": 14501
+    },
+    {
+      "path": "tier-2-civic/federalist-papers/fed27.txt",
+      "sha256": "33c37100fc72255db55ac5f4b575c103d03681aa73a77b6ed307c21abfbffd84",
+      "bytes": 9160
+    },
+    {
+      "path": "tier-2-civic/federalist-papers/fed28.txt",
+      "sha256": "17bfc312b629e4b9bc33da137034a80a5e306e421dea3b993e90301ac4477423",
+      "bytes": 10113
+    },
+    {
+      "path": "tier-2-civic/federalist-papers/fed29.txt",
+      "sha256": "48158f157f19ad9aec50ee3c3ac2767ef76eb618f90566e1ed3a040f95b4480b",
+      "bytes": 13437
+    },
+    {
+      "path": "tier-2-civic/federalist-papers/fed30.txt",
+      "sha256": "e22a0108c0638e04a0b841fe50d04e2a0dc6bc6ad46184befd4a7e19d2ba03eb",
+      "bytes": 12149
+    },
+    {
+      "path": "tier-2-civic/federalist-papers/fed31.txt",
+      "sha256": "29c68d75b4fa9777d4a9cd3d6e0ae90dc1d396af1150aaacbd8b6749d4704c53",
+      "bytes": 10744
+    },
+    {
+      "path": "tier-2-civic/federalist-papers/fed32.txt",
+      "sha256": "07b1e3c6c902d18ac216dd925005dcd9536dfc94d89fa68051c6ea64c87e21fd",
+      "bytes": 9321
+    },
+    {
+      "path": "tier-2-civic/federalist-papers/fed33.txt",
+      "sha256": "7556d49ee02e26a94c9434cb5aa49d87bdcf5460b3c7110da5667b2049217305",
+      "bytes": 10307
+    },
+    {
+      "path": "tier-2-civic/federalist-papers/fed34.txt",
+      "sha256": "567c3c3f442dacd60726e7754d1d61b6409e63c16d2aec3f5b9e69c84b817c87",
+      "bytes": 13443
+    },
+    {
+      "path": "tier-2-civic/federalist-papers/fed35.txt",
+      "sha256": "771383b10f448f14cfc6becd821529b3b95ccb499327f1174687c8b481331bee",
+      "bytes": 13818
+    },
+    {
+      "path": "tier-2-civic/federalist-papers/fed36.txt",
+      "sha256": "c1eceec01702c29c651fc13026232913c6fb87034b385b349c07873f431dffd4",
+      "bytes": 16514
+    },
+    {
+      "path": "tier-2-civic/federalist-papers/fed37.txt",
+      "sha256": "d8378ec22ecb261e30370aa9a3e24fed31dc7f7abfcd1bba53a8ff3c61022abc",
+      "bytes": 17171
+    },
+    {
+      "path": "tier-2-civic/federalist-papers/fed38.txt",
+      "sha256": "1153f9bc71e6b3ed5b86aaf891c4884ecb76ea75ec6a08e610fb65671a41781d",
+      "bytes": 20039
+    },
+    {
+      "path": "tier-2-civic/federalist-papers/fed39.txt",
+      "sha256": "647d7b23373f21195b7a412c337ebe74d00515936546e97649b1fc2407675a4c",
+      "bytes": 16041
+    },
+    {
+      "path": "tier-2-civic/federalist-papers/fed40.txt",
+      "sha256": "f5398cbd206149e5c8710d1395f4a0147b457c64e914d940b073287b39536c16",
+      "bytes": 18877
+    },
+    {
+      "path": "tier-2-civic/federalist-papers/fed41.txt",
+      "sha256": "eee9e893ec0a69fab2ba5993194c7db411d827f54a70ad45967ff5da116f4ace",
+      "bytes": 21584
+    },
+    {
+      "path": "tier-2-civic/federalist-papers/fed42.txt",
+      "sha256": "3d74401328a280518b914f12385d821d95f1cddb6463d45d3919eafbeaa0514f",
+      "bytes": 17384
+    },
+    {
+      "path": "tier-2-civic/federalist-papers/fed43.txt",
+      "sha256": "4f69159adc479dc2dfaa300ad858d954660b1082f1a4fa115904924ad279d634",
+      "bytes": 21199
+    },
+    {
+      "path": "tier-2-civic/federalist-papers/fed44.txt",
+      "sha256": "08b9a248754108f1892efa8a493739a10d040952b004e445a8aef6aa722f83fa",
+      "bytes": 17956
+    },
+    {
+      "path": "tier-2-civic/federalist-papers/fed45.txt",
+      "sha256": "f698cbed466c58380d513e9016980bd830f783f3df70ff09ecd7fcb2e4f20ff5",
+      "bytes": 13367
+    },
+    {
+      "path": "tier-2-civic/federalist-papers/fed46.txt",
+      "sha256": "420240ff168f2cfe175a379eb2046f95b7ef5883344bc2ad68484ad665124db1",
+      "bytes": 16250
+    },
+    {
+      "path": "tier-2-civic/federalist-papers/fed47.txt",
+      "sha256": "621acd9c4be3181d8aba5049efab3614adbb6007d67b0ac0a02106a5bcd8d4cd",
+      "bytes": 17446
+    },
+    {
+      "path": "tier-2-civic/federalist-papers/fed48.txt",
+      "sha256": "e52e4de49367bd5fd31d07abef9367c6d5f0801ec5bfafc65994574bf89dcdaa",
+      "bytes": 12023
+    },
+    {
+      "path": "tier-2-civic/federalist-papers/fed49.txt",
+      "sha256": "f6dabb57aae095a57b32fe56a261474642db2ef76a719b37125e8f0b0b9a8eb0",
+      "bytes": 10469
+    },
+    {
+      "path": "tier-2-civic/federalist-papers/fed50.txt",
+      "sha256": "5ad842777c70dea5d107a2c46f9eaa5e6a5ccb3b4ed57836fa8464d7413b4f79",
+      "bytes": 7293
+    },
+    {
+      "path": "tier-2-civic/federalist-papers/fed51.txt",
+      "sha256": "da3f4bf1fa0b2426d0b5a271c83d0aabd6966fe842b4d4cf7d9043c6a54584c5",
+      "bytes": 12125
+    },
+    {
+      "path": "tier-2-civic/federalist-papers/fed52.txt",
+      "sha256": "0f752b448396c391f440f4483e6b8c335449988602be529c8d2071517fd2dc2d",
+      "bytes": 11489
+    },
+    {
+      "path": "tier-2-civic/federalist-papers/fed53.txt",
+      "sha256": "5e2cd2dc4bc0df2701ebf92a525f7a520d89b802ca8c0a11e86fc2e45d12c785",
+      "bytes": 13509
+    },
+    {
+      "path": "tier-2-civic/federalist-papers/fed54.txt",
+      "sha256": "d9c20ad433ecd3094d3d364c471bd8c841472b17364d60eb4e9b9577f85fe90e",
+      "bytes": 12279
+    },
+    {
+      "path": "tier-2-civic/federalist-papers/fed55.txt",
+      "sha256": "03afb6fe3b4c6c0d83a508817638ff01ecee0aa24ce620550d3c19584c02874f",
+      "bytes": 12511
+    },
+    {
+      "path": "tier-2-civic/federalist-papers/fed56.txt",
+      "sha256": "ab9756b58713bad07fd2aa4e4d76a3957605b575920bce6077ae7329fd8bd977",
+      "bytes": 10010
+    },
+    {
+      "path": "tier-2-civic/federalist-papers/fed57.txt",
+      "sha256": "17c65ba8780d271c547fa470b187075bbafb2d376cd90debc7c6da53210c0a6a",
+      "bytes": 13544
+    },
+    {
+      "path": "tier-2-civic/federalist-papers/fed58.txt",
+      "sha256": "f7ddda388a220d6cc27f2d8805a436b5989ca6adb8a2ad2f0a74fd64d7ddbe69",
+      "bytes": 13115
+    },
+    {
+      "path": "tier-2-civic/federalist-papers/fed59.txt",
+      "sha256": "563c64ef985e8e1c7354df85faa5feb056e988fcada54b3dfa2ba7fab3ac24bf",
+      "bytes": 11707
+    },
+    {
+      "path": "tier-2-civic/federalist-papers/fed60.txt",
+      "sha256": "e9f2d92dafb448fe0fc43c0de3de4c888b851e564668da58515a97b500f252bd",
+      "bytes": 13807
+    },
+    {
+      "path": "tier-2-civic/federalist-papers/fed61.txt",
+      "sha256": "f0015b28953a457fad96e6837d52be627dfb3da6fa48b2a70971131ae6a5d09a",
+      "bytes": 9320
+    },
+    {
+      "path": "tier-2-civic/federalist-papers/fed62.txt",
+      "sha256": "d2ba624fb358420d370058b375a5ddd6b596095cd728402223866e2fbc935985",
+      "bytes": 14616
+    },
+    {
+      "path": "tier-2-civic/federalist-papers/fed63.txt",
+      "sha256": "d8183df4d3bc79c9c4ec4a872830bf8ca8bbf205358922821756597d620e3b09",
+      "bytes": 18759
+    },
+    {
+      "path": "tier-2-civic/federalist-papers/fed64.txt",
+      "sha256": "f5aa2a04e0a157f7a059dd77f91d5e34814eb6d12737e698a25fe3f5f9d8c8a3",
+      "bytes": 13986
+    },
+    {
+      "path": "tier-2-civic/federalist-papers/fed65.txt",
+      "sha256": "737f2ea84c6e04db5d077923b1d4543340968a26d749be40890d303b09931f5f",
+      "bytes": 12313
+    },
+    {
+      "path": "tier-2-civic/federalist-papers/fed66.txt",
+      "sha256": "d4d38fda1d4f455fd56c775da90a8e0ae3f29372424e9b224b1732117fced348",
+      "bytes": 13831
+    },
+    {
+      "path": "tier-2-civic/federalist-papers/fed67.txt",
+      "sha256": "e2c6154db6a39717769c5787fa9f2e417f6bffb14db052b3a762bcb59d3319ab",
+      "bytes": 10391
+    },
+    {
+      "path": "tier-2-civic/federalist-papers/fed68.txt",
+      "sha256": "0350a7a1ea51e1b99a3b892a4c4f9d6c9f14231b490bf82570b5351f9d5b66bf",
+      "bytes": 9240
+    },
+    {
+      "path": "tier-2-civic/federalist-papers/fed69.txt",
+      "sha256": "8fd28bee90f69f95441e3867970a19e50ae25809321419a88dee426601a3f4be",
+      "bytes": 17944
+    },
+    {
+      "path": "tier-2-civic/federalist-papers/fed70.txt",
+      "sha256": "1f5e7927ef96fc4c516ebb64483b51a9aee0a2b698fa64459f1552eaf4ccde8d",
+      "bytes": 37993
+    },
+    {
+      "path": "tier-2-civic/federalist-papers/fed71.txt",
+      "sha256": "a7dd06916fbeff5cf796bd7cb2d9ee943a54aa36a8e1549dd951645a6bbaf301",
+      "bytes": 10633
+    },
+    {
+      "path": "tier-2-civic/federalist-papers/fed72.txt",
+      "sha256": "a1fdc1f33fe40488c2afaf83354ed50eff260b728761d844e5728af7d560bf14",
+      "bytes": 12537
+    },
+    {
+      "path": "tier-2-civic/federalist-papers/fed73.txt",
+      "sha256": "d6bbfc67c835ff073be508635680d1fa7f632d64280abc59a8005e27ff768ce0",
+      "bytes": 14322
+    },
+    {
+      "path": "tier-2-civic/federalist-papers/fed74.txt",
+      "sha256": "1be27626150d717d399e0d8664503b5a34b06a834f2b19ae86cae69ecfdd6099",
+      "bytes": 6373
+    },
+    {
+      "path": "tier-2-civic/federalist-papers/fed75.txt",
+      "sha256": "c5dc69dac2710ce9c133e122b1d4b869c0b8ad733bdadf783f8a4c53bb7bf95d",
+      "bytes": 11800
+    },
+    {
+      "path": "tier-2-civic/federalist-papers/fed76.txt",
+      "sha256": "da319bc5ab53c7985fb5702df745fa00ffbb0aac2e12b4e2f8da45557c8618a5",
+      "bytes": 13823
+    },
+    {
+      "path": "tier-2-civic/federalist-papers/fed77.txt",
+      "sha256": "ed0152edf17de853160f75b3cb08432ddebaf1b931b6e3f73f5d02ad47cc34ae",
+      "bytes": 12139
+    },
+    {
+      "path": "tier-2-civic/federalist-papers/fed78.txt",
+      "sha256": "1eb4113568b3187db2e266a13688911489815c2d5ada9130e9b049fde769124e",
+      "bytes": 18774
+    },
+    {
+      "path": "tier-2-civic/federalist-papers/fed79.txt",
+      "sha256": "5724ce6c2d9c9a057ecdee7ead05eab8b460549d4a62002d90900dee57ac48cf",
+      "bytes": 6519
+    },
+    {
+      "path": "tier-2-civic/federalist-papers/fed80.txt",
+      "sha256": "43a0469211c1dc31209a1e4df5a8dfadee702c13fac6694617965259054f6df3",
+      "bytes": 15244
+    },
+    {
+      "path": "tier-2-civic/federalist-papers/fed81.txt",
+      "sha256": "9fde41afcdfcac73cfcc0335787e41d4033dd54a5d0ef1c81e92d22e350f8e0f",
+      "bytes": 23419
+    },
+    {
+      "path": "tier-2-civic/federalist-papers/fed82.txt",
+      "sha256": "eab74c2ac8c436c138a0f6d0ac36ae58c6e02c297aa411195663a3dfc9166658",
+      "bytes": 9578
+    },
+    {
+      "path": "tier-2-civic/federalist-papers/fed83.txt",
+      "sha256": "dc3b666694b0ed9bc68b414791d1ae1d1594c0ac9ffc47b6ea83ce46ac9a9b6a",
+      "bytes": 34617
+    },
+    {
+      "path": "tier-2-civic/federalist-papers/fed84.txt",
+      "sha256": "dee246235131de6b84c82885cb099da53d568c97d700abf6444f0d65c6b15574",
+      "bytes": 25105
+    },
+    {
+      "path": "tier-2-civic/federalist-papers/fed85.txt",
+      "sha256": "424adaf8558d78494a3a1a7d82af359a375d80e84adcefe91e111262acdc494c",
+      "bytes": 16348
     },
     {
       "path": "tier-3-systems/buterin-hitzig-weyl-quadratic-funding.txt",
-      "tier": "tier-3-systems",
-      "size": 86892,
-      "hash": "0x0d9aff3c86d334de9fb45d547210174abbd0ea5cde976acd7973bd98ac77f979"
+      "sha256": "f36e166786b7eae51f9a25feceaf59dce563819b349e2369721bd0d7b7c7acf3",
+      "bytes": 86892
     },
     {
       "path": "tier-3-systems/dao-survey-2022.txt",
-      "tier": "tier-3-systems",
-      "size": 63197,
-      "hash": "0x93ac1f294d5b9c8dbb1d64aad8219097d30d10b6cd696dfcac43aee69c711ee2"
+      "sha256": "6fb8acd8e2be5c2b05b4ad88b4e135f40dc674885cdb4f8a67d76507261e6f30",
+      "bytes": 63197
     },
     {
       "path": "tier-3-systems/klages-mundt-dao-governance-mechanisms.txt",
-      "tier": "tier-3-systems",
-      "size": 30589,
-      "hash": "0xfe1cb482c198c69084cd361c6766d3a5b8860e977665a313f261a7c577bc3d96"
+      "sha256": "18ba5d04e966d39bf3d5e75df0b24b771cd1aa56164fb68579e112f3bcb7cf90",
+      "bytes": 30589
     },
     {
       "path": "tier-3-systems/meadows-leverage-points.txt",
-      "tier": "tier-3-systems",
-      "size": 9137,
-      "hash": "0x9f96d27ad55ebe784ccbb3ae4c337dd60c19bbe0a22f02bb19f35da47cc50071"
+      "sha256": "5fdd323f923f947dd3e9ab6f996341aa1bf653a581c68ddecf50981b519531b0",
+      "bytes": 9137
     },
     {
       "path": "tier-4-wyoming/wyoming-constitution.txt",
-      "tier": "tier-4-wyoming",
-      "size": 168261,
-      "hash": "0x3e41a896ab5dd478b25eb10105d29ffbede97bcd6f94c744dd67162f25fb8b25"
+      "sha256": "11af8a024e22026850fcd800b6bacc7f0023b19b132106fd09690fa20a4b329d",
+      "bytes": 168261
     },
     {
       "path": "tier-4-wyoming/wyoming-dao-supplement.txt",
-      "tier": "tier-4-wyoming",
-      "size": 14656,
-      "hash": "0x581562af01ebc5c398a65c4faaf7c52cd08aa3b3ee28e5a55d6833f66f82e032"
+      "sha256": "0e3c7b8a1f71f4f60f1ea4322655293007d2163c0d508623b815a43dab098382",
+      "bytes": 14656
     }
   ],
-  "generated": "2026-03-24T20:10:00Z",
-  "totalFiles": 144,
-  "totalSize": 4873716
+  "total_files": 145,
+  "total_bytes": 5388327,
+  "manifest_hash": "0x26203a5c6dffb8af4d55b35e169499064d5a7e3b6eb31aa22976219a295abd49"
 }
