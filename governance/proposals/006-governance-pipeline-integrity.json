@@ -1,0 +1,132 @@
+{
+  "proposalId": 6,
+  "title": "Governance Pipeline Integrity — Commit Linkage, Automated Issue Lifecycle, and Verification Integration",
+  "type": "governance-infrastructure",
+  "submittedBy": "0xC91ED1978a1b89D0321fcF6BFf919a0f785d5EC7",
+  "date": "2026-03-25",
+  "summary": "Close the verifiability gap between on-chain governance hashes and off-chain execution by linking commit SHAs to attestations, automating issue lifecycle from CEO evaluation output, and integrating verify.py with the tracking layer. Validated through 5-lens expert analysis (constitutional, systems, engineering, DAO comparison, security) with no disqualifying findings.",
+  "body": "The governance pipeline currently stores keccak256 hashes on-chain with URIs pointing to the git repository. But there is no programmatic link between a specific git commit and its on-chain record. An observer can verify file content against a hash, but cannot determine which repository state produced that hash. Similarly, the Algorithmic Manager produces structured reasoning trees with milestones and conditions, but these remain static JSON blobs — they do not automatically generate trackable work items or close when conditions are verified. This proposal bridges three gaps: (1) commit-to-chain provenance, (2) evaluation-to-tracking automation, and (3) verification-to-closure integration. A 5-lens expert analysis validated the approach: constitutional law (CONDITIONAL PASS), systems thinking (BENEFICIAL), software engineering (NEEDS DESIGN — staged implementation), DAO governance comparison (AHEAD/NOVEL — no existing DAO has comparable pipeline), security (ACCEPTABLE RISK with hardening). All conditions from the expert analyses are incorporated into this proposal's design.",
+  "expertValidation": {
+    "constitutional": {
+      "verdict": "CONDITIONAL PASS",
+      "conditions": [
+        "Auto-created issues must be in PENDING REVIEW state — Human Executor activates",
+        "verify.py recommends closure, Human Executor confirms — no auto-close",
+        "Divergence-issue workflow defined before first auto-created issue",
+        "On-chain record must not depend on GitHub for primary verification"
+      ]
+    },
+    "systemsThinking": {
+      "verdict": "BENEFICIAL",
+      "leveragePoints": ["LP6: Structure of Information Flows (primary)", "LP9: Length of Delays", "LP8: Negative Feedback Loops", "LP5: Rules of the System", "LP4: Self-Organization"],
+      "conditions": [
+        "Stage auto-close behind mandatory human review step",
+        "Monitor for Goodhart's Law effects (issue closure as proxy for governance quality)",
+        "verify.py needs test suite before auto-close deployment"
+      ]
+    },
+    "softwareEngineering": {
+      "verdict": "NEEDS DESIGN — staged implementation",
+      "conditions": [
+        "Build issue_manager.py as standalone module with idempotency",
+        "Use URI-encoded commit SHA — no contract upgrade",
+        "Structured milestone manifests required in future proposals",
+        "--create-issues as opt-in flag, not default behavior",
+        "Shell injection prevention: use --body-file not interpolation"
+      ]
+    },
+    "daoComparison": {
+      "verdict": "AHEAD / NOVEL",
+      "assessment": "No existing DAO (Compound, MakerDAO, Nouns, Optimism) has: (1) AI constitutional evaluation with published reasoning trees, (2) commit-to-chain cryptographic linkage for governance, (3) programmatic semantic verification of execution. The full pipeline is unprecedented."
+    },
+    "security": {
+      "verdict": "ACCEPTABLE RISK with hardening",
+      "conditions": [
+        "Branch protection rules on main (no force-push)",
+        "Issue bodies use summaries with links, not full reasoning trees",
+        "Content sanitization before issue creation",
+        "Separate self-attestation from deterministic verification in verify.py",
+        "Cryptographic issue binding via on-chain decision ID in issue body"
+      ]
+    }
+  },
+  "proposedChanges": [
+    {
+      "component": "evaluate.py",
+      "change": "Add commitSha to reasoning tree metadata via git rev-parse HEAD. Encode in URI field as raw.githubusercontent.com/{repo}/{commitSha}/{path}. Add --create-issues flag that invokes issue_manager.py after evaluation.",
+      "phase": 1
+    },
+    {
+      "component": "issue_manager.py (new)",
+      "change": "Standalone module handling idempotent issue creation and verification-result posting. Dedup via canonical key in issue title [P{id}-{domain}-{index}]. Issues created with 'pending-review' label — Human Executor must remove label and activate. On APPROVE: creates milestone issues from structured milestones array. On MODIFY: creates condition issues for each condition. Posts evaluation summary (not full tree) as issue comment with link to full reasoning tree in repo.",
+      "phase": 1
+    },
+    {
+      "component": "verify.py",
+      "change": "Add --check-issues flag. On verification pass, posts verification results as issue comment with recommendation to close. Does NOT auto-close. Human Executor reviews and closes. Distinguish between deterministic checks (hash_match, file_exists, corpus_integrity) and self-attestation checks (modifyConditions string matching) in output.",
+      "phase": 2
+    },
+    {
+      "component": ".github/workflows/governance.yml",
+      "change": "Add post-evaluation step: if --create-issues flag passed and evaluation produces APPROVE/MODIFY, invoke issue_manager.py. Add permissions block for issues:write. Add push trigger on governance/decisions/ path for verification runs. Restrict governance pipeline to workflow_dispatch only (remove fork PR trigger for security).",
+      "phase": 2
+    },
+    {
+      "component": "Repository configuration",
+      "change": "Enable branch protection on main: no force-push, require status checks. Add Fine-Grained PAT with project scope as repository secret for Projects v2 board linkage.",
+      "phase": 1
+    },
+    {
+      "component": "Divergence-issue workflow",
+      "change": "Define and document: On divergence, all am-generated issues for that decision ID are closed with 'diverged' label and comment linking to on-chain divergence record. On partial acceptance, Human Executor relabels accepted issues as 'he-accepted' and closes rejected ones as 'he-rejected-diverged'. Divergence record references specific milestone IDs.",
+      "phase": 1
+    },
+    {
+      "component": "Future proposal format",
+      "change": "Proposals with multi-phase roadmaps must include a machine-parseable 'milestones' array in the proposal JSON, not just natural language in the body. Each milestone: {id, domain, description, phase, dependencies, targetDate, verificationType}. This enables reliable auto-creation without fragile natural language parsing.",
+      "phase": 1
+    }
+  ],
+  "implementationPhases": {
+    "phase1": {
+      "name": "Foundation",
+      "timeline": "Week 1",
+      "deliverables": [
+        "Commit SHA in evaluate.py output and URI field",
+        "issue_manager.py with idempotent creation, pending-review workflow",
+        "Branch protection rules on main",
+        "Divergence-issue workflow documented",
+        "Milestone manifest format defined"
+      ]
+    },
+    "phase2": {
+      "name": "Integration",
+      "timeline": "Week 2-3",
+      "deliverables": [
+        "verify.py --check-issues flag with comment posting",
+        "governance.yml workflow updates",
+        "verify.py test suite (prerequisite for any future auto-close consideration)",
+        "Retroactive commit SHA linkage for existing decisions"
+      ]
+    }
+  },
+  "deferredDecisions": [
+    {
+      "decision": "Full auto-close of issues by verify.py",
+      "trigger": "verify.py has comprehensive test suite with adversarial cases AND 30+ days of human-review-then-close operation demonstrates zero false positives",
+      "rationale": "Systems analysis identified Goodhart's Law risk and automation complacency. Constitutional analysis requires HE confirmation at every state transition. Staging auto-close behind proven correctness is the conservative path."
+    },
+    {
+      "decision": "IPFS/Arweave pinning of governance records",
+      "trigger": "GitHub platform dependency becomes a demonstrated risk OR multi-member governance requires censorship-resistant backup",
+      "rationale": "Security analysis recommends but current single-platform risk is LOW given on-chain hashes as trust root."
+    },
+    {
+      "decision": "Smart contract upgrade to add commitSha field to Attestation struct",
+      "trigger": "Need for on-chain queryable commit SHA (e.g., verification contract that cross-checks GitHub state)",
+      "rationale": "Engineering analysis confirms URI encoding achieves same goal without contract upgrade overhead."
+    }
+  ],
+  "estimatedCost": "$0 direct cost. Implementation time: ~1 week Phase 1, ~2 weeks Phase 2.",
+  "externalDependencies": "GitHub API availability; gh CLI in governance-engine workflow; Fine-Grained PAT for Projects v2 scope"
+}
