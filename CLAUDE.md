@@ -159,7 +159,8 @@ openinnovate-dao/
     executions/           # Execution records (input to attestExecution)
     divergences/          # Divergence records (when HE overrides AM)
   governance-engine/      # Pipeline scripts and system prompt
-    evaluate.py           # Constitutional evaluation engine
+    evaluate.py           # Constitutional evaluation engine (--create-issues flag)
+    issue_manager.py      # Idempotent issue creation from decisions
     verify.py             # Verification checks
     system-prompt-v1.0.md # AM system prompt
   frontend/               # Transparency UI (Next.js on Vercel at dao.openinnovate.org)
@@ -167,6 +168,53 @@ openinnovate-dao/
     ISSUE_TEMPLATE/       # governance-milestone.yml, governance-proposal.yml
   CLAUDE.md               # This file
 ```
+
+## Milestone Manifest Format
+
+Future proposals with multi-phase roadmaps MUST include a machine-parseable `milestones` array. This enables `issue_manager.py` to auto-create issues without fragile natural language parsing.
+
+```json
+{
+  "milestones": [
+    {
+      "id": 1,
+      "domain": "infrastructure",
+      "description": "What needs to be built or done",
+      "phase": 1,
+      "dependencies": [],
+      "targetDate": "2026-04-15",
+      "verificationType": "deterministic"
+    }
+  ]
+}
+```
+
+| Field | Required | Values |
+|-------|----------|--------|
+| `id` | yes | Integer, unique within proposal |
+| `domain` | yes | Free text: `infrastructure`, `legal`, `financial`, `governance`, etc. |
+| `description` | yes | Acceptance criteria — what "done" means |
+| `phase` | yes | Integer matching `implementationPhases` keys |
+| `dependencies` | no | Array of milestone IDs this is blocked by |
+| `targetDate` | no | `YYYY-MM-DD` |
+| `verificationType` | yes | `deterministic` (code/hash check), `attestation` (HE confirms), `manual` (tracked only) |
+
+Issue key generated: `[P{proposalId:03d}-{phase}.{id}]` — e.g., `[P007-1.3]`
+
+## Issue Manager (issue_manager.py)
+
+```bash
+# Create issues from a decision (APPROVE or MODIFY)
+python3 governance-engine/issue_manager.py \
+  --decision governance/decisions/XXX-name.json \
+  --proposal governance/proposals/XXX-name.json
+
+# Run divergence workflow (close all issues for a decision)
+python3 governance-engine/issue_manager.py \
+  --diverge --decision-id <N> --reason "HE override: ..." --divergence-hash <hash>
+```
+
+See `governance/DIVERGENCE-WORKFLOW.md` for full divergence label/state lifecycle.
 
 ## Execution Record Format
 

@@ -16,6 +16,7 @@ import argparse
 import json
 import os
 import re
+import subprocess
 import sys
 import math
 from hashlib import sha3_256 as keccak256
@@ -31,6 +32,7 @@ ROOT = Path(__file__).resolve().parent.parent
 CORPUS_DIR = ROOT / "corpus"
 WEIGHTS_FILE = CORPUS_DIR / "weights.json"
 SYSTEM_PROMPT_FILE = Path(__file__).resolve().parent / "system-prompt-v1.0.md"
+REPO_SLUG = "hocmemini/openinnovate-dao"
 
 # Maximum corpus context to inject (chars). Leave room for system prompt,
 # proposal, and response in a 200K-token context window.
@@ -38,6 +40,18 @@ MAX_CORPUS_CONTEXT = 400_000  # ~60K tokens
 
 # Model to use for governance evaluations
 MODEL = os.environ.get("GOVERNANCE_MODEL", "claude-opus-4-6")
+
+
+def get_commit_sha():
+    """Get the current git commit SHA."""
+    try:
+        result = subprocess.run(
+            ["git", "rev-parse", "HEAD"],
+            capture_output=True, text=True, check=True, cwd=ROOT
+        )
+        return result.stdout.strip()
+    except (subprocess.CalledProcessError, FileNotFoundError):
+        return None
 
 
 def load_weights():
@@ -211,6 +225,8 @@ def main():
     parser.add_argument("--commit-onchain", action="store_true", help="Commit hashes on-chain after evaluation")
     parser.add_argument("--model", default=None, help=f"Override model (default: {MODEL})")
     parser.add_argument("--output", default=None, help="Output path for reasoning tree JSON")
+    parser.add_argument("--create-issues", action="store_true",
+                        help="Invoke issue_manager.py to create GitHub issues after evaluation")
     args = parser.parse_args()
 
     model = args.model or MODEL
@@ -283,6 +299,14 @@ Return ONLY the JSON reasoning tree object."""
     reasoning_tree["model"] = model
     reasoning_tree["evaluatedAt"] = datetime.now(timezone.utc).isoformat()
 
+    commit_sha = get_commit_sha()
+    if commit_sha:
+        reasoning_tree["commitSha"] = commit_sha
+        proposal_rel = proposal_path.relative_to(ROOT)
+        reasoning_tree["proposalUri"] = (
+            f"https://raw.githubusercontent.com/{REPO_SLUG}/{commit_sha}/{proposal_rel}"
+        )
+
     # Determine output path
     if args.output:
         output_path = Path(args.output)
@@ -313,6 +337,19 @@ Return ONLY the JSON reasoning tree object."""
         print("\n[ON-CHAIN] Would commit hash to Base L2 (not yet implemented in this script)")
         print(f"  Contract: 0x3efDCccF7b141B5dA4B21478221B0bf0cfdF7536")
         print(f"  Hash: {tree_hash}")
+
+    if args.create_issues and rec in ("APPROVE", "MODIFY"):
+        issue_manager = Path(__file__).resolve().parent / "issue_manager.py"
+        if issue_manager.exists():
+            print(f"\nCreating GitHub issues for {rec} decision...")
+            subprocess.run(
+                [sys.executable, str(issue_manager),
+                 "--decision", str(output_path),
+                 "--proposal", str(proposal_path)],
+                check=False
+            )
+        else:
+            print(f"\nWARNING: --create-issues passed but {issue_manager} not found")
 
 
 if __name__ == "__main__":
