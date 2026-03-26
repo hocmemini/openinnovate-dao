@@ -1,20 +1,8 @@
 {
+  "generated": "2026-03-25",
+  "file_count": 149,
+  "total_bytes": 5618563,
   "files": [
-    {
-      "path": "weights.json",
-      "sha256": "d74eda5bd35cbd6cfaaa6148b329aeb7f9f95b54aa52b9458c8fb4d7c8317498",
-      "bytes": 265
-    },
-    {
-      "path": "tier-1-governance/buffett-owners-manual.txt",
-      "sha256": "3f456694a977ede9acea32f1046754ec1f88ea5619e5eb7df8a0ca6c92dc2e34",
-      "bytes": 29826
-    },
-    {
-      "path": "tier-1-governance/munger-psychology-misjudgment.txt",
-      "sha256": "60c9108e5244caa4406c018598a2a42d12a20b94041945338d25bddee047b04b",
-      "bytes": 151542
-    },
     {
       "path": "tier-1-governance/buffett-letters/1977.txt",
       "sha256": "ec98d414267b408760df7c95fc4bc964c06d0195767fe42a5e87cc4292a63dc3",
@@ -256,19 +244,14 @@
       "bytes": 41229
     },
     {
-      "path": "tier-2-civic/ostrom-commons-principles.txt",
-      "sha256": "a7e61cfac2357b5fd6265c9519a18d4945e01cb610f69823aca870d2d944ff1e",
-      "bytes": 7812
+      "path": "tier-1-governance/buffett-owners-manual.txt",
+      "sha256": "3f456694a977ede9acea32f1046754ec1f88ea5619e5eb7df8a0ca6c92dc2e34",
+      "bytes": 29826
     },
     {
-      "path": "tier-2-civic/un-declaration-human-rights.txt",
-      "sha256": "9eb78961817530f6ae91d8c30fa0b8cdaad2e31ef0b7affabef2665e4dea7cc9",
-      "bytes": 11022
-    },
-    {
-      "path": "tier-2-civic/us-constitution.txt",
-      "sha256": "7776b0f0838c424b8cc1a559ffb4a6ce070e8bc3489545266173d843353874be",
-      "bytes": 46711
+      "path": "tier-1-governance/munger-psychology-misjudgment.txt",
+      "sha256": "60c9108e5244caa4406c018598a2a42d12a20b94041945338d25bddee047b04b",
+      "bytes": 151542
     },
     {
       "path": "tier-2-civic/federalist-papers/fed01.txt",
@@ -696,6 +679,21 @@
       "bytes": 16348
     },
     {
+      "path": "tier-2-civic/ostrom-commons-principles.txt",
+      "sha256": "a7e61cfac2357b5fd6265c9519a18d4945e01cb610f69823aca870d2d944ff1e",
+      "bytes": 7812
+    },
+    {
+      "path": "tier-2-civic/un-declaration-human-rights.txt",
+      "sha256": "9eb78961817530f6ae91d8c30fa0b8cdaad2e31ef0b7affabef2665e4dea7cc9",
+      "bytes": 11022
+    },
+    {
+      "path": "tier-2-civic/us-constitution.txt",
+      "sha256": "7776b0f0838c424b8cc1a559ffb4a6ce070e8bc3489545266173d843353874be",
+      "bytes": 46711
+    },
+    {
       "path": "tier-3-systems/buterin-hitzig-weyl-quadratic-funding.txt",
       "sha256": "f36e166786b7eae51f9a25feceaf59dce563819b349e2369721bd0d7b7c7acf3",
       "bytes": 86892
@@ -724,9 +722,31 @@
       "path": "tier-4-wyoming/wyoming-dao-supplement.txt",
       "sha256": "0e3c7b8a1f71f4f60f1ea4322655293007d2163c0d508623b815a43dab098382",
       "bytes": 14656
+    },
+    {
+      "path": "tier-4-wyoming/wyoming-digital-assets.txt",
+      "sha256": "07eb82bc70ed6befb6e95010c441af5be83703cb91ddc5588e0e7515a9bee46f",
+      "bytes": 30903
+    },
+    {
+      "path": "tier-4-wyoming/wyoming-duna.txt",
+      "sha256": "44653f13fa88265b9f55014276b49c76e82c53cd7382973ddb4c1b0ac5a657b9",
+      "bytes": 40154
+    },
+    {
+      "path": "tier-4-wyoming/wyoming-llc-act.txt",
+      "sha256": "da908f06f66f1a7c3c09cbc836ac7ee13a7e8568fba23c2327aa3ad3073af79d",
+      "bytes": 134561
+    },
+    {
+      "path": "tier-4-wyoming/wyoming-ueta.txt",
+      "sha256": "449a86d53874c8d946b5b886494810916818d9cb12805424962c51fb21ee41b6",
+      "bytes": 24618
+    },
+    {
+      "path": "weights.json",
+      "sha256": "d74eda5bd35cbd6cfaaa6148b329aeb7f9f95b54aa52b9458c8fb4d7c8317498",
+      "bytes": 265
     }
-  ],
-  "total_files": 145,
-  "total_bytes": 5388327,
-  "manifest_hash": "0x26203a5c6dffb8af4d55b35e169499064d5a7e3b6eb31aa22976219a295abd49"
+  ]
 }

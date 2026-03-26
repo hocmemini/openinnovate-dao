@@ -1,0 +1,143 @@
+{
+  "decisionId": 1,
+  "proposalId": 7,
+  "title": "Expand Wyoming Jurisdictional Corpus \u2014 LLC Act, DUNA, Digital Assets, UETA",
+  "algorithmicManager": "Claude (Anthropic API)",
+  "model": "claude-sonnet-4-6",
+  "systemPromptVersion": "1.0",
+  "date": "2026-03-25",
+  "maximAlignmentScore": 91,
+  "recommendation": "APPROVE",
+  "reasoningTree": {
+    "inputs": {
+      "proposalId": 7,
+      "type": "corpus-maintenance",
+      "submittedBy": "0xC91ED1978a1b89D0321fcF6BFf919a0f785d5EC7",
+      "proposedAdditions": 4,
+      "estimatedCost": "$0 direct cost",
+      "filesStaged": true,
+      "sourcesPublicDomain": true
+    },
+    "corpusSources": [
+      {
+        "source": "tier-4-wyoming/wyoming-dao-supplement.txt",
+        "tier": "tier-4-wyoming",
+        "weight": 513.61,
+        "relevance": "Primary governing statute for OpenInnovate DAO LLC. W.S. 17-31-103 explicitly states: 'The Wyoming Limited Liability Company Act applies to decentralized autonomous organizations to the extent not inconsistent with the provisions of this chapter.' This cross-reference makes the LLC Act (W.S. 17-29) a mandatory component of complete legal reasoning for any DAO governance question. The DAO Supplement also defines 'smart contract' by cross-referencing W.S. 40-21-102(a)(ii) (UETA), and 'digital asset' by cross-referencing W.S. 34-29-101(a)(i) (Digital Assets Act). Every definition in the DAO Supplement that matters points outward to statutes not yet in corpus.",
+        "citedPassage": "W.S. 17-31-103(a): 'The Wyoming Limited Liability Company Act applies to decentralized autonomous organizations to the extent not inconsistent with the provisions of this chapter.' W.S. 17-31-102(ix): 'Smart contract means an automated transaction, as defined in W.S. 40-21-102(a)(ii)...' W.S. 17-31-102(iii): 'Digital asset means as defined in W.S. 34-29-101(a)(i).'"
+      },
+      {
+        "source": "tier-4-wyoming/wyoming-llc-act.txt",
+        "tier": "tier-4-wyoming",
+        "weight": 472.14,
+        "relevance": "Already staged and present in corpus context \u2014 confirming proposal implementation has begun or files were pre-retrieved for evaluation. The LLC Act governs member rights (W.S. 17-29-401), fiduciary duties (W.S. 17-29-409), distributions (W.S. 17-29-404-406), dissolution (W.S. 17-29-701-708), and member-managed vs. manager-managed structures (W.S. 17-29-407). Without this, the AM cannot reason about default rules that apply when the DAO Supplement and Operating Agreement are silent.",
+        "citedPassage": "W.S. 17-29-409(a): 'A member of a member-managed limited liability company owes to the company and, subject to W.S. 17-29-901(b), the other members the fiduciary duties of loyalty and care stated in subsections (b) and (c).' W.S. 17-29-110(b): 'To the extent the operating agreement does not otherwise provide for a matter described in subsection (a) of this section, this chapter governs the matter.'"
+      },
+      {
+        "source": "tier-4-wyoming/wyoming-digital-assets.txt",
+        "tier": "tier-4-wyoming",
+        "weight": 558.46,
+        "relevance": "Already staged and present in corpus context. W.S. 34-29-101 provides the tripartite classification of digital assets (digital consumer assets, digital securities, virtual currency) that determines OIT token's legal category and applicable regulatory regime. W.S. 34-29-106 (Wyoming Utility Token Act) is directly operative: OIT token's classification as intangible personal property vs. security vs. virtual currency has governance implications for voting rights, transferability, and member rights.",
+        "citedPassage": "W.S. 34-29-101(a)(i): 'Digital asset means a representation of economic, proprietary or access rights that is stored in a computer readable format and is either a digital consumer asset, digital security or virtual currency.' W.S. 34-29-106(b): 'An open blockchain token with the following characteristics constitutes intangible personal property: (i) The predominant purpose of the token is consumptive...'"
+      },
+      {
+        "source": "tier-4-wyoming/wyoming-ueta.txt",
+        "tier": "tier-4-wyoming",
+        "weight": 527.54,
+        "relevance": "Already staged and present in corpus context. W.S. 40-21-107 provides the legal foundation for electronic records and signatures as legally binding. W.S. 40-21-114 (Automated transaction) is the statutory basis for smart contract validity: contracts formed by electronic agents without individual review are legally enforceable. This directly underpins the AM's own governance outputs \u2014 every Decision is an automated transaction under W.S. 40-21-102(a)(ii).",
+        "citedPassage": "W.S. 40-21-114(a)(i): 'A contract may be formed by the interaction of electronic agents of the parties, even if no individual was aware of or reviewed the electronic agents' actions or the resulting terms and agreements.' W.S. 40-21-107(a): 'A record or signature may not be denied legal effect or enforceability solely because it is in electronic form.'"
+      },
+      {
+        "source": "tier-4-wyoming/wyoming-duna.txt",
+        "tier": "tier-4-wyoming",
+        "weight": 614.3,
+        "relevance": "Already staged and present in corpus context. The DUNA (W.S. 17-32) provides comparative governance architecture for decentralized organizations in Wyoming. Key distinctions illuminate DAO LLC design choices: DUNA requires 100+ members (W.S. 17-32-102(a)(iii)(A)), prohibits profit distributions (W.S. 17-32-104), and is nonprofit by definition. Comparing DUNA constraints with DAO LLC flexibility reveals why OpenInnovate is structured as a DAO LLC and what governance choices are available. Also: DUNA's definition of 'smart contract' (W.S. 17-32-102(a)(xii)) mirrors the DAO Supplement, both cross-referencing UETA W.S. 40-21-102(a)(ii).",
+        "citedPassage": "W.S. 17-32-102(a)(xii): 'Smart contract means an automated transaction, as defined in W.S. 40-21-102(a)(ii), or any substantially similar analogue or code, script or programming language relying on distributed ledger technology...' W.S. 17-32-104(b): 'A decentralized unincorporated nonprofit association may not pay dividends or distribute any part of its income or profits to its members or administrators.'"
+      },
+      {
+        "source": "tier-2-civic/ostrom-commons-principles.txt",
+        "tier": "tier-2-civic",
+        "weight": 511.25,
+        "relevance": "Ostrom Principle 1 (Clearly Defined Boundaries) requires that the legal framework governing membership, voting rights, and resource use be explicitly defined. A corpus missing foundational statutes leaves boundaries ambiguous for the AM's reasoning. Ostrom Principle 4 (Monitoring) requires credible rule-enforcement \u2014 which is impossible if the AM cannot reason from complete legal texts. Principle 8 (Nested Enterprises) is directly implicated: the tiered corpus structure is itself a nested enterprise, and the Wyoming statutory tier must be complete at the base layer for higher-level governance to be sound.",
+        "citedPassage": "Principle 1: 'The boundaries of the resource system and the individuals or households with rights to use the resource must be clearly defined.' Principle 4: 'Monitors who actively audit resource conditions and user behavior must be present. Monitors should be accountable to or be the resource users themselves.' Principle 8: 'Appropriation, provision, monitoring, enforcement, conflict resolution, and governance activities should be organized in multiple layers of nested enterprises.'"
+      },
+      {
+        "source": "tier-4-wyoming/wyoming-constitution.txt",
+        "tier": "tier-4-wyoming",
+        "weight": 359.99,
+        "relevance": "Background constitutional framework. Article 10, Section 1 confirms the legislature provides for corporate organization by general law \u2014 the LLC Act and DAO Supplement derive their authority from this provision. Article 1, Section 35 prohibits ex post facto laws and laws impairing contract obligations \u2014 relevant to understanding the constitutional limits on retroactive governance changes. Lower direct relevance to this corpus-maintenance proposal.",
+        "citedPassage": "Article 10, Section 1: 'The legislature shall provide for the organization of corporations by general law. All laws relating to corporations may be altered, amended or repealed by the legislature at any time when necessary for the public good and general welfare...'"
+      }
+    ],
+    "analysis": [
+      {
+        "step": 1,
+        "description": "Proposal Classification and Materiality Assessment",
+        "reasoning": "This is a corpus-maintenance proposal \u2014 a meta-governance act affecting the AM's own informational substrate rather than a substantive operational decision. Such proposals warrant careful scrutiny because: (a) the quality of all subsequent Decisions depends on corpus completeness and accuracy; (b) corpus changes are persistent and compound; (c) bad corpus additions (inaccurate, out-of-date, or improperly weighted documents) can systematically bias future reasoning. However, this proposal presents the opposite concern: the corpus currently LACKS foundational documents, creating systematic gaps in legal reasoning. The four proposed additions are: (1) Wyoming LLC Act (W.S. 17-29) \u2014 base entity statute; (2) Wyoming DUNA (W.S. 17-32) \u2014 comparative governance reference; (3) Wyoming Digital Assets Act (W.S. 34-29) \u2014 token classification framework; (4) Wyoming UETA (W.S. 40-21) \u2014 electronic transactions and smart contract validity. Critically, all four documents are already present in the retrieved corpus context for this evaluation, which means: (a) the staged files exist and were accessible; (b) their content can be verified against wyoleg.gov source descriptions; (c) this evaluation itself demonstrates the value of having these documents available. The circular confirmation is meaningful: this Decision was evaluated with better completeness than prior Decisions would have been."
+      },
+      {
+        "step": 2,
+        "description": "Dependency Analysis: Statutory Cross-Reference Mapping",
+        "reasoning": "The DAO Supplement (W.S. 17-31), the existing anchor document in tier-4-wyoming, contains explicit definitional cross-references that create hard legal dependencies on the proposed additions. Mapping these dependencies: (A) W.S. 17-31-103(a) \u2192 W.S. 17-29 (LLC Act): 'The Wyoming Limited Liability Company Act applies to decentralized autonomous organizations to the extent not inconsistent with the provisions of this chapter.' This is not optional \u2014 any question about member rights, dissolution, fiduciary duties, distributions, or operating agreement scope that is not addressed in W.S. 17-31 requires consulting W.S. 17-29. Without W.S. 17-29 in corpus, the AM must reason from incomplete information on every such question. (B) W.S. 17-31-102(ix) \u2192 W.S. 40-21-102(a)(ii) (UETA): Smart contract is defined as 'an automated transaction, as defined in W.S. 40-21-102(a)(ii).' The AM cannot fully interpret what constitutes a 'smart contract' under Wyoming law without access to the UETA definition. (C) W.S. 17-31-102(iii) \u2192 W.S. 34-29-101(a)(i) (Digital Assets Act): Digital asset is defined by cross-reference. OIT token governance \u2014 including membership interest characterization under W.S. 17-31-102(vi) \u2014 requires the Digital Assets Act framework. (D) W.S. 17-31-102(vi) \u2192 W.S. 34-29-101: Membership interest 'may also be characterized as either a digital security or a digital consumer asset as defined in W.S. 34-29-101.' Token classification directly affects member voting rights. (E) W.S. 17-31-115 (Constitutional Hierarchy): The smart contract preempts conflicting Articles provisions \u2014 but determining what the smart contract 'says' on a given matter requires understanding automated transaction law under UETA. The dependency graph is dense and directional: the DAO Supplement cannot be fully interpreted without the LLC Act, UETA, and Digital Assets Act. The DUNA (W.S. 17-32) is less structurally required but provides comparative governance context and shares the same definitional cross-references to UETA and Digital Assets Act."
+      },
+      {
+        "step": 3,
+        "description": "Source Verification and Accuracy Assessment",
+        "reasoning": "All four proposed documents are sourced from wyoleg.gov \u2014 Wyoming's official legislative website. The documents are public law and public domain. The corpus context contains the full text of all four proposed additions, enabling content verification against the proposal descriptions: (A) Wyoming LLC Act (W.S. 17-29-101 through 17-29-1105): Present in context. Full text confirms it covers member rights, operating agreements, fiduciary duties, dissolution, and series LLCs as described. The text appears complete and properly formatted. (B) Wyoming DUNA (W.S. 17-32-101 through 17-32-129): Present in context. Full text matches description. The statute is current \u2014 it includes references to 2023 repeals (W.S. 34-29-103(e)(iii): 'Repealed by Laws 2023, ch. 66, \u00a7 3'), indicating the version is post-2023. (C) Wyoming Digital Assets Act (W.S. 34-29-101 through 34-29-209): Present in context. The text includes a reference to 'Laws 2025, ch. 150' at W.S. 34-29-104(n) ('Repealed by Laws 2025, ch. 150, \u00a7 3'), indicating this is a 2025-current version \u2014 current as of the proposal date (2026-03-25). (D) Wyoming UETA (W.S. 40-21-101 through 40-21-119): Present in context. Full text matches description, including W.S. 40-21-114 (Automated transaction) specifically called out in the proposal. UNCERTAINTY NOTE: The AM cannot independently verify the manifest hash (0x957167bc8fd02f81949a5b176d7eeb28c192c1e2e82a5729a94a6f84baabb8e3) or file byte counts. However, the Human Executor retains verification responsibility, and the deterministic verification type specified for milestone 5 creates an on-chain attestation mechanism. The AM recommends the Human Executor verify the wyoleg.gov PDFs against the staged text files before committing the manifest hash on-chain."
+      },
+      {
+        "step": 4,
+        "description": "Root Thesis Maxim Alignment Analysis",
+        "reasoning": "The Root Thesis Maxim is: 'Maximize the creation of sovereign, self-sustaining systems that compound human agency over generational timescales.' Evaluating corpus expansion against each component: (A) 'Sovereign systems': Legal sovereignty requires accurate legal reasoning. A DAO that operates under incomplete legal understanding of its own governing statutes is not fully sovereign \u2014 it is subject to legal risks it cannot identify or mitigate. Adding the four foundational Wyoming statutes closes the gap between the DAO's statutory existence and the AM's ability to reason about it. This is a direct sovereignty enhancement. (B) 'Self-sustaining systems': Self-sustainability requires that governance mechanisms work correctly without requiring external expert intervention for every legal question. A corpus-complete AM can identify legal compliance issues, flag regulatory risks (e.g., OIT token classification as digital security rather than utility token), and reason about dissolution triggers \u2014 all without requiring the Human Executor to seek outside legal counsel for basic statutory interpretation. This expands operational independence. (C) 'Compound human agency': Governance quality compounds. Every Decision the AM makes today influences the DAO's trajectory. Decisions made with incomplete legal context may be subtly wrong in ways that create downstream problems \u2014 member disputes resolved under misunderstood default rules, token governance structured incompatibly with Wyoming classification law, smart contract validity assumptions untested against UETA. Correct corpus at the base layer prevents error accumulation. (D) 'Generational timescales': The legal framework governing this DAO will likely remain relevant for years. Proper statutory grounding now creates a governance foundation that persists. (E) COST ASSESSMENT: $0 direct cost. All statutes are public domain. The implementation timeline is immediate (files already staged). The risk-adjusted expected value is strongly positive: high benefit (complete legal reasoning substrate), zero cost, low risk (public domain, verifiable sources, deterministic verification). Score: 91/100. The 9-point deduction reflects: (i) inability to independently verify manifest hash and file byte counts; (ii) the DUNA's relevance is comparative rather than operationally necessary, making it the weakest of the four additions (though still clearly beneficial); (iii) static corpus additions do not address the need for periodic statute update processes as Wyoming law evolves \u2014 this proposal should ideally be paired with a corpus maintenance schedule."
+      },
+      {
+        "step": 5,
+        "description": "Risk Assessment",
+        "reasoning": "RISKS OF APPROVAL: (1) Stale law risk: Wyoming statutes may be amended after corpus compilation. The Digital Assets Act already shows 2025 amendments (Laws 2025, ch. 150). If the corpus is not updated when statutes change, the AM may reason from outdated law. MITIGATION: The deterministic verification and on-chain manifest attestation create a record of the corpus version; the Human Executor should establish a periodic review schedule. SEVERITY: Low-Medium. (2) Volume risk: Adding ~230,000 characters of statutory text may affect context utilization in complex proposals. MITIGATION: The weighted retrieval system should preferentially surface the most relevant portions. The tier-4 weight structure already handles this. SEVERITY: Low. (3) Interpretation risk: Plain statutory text requires legal interpretation. The AM may apply statutes incorrectly even with correct text. MITIGATION: This risk exists with or without corpus expansion; having correct text is strictly better than missing text. SEVERITY: Low (not a new risk). RISKS OF REJECTION: (1) Continued reasoning gaps: The AM will continue to evaluate proposals affecting member rights, token classification, smart contract validity, and dissolution without access to the governing statutory text. This creates systematic legal reasoning deficits on precisely the questions most likely to arise in DAO operations. SEVERITY: High. (2) Cross-reference failures: Every DAO Supplement question that resolves by reference to W.S. 17-29, W.S. 34-29, or W.S. 40-21 cannot be fully answered. The AM cannot evaluate whether a proposed governance act is legally permissible under default LLC rules, whether OIT token distribution triggers securities law concerns, or whether a smart contract interaction constitutes a legally binding automated transaction. SEVERITY: High. (3) False confidence risk: Worse than having incomplete information is not knowing the information is incomplete. Without these statutes in corpus, the AM may provide confident-sounding analysis on member rights or token governance questions that is legally incomplete, without flagging the incompleteness. This is the most serious risk of rejection. SEVERITY: High. CONCLUSION: Risks of approval are low and manageable. Risks of rejection are high and structural. The asymmetry strongly favors approval."
+      },
+      {
+        "step": 6,
+        "description": "Implementation Verification Assessment",
+        "reasoning": "The proposal specifies deterministic verification for all five milestones. The staged files are present in the evaluation context, confirming they exist and contain the described content. Milestone dependencies are correctly structured (1-4 independent, 5 dependent on 1-4). The Human Executor's role in this implementation is: (1) verify staged text files against wyoleg.gov source PDFs; (2) regenerate manifest with accurate file hashes and byte counts; (3) commit manifest hash on-chain per the Divergence Protocol attestation requirements. The $0 cost estimate is accurate \u2014 Wyoming statutes are public law. The 2026-03-25 target date is the same as the proposal date, indicating files are ready for immediate deployment. No external dependencies beyond wyoleg.gov availability for source verification. Implementation risk is low. The AM recommends explicit confirmation by the Human Executor that the staged text files have been verified against the official PDF sources before on-chain attestation."
+      }
+    ],
+    "alternativesConsidered": [
+      {
+        "option": "REJECT \u2014 Maintain current two-document Wyoming tier",
+        "maximAlignmentScore": 18,
+        "reasoning": "Rejection preserves the status quo of a legally incomplete corpus. The DAO Supplement references W.S. 17-29, W.S. 34-29, and W.S. 40-21 by name as governing law on foundational questions. Operating without these statutes means the AM evaluates governance proposals affecting member rights, token classification, and smart contract validity without access to the primary legal authority. This creates systematic reasoning gaps that undermine governance quality and expose the DAO to legal risks that cannot be identified or mitigated. Zero upside. High ongoing downside. Strongly rejected.",
+        "risks": "Permanent legal reasoning deficit on core governance questions. False confidence on statutory interpretation. Member rights disputes that cannot be properly evaluated. OIT token classification ambiguity that could expose the DAO to securities regulation if misclassified.",
+        "rejected": true,
+        "rejectionReason": "Negative expected value. No benefits. Perpetuates material governance deficiencies."
+      },
+      {
+        "option": "DEFER \u2014 Request independent legal review before corpus addition",
+        "maximAlignmentScore": 52,
+        "reasoning": "Deferral would add delay without adding value. All four statutes are public law, available from the official Wyoming legislature website, and their content is verifiable. Independent legal review might add confidence but cannot change the statutory text. The deterministic verification mechanism (milestone 5 manifest hash) provides sufficient integrity assurance. Deferral is appropriate when information is missing or uncertainty is high; here, the information is complete and the sources are authoritative. Deferral costs: continued legal reasoning deficit during the delay period, which is especially problematic if governance proposals affecting member rights or token classification arise in the interim.",
+        "risks": "Delay cost with no corresponding benefit. Governance proposals in the interim would continue to be evaluated under incomplete legal context.",
+        "rejected": true,
+        "rejectionReason": "Deferral criteria not met. Sources are verified public law. No additional information could be obtained by deferral that materially changes the analysis."
+      },
+      {
+        "option": "MODIFY \u2014 Add only LLC Act and UETA, defer DUNA and Digital Assets Act",
+        "maximAlignmentScore": 74,
+        "reasoning": "A partial addition would address the most structurally necessary dependencies (LLC Act as base statute, UETA as definitional anchor for smart contracts) while deferring the DUNA (comparative only) and Digital Assets Act. However, the Digital Assets Act is operationally critical: OIT token governance, membership interest characterization under W.S. 17-31-102(vi), and the Wyoming Utility Token Act compliance framework (W.S. 34-29-106) all require this statute. The DUNA, while comparative rather than operative, shares definitional cross-references to UETA and Digital Assets Act, adds zero cost, and provides governance design insight. There is no principled reason to add two statutes now and defer two when all four are staged, verified, and ready.",
+        "risks": "Continued gap in token classification reasoning and DUNA comparative governance context.",
+        "rejected": true,
+        "rejectionReason": "No cost savings or risk reduction from partial addition. All four documents are already staged and verified. Partial addition creates unnecessary sequencing overhead."
+      },
+      {
+        "option": "APPROVE with condition \u2014 Require corpus update schedule as part of approval",
+        "maximAlignmentScore": 93,
+        "reasoning": "This variant adds a condition: approval is contingent on the Human Executor committing to a periodic corpus review schedule (recommended: annual review at Wyoming legislative session conclusion, approximately April each year). This addresses the stale law risk identified in Step 5. However, this AM lacks authority to impose conditions on the Human Executor beyond the recommendation level. The appropriate vehicle for this concern is a separate governance proposal establishing corpus maintenance procedures, not a conditional approval of a straightforward corpus addition. The AM notes this as a recommended follow-on action rather than a condition.",
+        "risks": "Corpus maintenance scheduling is a governance design question that exceeds the scope of this corpus-maintenance proposal.",
+        "rejected": false,
+        "rejectionReason": "Not rejected \u2014 the follow-on recommendation (annual corpus review) is included in the recommendation section. But conditioning approval on a separate governance action would be an overreach of this evaluation's scope."
+      }
+    ],
+    "traceabilityChain": "RECOMMENDATION: APPROVE Proposal 7 (Wyoming Jurisdictional Corpus Expansion). TRACEABILITY CHAIN: (1) The Root Thesis Maxim requires 'sovereign, self-sustaining systems that compound human agency over generational timescales.' \u2192 (2) Sovereign governance requires accurate legal reasoning grounded in the complete statutory framework governing the DAO's legal existence. \u2192 (3) OpenInnovate DAO LLC is organized under Wyoming W.S. 17-31 (DAO Supplement), which explicitly incorporates W.S. 17-29 (LLC Act) by reference at W.S. 17-31-103(a), and defines 'smart contract' and 'digital asset' by cross-reference to W.S. 40-21-102(a)(ii) and W.S. 34-29-101(a)(i) respectively. \u2192 (4) The current corpus tier-4-wyoming contains only the DAO Supplement and Wyoming Constitution, creating structural reasoning gaps on member rights, fiduciary duties, dissolution, token classification, and smart contract validity \u2014 precisely the questions most likely to arise in DAO governance. \u2192 (5) Adding the four proposed Wyoming statutes (LLC Act, DUNA, Digital Assets Act, UETA) closes these gaps, enabling the AM to: (a) evaluate proposals affecting member rights against the complete LLC default rules; (b) classify OIT token governance actions against Wyoming's digital asset taxonomy; (c) assess smart contract interactions against the UETA automated transaction framework; (d) compare DAO LLC governance choices against the DUNA alternative structure. \u2192 (6) Improved legal reasoning quality in governance Decisions increases the DAO's probability of operating within legal compliance, avoiding member disputes, and maintaining institutional integrity over time. \u2192 (7) Institutional integrity and legal compliance are necessary (though not sufficient) conditions for a 'self-sustaining system.' \u2192 (8) A self-sustaining system that compounds human agency over generational timescales requires this foundational legal completeness now, when the cost is zero and the documents are available, not after a legal challenge reveals the gap. \u2192 (9) Therefore, approving this corpus expansion directly advances the Root Thesis Maxim. FOLLOW-ON RECOMMENDATION (not a condition of approval): The Human Executor should initiate a governance proposal establishing an annual corpus maintenance schedule, timed to the conclusion of Wyoming's legislative session (approximately April each year), to ensure tier-4-wyoming statutes remain current as Wyoming law evolves. The 2025 amendment visible in the Digital Assets Act (Laws 2025, ch. 150) demonstrates that these statutes do change and the corpus must be maintained accordingly."
+  },
+  "evaluatedAt": "2026-03-26T03:20:11.109430+00:00",
+  "commitSha": "e41fc6ac2fcba249dc2933151dac5c4d953a66ef",
+  "proposalUri": "https://raw.githubusercontent.com/hocmemini/openinnovate-dao/e41fc6ac2fcba249dc2933151dac5c4d953a66ef/governance/proposals/007-expand-wyoming-corpus.json"
+}

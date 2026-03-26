@@ -1,0 +1,95 @@
+{
+  "proposalId": 7,
+  "title": "Expand Wyoming Jurisdictional Corpus — LLC Act, DUNA, Digital Assets, UETA",
+  "type": "corpus-maintenance",
+  "submittedBy": "0xC91ED1978a1b89D0321fcF6BFf919a0f785d5EC7",
+  "date": "2026-03-25",
+  "summary": "Expand tier-4-wyoming from 2 documents (DAO Supplement + State Constitution) to 6 documents by adding the four Wyoming statutes that directly govern our operations: the LLC Act (our base entity statute), the DUNA (alternative decentralized entity structure for comparison), the Digital Assets Act (governs OIT token classification), and the UETA (legal validity of electronic records and smart contracts). All sourced from official wyoleg.gov PDFs, converted to text with proper headers.",
+  "body": "The constitutional corpus currently has only two Wyoming-specific documents: the DAO Supplement (W.S. 17-31) which creates the DAO LLC entity type, and the Wyoming State Constitution. This leaves critical gaps in the Algorithmic Manager's legal reasoning. The LLC Act (W.S. 17-29) is the base statute the DAO Supplement layers on top of — any question about member rights, operating agreements, fiduciary duties, or dissolution defaults to Chapter 29. The Digital Assets Act (W.S. 34-29) defines how Wyoming classifies digital assets, virtual currency, and utility tokens — directly relevant to OIT token governance. The UETA (W.S. 40-21) provides the legal foundation for electronic records, electronic signatures, and automated transactions (smart contracts) as legally binding. The DUNA (W.S. 17-32) provides a governance comparison point as Wyoming's other decentralized entity statute. Without these, the AM evaluates proposals affecting token rights, smart contract validity, and LLC governance against an incomplete legal picture of our jurisdiction.",
+  "proposedChanges": [
+    {
+      "component": "corpus/tier-4-wyoming/wyoming-llc-act.txt",
+      "change": "Add Wyoming LLC Act (W.S. 17-29-101 through 17-29-1105). 134,550 chars. Extracted from official wyoleg.gov Title 17 PDF. Base LLC statute governing the DAO — member rights, operating agreements, fiduciary duties, dissolution, series LLCs.",
+      "source": "https://wyoleg.gov/statutes/compress/title17.pdf"
+    },
+    {
+      "component": "corpus/tier-4-wyoming/wyoming-duna.txt",
+      "change": "Add Wyoming DUNA (W.S. 17-32-101+). 40,152 chars. Alternative decentralized entity structure. Provides governance comparison: what Wyoming considers appropriate for decentralized nonprofit associations vs. DAO LLCs.",
+      "source": "https://wyoleg.gov/statutes/compress/title17.pdf"
+    },
+    {
+      "component": "corpus/tier-4-wyoming/wyoming-digital-assets.txt",
+      "change": "Add Wyoming Digital Assets Act (W.S. 34-29-101 through 34-29-209). 30,897 chars. Defines digital assets, digital consumer assets, digital securities, virtual currency. Classifies them as property. Governs custody, security interests, and registered digital assets.",
+      "source": "https://wyoleg.gov/statutes/compress/title34.pdf"
+    },
+    {
+      "component": "corpus/tier-4-wyoming/wyoming-ueta.txt",
+      "change": "Add Wyoming UETA (W.S. 40-21-101 through 40-21-119). 24,616 chars. Legal recognition of electronic records, electronic signatures, and automated transactions. Section 40-21-114 (Automated transaction) is directly relevant to smart contract validity.",
+      "source": "https://wyoleg.gov/statutes/compress/title40.pdf"
+    },
+    {
+      "component": "corpus/manifest.json",
+      "change": "Regenerate manifest: 149 files (was 145), 5,618,563 bytes (was 5,388,327). New manifest hash: 0x957167bc8fd02f81949a5b176d7eeb28c192c1e2e82a5729a94a6f84baabb8e3"
+    }
+  ],
+  "milestones": [
+    {
+      "id": 1,
+      "domain": "corpus",
+      "description": "Wyoming LLC Act (W.S. 17-29) added to tier-4-wyoming with proper header and ASCII normalization",
+      "phase": 1,
+      "dependencies": [],
+      "targetDate": "2026-03-25",
+      "verificationType": "deterministic"
+    },
+    {
+      "id": 2,
+      "domain": "corpus",
+      "description": "Wyoming DUNA (W.S. 17-32) added to tier-4-wyoming with proper header",
+      "phase": 1,
+      "dependencies": [],
+      "targetDate": "2026-03-25",
+      "verificationType": "deterministic"
+    },
+    {
+      "id": 3,
+      "domain": "corpus",
+      "description": "Wyoming Digital Assets Act (W.S. 34-29) added to tier-4-wyoming with proper header",
+      "phase": 1,
+      "dependencies": [],
+      "targetDate": "2026-03-25",
+      "verificationType": "deterministic"
+    },
+    {
+      "id": 4,
+      "domain": "corpus",
+      "description": "Wyoming UETA (W.S. 40-21) added to tier-4-wyoming with proper header",
+      "phase": 1,
+      "dependencies": [],
+      "targetDate": "2026-03-25",
+      "verificationType": "deterministic"
+    },
+    {
+      "id": 5,
+      "domain": "corpus",
+      "description": "Corpus manifest regenerated with all 149 files, hash verified on-chain",
+      "phase": 1,
+      "dependencies": [1, 2, 3, 4],
+      "targetDate": "2026-03-25",
+      "verificationType": "deterministic"
+    }
+  ],
+  "implementationPhases": {
+    "phase1": {
+      "name": "Corpus Expansion",
+      "timeline": "Immediate (files already extracted and staged)",
+      "deliverables": [
+        "4 new Wyoming statute files in tier-4-wyoming/",
+        "Regenerated corpus manifest (149 files, 5.6MB)",
+        "On-chain attestation of updated corpus"
+      ]
+    }
+  },
+  "estimatedCost": "$0 direct cost. All statutes are public domain / public law.",
+  "externalDependencies": "wyoleg.gov PDF availability for source verification"
+}

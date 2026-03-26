@@ -1,0 +1,737 @@
+# Wyoming Digital Assets Act
+# Statute: W.S. 34-29-101 through 34-29-209
+# Source: https://wyoleg.gov/statutes/compress/title34.pdf (Title 34, Chapter 29)
+# Retrieved: 2026-03-25
+# Status: Public domain / public law
+# Relevance: Defines digital assets, virtual currency, and utility tokens under Wyoming law — governs OIT token classification
+
+CHAPTER 29 - DIGITAL ASSETS 
+ 
+ARTICLE 1 - IN GENERAL 
+ 
+34-29-101.  Definitions. 
+ 
+(a)  As used in this chapter: 
+ 
+(i)  "Digital asset" means a representation of 
+economic, proprietary or access rights that is stored in a 
+computer readable format and is either a digital consumer asset, 
+digital security or virtual currency; 
+ 
+(ii)  "Digital consumer asset" means a digital asset 
+that is used or bought primarily for consumptive, personal or 
+household purposes and includes: 
+ 
+(A)  An open blockchain token constituting 
+intangible personal property as otherwise provided by law; 
+ 
+(B)  Any other digital asset which does not fall 
+within paragraphs (iii) and (iv) of this subsection. 
+ 
+(iii)  "Digital security" means a digital asset which 
+constitutes a security, as defined in W.S. 17-4-102(a)(xxviii), 
+but shall exclude digital consumer assets and virtual currency; 
+ 
+(iv)  "Virtual currency" means a digital asset that 
+is: 
+ 
+(A)  Used as a medium of exchange, unit of 
+account or store of value; and 
+ 
+(B)  Not recognized as legal tender by the United 
+States government. 
+ 
+(v)  "Private key" means a unique element of 
+cryptographic data, or any substantially similar analogue, which 
+is: 
+ 
+(A)  Held by a person; 
+ 
+(B)  Paired with a unique, publicly available 
+element of cryptographic data; and 
+ 
+(C)  Associated with an algorithm that is 
+necessary to carry out an encryption or decryption required to 
+execute a transaction. 
+ 
+(b)  The terms in paragraphs (a)(ii) through (iv) of this 
+section are mutually exclusive. 
+ 
+34-29-102.  Classification of digital assets as property; 
+applicability to Uniform Commercial Code; application of other 
+law. 
+ 
+(a)  Digital assets are classified in the following manner: 
+ 
+(i)  Digital consumer assets are intangible personal 
+property and shall be considered general intangibles, as defined 
+in W.S. 34.1-9-102(a)(xlii), only for the purposes of article 9 
+of the Uniform Commercial Code, title 34.1, Wyoming statutes; 
+ 
+(ii)  Digital securities are intangible personal 
+property and shall be considered securities, as defined in W.S. 
+34.1-8-102(a)(xv), and investment property, as defined in W.S. 
+34.1-9-102(a)(xlix), only for the purposes of articles 8 and 9 
+of the Uniform Commercial Code, title 34.1, Wyoming statutes; 
+ 
+(iii)  Virtual currency is intangible personal 
+property and shall be considered money, notwithstanding W.S. 
+34.1-1-201(b)(xxiv), only for the purposes of article 9 of the 
+Uniform Commercial Code, title 34.1, Wyoming statutes. 
+ 
+(b)  Consistent with W.S. 34.1-8-102(a)(ix), a digital 
+asset may be treated as a financial asset under that paragraph, 
+pursuant to an agreement with the owner of the digital asset. If 
+treated as a financial asset, the digital asset shall remain 
+intangible personal property. 
+ 
+(c)  A bank providing custodial services under W.S. 34-29-
+104 shall be considered to meet the requirements of W.S. 34.1-8-
+102(a)(xiv). 
+ 
+(d)  Classification of digital assets under this section 
+shall be construed in a manner to give the greatest effect to 
+this chapter, but shall not be construed to apply to any other 
+asset. 
+ 
+(e)  This chapter shall be considered a consumer protection 
+statute for the purposes of W.S. 34.1-9-201(b). 
+ 
+34-29-103.  Perfection of security interests in digital 
+assets; control; possession; security agreements; location. 
+ 
+(a)  Notwithstanding the financing statement requirement 
+specified by W.S. 34.1-9-310(a) as otherwise applied to general 
+intangibles or any other provision of law, perfection of a 
+security interest in virtual currency may be achieved through 
+possession and perfection of a security interest in digital 
+securities may be achieved by control. A security interest held 
+by a secured party having possession or control, as applicable, 
+of virtual currency or digital securities has priority over a 
+security interest held by a secured party that does not have 
+possession or control, as applicable. Other provisions of law 
+relating to perfection and priority of security interests, 
+including W.S. 34.1-9-322(c) and priority of control over 
+delivery, shall apply, except that W.S. 34.1-9-322(a)(i) and (b) 
+shall not apply. W.S. 34.1-9-207 shall apply to this section. 
+ 
+(b)  Before a secured party may take possession or control 
+under this section, the secured party shall enter into a 
+security agreement with the debtor and, as necessary, other 
+parties. The security agreement may set forth the terms under 
+which a secured party may pledge its security interest as 
+collateral for another transaction. Consistent with W.S. 34.1-9-
+201(a), the security agreement shall be effective according to 
+its terms between parties, against purchasers of collateral and 
+against creditors. 
+ 
+(c)  If a debtor is located in Wyoming, a secured party may 
+file a financing statement with the secretary of state to 
+perfect a security interest in digital consumer assets or 
+digital securities, including to perfect a security interest in 
+proceeds pursuant to W.S. 34.1-9-315(d). 
+ 
+(d)  Notwithstanding any other provision of law, including 
+article 9 of the Uniform Commercial Code, title 34.1, Wyoming 
+statutes, a transferee takes a digital asset free of any 
+security interest two (2) years after the transferee takes the 
+asset for value and does not have actual notice of an adverse 
+claim at any time during the two (2) year period. This 
+subsection only applies to a security interest perfected by 
+filing. 
+ 
+(e)  As used in this section: 
+ 
+(i)  "Control," when used in article 9, title 34.1, 
+Wyoming statutes and this section, consistent with W.S. 34.1-9-
+314, includes the following: 
+ 
+(A)  A secured party, or an agent, custodian, 
+fiduciary or trustee of the party, has complied with W.S. 34.1-
+8-106, including by means of a private key or the use of a 
+multi-signature arrangement exclusive to the secured party or 
+any substantially similar analogue; 
+ 
+(B)  Use of a smart contract created by a secured 
+party to comply with W.S. 34.1-8-106. As used in this 
+subparagraph, "smart contract" means an automated transaction, 
+as defined in W.S. 40-21-102(a)(ii), or any substantially 
+similar analogue, which is comprised of code, script or 
+programming language that executes the terms of an agreement, 
+and which may include taking custody of and transferring an 
+asset, or issuing executable instructions for these actions, 
+based on the occurrence or nonoccurrence of specified 
+conditions. 
+ 
+(ii)  "Multi-signature arrangement" means a system of 
+access control relating to a digital asset for the purposes of 
+preventing unauthorized transactions relating to the asset, in 
+which two (2) or more private keys are required to conduct a 
+transaction, or any substantially similar analogue; 
+ 
+(iii)  Repealed by Laws 2023, ch. 66, § 3. 
+ 
+(iv)  "Possession," when used in article 9, title 
+34.1, Wyoming statutes and this section, consistent with 34.1-9-
+313, means the ability to exclude others from the use of 
+property, and includes use of a private key, a multi-signature 
+arrangement exclusive to the secured party or a smart contract, 
+as defined in this subsection, or any substantially similar 
+analogue. "Possession" shall also include delivery of 
+certificated digital securities, consistent with W.S. 34.1-8-
+301(a). 
+ 
+(f)  Perfection by possession creates a possessory security 
+interest under W.S. 34.1-9-301(a)(ii) in virtual currency or 
+certificated digital securities, based on the possessory nature 
+of a private key or any substantially similar analogue, which 
+may be tangible or electronic. 
+ 
+(g)  For purposes of article 9, title 34.1 and this 
+section, if collateral is required to be "located in a 
+jurisdiction," a digital asset is located in Wyoming if the 
+asset is possessed or controlled by a Wyoming bank, trust 
+company or other custodian, the debtor or secured party is 
+physically located in Wyoming or the debtor or secured party is 
+incorporated or organized in Wyoming, based on the following 
+factors: 
+ 
+(i)  Whether a security agreement typically 
+accompanying a possessory security interest or other secured 
+transaction exists, consistent with W.S. 34.1-9-201(a), 
+including an agreement describing the possessory nature of a 
+private key or any substantially similar analogue; 
+ 
+(ii)  Choice of law in a security agreement, 
+evidencing the intent and understanding of the parties relating 
+to a transaction, including waivers of litigation in 
+jurisdictions other than Wyoming, access to the Wyoming chancery 
+court and judicial economy; and 
+ 
+(iii)  The relative clarity of the laws of other 
+jurisdictions relating to a digital asset, consequences relating 
+to unknown liens in those jurisdictions and the ability of a 
+court to exercise jurisdiction over a particular digital asset. 
+ 
+34-29-104.  Digital asset custodial services. 
+ 
+(a)  A bank may provide custodial services for digital 
+assets consistent with this section upon providing sixty (60) 
+days written notice to the commissioner. If a bank elects to 
+provide custodial services for digital assets, it shall comply 
+with all provisions of this section. 
+ 
+(b)  A bank may serve as a qualified custodian, as 
+specified by the United States securities and exchange 
+commission in 17 C.F.R. § 275.206(4)-2, or as a custodian 
+authorized by the United States commodity futures trading 
+commission or other law. In performing custodial services under 
+this section, a bank shall: 
+ 
+(i)  Implement all accounting, account statement, 
+internal control, notice and other standards specified by 
+applicable state or federal law and rules for custodial 
+services; 
+ 
+(ii)  Maintain information technology best practices 
+relating to digital assets held in custody. The commissioner may 
+specify required best practices by rule; 
+ 
+(iii)  Fully comply with applicable federal anti-money 
+laundering, customer identification and beneficial ownership 
+requirements; and 
+ 
+(iv)  Take other actions necessary to carry out this 
+section, which may include exercising fiduciary powers similar 
+to those permitted to national banks and ensuring compliance 
+with federal law governing digital assets classified as 
+commodities. 
+ 
+(c)  A bank providing custodial services shall conform to 
+the audit, accounting and related requirements specified by the 
+commissioner and applicable law, which may include entering into 
+an agreement with an independent public accountant to conduct an 
+examination conforming to the requirements of 17 C.F.R. § 
+275.206(4)-2(a)(4) and (6), at the cost of the bank. An 
+accountant shall transmit the results of any examination to the 
+commissioner within one hundred twenty (120) days of the 
+examination and may file the results with other regulatory 
+agencies as their rules may provide. Material discrepancies in 
+an examination shall be reported to the commissioner within one 
+(1) day. The commissioner shall review examination results upon 
+receipt within a reasonable time and during any regular 
+examination conducted under W.S. 13-3-702. 
+ 
+(d)  Digital assets held in custody under this section are 
+not liabilities or assets of the bank. A bank, or a subsidiary, 
+may register as an investment adviser, investment company or 
+broker dealer as necessary. A bank shall maintain possession or 
+control, as applicable, over a digital asset while in custody. A 
+customer shall elect, pursuant to a written agreement with the 
+bank, one (1) of the following relationships for each digital 
+asset held in custody: 
+ 
+(i)  Custody under a bailment as a nonfungible or 
+fungible asset. Assets held under this paragraph shall be 
+strictly segregated from other assets; or 
+ 
+(ii)  Custody pursuant to subsection (e) of this 
+section. 
+ 
+(e)  If a customer makes an election under paragraph 
+(d)(ii) of this section, the bank may, based only on customer 
+instructions, undertake transactions with the digital asset. A 
+bank is deemed to maintain possession or control pursuant to 
+subsection (d) of this section by entering into an agreement 
+with the counterparty to a transaction which contains a time for 
+return of the asset and other customary terms in securities or 
+commodities transactions. The bank shall not be liable for any 
+loss suffered with respect to a transaction under this 
+subsection, except for liability consistent with fiduciary and 
+trust powers. 
+ 
+(f)  A bank and a customer shall agree in writing regarding 
+the source code version the bank will use for each digital 
+asset, and the treatment of each asset under the Uniform 
+Commercial Code, title 34.1, Wyoming statutes if necessary. Any 
+ambiguity under this subsection shall be resolved in favor of 
+the customer. 
+ 
+(g)  A bank shall provide clear, written notice to each 
+customer, and require written acknowledgement, of the following: 
+ 
+(i)  Prior to the implementation of any updates, 
+material source code updates relating to digital assets held in 
+custody, except in emergencies which may include security 
+vulnerabilities; 
+ 
+(ii)  The heightened risk of loss from transactions 
+under subsection (e) of this section; 
+ 
+(iii)  That some risk of loss as a pro rata creditor 
+exists as the result of custody as a fungible asset or custody 
+under paragraph (d)(ii) of this section; 
+ 
+(iv)  That custody under paragraph (d)(ii) of this 
+section may not result in the digital assets of the customer 
+being strictly segregated from other customer assets; and 
+ 
+(v)  That the bank is not liable for losses suffered 
+under subsection (e) of this section, except for liability 
+consistent with fiduciary and trust powers. 
+ 
+(h)  A bank and a customer shall agree in writing to a time 
+period within which the bank must return a digital asset held in 
+custody under this section. If a customer makes an election 
+under paragraph (d)(ii) of this section, the bank and the 
+customer may also agree in writing to the form in which the 
+digital asset shall be returned. 
+ 
+(j)  All ancillary or subsidiary proceeds relating to 
+digital assets held in custody under this section shall accrue 
+to the benefit of the customer, except as specified by a written 
+agreement with the customer. The bank may elect not to collect 
+certain ancillary or subsidiary proceeds, as long as the 
+election is disclosed in writing. A customer who makes an 
+election under paragraph (d)(i) of this section may withdraw the 
+digital asset in a form that permits the collection of the 
+ancillary or subsidiary proceeds. 
+ 
+(k)  A bank shall not authorize or permit rehypothecation 
+of digital assets under this section. The bank shall not engage 
+in any activity to use or exercise discretionary authority 
+relating to a digital asset except based on customer 
+instructions. 
+ 
+(m)  A bank shall not take any action under this section 
+which would likely impair the solvency or the safety and 
+soundness of the bank, as determined by the commissioner after 
+considering the nature of custodial services customary in the 
+banking industry. 
+ 
+(n)  Repealed by Laws 2025, ch. 150, § 3. 
+ 
+(o)  The commissioner may adopt rules to implement this 
+section. 
+ 
+(p)  A bank may provide custodial services for stablecoin 
+reserves, provided those custodial services are consistent with 
+this section and the rules and regulations of the commissioner. 
+ 
+(q)  A supervised trust company that is chartered in this 
+state may provide all the services provided in this section if 
+it complies with the provisions of this section and the rules 
+and regulations of the commissioner. 
+ 
+(r)  As used in this section: 
+ 
+(i)  "Bank" has the meaning ascribed to it in W.S. 13-
+1-101(a)(i); 
+ 
+(ii)  "Commissioner" means the banking commissioner; 
+ 
+(iii)  "Custodial services" means the safekeeping, 
+servicing and management of customer currency and digital 
+assets. This term includes the exercise of fiduciary and trust 
+powers involving the exercise of discretion, including 
+transactions under subsection (e) of this section. 
+ 
+34-29-105.  Jurisdiction of courts. 
+ 
+Subject to other jurisdictional limits placed on specific courts 
+by Wyoming law, the courts of Wyoming shall have jurisdiction to 
+hear claims in both law and equity relating to digital assets, 
+including those arising from this chapter and the Uniform 
+Commercial Code, title 34.1, Wyoming statutes. 
+ 
+34-29-106.  Wyoming Utility Token Act; open blockchain 
+tokens classified as intangible personal property; 
+characteristics; filing requirements; fee; enforcement 
+authority; definitions; virtual currency. 
+ 
+(a)  This section may be cited as the "Wyoming Utility 
+Token Act." 
+ 
+(b)  An open blockchain token with the following 
+characteristics constitutes intangible personal property: 
+ 
+(i)  The predominant purpose of the token is 
+consumptive, as defined in paragraph (g)(ii) of this section; 
+ 
+(ii)  The developer or seller did not market the token 
+to the initial buyer as a financial investment, as defined in 
+paragraph (g)(v) of this section; and 
+ 
+(iii)  At least one (1) of the following subparagraphs 
+is satisfied: 
+ 
+(A)  The developer or seller reasonably believed 
+that it sold the token to the initial buyer for a consumptive 
+purpose; 
+ 
+(B)  The token has a consumptive purpose that is 
+available at or near the time of sale and can be used at or near 
+the time of sale for a consumptive purpose; 
+ 
+(C)  The initial buyer of the token is prohibited 
+by the developer or seller of the token from reselling the token 
+until the token is available to be used for a consumptive 
+purpose; 
+ 
+(D)  The developer or seller takes other 
+reasonable precautions to prevent an initial buyer from 
+purchasing the token as a financial investment. 
+ 
+(c)  Before making an open blockchain token under 
+subsection (b) of this section available for sale, the developer 
+or seller of a token, or the registered agent of the developer 
+or seller, shall electronically file a notice of intent with the 
+secretary of state and pay a filing fee of one thousand dollars 
+($1,000.00) to offset the costs of administering this section. 
+The notice of intent shall contain the name of the person acting 
+as a developer or seller, the contact information of the person, 
+or the registered agent of the person and comprehensive details 
+on the open blockchain token under subsection (b) of this 
+section made available for sale, as required by the secretary of 
+state. A form shall be made available by the secretary of state 
+for this purpose, which shall include a secure electronic form 
+conspicuously posted on the internet website of the secretary of 
+state. A developer, seller and the registered agent of these 
+persons, if applicable, shall have a continuing duty to update 
+the contact information provided on a notice of intent as long 
+as the open blockchain token associated with the notice is 
+actively being sold. 
+ 
+(d)  A facilitator shall comply with the following 
+requirements: 
+ 
+(i)  A facilitator shall, before making any token 
+available for resale to the public, confirm with the secretary 
+of state that a notice of intent has been filed pursuant to 
+subsection (c) of this section; 
+ 
+(ii)  A facilitator shall, at all times, have a 
+reasonable and good faith belief that a token subject to resale 
+conforms to the requirements of paragraphs (b)(i) through (iii) 
+of this section; and 
+ 
+(iii)  The facilitator shall take reasonably prompt 
+action to terminate the resale of a token which does not conform 
+to the requirements of this subsection. 
+ 
+(e)  A willful failure by a developer, seller or 
+facilitator to comply with the duties imposed by this section 
+shall constitute an unlawful trade practice under W.S. 40-12-
+105(a)(xvii). A developer, seller or facilitator is subject to 
+all applicable criminal statutes, including the fraud provisions 
+of W.S. 6-3-601 through 6-3-615. 
+ 
+(f)  The secretary of state may refer the following to 
+appropriate state or federal agencies for investigation, 
+criminal prosecution, civil penalties and other appropriate 
+enforcement actions: 
+ 
+(i)  Suspected violations of this section; 
+ 
+(ii)  The developer, seller or facilitator of either 
+an open blockchain token which conforms to the requirements of 
+this section or another digital asset which substantially 
+resembles an open blockchain token, but which, in the 
+determination of the secretary of state, is being sold for 
+financial investment or fraudulent purposes. 
+ 
+(g)  As used in this section: 
+ 
+(i)  "Blockchain" means a digital ledger or database 
+which is chronological, consensus-based, decentralized and 
+mathematically verified in nature; 
+ 
+(ii)  "Consumptive" means a circumstance when a token 
+is exchangeable for, or provided for the receipt of, services, 
+software, content or real or tangible personal property, 
+including rights of access to services, content or real or 
+tangible personal property; 
+ 
+(iii)  "Developer" means the person primarily 
+responsible for creating an open blockchain token or otherwise 
+designing the token, including by executing the technological 
+processes necessary to create the token; 
+ 
+(iv)  "Facilitator" means a person who, as a business, 
+makes open blockchain tokens under subsection (b) of this 
+section available for resale to the public after a token has 
+been purchased by an initial buyer; 
+ 
+(v)  "Financial investment" means a contract, 
+transaction or arrangement where a person invests money in a 
+common enterprise and is led to expect profits solely from the 
+efforts of a promoter or a third party; 
+ 
+(vi)  Except as otherwise provided in subsection (h) 
+of this section, "open blockchain token" means a digital unit 
+which is: 
+ 
+(A)  Created: 
+ 
+(I)  In response to the verification or 
+collection of a specified number of transactions relating to a 
+digital ledger or database; 
+ 
+(II)  By deploying computer code to a 
+digital ledger or database, which may include a blockchain, that 
+allows for the creation of digital tokens or other units; or 
+ 
+(III)  Using a combination of the methods 
+specified in subdivisions (I) and (II) of this subparagraph. 
+ 
+(B)  Recorded to a digital ledger or database, 
+which may include a blockchain; and 
+ 
+(C)  Capable of being traded or transferred 
+between persons without an intermediary or custodian of value. 
+ 
+(vii)  "Seller" means a person who makes an open 
+blockchain token available for purchase to an initial buyer. 
+ 
+(h)  Virtual currency or a digital security, as defined in 
+subsection (a) of this section, shall not constitute an open 
+blockchain token. 
+ 
+34-29-107.  Production of private keys; prohibition. 
+ 
+(a)  No person shall be compelled to produce a private key 
+or make a private key known to any other person in any civil, 
+criminal, administrative, legislative or other proceeding in 
+this state that relates to a digital asset, digital identity or 
+other interest or right to which the private key provides access 
+unless a public key is unavailable or unable to disclose the 
+requisite information with respect to the digital asset, digital 
+identity or other interest or right. 
+ 
+(b)  This section shall not be interpreted to prohibit any 
+lawful proceeding that compels a person to produce, sell, 
+transfer, convey or disclose a digital asset, digital identity 
+or other interest or right to which a private key provides 
+access, or to disclose information about the digital asset, 
+digital identity or other interest or right, provided that the 
+person is not required to produce or disclose the private key 
+except as otherwise required by subsection (a) of this section. 
+ 
+ARTICLE 2 - REGISTERED DIGITAL ASSETS 
+ 
+34-29-201.  Definitions. 
+ 
+(a)  For purposes of this article: 
+ 
+(i)  "Secretary" means the secretary of state. 
+ 
+34-29-202.  Registered digital assets; limitations; 
+certificate. 
+ 
+(a)  The lawful owner of any digital asset or the lawful 
+owner's agent may register the digital asset with the secretary 
+in accordance with this article. Digital assets registered with 
+the secretary shall be deemed to be located within the state for 
+purposes of all laws and regulations of this state, or any 
+applicable federal laws not in conflict with this article, which 
+may impact ownership rights of the digital asset or require 
+transfer of the digital asset. 
+ 
+(b)  Following approval of an application for registration 
+of a digital asset, the secretary shall provide a registration 
+certificate cryptographically signed by the secretary for each 
+registered digital asset that may be attached to or otherwise 
+associated with the digital asset. 
+ 
+(c)  Nothing in this article shall be construed to confer 
+any ownership, property or other rights related to digital 
+assets beyond those specifically granted in this article. 
+ 
+34-29-203.  Application for registration; filing fee; 
+limitations. 
+ 
+(a)  Subject to the limitations set forth in this article, 
+any person may submit an application to the secretary in the 
+form and containing information as prescribed by the secretary, 
+for registration of a digital asset. The application shall 
+contain, at minimum, the following information: 
+ 
+(i)  The name and address of the person applying for 
+registration; 
+ 
+(ii)  The nature of the digital asset and sufficient 
+information to identify the digital asset; 
+ 
+(iii)  A statement that the applicant is the lawful 
+owner of the digital asset or the lawful owner's agent and that 
+to the knowledge of the applicant no other person has a current, 
+valid registration of the digital asset either in this state or 
+in any other jurisdiction; 
+ 
+(iv)  Cryptographic proof that the lawful owner has 
+control of the digital asset at the time of application. 
+ 
+(b)  The application shall be signed and verified by oath, 
+affirmation or declaration subject to perjury laws by the 
+applicant. 
+ 
+(c)  The application for registration shall be accompanied 
+by a registration fee set in accordance with W.S. 34-29-209, 
+which registration fee shall not exceed five hundred dollars 
+($500.00) and shall be payable to the secretary. 
+ 
+(d)  The applicant shall be: 
+ 
+(i)  A resident of the state of Wyoming if the 
+applicant is a natural person; 
+ 
+(ii)  Incorporated or organized in the state of 
+Wyoming if the applicant is a business entity. 
+ 
+34-29-204.  Examination of application; amendment of 
+application. 
+ 
+(a)  Upon the filing of a complete application for 
+registration and payment of the registration fee, the 
+application shall be deemed approved and the digital asset 
+registered pursuant to this article unless the secretary, at his 
+discretion, causes the application to be examined for conformity 
+with this article subject to the following: 
+ 
+(i)  The applicant shall provide any additional 
+information requested by the secretary and may make or authorize 
+the secretary to make necessary amendments to the application as 
+may be reasonably requested by the secretary or deemed by the 
+applicant to be advisable to respond to any rejection or 
+objection to the application; 
+ 
+(ii)  The secretary may revise the application with 
+agreement of the applicant or may require the applicant to 
+submit a revised application; 
+ 
+(iii)  If the applicant is found not to meet the 
+registration requirements, the secretary shall advise the 
+applicant of the reasons.  The applicant shall have a reasonable 
+period of time specified by the secretary in which to reply or 
+to amend the application, in which event the application shall 
+be reexamined.  This procedure may be repeated until: 
+ 
+(A)  The secretary finally refuses registration 
+of the digital asset; or 
+ 
+(B)  The applicant fails to reply or amend within 
+the specified period, whereupon the application shall be deemed 
+to have been abandoned. 
+ 
+34-29-205.  Term of registration; renewals. 
+ 
+(a)  Registration of a digital asset is effective for a 
+term of five (5) years from the date of registration. Upon 
+application filed within six (6) months prior to the expiration 
+of the registration term and in a manner complying with the 
+requirements of the secretary, the registration may be renewed 
+for a term of five (5) years from the end of the expiring term. 
+The renewal fee shall be set in accordance with W.S. 34-29-209, 
+but shall not exceed two hundred fifty dollars ($250.00) and 
+shall be submitted with the application for renewal of the 
+registration. 
+ 
+(b)  A digital asset registration may be renewed for 
+successive periods of five (5) years under this section. 
+ 
+34-29-206.  Public record of digital assets. 
+ 
+The secretary shall keep for public examination a record of all 
+registered digital assets under this article. 
+ 
+34-29-207.  Cancellation of registration. 
+ 
+(a)  A digital asset shall no longer be deemed registered 
+and the secretary shall cancel from the register: 
+ 
+(i)  Any registration upon a voluntary request for 
+cancellation thereof from the lawful owner of the digital asset 
+or his agent and payment of a fee set in accordance with W.S. 
+34-29-209, but not to exceed thirty dollars ($30.00); 
+ 
+(ii)  Any registration that is not renewed under this 
+article; 
+ 
+(iii)  Any registration if a court of competent 
+jurisdiction finds: 
+ 
+(A)  That the registration was granted 
+improperly; 
+ 
+(B)  That the registration was obtained 
+fraudulently. 
+ 
+(iv)  Any registration when a court of competent 
+jurisdiction orders cancellation of a registration on any 
+ground. 
+ 
+34-29-208.  False or fraudulent representations or 
+declarations; liability for damages sustained. 
+ 
+Any person who for himself, or on behalf of any other person, 
+files or registers any digital asset in the office of the 
+secretary under the provisions of this article by knowingly 
+making any false or fraudulent representation or declaration, 
+orally or in writing, or by any other means, shall be liable to 
+pay all damages sustained in consequence of the filing or 
+registration, to be recovered by or on behalf of the injured 
+party in any court of competent jurisdiction. 
+ 
+34-29-209.  Powers of secretary of state; filing and other 
+fees. 
+ 
+(a)  The secretary has all powers reasonably necessary to 
+perform the duties required by this article including the 
+promulgation of rules and regulations necessary to carry out the 
+purposes of this article. 
+ 
+(b)  The secretary shall set and collect registration, 
+service and copying fees to recover the costs of providing these 
+services and administering this act.  Fees shall not exceed the 
+costs of providing these services and administering this act. 
+ 
