@@ -3,9 +3,17 @@ name: Governance Proposal Pipeline
 on:
   workflow_dispatch:
     inputs:
-      proposal:
-        description: "Path to proposal file (relative to repo root)"
+      mode:
+        description: "Pipeline mode"
         required: true
+        type: choice
+        default: "evaluate"
+        options:
+          - "evaluate"
+          - "recommend"
+      proposal:
+        description: "Path to proposal file (evaluate mode only)"
+        required: false
         type: string
       dry_run:
         description: "Dry run — evaluate but do not commit on-chain"
@@ -16,7 +24,7 @@ on:
           - "true"
           - "false"
       create_issues:
-        description: "Create GitHub issues from evaluation result"
+        description: "Create GitHub issues from result"
         required: false
         default: "false"
         type: choice
@@ -29,13 +37,18 @@ on:
     paths:
       - "governance/decisions/**"
 
+  schedule:
+    # Annual governance heartbeat — prevents W.S. 17-31-114 dissolution
+    # Runs Feb 1 each year, well before any anniversary deadline
+    - cron: "0 12 1 2 *"
+
 permissions:
   contents: write
   issues: write
 
 jobs:
   evaluate-proposal:
-    if: github.event_name == 'workflow_dispatch'
+    if: github.event_name == 'workflow_dispatch' && github.event.inputs.mode == 'evaluate'
     runs-on: ubuntu-latest
     env:
       ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
@@ -156,3 +169,62 @@ jobs:
           echo "" >> "$GITHUB_STEP_SUMMARY"
           echo "- **Trigger:** push to governance/decisions/" >> "$GITHUB_STEP_SUMMARY"
           echo "- **Changed:** \`${{ steps.changed.outputs.files }}\`" >> "$GITHUB_STEP_SUMMARY"
+
+  ceo-strategic-review:
+    if: >
+      (github.event_name == 'workflow_dispatch' && github.event.inputs.mode == 'recommend') ||
+      github.event_name == 'schedule'
+    runs-on: ubuntu-latest
+    env:
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+      GOVERNANCE_MODEL: claude-opus-4-6
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install anthropic
+
+      - name: Run CEO strategic review
+        id: recommend
+        run: |
+          CREATE_ISSUES="${{ github.event.inputs.create_issues }}"
+          ARGS=""
+
+          if [ "$CREATE_ISSUES" = "true" ]; then
+            ARGS="--create-issues"
+          else
+            ARGS="--dry-run"
+          fi
+
+          python governance-engine/recommend.py $ARGS 2>&1 | tee /tmp/recommend-output.txt
+
+      - name: Commit recommendations
+        if: github.event.inputs.create_issues == 'true' || github.event_name == 'schedule'
+        run: |
+          git config user.name "OpenInnovate Governance Bot"
+          git config user.email "governance-bot@openinnovate.dao"
+          git add governance/recommendations/ || true
+          if git diff --cached --quiet; then
+            echo "No new files to commit"
+          else
+            git commit -m "gov: CEO strategic review $(date +%Y-%m-%d)"
+            git push
+          fi
+
+      - name: Summary
+        run: |
+          echo "## CEO Strategic Review" >> "$GITHUB_STEP_SUMMARY"
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+          echo "- **Trigger:** ${{ github.event_name }}" >> "$GITHUB_STEP_SUMMARY"
+          if [ -f /tmp/recommend-output.txt ]; then
+            echo '```' >> "$GITHUB_STEP_SUMMARY"
+            tail -20 /tmp/recommend-output.txt >> "$GITHUB_STEP_SUMMARY"
+            echo '```' >> "$GITHUB_STEP_SUMMARY"
+          fi

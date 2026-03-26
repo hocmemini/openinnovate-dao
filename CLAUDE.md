@@ -147,6 +147,23 @@ ANTHROPIC_API_KEY=$(grep ANTHROPIC_API_KEY .env | cut -d= -f2) \
 
 Output: `governance/recommendations/strategic-review-YYYYMMDD.json`
 
+## CEO Content Review (review.py)
+
+```bash
+# Review a publication before release
+ANTHROPIC_API_KEY=$(grep ANTHROPIC_API_KEY .env | cut -d= -f2) \
+  python3 governance-engine/review.py \
+  --content path/to/article.md \
+  --category publication
+
+# Categories: publication, legal, financial, technical
+# Flags: --dry-run, --output path.json, --model
+```
+
+Output: `governance/reviews/{category}-{stem}-{timestamp}.json`
+
+Category-specific corpus weight overrides: legal → tier-4 heavy (2.0x), financial → tier-1 heavy (1.5x), technical → tier-3 heavy (1.5x), publication → tier-2 heavy (1.3x).
+
 ## Verification (verify.py)
 
 ```bash
@@ -182,10 +199,12 @@ openinnovate-dao/
     evaluate.py           # Constitutional evaluation engine (--create-issues flag)
     issue_manager.py      # Idempotent issue creation from decisions + followOnRecommendations
     recommend.py          # CEO proactive strategic recommendations
+    review.py             # CEO content review gate (publication/legal/financial/technical)
     verify.py             # Verification checks
     system-prompt-v1.0.md # AM evaluation prompt (original)
     system-prompt-v1.1.md # AM evaluation prompt (adds followOnRecommendations, Step 5)
     system-prompt-recommend-v1.0.md  # CEO strategic planning prompt
+    system-prompt-review-v1.0.md     # CEO content review prompt
   frontend/               # Transparency UI (Next.js on Vercel at dao.openinnovate.org)
   .github/
     ISSUE_TEMPLATE/       # governance-milestone.yml, governance-proposal.yml
