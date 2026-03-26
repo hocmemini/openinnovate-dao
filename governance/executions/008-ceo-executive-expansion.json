@@ -1,0 +1,8 @@
+{
+  "decisionId": 9,
+  "proposalId": "008-ceo-executive-expansion",
+  "executionSummary": "Both phases complete. Phase 1 (06eabca): system-prompt-v1.1.md with followOnRecommendations schema and Step 5, evaluate.py version-aware prompt loading (v1.1→v1.0 fallback), issue_manager.py followOnRecommendations processing with ceo-recommendation labels, recommend.py CEO strategic planning engine, system-prompt-recommend-v1.0.md. Security hardening (1b19f5b): SEC-03 prompt injection mitigation via XML tags, SEC-04 path traversal validation, SEC-05 pre-evaluation corpus integrity check, SEC-09 priority whitelist. Phase 2 (689e1a3): review.py CEO content review gate with 4 categories and corpus weight overrides, system-prompt-review-v1.0.md with category-specific checklists, governance.yml recommend mode + annual heartbeat cron, C-SUITE-ARCHITECTURE.md design document.",
+  "conditions": "All 9 milestones satisfied: (1) system-prompt-v1.1.md created with followOnRecommendations schema, (2) evaluate.py loads v1.1 with v1.0 fallback and dynamic systemPromptVersion, (3) issue_manager.py creates ceo-recommendation issues from followOnRecommendations, (4) recommend.py gathers DAO state and generates strategic recommendations, (5) system-prompt-recommend-v1.0.md with strategic planning framework, (6) review.py with publication/legal/financial/technical categories, (7) system-prompt-review-v1.0.md with category-specific checklists, (8) governance.yml updated with recommend mode and annual heartbeat, (9) C-Suite architecture design document with routing, sub-corpus weights, composite decisions.",
+  "executedBy": "0xC91ED1978a1b89D0321fcF6BFf919a0f785d5EC7",
+  "date": "2026-03-26"
+}
