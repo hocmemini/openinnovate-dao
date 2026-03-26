@@ -270,6 +270,62 @@ def create_issues_from_decision(decision_path, proposal_path):
                 print(f"  CREATED: #{num} — {key}")
                 created += 1
 
+    # Process followOnRecommendations from reasoning tree
+    follow_ons = decision.get("reasoningTree", {}).get("followOnRecommendations", [])
+    if not follow_ons:
+        follow_ons = decision.get("followOnRecommendations", [])
+
+    if follow_ons and recommendation in ("APPROVE", "MODIFY"):
+        ensure_label("ceo-recommendation")
+        for i, rec_item in enumerate(follow_ons[:5], 1):  # Cap at 5
+            desc = rec_item.get("description", "No description")
+            priority = rec_item.get("priority", "medium")
+            rec_type = rec_item.get("type", "issue")
+            rationale = rec_item.get("rationale", "")
+            sources = rec_item.get("relatedCorpusSources", [])
+
+            key = f"[P{proposal_id:03d}-rec-{i}]"
+            existing = issue_exists(key)
+            if existing:
+                print(f"  SKIP: {key} already exists as #{existing}")
+                skipped += 1
+                continue
+
+            ensure_label(f"priority-{priority}")
+            body_lines = [
+                f"**Proposal:** #{proposal_id}",
+                f"**Type:** CEO follow-on recommendation ({rec_type})",
+                f"**Priority:** {priority}",
+                "",
+                "## Recommendation",
+                desc,
+                "",
+            ]
+            if rationale:
+                body_lines.extend(["## Rationale", rationale, ""])
+            if sources:
+                body_lines.append("## Related Corpus Sources")
+                for src in sources:
+                    body_lines.append(f"- `{src}`")
+                body_lines.append("")
+
+            decision_rel = Path(decision_path).relative_to(ROOT) if Path(decision_path).is_absolute() else Path(decision_path)
+            if commit_sha:
+                tree_url = f"https://github.com/{REPO}/blob/{commit_sha}/{decision_rel}"
+            else:
+                tree_url = f"https://github.com/{REPO}/blob/main/{decision_rel}"
+            body_lines.append(f"**Reasoning tree:** [{decision_rel}]({tree_url})")
+
+            short_desc = desc[:60] + ("..." if len(desc) > 60 else "")
+            num = create_issue(
+                f"{key} CEO recommendation: {short_desc}",
+                "\n".join(body_lines),
+                ["ceo-recommendation", "pending-review", f"priority-{priority}", f"proposal-{proposal_id:03d}"]
+            )
+            if num:
+                print(f"  CREATED: #{num} — {key}")
+                created += 1
+
     print(f"\nDone: {created} created, {skipped} skipped (already exist)")
     return created
 

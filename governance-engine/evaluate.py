@@ -31,7 +31,11 @@ from datetime import datetime, timezone
 ROOT = Path(__file__).resolve().parent.parent
 CORPUS_DIR = ROOT / "corpus"
 WEIGHTS_FILE = CORPUS_DIR / "weights.json"
-SYSTEM_PROMPT_FILE = Path(__file__).resolve().parent / "system-prompt-v1.0.md"
+PROMPT_DIR = Path(__file__).resolve().parent
+SYSTEM_PROMPT_VERSIONS = [
+    ("1.1", PROMPT_DIR / "system-prompt-v1.1.md"),
+    ("1.0", PROMPT_DIR / "system-prompt-v1.0.md"),
+]
 REPO_SLUG = "hocmemini/openinnovate-dao"
 
 # Maximum corpus context to inject (chars). Leave room for system prompt,
@@ -238,9 +242,18 @@ def main():
     proposal_text = json.dumps(proposal, indent=2)
     print(f"Loaded proposal: {proposal_path.name}")
 
-    # Load system prompt
-    system_prompt = SYSTEM_PROMPT_FILE.read_text()
-    print(f"Loaded system prompt v1.0 ({len(system_prompt)} chars)")
+    # Load system prompt (version-aware: try v1.1 first, fall back to v1.0)
+    system_prompt = None
+    system_prompt_version = None
+    for version, path in SYSTEM_PROMPT_VERSIONS:
+        if path.exists():
+            system_prompt = path.read_text()
+            system_prompt_version = version
+            print(f"Loaded system prompt v{version} ({len(system_prompt)} chars)")
+            break
+    if system_prompt is None:
+        print("ERROR: No system prompt found.")
+        sys.exit(1)
 
     # Load corpus and compute relevance
     print("Loading corpus...")
@@ -295,7 +308,7 @@ Return ONLY the JSON reasoning tree object."""
         return
 
     # Add metadata
-    reasoning_tree["systemPromptVersion"] = "1.0"
+    reasoning_tree["systemPromptVersion"] = system_prompt_version
     reasoning_tree["model"] = model
     reasoning_tree["evaluatedAt"] = datetime.now(timezone.utc).isoformat()
 

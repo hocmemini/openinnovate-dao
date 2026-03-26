@@ -127,6 +127,26 @@ ANTHROPIC_API_KEY=$(grep ANTHROPIC_API_KEY .env | cut -d= -f2) \
 
 Output: `governance/decisions/XXX-name.json` (reasoning tree with recommendation and score)
 
+evaluate.py uses version-aware prompt loading: tries v1.1 first, falls back to v1.0. The `systemPromptVersion` field in output reflects which prompt was loaded.
+
+## CEO Strategic Recommendations (recommend.py)
+
+```bash
+# Gather DAO state only (no API call)
+ANTHROPIC_API_KEY=$(grep ANTHROPIC_API_KEY .env | cut -d= -f2) \
+  python3 governance-engine/recommend.py --state-only
+
+# Dry run — call API but don't create issues
+ANTHROPIC_API_KEY=$(grep ANTHROPIC_API_KEY .env | cut -d= -f2) \
+  python3 governance-engine/recommend.py --dry-run
+
+# Full run — create GitHub issues from recommendations
+ANTHROPIC_API_KEY=$(grep ANTHROPIC_API_KEY .env | cut -d= -f2) \
+  python3 governance-engine/recommend.py --create-issues
+```
+
+Output: `governance/recommendations/strategic-review-YYYYMMDD.json`
+
 ## Verification (verify.py)
 
 ```bash
@@ -139,7 +159,7 @@ python3 governance-engine/verify.py
 - **Project board:** "OpenInnovate Governance" (public, linked to repo)
 - **Branch protection:** PRs required (1 approval), force-push blocked, admin bypass enabled for development
 - **Issue templates:** `governance-milestone.yml`, `governance-proposal.yml`
-- **Issue key format:** `[P{proposalId}-{phase}.{index}]` for milestones, `[P{proposalId}]` for trackers
+- **Issue key format:** `[P{proposalId}-{phase}.{index}]` for milestones, `[P{proposalId}-rec-{i}]` for CEO recommendations, `[P{proposalId}]` for trackers
 
 ## Directory Structure
 
@@ -152,17 +172,20 @@ openinnovate-dao/
     tier-3-systems/       # Meadows, systems thinking
     tier-4-wyoming/       # Wyoming DAO statutes
     weights.json          # Document weight configuration
-    manifest.json         # File manifest with hashes (145 files, 5.4MB)
+    manifest.json         # File manifest with hashes (149 files, 5.6MB)
   governance/
     proposals/            # Proposal JSONs (input to evaluate.py)
     decisions/            # Reasoning tree JSONs (output of evaluate.py)
     executions/           # Execution records (input to attestExecution)
     divergences/          # Divergence records (when HE overrides AM)
-  governance-engine/      # Pipeline scripts and system prompt
+  governance-engine/      # Pipeline scripts and system prompts
     evaluate.py           # Constitutional evaluation engine (--create-issues flag)
-    issue_manager.py      # Idempotent issue creation from decisions
+    issue_manager.py      # Idempotent issue creation from decisions + followOnRecommendations
+    recommend.py          # CEO proactive strategic recommendations
     verify.py             # Verification checks
-    system-prompt-v1.0.md # AM system prompt
+    system-prompt-v1.0.md # AM evaluation prompt (original)
+    system-prompt-v1.1.md # AM evaluation prompt (adds followOnRecommendations, Step 5)
+    system-prompt-recommend-v1.0.md  # CEO strategic planning prompt
   frontend/               # Transparency UI (Next.js on Vercel at dao.openinnovate.org)
   .github/
     ISSUE_TEMPLATE/       # governance-milestone.yml, governance-proposal.yml
