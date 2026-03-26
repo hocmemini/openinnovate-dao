@@ -169,8 +169,12 @@ def build_condition_body(condition, index, proposal_id, decision_path, commit_sh
 
 def create_issues_from_decision(decision_path, proposal_path):
     """Create GitHub issues from a governance decision."""
-    decision_path = Path(decision_path)
-    proposal_path = Path(proposal_path)
+    decision_path = Path(decision_path).resolve()
+    proposal_path = Path(proposal_path).resolve()
+    root_resolved = str(ROOT.resolve())
+    if not str(decision_path).startswith(root_resolved) or not str(proposal_path).startswith(root_resolved):
+        print("ERROR: File paths must be within repository.", file=sys.stderr)
+        sys.exit(1)
 
     decision = json.loads(decision_path.read_text())
     proposal = json.loads(proposal_path.read_text())
@@ -275,11 +279,13 @@ def create_issues_from_decision(decision_path, proposal_path):
     if not follow_ons:
         follow_ons = decision.get("followOnRecommendations", [])
 
+    VALID_PRIORITIES = {"critical", "high", "medium", "low"}
     if follow_ons and recommendation in ("APPROVE", "MODIFY"):
         ensure_label("ceo-recommendation")
         for i, rec_item in enumerate(follow_ons[:5], 1):  # Cap at 5
             desc = rec_item.get("description", "No description")
             priority = rec_item.get("priority", "medium")
+            priority = priority if priority in VALID_PRIORITIES else "medium"
             rec_type = rec_item.get("type", "issue")
             rationale = rec_item.get("rationale", "")
             sources = rec_item.get("relatedCorpusSources", [])
