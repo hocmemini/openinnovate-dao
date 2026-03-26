@@ -1,0 +1,8 @@
+{
+  "decisionId": 8,
+  "proposalId": "007-expand-wyoming-corpus",
+  "executionSummary": "4 Wyoming statutes added to tier-4-wyoming. LLC Act (W.S. 17-29, 134K), DUNA (W.S. 17-32, 40K), Digital Assets Act (W.S. 34-29, 31K), UETA (W.S. 40-21, 25K). Corpus manifest regenerated: 149 files, 5,618,563 bytes. Commit 58ff75c.",
+  "conditions": "All milestones satisfied: 4 statute files with proper headers and ASCII normalization, manifest regenerated with verified hashes.",
+  "executedBy": "0xC91ED1978a1b89D0321fcF6BFf919a0f785d5EC7",
+  "date": "2026-03-25"
+}
