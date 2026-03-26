@@ -1,0 +1,203 @@
+{
+  "proposalId": 8,
+  "title": "CEO Executive Expansion — Follow-On Recommendations, Proactive Strategy, Content Review, C-Suite Roadmap",
+  "type": "governance-infrastructure",
+  "submittedBy": "0xC91ED1978a1b89D0321fcF6BFf919a0f785d5EC7",
+  "date": "2026-03-25",
+  "summary": "Expand the Algorithmic Manager from a reactive proposal evaluator to a proactive executive system. Phase 1: structured follow-on recommendations in reasoning trees with auto-issue creation, and a new recommend.py for CEO-driven strategic planning. Phase 2: review.py for CEO approval of external-facing content before publication, plus C-suite architecture design for future multi-executive governance. The CEO becomes an agenda-setter, not just a judge.",
+  "body": "The governance pipeline treats the AM as a judge — it responds to proposals but never initiates. Three gaps: (1) The CEO already generates follow-on recommendations in free text (e.g., Decision #8 recommended annual corpus maintenance), but these aren't structured or tracked. They get buried in reasoning trees. (2) There is no mechanism for the CEO to survey the full DAO state and proactively recommend what should happen next. The HE must always initiate. (3) External-facing content (press releases, Mirror articles, legal filings) bypasses the CEO entirely. In any company, the CEO reviews public communications before release. This proposal bridges all three gaps and lays the architectural foundation for a full C-suite when complexity warrants it. The system prompt update from v1.0 to v1.1 is itself a governance act — the CEO evaluating this proposal under v1.0 is assessing whether v1.1 is a valid evolution of its own operating instructions.",
+  "proposedChanges": [
+    {
+      "component": "system-prompt-v1.1.md (new)",
+      "change": "Copy v1.0, add followOnRecommendations array to reasoning tree output schema. Each entry: {description, priority, type, rationale, relatedCorpusSources}. Add evaluation Step 5: 'Follow-On Recommendations — identify proactive actions traced to corpus.' Recommendations are advisory, do not affect score.",
+      "phase": 1
+    },
+    {
+      "component": "evaluate.py",
+      "change": "Version-aware prompt loading: check for system-prompt-v1.1.md first, fall back to v1.0. Dynamic systemPromptVersion metadata from loaded file.",
+      "phase": 1
+    },
+    {
+      "component": "issue_manager.py",
+      "change": "After APPROVE/MODIFY processing, read followOnRecommendations from reasoning tree. Create issues: [P{id:03d}-rec-{i}] CEO recommendation: {desc[:60]}. Labels: ceo-recommendation, pending-review, priority-{level}. Same idempotency via canonical key.",
+      "phase": 1
+    },
+    {
+      "component": "recommend.py (new)",
+      "change": "Standalone CEO strategic planning script. Gathers full DAO state: all proposals, decisions, executions, divergences, open issues (gh CLI), corpus summary, on-chain counts. Sends state + broad corpus sample to CEO with strategic prompt. Output: ranked recommendations with corpus grounding. Flags: --state-only (no API), --dry-run (API but no issues), --create-issues, --output. Each recommendation becomes a GitHub issue with ceo-recommendation label.",
+      "phase": 1
+    },
+    {
+      "component": "system-prompt-recommend-v1.0.md (new)",
+      "change": "Strategic planning prompt. Same identity/maxim/hierarchy as v1.1. Different framing: 'You are reviewing the complete state of OpenInnovate DAO to identify strategic priorities. You are driving the agenda.' Output: recommendations array with id, description, priority, type, rationale, corpusGrounding, relatedDecisions, estimatedEffort.",
+      "phase": 1
+    },
+    {
+      "component": "review.py (new)",
+      "change": "CEO review gate for external content. Input: content file + category (publication, legal, financial, technical). Output: APPROVE/REVISE/REJECT with issues list, corpus basis, suggested revisions. Saved to governance/reviews/ for audit trail. Category-specific corpus weight overrides. No auto-approve — HE always decides.",
+      "phase": 2
+    },
+    {
+      "component": "system-prompt-review-v1.0.md (new)",
+      "change": "Quality assurance prompt. Category-specific checklists: publication (accuracy, tone, no unauthorized commitments), legal (statute compliance, OA consistency), financial (accuracy, no misleading claims), technical (feasibility, security, consistency with approved proposals).",
+      "phase": 2
+    },
+    {
+      "component": ".github/workflows/governance.yml",
+      "change": "Add workflow_dispatch input mode: recommend. New job ceo-strategic-review that runs recommend.py. Optional future: weekly cron schedule for automatic strategic review.",
+      "phase": 2
+    },
+    {
+      "component": "C-Suite architecture (design document)",
+      "change": "Document the multi-executive governance architecture for future implementation. Executive routing by proposal type. Sub-corpus via weight overrides per role (CEO all tiers, CFO tier-1 heavy, CTO tier-3 heavy, GC tier-4 heavy, CMO tier-2 heavy). Multi-executive composite decisions with CEO arbitration. Trigger conditions for each role.",
+      "phase": "deferred"
+    }
+  ],
+  "milestones": [
+    {
+      "id": 1,
+      "domain": "system-prompt",
+      "description": "system-prompt-v1.1.md created with followOnRecommendations schema and evaluation Step 5",
+      "phase": 1,
+      "dependencies": [],
+      "targetDate": "2026-03-26",
+      "verificationType": "deterministic"
+    },
+    {
+      "id": 2,
+      "domain": "evaluate",
+      "description": "evaluate.py loads v1.1 prompt with v1.0 fallback, dynamic systemPromptVersion in metadata",
+      "phase": 1,
+      "dependencies": [1],
+      "targetDate": "2026-03-26",
+      "verificationType": "deterministic"
+    },
+    {
+      "id": 3,
+      "domain": "issues",
+      "description": "issue_manager.py creates ceo-recommendation issues from followOnRecommendations array",
+      "phase": 1,
+      "dependencies": [1],
+      "targetDate": "2026-03-26",
+      "verificationType": "deterministic"
+    },
+    {
+      "id": 4,
+      "domain": "recommend",
+      "description": "recommend.py gathers DAO state and generates strategic recommendations via CEO",
+      "phase": 1,
+      "dependencies": [],
+      "targetDate": "2026-03-26",
+      "verificationType": "deterministic"
+    },
+    {
+      "id": 5,
+      "domain": "recommend",
+      "description": "system-prompt-recommend-v1.0.md with strategic planning framework",
+      "phase": 1,
+      "dependencies": [],
+      "targetDate": "2026-03-26",
+      "verificationType": "deterministic"
+    },
+    {
+      "id": 6,
+      "domain": "review",
+      "description": "review.py with publication/legal/financial/technical categories and APPROVE/REVISE/REJECT output",
+      "phase": 2,
+      "dependencies": [1],
+      "targetDate": "2026-04-05",
+      "verificationType": "deterministic"
+    },
+    {
+      "id": 7,
+      "domain": "review",
+      "description": "system-prompt-review-v1.0.md with category-specific quality checklists",
+      "phase": 2,
+      "dependencies": [],
+      "targetDate": "2026-04-05",
+      "verificationType": "deterministic"
+    },
+    {
+      "id": 8,
+      "domain": "workflow",
+      "description": "governance.yml updated with recommend mode trigger",
+      "phase": 2,
+      "dependencies": [4, 5],
+      "targetDate": "2026-04-05",
+      "verificationType": "deterministic"
+    },
+    {
+      "id": 9,
+      "domain": "architecture",
+      "description": "C-Suite architecture design document with executive routing, sub-corpus weights, composite decisions",
+      "phase": 2,
+      "dependencies": [],
+      "targetDate": "2026-04-05",
+      "verificationType": "manual"
+    }
+  ],
+  "implementationPhases": {
+    "phase1": {
+      "name": "CEO Proactive Capabilities",
+      "timeline": "Immediate",
+      "deliverables": [
+        "system-prompt-v1.1.md with followOnRecommendations",
+        "evaluate.py version-aware prompt loading",
+        "issue_manager.py followOnRecommendations processing",
+        "recommend.py with state gathering and strategic recommendations",
+        "system-prompt-recommend-v1.0.md"
+      ]
+    },
+    "phase2": {
+      "name": "Content Review and Architecture",
+      "timeline": "Week 2-3",
+      "deliverables": [
+        "review.py with 4 content categories",
+        "system-prompt-review-v1.0.md",
+        "governance.yml recommend mode",
+        "C-Suite architecture design document"
+      ]
+    }
+  },
+  "deferredDecisions": [
+    {
+      "decision": "C-Suite implementation (CFO, CTO, GC, CMO)",
+      "trigger": "Proposal volume exceeds single-executive capacity OR domain-specific corpus depth sufficient for meaningful sub-corpus differentiation",
+      "rationale": "Current scale (8 proposals in 2 days) is well-served by a single CEO with domain modes. Multi-executive overhead is premature."
+    },
+    {
+      "decision": "Automated weekly CEO strategic review",
+      "trigger": "API cost budget established and recommend.py proven reliable through manual runs",
+      "rationale": "Scheduled API calls need cost predictability. Manual runs first to validate recommendation quality."
+    },
+    {
+      "decision": "Executive-specific sub-corpora (tier-5 directories)",
+      "trigger": "C-suite implementation begins",
+      "rationale": "Current 4-tier corpus with weight overrides per executive is sufficient. New tiers only justified when executive-specific domain knowledge is needed."
+    }
+  ],
+  "csuiteArchitecture": {
+    "description": "Design-only. Multi-executive governance architecture for future implementation.",
+    "roles": {
+      "CEO": {"focus": "Strategic direction, Maxim alignment, cross-domain arbitration", "corpusWeights": "all tiers equally", "trigger": "Exists now"},
+      "CFO": {"focus": "Financial prudence, capital allocation, treasury", "corpusWeights": "tier-1 heavy (Buffett/Munger)", "trigger": "Treasury > $10K or first investment"},
+      "CTO": {"focus": "Technical architecture, smart contracts, engineering", "corpusWeights": "tier-3 heavy + future engineering corpus", "trigger": "Smart contract upgrades begin"},
+      "GC": {"focus": "Legal compliance, regulatory risk, statutory interpretation", "corpusWeights": "tier-4 heavy (Wyoming statutes)", "trigger": "Regulatory complexity increases"},
+      "CMO": {"focus": "Communications, brand, community engagement", "corpusWeights": "tier-2 heavy + future comms corpus", "trigger": "Community > 100 members"}
+    },
+    "routing": {
+      "governance-infrastructure": ["CEO", "CTO"],
+      "financial": ["CEO", "CFO"],
+      "operational": ["CEO"],
+      "constitutional-amendment": ["CEO", "GC"],
+      "corpus-maintenance": ["CEO", "GC"],
+      "technical": ["CTO", "CEO"],
+      "legal": ["GC", "CEO"],
+      "communications": ["CMO", "CEO"],
+      "treasury": ["CFO", "CEO"]
+    },
+    "compositeDecision": "For multi-executive proposals: each executive produces independent reasoning tree, CEO arbitrates conflicts, final output is composite decision with conflict resolution notes."
+  },
+  "estimatedCost": "$0 direct cost. API costs for recommend.py runs (~$0.50-2.00 per strategic review depending on model).",
+  "externalDependencies": "Anthropic API availability; gh CLI for issue creation"
+}
