@@ -1,0 +1,210 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <!-- Root gradient: deep crypto blue to teal -->
+    <linearGradient id="rootGrad" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0%" stop-color="#0a1628"/>
+      <stop offset="100%" stop-color="#1a3a5c"/>
+    </linearGradient>
+    <!-- Trunk gradient -->
+    <linearGradient id="trunkGrad" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0%" stop-color="#1a3a5c"/>
+      <stop offset="100%" stop-color="#2d6a8f"/>
+    </linearGradient>
+    <!-- Branch gradient: governance teal to light -->
+    <linearGradient id="branchGrad" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0%" stop-color="#2d6a8f"/>
+      <stop offset="100%" stop-color="#4ecdc4"/>
+    </linearGradient>
+    <!-- Leaf/node glow -->
+    <radialGradient id="nodeGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#4ecdc4" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#4ecdc4" stop-opacity="0"/>
+    </radialGradient>
+    <!-- Hash text style -->
+    <style>
+      .hash { font-family: 'Courier New', monospace; font-size: 7px; fill: #4ecdc4; opacity: 0.35; }
+      .hash-root { font-family: 'Courier New', monospace; font-size: 6px; fill: #2d6a8f; opacity: 0.3; }
+    </style>
+  </defs>
+
+  <!-- === ROOTS: Crypto hash chains descending === -->
+  <!-- Central taproot -->
+  <path d="M256 330 L256 390 Q256 420 240 445 Q228 465 220 485"
+        stroke="url(#rootGrad)" stroke-width="4" fill="none" stroke-linecap="round"/>
+  <path d="M256 390 Q256 415 268 440 Q278 460 285 480"
+        stroke="url(#rootGrad)" stroke-width="3" fill="none" stroke-linecap="round"/>
+
+  <!-- Left root system -->
+  <path d="M256 340 Q230 370 205 395 Q185 415 170 445 Q160 465 155 490"
+        stroke="url(#rootGrad)" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+  <path d="M205 395 Q190 420 195 450 Q198 470 200 490"
+        stroke="url(#rootGrad)" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <path d="M256 350 Q220 385 190 410 Q165 430 140 460 Q125 478 115 500"
+        stroke="url(#rootGrad)" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  <path d="M140 460 Q130 475 135 495"
+        stroke="url(#rootGrad)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+
+  <!-- Right root system -->
+  <path d="M256 340 Q282 370 307 395 Q327 415 342 445 Q352 465 357 490"
+        stroke="url(#rootGrad)" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+  <path d="M307 395 Q322 420 317 450 Q314 470 312 490"
+        stroke="url(#rootGrad)" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <path d="M256 350 Q292 385 322 410 Q347 430 372 460 Q387 478 397 500"
+        stroke="url(#rootGrad)" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  <path d="M372 460 Q382 475 377 495"
+        stroke="url(#rootGrad)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+
+  <!-- Hash fragments along roots (attestation chains) -->
+  <text class="hash-root" transform="translate(148,470) rotate(-75)">0x3efD...7536</text>
+  <text class="hash-root" transform="translate(210,465) rotate(-80)">keccak256</text>
+  <text class="hash-root" transform="translate(270,460) rotate(80)">0xC91E...5EC7</text>
+  <text class="hash-root" transform="translate(345,470) rotate(70)">sha256:ec98</text>
+  <text class="hash-root" transform="translate(175,440) rotate(-50)">attest</text>
+  <text class="hash-root" transform="translate(335,440) rotate(50)">verify</text>
+
+  <!-- Root hash nodes (small blocks representing chain blocks) -->
+  <rect x="215" y="475" width="8" height="8" rx="1" fill="#0a1628" stroke="#1a3a5c" stroke-width="0.8" opacity="0.6" transform="rotate(-10,219,479)"/>
+  <rect x="278" y="470" width="8" height="8" rx="1" fill="#0a1628" stroke="#1a3a5c" stroke-width="0.8" opacity="0.6" transform="rotate(10,282,474)"/>
+  <rect x="155" y="480" width="6" height="6" rx="1" fill="#0a1628" stroke="#1a3a5c" stroke-width="0.8" opacity="0.5"/>
+  <rect x="350" y="478" width="6" height="6" rx="1" fill="#0a1628" stroke="#1a3a5c" stroke-width="0.8" opacity="0.5"/>
+
+  <!-- Tiny chain links between root nodes -->
+  <line x1="223" y1="478" x2="240" y2="468" stroke="#1a3a5c" stroke-width="0.6" opacity="0.4" stroke-dasharray="2,2"/>
+  <line x1="286" y1="473" x2="305" y2="465" stroke="#1a3a5c" stroke-width="0.6" opacity="0.4" stroke-dasharray="2,2"/>
+
+  <!-- === TRUNK: Governance spine === -->
+  <path d="M256 180 L256 340" stroke="url(#trunkGrad)" stroke-width="8" fill="none" stroke-linecap="round"/>
+
+  <!-- Trunk texture lines (growth rings / layers = statutory hierarchy) -->
+  <line x1="252" y1="200" x2="260" y2="200" stroke="#4ecdc4" stroke-width="0.5" opacity="0.2"/>
+  <line x1="251" y1="230" x2="261" y2="230" stroke="#4ecdc4" stroke-width="0.5" opacity="0.2"/>
+  <line x1="251" y1="260" x2="261" y2="260" stroke="#4ecdc4" stroke-width="0.5" opacity="0.2"/>
+  <line x1="252" y1="290" x2="260" y2="290" stroke="#4ecdc4" stroke-width="0.5" opacity="0.2"/>
+  <line x1="252" y1="320" x2="260" y2="320" stroke="#4ecdc4" stroke-width="0.5" opacity="0.2"/>
+
+  <!-- === BRANCHES: Governance reasoning paths === -->
+
+  <!-- Main left branch -->
+  <path d="M256 240 Q220 210 180 170 Q155 148 130 120"
+        stroke="url(#branchGrad)" stroke-width="5" fill="none" stroke-linecap="round"/>
+  <!-- Left sub-branches -->
+  <path d="M180 170 Q160 150 145 155 Q125 160 105 150"
+        stroke="url(#branchGrad)" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  <path d="M155 148 Q140 125 120 115 Q105 108 85 100"
+        stroke="url(#branchGrad)" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <path d="M130 120 Q115 100 95 80"
+        stroke="url(#branchGrad)" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <path d="M130 120 Q110 115 90 120"
+        stroke="url(#branchGrad)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+
+  <!-- Main right branch -->
+  <path d="M256 240 Q292 210 332 170 Q357 148 382 120"
+        stroke="url(#branchGrad)" stroke-width="5" fill="none" stroke-linecap="round"/>
+  <!-- Right sub-branches -->
+  <path d="M332 170 Q352 150 367 155 Q387 160 407 150"
+        stroke="url(#branchGrad)" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  <path d="M357 148 Q372 125 392 115 Q407 108 427 100"
+        stroke="url(#branchGrad)" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <path d="M382 120 Q397 100 417 80"
+        stroke="url(#branchGrad)" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <path d="M382 120 Q402 115 422 120"
+        stroke="url(#branchGrad)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+
+  <!-- Upper left branch -->
+  <path d="M256 200 Q225 170 195 135 Q175 110 155 80"
+        stroke="url(#branchGrad)" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+  <path d="M195 135 Q175 125 155 130"
+        stroke="url(#branchGrad)" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+  <path d="M175 110 Q158 90 140 75"
+        stroke="url(#branchGrad)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+
+  <!-- Upper right branch -->
+  <path d="M256 200 Q287 170 317 135 Q337 110 357 80"
+        stroke="url(#branchGrad)" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+  <path d="M317 135 Q337 125 357 130"
+        stroke="url(#branchGrad)" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+  <path d="M337 110 Q354 90 372 75"
+        stroke="url(#branchGrad)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+
+  <!-- Central crown branch -->
+  <path d="M256 180 Q256 140 240 100 Q228 70 220 42"
+        stroke="url(#branchGrad)" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <path d="M256 180 Q256 140 272 100 Q284 70 292 42"
+        stroke="url(#branchGrad)" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <path d="M256 140 Q248 110 256 75 Q260 55 256 35"
+        stroke="url(#branchGrad)" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  <path d="M240 100 Q225 85 210 70"
+        stroke="url(#branchGrad)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  <path d="M272 100 Q287 85 302 70"
+        stroke="url(#branchGrad)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+
+  <!-- === DECISION NODES: Glowing attestation points === -->
+  <!-- Branch tips — governance decision endpoints -->
+  <circle cx="95" cy="80" r="5" fill="#4ecdc4" opacity="0.8"/>
+  <circle cx="95" cy="80" r="10" fill="url(#nodeGlow)"/>
+
+  <circle cx="85" cy="100" r="4" fill="#4ecdc4" opacity="0.7"/>
+  <circle cx="85" cy="100" r="8" fill="url(#nodeGlow)"/>
+
+  <circle cx="105" cy="150" r="4" fill="#4ecdc4" opacity="0.7"/>
+  <circle cx="105" cy="150" r="8" fill="url(#nodeGlow)"/>
+
+  <circle cx="90" cy="120" r="3.5" fill="#4ecdc4" opacity="0.6"/>
+  <circle cx="90" cy="120" r="7" fill="url(#nodeGlow)"/>
+
+  <circle cx="155" cy="80" r="4.5" fill="#4ecdc4" opacity="0.75"/>
+  <circle cx="155" cy="80" r="9" fill="url(#nodeGlow)"/>
+
+  <circle cx="140" cy="75" r="3.5" fill="#4ecdc4" opacity="0.65"/>
+  <circle cx="140" cy="75" r="7" fill="url(#nodeGlow)"/>
+
+  <circle cx="155" cy="130" r="3.5" fill="#4ecdc4" opacity="0.6"/>
+  <circle cx="155" cy="130" r="7" fill="url(#nodeGlow)"/>
+
+  <circle cx="417" cy="80" r="5" fill="#4ecdc4" opacity="0.8"/>
+  <circle cx="417" cy="80" r="10" fill="url(#nodeGlow)"/>
+
+  <circle cx="427" cy="100" r="4" fill="#4ecdc4" opacity="0.7"/>
+  <circle cx="427" cy="100" r="8" fill="url(#nodeGlow)"/>
+
+  <circle cx="407" cy="150" r="4" fill="#4ecdc4" opacity="0.7"/>
+  <circle cx="407" cy="150" r="8" fill="url(#nodeGlow)"/>
+
+  <circle cx="422" cy="120" r="3.5" fill="#4ecdc4" opacity="0.6"/>
+  <circle cx="422" cy="120" r="7" fill="url(#nodeGlow)"/>
+
+  <circle cx="357" cy="80" r="4.5" fill="#4ecdc4" opacity="0.75"/>
+  <circle cx="357" cy="80" r="9" fill="url(#nodeGlow)"/>
+
+  <circle cx="372" cy="75" r="3.5" fill="#4ecdc4" opacity="0.65"/>
+  <circle cx="372" cy="75" r="7" fill="url(#nodeGlow)"/>
+
+  <circle cx="357" cy="130" r="3.5" fill="#4ecdc4" opacity="0.6"/>
+  <circle cx="357" cy="130" r="7" fill="url(#nodeGlow)"/>
+
+  <!-- Crown nodes -->
+  <circle cx="220" cy="42" r="4.5" fill="#4ecdc4" opacity="0.8"/>
+  <circle cx="220" cy="42" r="9" fill="url(#nodeGlow)"/>
+
+  <circle cx="292" cy="42" r="4.5" fill="#4ecdc4" opacity="0.8"/>
+  <circle cx="292" cy="42" r="9" fill="url(#nodeGlow)"/>
+
+  <circle cx="256" cy="35" r="5.5" fill="#4ecdc4" opacity="0.9"/>
+  <circle cx="256" cy="35" r="11" fill="url(#nodeGlow)"/>
+
+  <circle cx="210" cy="70" r="3.5" fill="#4ecdc4" opacity="0.65"/>
+  <circle cx="210" cy="70" r="7" fill="url(#nodeGlow)"/>
+
+  <circle cx="302" cy="70" r="3.5" fill="#4ecdc4" opacity="0.65"/>
+  <circle cx="302" cy="70" r="7" fill="url(#nodeGlow)"/>
+
+  <!-- === JUNCTION NODES: Where branches meet trunk === -->
+  <circle cx="256" cy="180" r="6" fill="#2d6a8f" stroke="#4ecdc4" stroke-width="1.5"/>
+  <circle cx="256" cy="200" r="4" fill="#2d6a8f" stroke="#4ecdc4" stroke-width="1"/>
+  <circle cx="256" cy="240" r="5" fill="#2d6a8f" stroke="#4ecdc4" stroke-width="1.2"/>
+
+  <!-- Root junction -->
+  <circle cx="256" cy="330" r="7" fill="#1a3a5c" stroke="#2d6a8f" stroke-width="1.5"/>
+  <circle cx="256" cy="340" r="4" fill="#1a3a5c" stroke="#2d6a8f" stroke-width="1"/>
+  <circle cx="256" cy="350" r="3.5" fill="#1a3a5c" stroke="#2d6a8f" stroke-width="1"/>
+</svg>

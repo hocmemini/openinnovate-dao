@@ -2,7 +2,9 @@
 
 **AI-augmented direct democracy on Base L2, governed by a weighted constitutional corpus.**
 
-OpenInnovate DAO LLC is a Wyoming Decentralized Autonomous Organization ([W.S. 17-31-101](https://wyoleg.gov/Legislation/2021/SF0038)) with an AI Algorithmic Manager designated in its Articles of Organization. Every governance decision is evaluated against a 144-document constitutional corpus, scored for alignment with the Root Thesis Maxim, and recorded on-chain with full reasoning transparency.
+OpenInnovate DAO LLC is a Wyoming Decentralized Autonomous Organization ([W.S. 17-31-101](https://wyoleg.gov/Legislation/2021/SF0038)) with an AI Algorithmic Manager designated in its Articles of Organization. Every governance decision is evaluated against a 148-document constitutional corpus, scored for alignment with the Root Thesis Maxim, and recorded on-chain with full reasoning transparency.
+
+[**Read the Thesis**](https://dao.openinnovate.org/thesis) | [**Transparency UI**](https://dao.openinnovate.org) | [**Smart Contract**](https://basescan.org/address/0x3efDCccF7b141B5dA4B21478221B0bf0cfdF7536)
 
 ---
 
@@ -20,7 +22,7 @@ Every governance decision includes an explicit traceability chain from the recom
 Proposal → Corpus-Grounded Evaluation → Reasoning Tree → On-Chain Hash → Human Execution (or Divergence)
 ```
 
-1. **Proposals** are submitted as structured JSON or markdown describing governance decisions
+1. **Proposals** are submitted as structured JSON describing governance decisions
 2. **The Governance Engine** retrieves relevant documents from the constitutional corpus via weighted TF-IDF, then calls Claude with a versioned system prompt to produce a structured Reasoning Tree
 3. **The Algorithmic Manager** recommends APPROVE, REJECT, MODIFY, or DEFER with a Maxim Alignment Score (0-100)
 4. **The Human Executor** either attests execution or exercises the **Divergence Protocol** — overriding the AI's recommendation with published reasoning
@@ -43,26 +45,28 @@ Proposal → Corpus-Grounded Evaluation → Reasoning Tree → On-Chain Hash →
 | # | Proposal | Decision | Score | Status |
 |---|----------|----------|-------|--------|
 | 001 | Ratify Operating Agreement | APPROVE | 97/100 | Attested |
-| 002 | Ratify Constitutional Corpus | MODIFY | 88/100 | Attested (conditions satisfied) |
-| 003 | Financial Infrastructure & Credit Strategy | APPROVE | 82/100 | Divergence #1 (Domain 2: standard D-U-N-S) |
-| 004 | Condition Verification Protocol | APPROVE | 91/100 | Pending execution |
+| 002 | Ratify Constitutional Corpus | MODIFY | 88/100 | Attested |
+| 003 | Financial Infrastructure & Credit Strategy | APPROVE | 82/100 | Divergence #1 |
+| 004 | Condition Verification Protocol | APPROVE | 91/100 | Attested |
+| 005 | Transparency UI & Public Dashboard | APPROVE | 90/100 | Attested |
+| 006 | Governance Pipeline Integrity | APPROVE | 89/100 | Attested |
+| 007 | Expand Wyoming Constitutional Corpus | APPROVE | 91/100 | Attested |
+| 008 | CEO Executive Expansion | APPROVE | 82/100 | Attested |
 
-Full reasoning trees: [`governance/decisions/`](governance/decisions/)
+8 proposals, 9 decisions, 1 divergence. Full reasoning trees: [`governance/decisions/`](governance/decisions/)
 
 ---
 
 ## Constitutional Corpus
 
-144 documents across 4 weighted tiers:
+148 documents across 4 weighted tiers:
 
 | Tier | Weight | Documents | Contents |
 |------|--------|-----------|----------|
 | **Tier 1 — Governance** | 1.0 | 50 | Buffett's Owner's Manual, 48 Berkshire shareholder letters (1977-2024), Munger's Psychology of Human Misjudgment |
-| **Tier 2 — Civic** | 0.9 | 88 | US Constitution + Bill of Rights, UN Declaration of Human Rights, Ostrom's 8 Principles for Managing a Commons, 85 Federalist Papers |
+| **Tier 2 — Civic** | 0.9 | 88 | US Constitution, UN Declaration of Human Rights, Ostrom's 8 Principles for Managing a Commons, 85 Federalist Papers |
 | **Tier 3 — Systems** | 0.8 | 4 | Meadows' Leverage Points, Buterin/Hitzig/Weyl Quadratic Funding, Klages-Mundt Stablecoin Governance, DAO Overview Survey |
-| **Tier 4 — Wyoming** | 1.2 | 2 | Wyoming Constitution, Wyoming DAO Supplement (W.S. 17-31-101 through 17-31-116) |
-
-Corpus manifest hash: `0x99c7bc8c1f0438c469e286035673d8a8ad3bb755510d4bf0e5ec89d9932d528f`
+| **Tier 4 — Wyoming** | 1.2 | 6 | Wyoming Constitution, Wyoming DAO Supplement, Wyoming LLC Act, Wyoming DUNA Act, Wyoming Digital Assets Act, Wyoming UETA |
 
 ---
 
@@ -81,22 +85,34 @@ The Human Executor retains sovereign authority to override any Algorithmic Manag
 
 ```
 openinnovate-dao/
-  .github/workflows/     # GitHub Actions governance pipeline
-  contracts/             # Solidity governance contract (Foundry)
-  corpus/                # Constitutional corpus (4 tiers, 144 documents)
-    tier-1-governance/   # Buffett, Munger
-    tier-2-civic/        # Constitution, Federalist Papers, UDHR, Ostrom
-    tier-3-systems/      # Meadows, Buterin, DAO research
-    tier-4-wyoming/      # Wyoming Constitution, DAO Supplement
-    weights.json         # Tier weight configuration
-    manifest.json        # Corpus manifest with file hashes
-  governance/            # Governance pipeline records
-    proposals/           # Submitted proposals
-    decisions/           # Algorithmic Manager reasoning trees
-    executions/          # Human Executor attestation records
-    divergences/         # Divergence Protocol records
-  governance-engine/     # Evaluation engine (Python + system prompt)
-  legal/                 # Articles of Organization, Operating Agreement
+  .github/workflows/       # GitHub Actions governance pipeline
+  contracts/               # Solidity governance contract (Foundry)
+  corpus/                  # Constitutional corpus (4 tiers, 148 documents)
+    tier-1-governance/     # Buffett, Munger
+    tier-2-civic/          # Constitution, Federalist Papers, UDHR, Ostrom
+    tier-3-systems/        # Meadows, Buterin, DAO research
+    tier-4-wyoming/        # Wyoming Constitution, DAO Supplement, LLC Act, DUNA, Digital Assets, UETA
+    weights.json           # Tier weight configuration
+    manifest.json          # Corpus manifest with file hashes
+  governance/              # Governance pipeline records
+    proposals/             # Submitted proposals
+    decisions/             # Algorithmic Manager reasoning trees
+    executions/            # Human Executor attestation records
+    divergences/           # Divergence Protocol records
+    reviews/               # CEO content review outputs
+    recommendations/       # CEO strategic review outputs
+  governance-engine/       # Pipeline scripts and system prompts
+    evaluate.py            # Constitutional evaluation engine
+    issue_manager.py       # Idempotent issue creation from decisions
+    recommend.py           # CEO proactive strategic recommendations
+    review.py              # CEO content review gate
+    verify.py              # Verification checks
+    system-prompt-v1.1.md  # AM evaluation prompt (current)
+    system-prompt-recommend-v1.0.md  # CEO strategic planning prompt
+    system-prompt-review-v1.0.md     # CEO content review prompt
+  frontend/                # Transparency UI (Next.js on Vercel)
+  assets/                  # Logo and publication images
+  legal/                   # Articles of Organization, Operating Agreement
 ```
 
 ---
@@ -104,15 +120,16 @@ openinnovate-dao/
 ## Running the Governance Engine
 
 ```bash
-# Dry run (no API call)
-python governance-engine/evaluate.py --proposal governance/proposals/003-financial-infrastructure.md --dry-run
+# Evaluate a proposal
+ANTHROPIC_API_KEY=sk-ant-... python3 governance-engine/evaluate.py \
+  --proposal governance/proposals/XXX-name.json
 
-# Full evaluation
-export ANTHROPIC_API_KEY=sk-ant-...
-python governance-engine/evaluate.py --proposal governance/proposals/003-financial-infrastructure.md
+# CEO strategic recommendations
+ANTHROPIC_API_KEY=sk-ant-... python3 governance-engine/recommend.py --dry-run
 
-# With model override
-python governance-engine/evaluate.py --proposal governance/proposals/004-condition-verification-protocol.json --model claude-sonnet-4-6
+# CEO content review
+ANTHROPIC_API_KEY=sk-ant-... python3 governance-engine/review.py \
+  --content path/to/article.md --category publication
 ```
 
 ---
@@ -123,7 +140,8 @@ python governance-engine/evaluate.py --proposal governance/proposals/004-conditi
 |-------|-------|
 | **Name** | OpenInnovate DAO LLC |
 | **Jurisdiction** | Wyoming |
-| **Filing Reference** | 2026-001929314 |
+| **Filing Reference** | [2026-001929314](https://wyobiz.wyo.gov) |
+| **EIN** | 41-5085693 |
 | **Type** | Decentralized Autonomous Organization LLC |
 | **Management** | Algorithmically managed (W.S. 17-31-104) |
 | **Registered Agent** | Northwest Registered Agent Service Inc |

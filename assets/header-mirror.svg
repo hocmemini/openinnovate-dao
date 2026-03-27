@@ -1,0 +1,274 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" width="1200" height="600">
+  <defs>
+    <!-- Background gradient -->
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#060d18"/>
+      <stop offset="50%" stop-color="#0a1628"/>
+      <stop offset="100%" stop-color="#0d1f35"/>
+    </linearGradient>
+    <!-- Root gradient -->
+    <linearGradient id="hRootGrad" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0%" stop-color="#0a1628"/>
+      <stop offset="100%" stop-color="#1a3a5c"/>
+    </linearGradient>
+    <!-- Trunk gradient -->
+    <linearGradient id="hTrunkGrad" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0%" stop-color="#1a3a5c"/>
+      <stop offset="100%" stop-color="#2d6a8f"/>
+    </linearGradient>
+    <!-- Branch gradient -->
+    <linearGradient id="hBranchGrad" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0%" stop-color="#2d6a8f"/>
+      <stop offset="100%" stop-color="#4ecdc4"/>
+    </linearGradient>
+    <!-- Node glow -->
+    <radialGradient id="hNodeGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#4ecdc4" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#4ecdc4" stop-opacity="0"/>
+    </radialGradient>
+    <!-- Stack bar gradient -->
+    <linearGradient id="stackGrad1" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#4ecdc4" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#2d6a8f" stop-opacity="0.6"/>
+    </linearGradient>
+    <linearGradient id="stackGrad2" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#2d6a8f" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#1a3a5c" stop-opacity="0.5"/>
+    </linearGradient>
+    <linearGradient id="stackGrad3" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#1a3a5c" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#0a1628" stop-opacity="0.4"/>
+    </linearGradient>
+    <!-- Text glow filter -->
+    <filter id="textGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3" result="blur"/>
+      <feFlood flood-color="#4ecdc4" flood-opacity="0.3"/>
+      <feComposite in2="blur" operator="in"/>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;600;800&amp;display=swap');
+      .title { font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif; font-weight: 800; fill: #e8f4f2; }
+      .subtitle { font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif; font-weight: 300; fill: #8cb8b2; }
+      .monogram { font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif; font-weight: 800; fill: none; stroke: #4ecdc4; }
+      .stack-label { font-family: 'Courier New', monospace; font-size: 10px; fill: #e8f4f2; opacity: 0.7; }
+      .hash-bg { font-family: 'Courier New', monospace; font-size: 8px; fill: #1a3a5c; opacity: 0.15; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="600" fill="url(#bg)"/>
+
+  <!-- Subtle grid pattern (governance structure) -->
+  <g opacity="0.04" stroke="#4ecdc4" stroke-width="0.5">
+    <line x1="0" y1="100" x2="1200" y2="100"/>
+    <line x1="0" y1="200" x2="1200" y2="200"/>
+    <line x1="0" y1="300" x2="1200" y2="300"/>
+    <line x1="0" y1="400" x2="1200" y2="400"/>
+    <line x1="0" y1="500" x2="1200" y2="500"/>
+    <line x1="200" y1="0" x2="200" y2="600"/>
+    <line x1="400" y1="0" x2="400" y2="600"/>
+    <line x1="600" y1="0" x2="600" y2="600"/>
+    <line x1="800" y1="0" x2="800" y2="600"/>
+    <line x1="1000" y1="0" x2="1000" y2="600"/>
+  </g>
+
+  <!-- Background hash watermark -->
+  <text class="hash-bg" x="30" y="590">0x3efDCccF7b141B5dA4B21478221B0bf0cfdF7536 :: keccak256 :: Base L2 :: W.S. 17-31-104 :: attest :: verify :: 0xC91ED1978a1b89D0321fcF6BFf919a0f785d5EC7</text>
+
+  <!-- ==================== -->
+  <!-- LEFT: TREE LOGO      -->
+  <!-- ==================== -->
+  <g transform="translate(100, 40) scale(0.85)">
+    <!-- Roots: crypto chains -->
+    <path d="M200 310 L200 360 Q200 385 188 405 Q180 420 175 445"
+          stroke="url(#hRootGrad)" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+    <path d="M200 360 Q200 382 208 400 Q215 418 220 440"
+          stroke="url(#hRootGrad)" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <path d="M200 315 Q178 345 158 368 Q142 388 130 415 Q122 435 118 455"
+          stroke="url(#hRootGrad)" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <path d="M158 368 Q148 390 152 415"
+          stroke="url(#hRootGrad)" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+    <path d="M200 320 Q170 355 150 375 Q130 395 115 420 Q105 438 98 458"
+          stroke="url(#hRootGrad)" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+    <path d="M200 315 Q222 345 242 368 Q258 388 270 415 Q278 435 282 455"
+          stroke="url(#hRootGrad)" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <path d="M242 368 Q252 390 248 415"
+          stroke="url(#hRootGrad)" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+    <path d="M200 320 Q230 355 250 375 Q270 395 285 420 Q295 438 302 458"
+          stroke="url(#hRootGrad)" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+
+    <!-- Root hash nodes -->
+    <rect x="170" y="435" width="7" height="7" rx="1" fill="#0a1628" stroke="#1a3a5c" stroke-width="0.7" opacity="0.6" transform="rotate(-8,173,438)"/>
+    <rect x="222" y="430" width="7" height="7" rx="1" fill="#0a1628" stroke="#1a3a5c" stroke-width="0.7" opacity="0.6" transform="rotate(8,225,433)"/>
+    <rect x="112" y="445" width="5" height="5" rx="1" fill="#0a1628" stroke="#1a3a5c" stroke-width="0.6" opacity="0.5"/>
+    <rect x="280" y="443" width="5" height="5" rx="1" fill="#0a1628" stroke="#1a3a5c" stroke-width="0.6" opacity="0.5"/>
+
+    <!-- Trunk -->
+    <path d="M200 155 L200 315" stroke="url(#hTrunkGrad)" stroke-width="7" fill="none" stroke-linecap="round"/>
+
+    <!-- Branches -->
+    <path d="M200 215 Q170 190 145 160 Q128 138 110 110"
+          stroke="url(#hBranchGrad)" stroke-width="4.5" fill="none" stroke-linecap="round"/>
+    <path d="M145 160 Q128 145 115 150 Q100 155 82 147"
+          stroke="url(#hBranchGrad)" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+    <path d="M128 138 Q115 118 98 108 Q85 102 68 95"
+          stroke="url(#hBranchGrad)" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+    <path d="M110 110 Q98 93 80 78"
+          stroke="url(#hBranchGrad)" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+    <path d="M110 110 Q92 107 75 112"
+          stroke="url(#hBranchGrad)" stroke-width="1.3" fill="none" stroke-linecap="round"/>
+
+    <path d="M200 215 Q230 190 255 160 Q272 138 290 110"
+          stroke="url(#hBranchGrad)" stroke-width="4.5" fill="none" stroke-linecap="round"/>
+    <path d="M255 160 Q272 145 285 150 Q300 155 318 147"
+          stroke="url(#hBranchGrad)" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+    <path d="M272 138 Q285 118 302 108 Q315 102 332 95"
+          stroke="url(#hBranchGrad)" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+    <path d="M290 110 Q302 93 320 78"
+          stroke="url(#hBranchGrad)" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+    <path d="M290 110 Q308 107 325 112"
+          stroke="url(#hBranchGrad)" stroke-width="1.3" fill="none" stroke-linecap="round"/>
+
+    <!-- Upper branches -->
+    <path d="M200 178 Q178 150 158 118 Q145 98 130 72"
+          stroke="url(#hBranchGrad)" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <path d="M158 118 Q142 110 128 115"
+          stroke="url(#hBranchGrad)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+
+    <path d="M200 178 Q222 150 242 118 Q255 98 270 72"
+          stroke="url(#hBranchGrad)" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <path d="M242 118 Q258 110 272 115"
+          stroke="url(#hBranchGrad)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+
+    <!-- Crown -->
+    <path d="M200 155 Q196 120 188 88 Q182 62 178 38"
+          stroke="url(#hBranchGrad)" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <path d="M200 155 Q204 120 212 88 Q218 62 222 38"
+          stroke="url(#hBranchGrad)" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <path d="M200 120 Q200 88 200 55 Q200 38 200 22"
+          stroke="url(#hBranchGrad)" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+
+    <!-- Decision nodes -->
+    <circle cx="80" cy="78" r="4.5" fill="#4ecdc4" opacity="0.8"/>
+    <circle cx="80" cy="78" r="9" fill="url(#hNodeGlow)"/>
+    <circle cx="68" cy="95" r="3.5" fill="#4ecdc4" opacity="0.7"/>
+    <circle cx="68" cy="95" r="7" fill="url(#hNodeGlow)"/>
+    <circle cx="82" cy="147" r="3.5" fill="#4ecdc4" opacity="0.7"/>
+    <circle cx="82" cy="147" r="7" fill="url(#hNodeGlow)"/>
+    <circle cx="75" cy="112" r="3" fill="#4ecdc4" opacity="0.6"/>
+    <circle cx="75" cy="112" r="6" fill="url(#hNodeGlow)"/>
+    <circle cx="130" cy="72" r="4" fill="#4ecdc4" opacity="0.75"/>
+    <circle cx="130" cy="72" r="8" fill="url(#hNodeGlow)"/>
+    <circle cx="128" cy="115" r="3" fill="#4ecdc4" opacity="0.6"/>
+    <circle cx="128" cy="115" r="6" fill="url(#hNodeGlow)"/>
+
+    <circle cx="320" cy="78" r="4.5" fill="#4ecdc4" opacity="0.8"/>
+    <circle cx="320" cy="78" r="9" fill="url(#hNodeGlow)"/>
+    <circle cx="332" cy="95" r="3.5" fill="#4ecdc4" opacity="0.7"/>
+    <circle cx="332" cy="95" r="7" fill="url(#hNodeGlow)"/>
+    <circle cx="318" cy="147" r="3.5" fill="#4ecdc4" opacity="0.7"/>
+    <circle cx="318" cy="147" r="7" fill="url(#hNodeGlow)"/>
+    <circle cx="325" cy="112" r="3" fill="#4ecdc4" opacity="0.6"/>
+    <circle cx="325" cy="112" r="6" fill="url(#hNodeGlow)"/>
+    <circle cx="270" cy="72" r="4" fill="#4ecdc4" opacity="0.75"/>
+    <circle cx="270" cy="72" r="8" fill="url(#hNodeGlow)"/>
+    <circle cx="272" cy="115" r="3" fill="#4ecdc4" opacity="0.6"/>
+    <circle cx="272" cy="115" r="6" fill="url(#hNodeGlow)"/>
+
+    <!-- Crown nodes -->
+    <circle cx="178" cy="38" r="4" fill="#4ecdc4" opacity="0.8"/>
+    <circle cx="178" cy="38" r="8" fill="url(#hNodeGlow)"/>
+    <circle cx="222" cy="38" r="4" fill="#4ecdc4" opacity="0.8"/>
+    <circle cx="222" cy="38" r="8" fill="url(#hNodeGlow)"/>
+    <circle cx="200" cy="22" r="5" fill="#4ecdc4" opacity="0.9"/>
+    <circle cx="200" cy="22" r="10" fill="url(#hNodeGlow)"/>
+
+    <!-- Junction nodes -->
+    <circle cx="200" cy="155" r="5" fill="#2d6a8f" stroke="#4ecdc4" stroke-width="1.3"/>
+    <circle cx="200" cy="178" r="3.5" fill="#2d6a8f" stroke="#4ecdc4" stroke-width="0.8"/>
+    <circle cx="200" cy="215" r="4.2" fill="#2d6a8f" stroke="#4ecdc4" stroke-width="1"/>
+    <circle cx="200" cy="310" r="6" fill="#1a3a5c" stroke="#2d6a8f" stroke-width="1.3"/>
+  </g>
+
+  <!-- ============================== -->
+  <!-- CENTER: Constitutional Stack   -->
+  <!-- ============================== -->
+  <g transform="translate(505, 155)">
+    <!-- Stack bars — statutory hierarchy -->
+    <!-- Smart Contract (top) -->
+    <rect x="0" y="0" width="280" height="36" rx="3" fill="url(#stackGrad1)" opacity="0.85"/>
+    <text class="stack-label" x="14" y="23">SMART CONTRACT</text>
+    <text class="stack-label" x="195" y="23" opacity="0.4">0x3efD...7536</text>
+
+    <!-- Transparent gap -->
+    <line x1="30" y1="42" x2="250" y2="42" stroke="#4ecdc4" stroke-width="0.3" opacity="0.3" stroke-dasharray="4,4"/>
+
+    <!-- Articles of Organization -->
+    <rect x="15" y="48" width="250" height="36" rx="3" fill="url(#stackGrad2)" opacity="0.75"/>
+    <text class="stack-label" x="29" y="71">ARTICLES OF ORGANIZATION</text>
+
+    <!-- Transparent gap -->
+    <line x1="45" y1="90" x2="235" y2="90" stroke="#4ecdc4" stroke-width="0.3" opacity="0.3" stroke-dasharray="4,4"/>
+
+    <!-- Operating Agreement -->
+    <rect x="30" y="96" width="220" height="36" rx="3" fill="url(#stackGrad3)" opacity="0.65"/>
+    <text class="stack-label" x="44" y="119">OPERATING AGREEMENT</text>
+
+    <!-- Hierarchy arrows -->
+    <text x="138" y="44" font-family="Inter, sans-serif" font-size="10" fill="#4ecdc4" opacity="0.5" text-anchor="middle">&#x25BC;</text>
+    <text x="138" y="92" font-family="Inter, sans-serif" font-size="10" fill="#4ecdc4" opacity="0.4" text-anchor="middle">&#x25BC;</text>
+
+    <!-- Label -->
+    <text x="140" y="155" font-family="Inter, sans-serif" font-size="9" fill="#4ecdc4" opacity="0.4" text-anchor="middle" letter-spacing="3">W.S. 17-31-104 HIERARCHY</text>
+  </g>
+
+  <!-- ============================== -->
+  <!-- RIGHT: OI Monogram             -->
+  <!-- ============================== -->
+  <g transform="translate(870, 120)">
+    <!-- O — with node/graph integration -->
+    <text class="monogram" x="0" y="130" font-size="140" stroke-width="2.5" opacity="0.7">O</text>
+    <!-- Graph nodes on the O -->
+    <circle cx="55" cy="25" r="4" fill="#4ecdc4" opacity="0.6"/>
+    <circle cx="55" cy="25" r="8" fill="url(#hNodeGlow)"/>
+    <circle cx="10" cy="78" r="3" fill="#4ecdc4" opacity="0.5"/>
+    <circle cx="10" cy="78" r="6" fill="url(#hNodeGlow)"/>
+    <circle cx="100" cy="78" r="3" fill="#4ecdc4" opacity="0.5"/>
+    <circle cx="100" cy="78" r="6" fill="url(#hNodeGlow)"/>
+    <circle cx="55" cy="130" r="4" fill="#4ecdc4" opacity="0.6"/>
+    <circle cx="55" cy="130" r="8" fill="url(#hNodeGlow)"/>
+    <!-- Connecting lines within O -->
+    <line x1="55" y1="25" x2="10" y2="78" stroke="#4ecdc4" stroke-width="0.8" opacity="0.25"/>
+    <line x1="55" y1="25" x2="100" y2="78" stroke="#4ecdc4" stroke-width="0.8" opacity="0.25"/>
+    <line x1="10" y1="78" x2="55" y2="130" stroke="#4ecdc4" stroke-width="0.8" opacity="0.25"/>
+    <line x1="100" y1="78" x2="55" y2="130" stroke="#4ecdc4" stroke-width="0.8" opacity="0.25"/>
+
+    <!-- I — with vertical attestation chain -->
+    <text class="monogram" x="105" y="130" font-size="140" stroke-width="2.5" opacity="0.7">I</text>
+    <!-- Chain links on the I -->
+    <rect x="129" y="30" width="8" height="8" rx="1.5" fill="none" stroke="#4ecdc4" stroke-width="0.8" opacity="0.5"/>
+    <rect x="129" y="50" width="8" height="8" rx="1.5" fill="none" stroke="#4ecdc4" stroke-width="0.8" opacity="0.5"/>
+    <rect x="129" y="70" width="8" height="8" rx="1.5" fill="none" stroke="#4ecdc4" stroke-width="0.8" opacity="0.5"/>
+    <rect x="129" y="90" width="8" height="8" rx="1.5" fill="none" stroke="#4ecdc4" stroke-width="0.8" opacity="0.5"/>
+    <rect x="129" y="110" width="8" height="8" rx="1.5" fill="none" stroke="#4ecdc4" stroke-width="0.8" opacity="0.5"/>
+    <!-- Chain connectors -->
+    <line x1="133" y1="38" x2="133" y2="50" stroke="#4ecdc4" stroke-width="0.5" opacity="0.3"/>
+    <line x1="133" y1="58" x2="133" y2="70" stroke="#4ecdc4" stroke-width="0.5" opacity="0.3"/>
+    <line x1="133" y1="78" x2="133" y2="90" stroke="#4ecdc4" stroke-width="0.5" opacity="0.3"/>
+    <line x1="133" y1="98" x2="133" y2="110" stroke="#4ecdc4" stroke-width="0.5" opacity="0.3"/>
+  </g>
+
+  <!-- ==================== -->
+  <!-- TITLE TEXT            -->
+  <!-- ==================== -->
+  <text class="title" x="505" y="430" font-size="42" filter="url(#textGlow)">OpenInnovate</text>
+  <text class="title" x="505" y="472" font-size="22" fill="#4ecdc4" opacity="0.8" letter-spacing="8">DAO</text>
+  <text class="subtitle" x="505" y="510" font-size="14" letter-spacing="1.5">Constitutional AI Governance on Base L2</text>
+
+  <!-- Thin accent line -->
+  <line x1="505" y1="520" x2="780" y2="520" stroke="#4ecdc4" stroke-width="0.5" opacity="0.3"/>
+</svg>
