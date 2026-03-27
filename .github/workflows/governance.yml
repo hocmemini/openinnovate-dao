@@ -46,6 +46,9 @@ permissions:
   contents: write
   issues: write
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 jobs:
   evaluate-proposal:
     if: github.event_name == 'workflow_dispatch' && github.event.inputs.mode == 'evaluate'
@@ -139,6 +142,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
 
       - name: Set up Python
         uses: actions/setup-python@v5

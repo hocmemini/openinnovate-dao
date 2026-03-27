@@ -83,11 +83,14 @@ def verify_content_header(path):
     text = resolved.read_text(errors="replace")
     lines = text.split("\n")
 
-    # Extract header title (first line starting with #)
+    # Extract header title (markdown "# Title" or metadata "Title: ..." format)
     header_title = None
     for line in lines[:10]:
         if line.startswith("# ") and not line.startswith("# Author"):
             header_title = line[2:].strip()
+            break
+        if line.startswith("Title:"):
+            header_title = line[len("Title:"):].strip()
             break
 
     if not header_title:
@@ -98,7 +101,7 @@ def verify_content_header(path):
     # Check if the body content (after headers) contains words from the title
     body_start = 0
     for i, line in enumerate(lines):
-        if not line.startswith("#") and line.strip():
+        if line.strip() and not line.startswith("#") and not re.match(r"^[A-Z][A-Za-z ]+:", line):
             body_start = i
             break
 
@@ -132,6 +135,8 @@ def verify_corpus_integrity():
     results = []
 
     for entry in manifest.get("files", []):
+        if entry["path"] == "manifest.json":
+            continue  # Skip self-reference (circular dependency)
         fpath = CORPUS_DIR / entry["path"]
 
         # Check existence

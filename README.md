@@ -52,8 +52,9 @@ Proposal → Corpus-Grounded Evaluation → Reasoning Tree → On-Chain Hash →
 | 006 | Governance Pipeline Integrity | APPROVE | 89/100 | Attested |
 | 007 | Expand Wyoming Constitutional Corpus | APPROVE | 91/100 | Attested |
 | 008 | CEO Executive Expansion | APPROVE | 82/100 | Attested |
+| 009 | Security Hardening — Multisig, Timelock, RBAC, Integrity | APPROVE | 91/100 | Attested |
 
-8 proposals, 9 decisions, 1 divergence. Full reasoning trees: [`governance/decisions/`](governance/decisions/)
+9 proposals, 10 decisions, 1 divergence. Full reasoning trees: [`governance/decisions/`](governance/decisions/)
 
 ---
 

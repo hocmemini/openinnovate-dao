@@ -1,0 +1,128 @@
+{
+  "proposalId": 9,
+  "title": "Security Hardening — Multisig, Timelock, Role Separation, and Integrity Verification",
+  "type": "infrastructure",
+  "submittedBy": "0xC91ED1978a1b89D0321fcF6BFf919a0f785d5EC7",
+  "date": "2026-03-27",
+  "summary": "Address the 7 remaining security findings from the Day 1 audit: deploy a multisig wallet (SEC-01), add a timelock to UUPS upgrades (SEC-02), implement role-based access control (SEC-01), enforce evaluation-before-recording (SEC-06), add system prompt integrity verification (SEC-07), enforce divergence recording (SEC-08), add canonical JSON hashing (SEC-10), and protect corpus weights from ungovernanced modification (SEC-11).",
+  "body": "The Day 1 security audit produced 12 findings. Four were fixed immediately in code (SEC-03 prompt injection mitigation, SEC-04 path traversal validation, SEC-05 corpus integrity check, SEC-09 priority whitelist). SEC-12 (annual heartbeat) was resolved via the governance.yml cron schedule. The remaining 7 findings require smart contract changes, infrastructure deployment, or governance enforcement mechanisms that constitute governance acts under the Operating Agreement.\n\nThis proposal bundles the remaining findings into three phases: Phase 1 addresses the two CRITICAL items (single-key sovereignty and no upgrade timelock) which represent existential risk to the governance record. Phase 2 addresses the three HIGH items (evaluation enforcement, divergence enforcement, prompt integrity) which represent governance bypass risks. Phase 3 addresses the two MEDIUM items (canonical JSON hashing, corpus weight protection) which represent data integrity risks.\n\nThe phased approach ensures the highest-risk items are resolved first while allowing lower-priority items to be implemented without blocking critical infrastructure.",
+  "proposedChanges": [
+    {
+      "component": "Smart Contract / Infrastructure",
+      "change": "Phase 1: Deploy Gnosis Safe multisig (2-of-3 initially, expandable). Deploy OpenZeppelin TimelockController with 7-day minimum delay for contract upgrades. Implement AccessControl with roles: PROPOSAL_SUBMITTER, DECISION_RECORDER, EXECUTION_ATTESTER, DIVERGENCE_RECORDER. Transfer contract ownership from EOA to multisig+timelock."
+    },
+    {
+      "component": "Smart Contract",
+      "change": "Phase 2a (SEC-06): Add on-chain linkage between evaluation output and recorded decisions. Options: require commit SHA in recordDecision(), or add verifyDecision() that checks keccak256 of raw JSON matches stored hash."
+    },
+    {
+      "component": "Smart Contract / governance-engine",
+      "change": "Phase 2b (SEC-08): Enforce divergence recording. Require either attestation OR divergence for each decision before a configurable timeout. Add verify.py check comparing executed state against recorded decisions."
+    },
+    {
+      "component": "governance-engine",
+      "change": "Phase 2c (SEC-07): Add system prompt hash verification. Maintain expected prompt hashes in a config file. evaluate.py verifies prompt file hash before loading. Add CI check requiring governance decision for prompt file changes."
+    },
+    {
+      "component": "governance-engine",
+      "change": "Phase 3a (SEC-10): Implement canonical JSON serialization for all hashing operations. Use json.dumps(data, sort_keys=True, separators=(',', ':'), ensure_ascii=True). Update evaluate.py, verify.py, and document canonical format. Must not break existing hash records."
+    },
+    {
+      "component": "governance-engine / CI",
+      "change": "Phase 3b (SEC-11): Protect corpus weights.json from ungovernanced modification. Add CI check: if weights.json is modified, require a corresponding governance decision reference. Record weights hash in evaluate.py output for audit trail."
+    }
+  ],
+  "milestones": [
+    {
+      "id": 1,
+      "domain": "infrastructure",
+      "description": "Deploy Gnosis Safe multisig wallet (2-of-3, with HE wallet as one signer)",
+      "phase": 1,
+      "dependencies": [],
+      "verificationType": "deterministic"
+    },
+    {
+      "id": 2,
+      "domain": "infrastructure",
+      "description": "Deploy TimelockController with 7-day minimum delay, connected to UUPS proxy upgrade path",
+      "phase": 1,
+      "dependencies": [1],
+      "verificationType": "deterministic"
+    },
+    {
+      "id": 3,
+      "domain": "infrastructure",
+      "description": "Implement AccessControl with PROPOSAL_SUBMITTER, DECISION_RECORDER, EXECUTION_ATTESTER, DIVERGENCE_RECORDER roles",
+      "phase": 1,
+      "dependencies": [],
+      "verificationType": "deterministic"
+    },
+    {
+      "id": 4,
+      "domain": "infrastructure",
+      "description": "Transfer contract ownership from EOA to multisig+timelock",
+      "phase": 1,
+      "dependencies": [1, 2, 3],
+      "verificationType": "deterministic"
+    },
+    {
+      "id": 5,
+      "domain": "governance",
+      "description": "Add evaluation-to-decision linkage: recordDecision requires commit SHA or on-chain verification of evaluation hash",
+      "phase": 2,
+      "dependencies": [4],
+      "verificationType": "deterministic"
+    },
+    {
+      "id": 6,
+      "domain": "governance",
+      "description": "Enforce divergence protocol: require attestation OR divergence for each decision within configurable timeout",
+      "phase": 2,
+      "dependencies": [4],
+      "verificationType": "deterministic"
+    },
+    {
+      "id": 7,
+      "domain": "governance",
+      "description": "System prompt integrity verification: hash check before evaluation, CI enforcement for prompt changes",
+      "phase": 2,
+      "dependencies": [],
+      "verificationType": "deterministic"
+    },
+    {
+      "id": 8,
+      "domain": "infrastructure",
+      "description": "Implement canonical JSON serialization for all hashing operations without breaking existing records",
+      "phase": 3,
+      "dependencies": [],
+      "verificationType": "deterministic"
+    },
+    {
+      "id": 9,
+      "domain": "governance",
+      "description": "CI enforcement: weights.json changes require governance decision reference, weights hash recorded in evaluation output",
+      "phase": 3,
+      "dependencies": [],
+      "verificationType": "deterministic"
+    }
+  ],
+  "implementationPhases": {
+    "1": {
+      "name": "Critical — Key Management & Upgrade Protection",
+      "description": "Multisig, timelock, RBAC, ownership transfer. Addresses SEC-01 and SEC-02.",
+      "securityFindings": ["SEC-01", "SEC-02"]
+    },
+    "2": {
+      "name": "High — Governance Enforcement",
+      "description": "Evaluation enforcement, divergence enforcement, prompt integrity. Addresses SEC-06, SEC-07, SEC-08.",
+      "securityFindings": ["SEC-06", "SEC-07", "SEC-08"]
+    },
+    "3": {
+      "name": "Medium — Data Integrity",
+      "description": "Canonical JSON hashing, corpus weight protection. Addresses SEC-10, SEC-11.",
+      "securityFindings": ["SEC-10", "SEC-11"]
+    }
+  },
+  "relatedIssues": [32, 33, 34, 36, 40, 42, 43],
+  "estimatedCost": "Gas for Safe deployment + TimelockController + contract upgrade. Estimated < $5 on Base L2."
+}

@@ -78,12 +78,16 @@ def verify_corpus_integrity():
         return True
     mismatches = []
     for entry in files:
+        if entry["path"] == "manifest.json":
+            continue  # Skip self-reference (circular dependency)
         fpath = CORPUS_DIR / entry["path"]
         if not fpath.exists():
             mismatches.append(f"MISSING: {entry['path']}")
             continue
         actual_hash = hashlib.sha256(fpath.read_bytes()).hexdigest()
-        expected_hash = entry.get("sha256", entry.get("hash", "")).lstrip("0x")
+        expected_hash = entry.get("sha256", entry.get("hash", ""))
+        if expected_hash.startswith("0x"):
+            expected_hash = expected_hash[2:]
         if actual_hash != expected_hash:
             mismatches.append(f"MISMATCH: {entry['path']}")
     if mismatches:

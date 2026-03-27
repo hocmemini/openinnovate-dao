@@ -1,8 +1,18 @@
 {
-  "generated": "2026-03-25",
-  "file_count": 149,
-  "total_bytes": 5618563,
+  "generated": "2026-03-27",
+  "file_count": 154,
+  "total_bytes": 5644960,
   "files": [
+    {
+      "path": "manifest.json",
+      "sha256": "957167bc8fd02f81949a5b176d7eeb28c192c1e2e82a5729a94a6f84baabb8e3",
+      "bytes": 26397
+    },
+    {
+      "path": "tier-1-governance/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
     {
       "path": "tier-1-governance/buffett-letters/1977.txt",
       "sha256": "ec98d414267b408760df7c95fc4bc964c06d0195767fe42a5e87cc4292a63dc3",
@@ -252,6 +262,11 @@
       "path": "tier-1-governance/munger-psychology-misjudgment.txt",
       "sha256": "60c9108e5244caa4406c018598a2a42d12a20b94041945338d25bddee047b04b",
       "bytes": 151542
+    },
+    {
+      "path": "tier-2-civic/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
     },
     {
       "path": "tier-2-civic/federalist-papers/fed01.txt",
@@ -694,6 +709,11 @@
       "bytes": 46711
     },
     {
+      "path": "tier-3-systems/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
       "path": "tier-3-systems/buterin-hitzig-weyl-quadratic-funding.txt",
       "sha256": "f36e166786b7eae51f9a25feceaf59dce563819b349e2369721bd0d7b7c7acf3",
       "bytes": 86892
@@ -712,6 +732,11 @@
       "path": "tier-3-systems/meadows-leverage-points.txt",
       "sha256": "5fdd323f923f947dd3e9ab6f996341aa1bf653a581c68ddecf50981b519531b0",
       "bytes": 9137
+    },
+    {
+      "path": "tier-4-wyoming/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
     },
     {
       "path": "tier-4-wyoming/wyoming-constitution.txt",

@@ -1,0 +1,8 @@
+{
+  "decisionId": 10,
+  "proposalId": "009-security-hardening",
+  "executionSummary": "Proposal #009 submitted on-chain as proposalId 9 (tx 0x9fa0540e4d6bbd6daa2d04562b53726060f7e15b47bef50804af768e95702c24). Decision #10 recorded on-chain with score 91/100, APPROVE recommendation (tx 0x2189788746697fe8423163fab5076209ee4d23bea9ef62e5bbe9798d89e8c863). Reasoning tree hash 0xfc951086d47a6c2538a9ddf5b2e3f5bc42bd84039ab2bcc769a7bf6449e3ea33. Implementation of 3-phase security hardening (SEC-01, SEC-02, SEC-06, SEC-07, SEC-08, SEC-10, SEC-11) to proceed per approved phasing. GitHub issues created via issue_manager.py for milestone tracking.",
+  "conditions": "All 9 milestones accepted as proposed across 3 phases. 5 follow-on recommendations generated for CEO tracking. Phase 1 (Critical): multisig, timelock, RBAC, ownership transfer. Phase 2 (High): evaluation enforcement, divergence enforcement, prompt integrity. Phase 3 (Medium): canonical JSON, corpus weight protection.",
+  "executedBy": "0xC91ED1978a1b89D0321fcF6BFf919a0f785d5EC7",
+  "date": "2026-03-27"
+}
