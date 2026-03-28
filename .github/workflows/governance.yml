@@ -50,6 +50,7 @@ permissions:
 
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+  GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
 jobs:
   evaluate-proposal:
@@ -71,12 +72,23 @@ jobs:
       - name: Install dependencies
         run: pip install anthropic
 
+      - name: Validate inputs
+        run: |
+          PROPOSAL="${{ github.event.inputs.proposal }}"
+          if [ -z "$PROPOSAL" ]; then
+            echo "ERROR: proposal input is required for evaluate mode"
+            exit 1
+          fi
+          if [ ! -f "$PROPOSAL" ]; then
+            echo "ERROR: proposal file not found: $PROPOSAL"
+            exit 1
+          fi
+
       - name: Evaluate proposal
         id: evaluate
         run: |
           PROPOSAL="${{ github.event.inputs.proposal }}"
           DRY_RUN="${{ github.event.inputs.dry_run }}"
-          CREATE_ISSUES="${{ github.event.inputs.create_issues }}"
 
           ARGS="--proposal $PROPOSAL"
 
@@ -87,8 +99,8 @@ jobs:
           python governance-engine/evaluate.py $ARGS 2>&1 | tee /tmp/eval-output.txt
 
           # Extract output path and recommendation
-          OUTPUT=$(grep "Reasoning tree saved to:" /tmp/eval-output.txt | sed 's/.*saved to: //')
-          REC=$(grep "^Decision:" /tmp/eval-output.txt | sed 's/Decision: //')
+          OUTPUT=$(grep "Reasoning tree saved to:" /tmp/eval-output.txt | sed 's/.*saved to: //' || true)
+          REC=$(grep "^Decision:" /tmp/eval-output.txt | sed 's/Decision: //' || true)
 
           if [ -n "$OUTPUT" ]; then
             echo "output_path=$OUTPUT" >> "$GITHUB_OUTPUT"
@@ -250,10 +262,10 @@ jobs:
       - name: Run CEO strategic review
         id: recommend
         run: |
-          CREATE_ISSUES="${{ github.event.inputs.create_issues }}"
-          ARGS=""
-
-          if [ "$CREATE_ISSUES" = "true" ]; then
+          # Schedule trigger always creates issues; dispatch respects the input
+          if [ "${{ github.event_name }}" = "schedule" ]; then
+            ARGS="--create-issues"
+          elif [ "${{ github.event.inputs.create_issues }}" = "true" ]; then
             ARGS="--create-issues"
           else
             ARGS="--dry-run"
