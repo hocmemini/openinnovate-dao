@@ -1,0 +1,197 @@
+{
+  "decisionId": 7,
+  "proposalId": "010-corpus-expansion-tier3",
+  "title": "Expand tier-3-systems Constitutional Corpus with Openly Licensed Governance Sources",
+  "algorithmicManager": "Claude (Anthropic API)",
+  "model": "claude-opus-4-6",
+  "systemPromptVersion": "1.1",
+  "date": "2026-03-28",
+  "maximAlignmentScore": 82,
+  "recommendation": "APPROVE",
+  "reasoningTree": {
+    "inputs": {
+      "proposalId": "010-corpus-expansion-tier3",
+      "type": "corpus-modification",
+      "submittedBy": "0xC91ED1978a1b89D0321fcF6BFf919a0f785d5EC7",
+      "date": "2026-03-28",
+      "summary": "Add 7 openly licensed documents to tier-3-systems to address critical gaps in operational governance, token economics, governance failure post-mortems, and DAO revenue models. Current tier-3 has 4 files (~200 KB, ~90% theoretical). Proposed expansion brings tier-3 to 11 files, estimated 400-600 KB, with improved theoretical/practical balance (~50/50).",
+      "currentTier3State": {
+        "files": 4,
+        "size": "200 KB",
+        "weight": 0.8,
+        "theoreticalPracticalBalance": "~90% theoretical / ~10% practical"
+      },
+      "proposedDocuments": [
+        "MakerDAO Governance Manual (CC0-1.0)",
+        "Buterin: Moving Beyond Coin Voting (WTFPL)",
+        "Kivilo et al.: Designing a Token Economy (CC BY 4.0)",
+        "Morrison et al.: The DAO Controversy (CC BY 4.0)",
+        "Buterin: Plutocracy Is Still Bad (WTFPL)",
+        "ENS DAO Governance Documentation (CC0-1.0)",
+        "ethereum.org Governance Documentation (CC BY 4.0)"
+      ],
+      "excludedSources": 5,
+      "gapsClosed": [
+        "DAO revenue models",
+        "token economics",
+        "governance failure post-mortems",
+        "operational governance"
+      ],
+      "gapsRemaining": [
+        "business strategy",
+        "smart contract security",
+        "comparative institutional analysis"
+      ]
+    },
+    "corpusSources": [
+      {
+        "source": "tier-3-systems/meadows-leverage-points.txt",
+        "tier": "tier-3-systems",
+        "weight": 356.15,
+        "relevance": "The proposal explicitly cites Meadows leverage point 3 (goals of the system) in its rationale. More fundamentally, corpus expansion operates at leverage point 3 \u2014 the goals of the system \u2014 because the corpus shapes the AM's goal-setting capacity, determining what frameworks are available for reasoning about governance decisions.",
+        "citedPassage": "THE GOALS OF THE SYSTEM \u2014 The goal of a system \u2014 what it is optimizing for \u2014 determines where all the feedback loops, rules, and information flows point... The Root Thesis Maxim is a goal-level intervention: by defining the supreme governance directive... it redirects all subordinate decisions, rules, and information flows toward long-term compounding rather than short-term extraction."
+      },
+      {
+        "source": "tier-2-civic/ostrom-commons-principles.txt",
+        "tier": "tier-2-civic",
+        "weight": 448.16,
+        "relevance": "Ostrom's Principle 2 (congruence between rules and local conditions) directly bears on whether the corpus is well-calibrated to the DAO's operational context. A corpus dominated by theoretical systems science without practical governance playbooks fails this principle. Principle 4 (monitoring) is relevant because governance failure post-mortems provide the empirical data needed for effective self-monitoring.",
+        "citedPassage": "PRINCIPLE 2: Rules governing use (appropriation) and contribution (provision) must be adapted to local conditions rather than imposed as uniform templates. One-size-fits-all rules fail because resource systems differ in their physical characteristics, cultural contexts, and economic conditions... PRINCIPLE 4: Monitors who actively audit resource conditions and user behavior must be present."
+      },
+      {
+        "source": "tier-3-systems/buterin-hitzig-weyl-quadratic-funding.txt",
+        "tier": "tier-3-systems",
+        "weight": 412.78,
+        "relevance": "This existing tier-3 document demonstrates the current theoretical orientation of the tier \u2014 a rigorous mechanism design paper. The proposed additions (Buterin's governance critiques, MakerDAO manual, ENS docs) would complement this theoretical foundation with practical governance experience. The quadratic funding paper itself references governance challenges that the proposed additions address empirically.",
+        "citedPassage": "The central vulnerabilities of QF are collusion and fraud... The appropriate way of deterring fraud and collusion will depend on the affordances of the system."
+      },
+      {
+        "source": "tier-3-systems/dao-survey-2022.txt",
+        "tier": "tier-3-systems",
+        "weight": 369.71,
+        "relevance": "This existing tier-3 survey identifies governance problems and security vulnerabilities in DAOs but provides limited practical operational guidance. The proposed additions \u2014 particularly Morrison et al. on The DAO Controversy and Buterin's governance critiques \u2014 would provide the empirical case studies and failure analyses that this survey references but does not contain.",
+        "citedPassage": "The hacking incident of the first The DAO project triggered the introspection of DAO project... the future effort can be devoted to improving DAO from a better balance of decentralization, security and scalability."
+      },
+      {
+        "source": "tier-3-systems/klages-mundt-dao-governance-mechanisms.txt",
+        "tier": "tier-3-systems",
+        "weight": 360.95,
+        "relevance": "This existing tier-3 document models governance incentives in stablecoins and derives conditions for governance attacks. The proposed MakerDAO Governance Manual would provide the real-world operational counterpart to this theoretical model \u2014 MakerDAO being the very system Klages-Mundt et al. analyze. This pairing of theory and practice exemplifies the rebalancing the proposal seeks.",
+        "citedPassage": "We model incentive security in non-custodial stablecoins and derive conditions for participation in a stablecoin system across risk absorbers (vaults/CDPs) and holders of governance tokens... This occurred in Dai on Black Thursday, when the Maker system found itself in a deleveraging spiral."
+      },
+      {
+        "source": "tier-1-governance/buffett-letters/2023.txt",
+        "tier": "tier-1-governance",
+        "weight": 178.46,
+        "relevance": "Buffett's emphasis on learning from mistakes and maintaining institutional memory supports the inclusion of governance failure post-mortems. His principle of understanding what you own before investing parallels the need for the AM to have operational governance knowledge before making governance recommendations.",
+        "citedPassage": "Never risk permanent loss of capital... the most important lesson is that our underwriters can be thin, fat, male, female, young, old, foreign or domestic. But they can't be optimists at the office, however desirable that quality may generally be in life."
+      },
+      {
+        "source": "tier-4-wyoming/wyoming-duna.txt",
+        "tier": "tier-4-wyoming",
+        "weight": 248.49,
+        "relevance": "Wyoming's DUNA statute demonstrates that the legal landscape for DAOs is evolving. The proposed ENS and ethereum.org governance documentation would provide the AM with understanding of how other decentralized organizations have structured governance in practice, informing future decisions about OpenInnovate's own governance evolution within Wyoming's framework.",
+        "citedPassage": "W.S. 17-32-121: A decentralized unincorporated nonprofit association may provide for its governance, in whole or in part, through distributed ledger technology, including smart contracts."
+      }
+    ],
+    "analysis": [
+      {
+        "step": 1,
+        "description": "Gap Analysis Validation",
+        "reasoning": "The proposal's claim that tier-3-systems is critically underweight is well-supported. Current tier-3 contains 4 files at approximately 200 KB, compared to tier-1's substantially larger corpus. More critically, the existing tier-3 documents are overwhelmingly theoretical: Buterin-Hitzig-Weyl on quadratic funding (mechanism design theory), Liu et al. DAO survey (academic survey), Klages-Mundt on stablecoin governance (formal modeling), and Meadows on leverage points (systems theory). None of these provide operational governance playbooks, DAO revenue model analysis, token economics frameworks, or governance failure case studies. This means the AM currently has limited ability to ground operational recommendations in tier-3 corpus sources. When the AM must reason about practical governance decisions \u2014 treasury management, proposal lifecycle design, revenue models, or failure prevention \u2014 it lacks the practical tier-3 foundations to do so. Per Meadows leverage point 3, the corpus shapes the AM's goal-setting capacity; a corpus without operational governance literature produces an AM that reasons abstractly but cannot ground recommendations in real-world governance patterns."
+      },
+      {
+        "step": 2,
+        "description": "Source Quality and License Assessment",
+        "reasoning": "Each proposed source must be evaluated on two dimensions: intellectual quality and legal clearance. On quality: (1) MakerDAO Governance Manual \u2014 MakerDAO is the longest-running and most studied DeFi governance system; its manual represents accumulated operational wisdom. The existing Klages-Mundt paper already models MakerDAO, making the manual a direct empirical complement. High quality. (2) Buterin: Moving Beyond Coin Voting \u2014 A canonical critique of token-weighted voting by the creator of Ethereum. Directly relevant to OpenInnovate's own governance design choices. High quality. (3) Kivilo et al.: Token Economy Design \u2014 A systematic framework (TEDM) for designing token economies. Published on arXiv with CC BY 4.0 license. Addresses the token economics gap directly. Moderate-to-high quality. (4) Morrison et al.: The DAO Controversy \u2014 The definitive academic case study of the original DAO hack, published in Frontiers in Blockchain (peer-reviewed). Addresses governance failure post-mortems. High quality. (5) Buterin: Plutocracy Is Still Bad \u2014 Complementary to the coin-voting critique, with specific analysis of DPOS scandals and vote-buying. High quality. (6) ENS DAO Governance Documentation \u2014 ENS is a well-functioning DAO with a documented proposal lifecycle, working groups, and revenue model. Provides practical operational patterns. High quality. (7) ethereum.org Governance Documentation \u2014 Documents Ethereum's off-chain governance model and EIP process, representing the most successful example of rough-consensus governance at scale. High quality. On licensing: CC0-1.0 (MakerDAO manual, ENS docs) \u2014 public domain dedication, no restrictions. CC BY 4.0 (Kivilo, Morrison, ethereum.org) \u2014 requires attribution only, which the proposal's implementation steps address via attribution headers. WTFPL (Buterin blog posts) \u2014 permissive license with no meaningful restrictions. All licenses are compatible with corpus inclusion. The proposal's conservative approach to excluded sources (Paul Graham, Thiel, Trail of Bits, a16z, Tan et al.) demonstrates appropriate diligence on intellectual property risk. The Trail of Bits exclusion pending legal review of AGPLv3 copyleft obligations is particularly prudent."
+      },
+      {
+        "step": 3,
+        "description": "Theoretical/Practical Balance Assessment",
+        "reasoning": "The proposal claims a shift from ~90/10 theoretical/practical to ~50/50. This estimate is reasonable. Current tier-3 is almost entirely theoretical: Quadratic funding (pure theory), DAO survey (academic review), stablecoin governance (formal modeling), leverage points (systems theory). The proposed additions include genuinely operational documents: MakerDAO manual (governance playbook), ENS docs (proposal lifecycle, working groups), ethereum.org governance (EIP process). The Buterin critiques and academic papers sit between theory and practice \u2014 they analyze real-world governance failures and propose alternatives grounded in empirical observation. A 50/50 balance after expansion is a reasonable characterization. This rebalancing aligns with Ostrom's Principle 2: governance rules should be adapted to local conditions. An AM that can only reason from abstract theory cannot adapt its recommendations to OpenInnovate's specific operational context."
+      },
+      {
+        "step": 4,
+        "description": "Risk Assessment \u2014 Corpus Coherence and Quality Control",
+        "reasoning": "Risk 1: Corpus bloat and dilution. Adding 7 documents nearly triples the tier-3 file count. However, tier-3 weight (0.8x) is unchanged, and the estimated size increase (200 KB to 400-600 KB) is modest. The risk of diluting high-quality theoretical sources with lower-quality practical ones is mitigated by the selection quality assessed in Step 2. Risk 2: Source freshness and accuracy. Several sources are from 2018-2021 vintage. DAO governance has evolved rapidly. MakerDAO has undergone significant governance changes since its manual was written; ENS governance may have been amended. The corpus should include sources as they existed at time of inclusion, with a clear understanding that they represent historical snapshots, not living documents. This risk is real but manageable \u2014 the documents provide frameworks and patterns that retain value even as specific implementations evolve. Risk 3: Ideological concentration. Five of the seven proposed sources are directly connected to the Ethereum ecosystem. This creates a potential bias toward Ethereum-centric governance patterns. However, this bias is partially justified: OpenInnovate operates on Ethereum-compatible infrastructure, and the Ethereum ecosystem has the most mature DAO governance practices. The gap analysis correctly identifies that comparative institutional analysis remains an open gap. Risk 4: Conversion fidelity. The implementation steps include converting sources to plain text. Rich content (diagrams, interactive elements in the ethereum.org documentation) may lose information in conversion. This is an operational risk, not a governance risk, and is addressable through careful conversion practices."
+      },
+      {
+        "step": 5,
+        "description": "Maxim Alignment Assessment",
+        "reasoning": "The Root Thesis Maxim directs: 'Maximize the creation of sovereign, self-sustaining systems that compound human agency over generational timescales.' This proposal advances the Maxim in several ways: (1) Self-sustaining systems require robust governance. The AM cannot help build robust governance without a corpus that includes practical governance knowledge. The current tier-3 gap means the AM is reasoning about governance in a vacuum of operational experience. Closing this gap directly improves the AM's capacity to advance the Maxim. (2) Compounding over generational timescales requires learning from failures. The inclusion of Morrison et al. on The DAO Controversy and Buterin's governance critiques provides the AM with anti-patterns \u2014 things that destroy value rather than compound it. Per Buffett's principle, avoiding permanent loss of capital (governance catastrophe, in this context) is foundational to long-term compounding. (3) Sovereign systems require well-designed token economics and incentive structures. The Kivilo TEDM paper and Buterin's coin-voting critiques directly inform how OpenInnovate should design its own token economy, a prerequisite for sovereignty. (4) However, several factors moderate the alignment score: the remaining gaps (business strategy, smart contract security, comparative institutional analysis) are significant; the Ethereum ecosystem concentration introduces potential blind spots; and the proposal does not change the tier-3 weight, meaning the expanded corpus still receives 0.8x weighting in retrieval. The proposal is a meaningful but incremental improvement to the AM's reasoning capacity, not a transformative intervention. It operates at approximately Meadows leverage point 6 (information flows) \u2014 it changes what the AM knows, which changes how it reasons. This is moderately high leverage but not at the goal or paradigm level."
+      }
+    ],
+    "followOnRecommendations": [
+      {
+        "description": "Establish a corpus freshness review protocol. Several proposed sources (MakerDAO manual, ENS docs) document governance systems that evolve over time. The DAO should establish a process for periodically reviewing corpus documents against their living sources and appending 'update notes' or replacing stale content.",
+        "priority": "medium",
+        "type": "proposal",
+        "rationale": "Per Ostrom Principle 2, governance rules must be adapted to local conditions. A corpus that contains stale operational documentation will produce recommendations misaligned with current conditions. Per Meadows leverage point 9, delays in information feedback loops cause oscillation and overshoot.",
+        "relatedCorpusSources": [
+          "tier-2-civic/ostrom-commons-principles.txt",
+          "tier-3-systems/meadows-leverage-points.txt"
+        ]
+      },
+      {
+        "description": "Investigate openly licensed sources for the remaining gaps: business strategy, smart contract security, and comparative institutional analysis. Specifically, investigate whether Ethereum Foundation-published security guidelines, OpenZeppelin documentation, or academic comparative governance literature (e.g., from the Ostrom Workshop) carry compatible licenses.",
+        "priority": "high",
+        "type": "investigation",
+        "rationale": "The proposal honestly identifies three remaining gaps. Business strategy and smart contract security are critical for a DAO that will eventually deploy capital and manage smart contract infrastructure. The exclusion of Trail of Bits (AGPLv3) and Paul Graham (copyright) is well-reasoned but leaves a real void. Per Meadows leverage point 3, these gaps limit the AM's ability to reason about the DAO's full operational scope.",
+        "relatedCorpusSources": [
+          "tier-3-systems/meadows-leverage-points.txt",
+          "tier-3-systems/dao-survey-2022.txt"
+        ]
+      },
+      {
+        "description": "Consider whether tier-3 weight (currently 0.8x) should be re-evaluated after this expansion. With tier-3 growing from 4 to 11 files and shifting toward practical operational content, the relative importance of tier-3 in corpus-grounded reasoning may warrant a weight increase.",
+        "priority": "low",
+        "type": "issue",
+        "rationale": "The proposal's implementation steps note 'Update corpus/weights.json if tier-3 weight adjustment is warranted' but do not propose a specific change. This is appropriate \u2014 weight adjustments should be evaluated separately based on the AM's experience with the expanded corpus. However, the issue should be tracked and revisited after several governance decisions have been made with the expanded corpus available.",
+        "relatedCorpusSources": [
+          "tier-3-systems/meadows-leverage-points.txt"
+        ]
+      },
+      {
+        "description": "Evaluate adding non-Ethereum DAO governance documentation to reduce ecosystem concentration bias. Potential sources include Tezos on-chain governance documentation, Cosmos Hub governance documentation, or Polkadot governance documentation, subject to license compatibility review.",
+        "priority": "medium",
+        "type": "investigation",
+        "rationale": "Five of seven proposed sources are Ethereum-ecosystem-specific. Per Ostrom Principle 8 (nested enterprises for complex systems), governance knowledge should span multiple organizational models. Per the Root Thesis Maxim's emphasis on sovereignty, the AM should not be captive to a single ecosystem's governance paradigm. Per Meadows leverage point 1 (transcending paradigms), exposure to diverse governance models strengthens the AM's ability to reason beyond any single approach.",
+        "relatedCorpusSources": [
+          "tier-2-civic/ostrom-commons-principles.txt",
+          "tier-3-systems/meadows-leverage-points.txt"
+        ]
+      }
+    ],
+    "alternativesConsidered": [
+      {
+        "alternative": "Reject the proposal and maintain current tier-3 composition",
+        "reasoning": "Rejecting would preserve corpus stability but perpetuate a critical gap. The AM would continue to lack operational governance grounding, making practical recommendations less reliable. The current ~90% theoretical composition fails Ostrom's Principle 2 (congruence with local conditions). The gap analysis is well-documented and the need is real. Rejection is not warranted.",
+        "maximAlignmentScore": 30,
+        "disposition": "Rejected"
+      },
+      {
+        "alternative": "Approve a smaller subset \u2014 only the CC0/CC BY 4.0 sources, excluding WTFPL-licensed Buterin blog posts",
+        "reasoning": "WTFPL is an extremely permissive license (essentially public domain equivalent) and has been used in practice by many open-source projects. Excluding Buterin's governance critiques would remove two of the most directly relevant documents on governance failure modes and incentive design flaws. The legal risk from WTFPL is negligible. This alternative sacrifices significant value for minimal risk reduction.",
+        "maximAlignmentScore": 68,
+        "disposition": "Rejected"
+      },
+      {
+        "alternative": "Approve all proposed additions plus attempt to include the excluded sources through fair use or direct permission",
+        "reasoning": "The proposal's conservative approach to excluded sources (Paul Graham, Thiel, Trail of Bits, a16z, Tan et al.) is appropriate. Fair use is uncertain for corpus inclusion, and seeking permissions introduces delays and dependencies. The proposal correctly prioritizes openly licensed sources that can be included immediately and without legal ambiguity. Attempting to include copyrighted sources would introduce unnecessary risk for marginal benefit, given that the seven proposed sources already close the most critical gaps.",
+        "maximAlignmentScore": 55,
+        "disposition": "Rejected \u2014 unnecessary legal risk"
+      },
+      {
+        "alternative": "Defer the proposal until the remaining gaps (business strategy, smart contract security) can also be addressed",
+        "reasoning": "Deferral would delay the benefits of closing four critical gaps (DAO revenue models, token economics, governance failure post-mortems, operational governance) while waiting for sources that may not materialize in the near term. The excluded sources were excluded for legitimate licensing reasons, not because alternatives are expected soon. Partial progress is better than no progress. Per Buffett's capital allocation principles, don't let the perfect be the enemy of the good.",
+        "maximAlignmentScore": 45,
+        "disposition": "Rejected \u2014 perfect is the enemy of good"
+      }
+    ],
+    "traceabilityChain": "Root Thesis Maxim \u2192 'Maximize the creation of sovereign, self-sustaining systems that compound human agency over generational timescales' \u2192 Self-sustaining systems require robust governance informed by both theory and practice \u2192 The AM's governance reasoning capacity is constrained by corpus composition (Meadows leverage point 3: corpus shapes goals; leverage point 6: information flows determine behavior) \u2192 Current tier-3 is ~90% theoretical with zero coverage in operational governance, token economics, governance failures, and DAO revenue models \u2192 This gap prevents the AM from grounding practical governance recommendations in constitutional sources \u2192 The proposal adds 7 openly licensed documents that close 4 of 7 identified gaps, shifting tier-3 from ~90/10 to ~50/50 theoretical/practical balance \u2192 Per Ostrom Principle 2, this adaptation aligns governance knowledge with the DAO's operational context \u2192 Per Ostrom Principle 4, governance failure post-mortems strengthen the DAO's capacity for self-monitoring \u2192 Per Buffett's 'never risk permanent loss of capital,' understanding governance anti-patterns prevents catastrophic governance failures \u2192 Improved AM reasoning capacity \u2192 Better governance recommendations \u2192 More robust governance system \u2192 Greater probability of creating sovereign, self-sustaining systems that compound human agency over generational timescales \u2192 Maxim advanced."
+  },
+  "evaluatedAt": "2026-03-28T20:01:14.462916+00:00",
+  "weightsHash": "d74eda5bd35cbd6cfaaa6148b329aeb7f9f95b54aa52b9458c8fb4d7c8317498",
+  "commitSha": "ff656bd690eec646b689ba7c1cfcc720d110605e",
+  "proposalUri": "https://raw.githubusercontent.com/hocmemini/openinnovate-dao/ff656bd690eec646b689ba7c1cfcc720d110605e/governance/proposals/010-corpus-expansion-tier3.json"
+}

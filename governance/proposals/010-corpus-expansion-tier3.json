@@ -1,0 +1,109 @@
+{
+  "proposalId": "010-corpus-expansion-tier3",
+  "title": "Expand tier-3-systems Constitutional Corpus with Openly Licensed Governance Sources",
+  "type": "corpus-modification",
+  "date": "2026-03-28",
+  "submittedBy": "0xC91ED1978a1b89D0321fcF6BFf919a0f785d5EC7",
+  "summary": "Add 7 openly licensed documents to tier-3-systems to address critical gaps identified in the corpus gap analysis (#67). Current tier-3 has 4 files (200 KB, ~90% theoretical). This proposal adds practical governance playbooks, token economics frameworks, governance failure analysis, and security patterns — all under CC0, CC BY 4.0, or WTFPL licenses.",
+  "rationale": "The CEO strategic review (2026-03-28) and corpus gap analysis identified that tier-3-systems is 17x smaller than tier-1 and 7x smaller than tier-2, with zero coverage in operational governance, token economics, and governance failure post-mortems. The Algorithmic Manager cannot ground business strategy and operational recommendations in constitutional sources without practical governance literature. Per Meadows leverage point 3: the corpus shapes the AM's goal-setting capacity.",
+  "proposedChanges": [
+    {
+      "action": "add",
+      "target": "corpus/tier-3-systems/makerdao-governance-manual.txt",
+      "source": "https://github.com/makerdao/governance-manual",
+      "license": "CC0-1.0",
+      "description": "MakerDAO Governance Manual — operational governance playbook, stability fee revenue model, delegate frameworks, treasury management",
+      "gapsFilled": ["DAO revenue models", "operational governance"]
+    },
+    {
+      "action": "add",
+      "target": "corpus/tier-3-systems/buterin-moving-beyond-coin-voting.txt",
+      "source": "https://vitalik.eth.limo/general/2021/08/16/voting3.html",
+      "license": "WTFPL",
+      "description": "Vitalik Buterin: Moving Beyond Coin Voting Governance — critique of coin voting, alternatives (proof-of-personhood, quadratic voting, futarchy)",
+      "gapsFilled": ["token economics", "governance failures", "incentive design"]
+    },
+    {
+      "action": "add",
+      "target": "corpus/tier-3-systems/kivilo-token-economy-design.txt",
+      "source": "https://arxiv.org/abs/2602.09608",
+      "license": "CC BY 4.0",
+      "description": "Kivilo et al.: Designing a Token Economy — Token Economy Design Method (TEDM) covering incentives, governance, and tokenomics",
+      "gapsFilled": ["token economics", "incentive design"]
+    },
+    {
+      "action": "add",
+      "target": "corpus/tier-3-systems/morrison-dao-controversy.txt",
+      "source": "https://www.frontiersin.org/journals/blockchain/articles/10.3389/fbloc.2020.00025/full",
+      "license": "CC BY 4.0",
+      "description": "Morrison et al.: The DAO Controversy — canonical governance failure case study ($250M crowdfund, $60M exploit, hard fork decision)",
+      "gapsFilled": ["governance failure post-mortems"]
+    },
+    {
+      "action": "add",
+      "target": "corpus/tier-3-systems/buterin-plutocracy-still-bad.txt",
+      "source": "https://vitalik.eth.limo/general/2018/03/28/plutocracy.html",
+      "license": "WTFPL",
+      "description": "Vitalik Buterin: Governance, Part 2: Plutocracy Is Still Bad — critique of plutocratic voting, DPOS scandals, vote-buying dynamics",
+      "gapsFilled": ["incentive design", "governance failures"]
+    },
+    {
+      "action": "add",
+      "target": "corpus/tier-3-systems/ens-governance-docs.txt",
+      "source": "https://github.com/ensdomains/docs",
+      "license": "CC0-1.0",
+      "description": "ENS DAO Governance Documentation — proposal lifecycle, working groups, constitutional framework, registration fee revenue model",
+      "gapsFilled": ["DAO revenue models", "operational governance"]
+    },
+    {
+      "action": "add",
+      "target": "corpus/tier-3-systems/ethereum-org-governance.txt",
+      "source": "https://ethereum.org/governance/",
+      "license": "CC BY 4.0",
+      "description": "ethereum.org Governance Documentation — Ethereum's off-chain governance model, EIP process, rough consensus, social layer governance",
+      "gapsFilled": ["operational governance"]
+    }
+  ],
+  "excludedSources": [
+    {
+      "source": "Paul Graham essays (paulgraham.com)",
+      "reason": "No license — standard copyright. Would require direct permission.",
+      "gap": "business strategy"
+    },
+    {
+      "source": "Zero to One (Peter Thiel)",
+      "reason": "Commercial copyright (Penguin Random House)",
+      "gap": "business strategy"
+    },
+    {
+      "source": "Trail of Bits: Building Secure Contracts",
+      "reason": "AGPLv3 — copyleft obligations create legal gray area for corpus inclusion. Deferred pending legal review.",
+      "gap": "smart contract security"
+    },
+    {
+      "source": "a16z blog posts and DAO Canon",
+      "reason": "Standard copyright (Andreessen Horowitz). No open license.",
+      "gap": "operational governance"
+    },
+    {
+      "source": "Open Problems in DAOs (Tan et al., arXiv)",
+      "reason": "arXiv non-exclusive license — does not grant third-party redistribution rights",
+      "gap": "governance failures"
+    }
+  ],
+  "impactAssessment": {
+    "currentTier3": "4 files, 200 KB, 0.8x weight",
+    "afterExpansion": "11 files, estimated 400-600 KB, 0.8x weight (unchanged)",
+    "theoreticalPracticalBalance": "Current: ~90% theoretical / ~10% practical. After: estimated ~50% theoretical / ~50% practical",
+    "gapsClosed": ["DAO revenue models", "token economics", "governance failure post-mortems", "operational governance"],
+    "gapsRemaining": ["business strategy (no openly licensed sources)", "smart contract security (AGPLv3 deferred)", "comparative institutional analysis"]
+  },
+  "implementationSteps": [
+    "Download and convert each source to plain text",
+    "Add attribution headers to each file citing license and source URL",
+    "Update corpus/manifest.json with new file hashes",
+    "Update corpus/weights.json if tier-3 weight adjustment is warranted",
+    "Run verify.py --corpus-integrity to confirm manifest consistency",
+    "Commit and record on-chain via governance pipeline"
+  ]
+}
