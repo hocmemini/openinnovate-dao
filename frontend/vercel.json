@@ -1,0 +1,26 @@
+{
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.openinnovate.org"
+        }
+      ],
+      "destination": "https://dao.openinnovate.org/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "openinnovate.org"
+        }
+      ],
+      "destination": "https://dao.openinnovate.org/:path*",
+      "permanent": true
+    }
+  ]
+}

@@ -20,6 +20,8 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 REPO = "hocmemini/openinnovate-dao"
+PROJECT_NUMBER = "1"
+PROJECT_OWNER = "hocmemini"
 
 
 # ---------------------------------------------------------------------------
@@ -73,6 +75,16 @@ def find_similar_open_issue(description, threshold=0.65):
     return None, None
 
 
+def add_to_project(issue_number):
+    """Add an issue to the GitHub project board."""
+    url = f"https://github.com/{REPO}/issues/{issue_number}"
+    result = gh("project", "item-add", PROJECT_NUMBER, "--owner", PROJECT_OWNER, "--url", url)
+    if result is not None:
+        print(f"  PROJECT: Added #{issue_number} to board")
+    else:
+        print(f"  WARNING: Failed to add #{issue_number} to project board", file=sys.stderr)
+
+
 def create_issue(title, body, labels):
     """Create a GitHub issue using --body-file for shell injection prevention."""
     with tempfile.NamedTemporaryFile(mode="w", suffix=".md", delete=False) as f:
@@ -91,7 +103,9 @@ def create_issue(title, body, labels):
         parts = result.strip().split("/")
         if parts:
             try:
-                return int(parts[-1])
+                issue_num = int(parts[-1])
+                add_to_project(issue_num)
+                return issue_num
             except ValueError:
                 pass
     return None

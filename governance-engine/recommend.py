@@ -36,6 +36,8 @@ WEIGHTS_FILE = CORPUS_DIR / "weights.json"
 GOVERNANCE_DIR = ROOT / "governance"
 PROMPT_FILE = Path(__file__).resolve().parent / "system-prompt-recommend-v1.0.md"
 REPO = "hocmemini/openinnovate-dao"
+PROJECT_NUMBER = "1"
+PROJECT_OWNER = "hocmemini"
 
 MAX_CORPUS_CONTEXT = 300_000  # Leave room for state context
 MODEL = os.environ.get("GOVERNANCE_MODEL", "claude-opus-4-6")
@@ -443,7 +445,22 @@ def create_recommendation_issues(recommendations):
         Path(body_file).unlink(missing_ok=True)
 
         if result.returncode == 0:
-            print(f"  CREATED: {key} — {short_desc}")
+            # Extract issue number and add to project board
+            issue_url = result.stdout.strip()
+            parts = issue_url.split("/")
+            try:
+                issue_num = int(parts[-1])
+                add_result = subprocess.run(
+                    ["gh", "project", "item-add", PROJECT_NUMBER,
+                     "--owner", PROJECT_OWNER, "--url", issue_url],
+                    capture_output=True, text=True, cwd=ROOT
+                )
+                if add_result.returncode == 0:
+                    print(f"  CREATED: {key} — {short_desc} (added to project board)")
+                else:
+                    print(f"  CREATED: {key} — {short_desc} (WARNING: failed to add to board)")
+            except (ValueError, IndexError):
+                print(f"  CREATED: {key} — {short_desc}")
             created += 1
         else:
             print(f"  ERROR: {result.stderr.strip()}", file=sys.stderr)
