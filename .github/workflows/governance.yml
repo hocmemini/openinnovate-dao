@@ -36,6 +36,8 @@ on:
     branches: [main]
     paths:
       - "governance/decisions/**"
+      - "corpus/weights.json"
+      - "governance-engine/system-prompt-*.md"
 
   schedule:
     # Annual governance heartbeat — prevents W.S. 17-31-114 dissolution
@@ -167,6 +169,55 @@ jobs:
 
       - name: Verify corpus integrity
         run: python governance-engine/verify.py --corpus-integrity
+
+      - name: Verify system prompt integrity
+        run: |
+          python -c "
+          import json, hashlib, sys
+          from pathlib import Path
+          hashes_file = Path('governance-engine/prompt-hashes.json')
+          if not hashes_file.exists():
+              print('WARNING: No prompt-hashes.json found')
+              sys.exit(0)
+          expected = json.loads(hashes_file.read_text()).get('hashes', {})
+          failed = False
+          for name, expected_hash in expected.items():
+              path = Path('governance-engine') / name
+              if not path.exists():
+                  print(f'WARNING: {name} not found')
+                  continue
+              actual = hashlib.sha256(path.read_bytes()).hexdigest()
+              if actual != expected_hash:
+                  print(f'FAIL: {name} hash mismatch (governance decision required for prompt changes)')
+                  failed = True
+              else:
+                  print(f'OK: {name}')
+          if failed:
+              sys.exit(1)
+          print('All system prompts verified.')
+          "
+
+      - name: Verify weights.json governance
+        run: |
+          # Check if weights.json was modified in this push
+          WEIGHTS_CHANGED=$(git diff --name-only HEAD~1 HEAD -- corpus/weights.json || true)
+          if [ -n "$WEIGHTS_CHANGED" ]; then
+            echo "WARNING: corpus/weights.json was modified"
+            # Check commit message for governance decision reference
+            COMMIT_MSG=$(git log -1 --format=%B)
+            if echo "$COMMIT_MSG" | grep -qiE '(decision|proposal|P[0-9]{3})'; then
+              echo "OK: Commit references a governance decision"
+            else
+              echo "FAIL: weights.json modified without governance decision reference in commit message"
+              echo "Corpus weight changes require a governance decision. Include 'Decision #N' or 'Proposal #NNN' in commit message."
+              exit 1
+            fi
+          fi
+          python -c "
+          import hashlib; from pathlib import Path
+          h = hashlib.sha256(Path('corpus/weights.json').read_bytes()).hexdigest()
+          print(f'weights.json SHA-256: {h}')
+          "
 
       - name: Summary
         run: |

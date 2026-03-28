@@ -37,6 +37,7 @@ SYSTEM_PROMPT_VERSIONS = [
     ("1.0", PROMPT_DIR / "system-prompt-v1.0.md"),
 ]
 REPO_SLUG = "hocmemini/openinnovate-dao"
+PROMPT_HASHES_FILE = PROMPT_DIR / "prompt-hashes.json"
 
 # Maximum corpus context to inject (chars). Leave room for system prompt,
 # proposal, and response in a 200K-token context window.
@@ -94,6 +95,28 @@ def verify_corpus_integrity():
         print(f"ERROR: Corpus integrity check failed ({len(mismatches)} issues):")
         for m in mismatches[:10]:
             print(f"  {m}")
+        return False
+    return True
+
+
+def verify_prompt_integrity(prompt_path):
+    """Verify system prompt file hash against prompt-hashes.json."""
+    if not PROMPT_HASHES_FILE.exists():
+        print("WARNING: No prompt-hashes.json found. Skipping prompt integrity check.")
+        return True
+    import hashlib
+    hashes = json.loads(PROMPT_HASHES_FILE.read_text()).get("hashes", {})
+    filename = prompt_path.name
+    expected = hashes.get(filename)
+    if not expected:
+        print(f"WARNING: No expected hash for {filename}. Skipping check.")
+        return True
+    actual = hashlib.sha256(prompt_path.read_bytes()).hexdigest()
+    if actual != expected:
+        print(f"ERROR: System prompt integrity check failed for {filename}")
+        print(f"  Expected: {expected}")
+        print(f"  Actual:   {actual}")
+        print("  A governance decision is required to modify system prompts.")
         return False
     return True
 
@@ -233,6 +256,11 @@ def call_anthropic(system_prompt, user_message, model):
     return response.content[0].text
 
 
+def canonical_json(obj):
+    """Produce canonical JSON for deterministic hashing."""
+    return json.dumps(obj, sort_keys=True, separators=(",", ":"), ensure_ascii=True)
+
+
 def extract_json_from_response(text):
     """Extract JSON object from Claude's response."""
     # Try to find JSON block
@@ -283,6 +311,9 @@ def main():
     system_prompt_version = None
     for version, path in SYSTEM_PROMPT_VERSIONS:
         if path.exists():
+            if not verify_prompt_integrity(path):
+                print("ERROR: System prompt integrity check failed. Aborting evaluation.")
+                sys.exit(1)
             system_prompt = path.read_text()
             system_prompt_version = version
             print(f"Loaded system prompt v{version} ({len(system_prompt)} chars)")
@@ -355,6 +386,11 @@ Return ONLY the JSON reasoning tree object."""
     reasoning_tree["model"] = model
     reasoning_tree["evaluatedAt"] = datetime.now(timezone.utc).isoformat()
 
+    # Record weights hash for audit trail (SEC-11)
+    import hashlib
+    weights_hash = hashlib.sha256(WEIGHTS_FILE.read_bytes()).hexdigest()
+    reasoning_tree["weightsHash"] = weights_hash
+
     commit_sha = get_commit_sha()
     if commit_sha:
         reasoning_tree["commitSha"] = commit_sha
@@ -378,10 +414,12 @@ Return ONLY the JSON reasoning tree object."""
         json.dump(reasoning_tree, f, indent=2)
     print(f"\nReasoning tree saved to: {output_path}")
 
-    # Compute hash
+    # Compute hashes (raw file hash for backwards compat + canonical for new records)
     with open(output_path, "rb") as f:
         tree_hash = "0x" + keccak256(f.read()).hexdigest()
+    canonical_hash = "0x" + keccak256(canonical_json(reasoning_tree).encode()).hexdigest()
     print(f"Reasoning tree hash: {tree_hash}")
+    print(f"Canonical hash:      {canonical_hash}")
 
     # Print summary
     score = reasoning_tree.get("maximAlignmentScore", "N/A")

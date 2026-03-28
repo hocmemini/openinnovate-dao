@@ -1,0 +1,289 @@
+{
+  "strategicReview": {
+    "date": "2026-03-28",
+    "algorithmicManager": "Claude (Anthropic API)",
+    "model": "claude-sonnet-4-20250514",
+    "systemPromptVersion": "recommend-v1.0",
+    "stateSnapshot": {
+      "proposalCount": 9,
+      "decisionCount": 10,
+      "executionCount": 10,
+      "divergenceCount": 1,
+      "openIssueCount": 28,
+      "corpusDocumentCount": 148
+    },
+    "stateAssessment": "OpenInnovate DAO is four days old and has achieved remarkable velocity in its foundational phase: 9 proposals submitted and approved, governance infrastructure largely built (evaluation pipeline, condition verification, execution tracking, pipeline integrity, corpus expansion, CEO executive expansion), and a security hardening proposal approved and submitted on-chain. However, the DAO is now at a critical inflection point. There are 28 open issues, many from Proposal #009 (security hardening) which represents the most complex multi-phase execution yet attempted. Multiple issues are marked 'blocked', indicating dependency chains that could stall progress. The follow-on recommendation pipeline is growing faster than execution capacity \u2014 10 CEO recommendations across proposals #008 and #009 sit in 'pending-review' status. The single recorded divergence (Decision #4, no reason given) is a governance integrity concern that has not been addressed. Financial infrastructure (Proposal #003) has multiple blocked and open items spanning phases 2-4, suggesting the DAO's operational foundation remains incomplete. The publication/launch issue (#16) remains open, meaning the DAO has not yet publicly announced itself. The corpus is substantial (148 files, 5.6MB) but heavily weighted toward tier-1-governance (67% by volume) and tier-2-civic (22%), with relatively thin tier-3-systems and tier-4-wyoming layers. On-chain state shows 9 proposals and 10 decisions, confirming governance pipeline integrity between off-chain and on-chain records.",
+    "recommendations": [
+      {
+        "id": 1,
+        "description": "Resolve the unexplained divergence on Decision #4 by requiring the Human Executor to provide a retroactive divergence attestation explaining why no reason was given, and establish a protocol requiring divergence reasons within 48 hours of recording.",
+        "priority": "critical",
+        "type": "issue",
+        "maximAlignmentScore": 92,
+        "rationale": "The Divergence Protocol is the DAO's primary accountability mechanism. An unexplained divergence undermines the entire transparency infrastructure. Ostrom's Principle 4 (Monitoring) requires credible monitoring \u2014 an unexplained divergence is a monitoring gap. Meadows' Leverage Point 6 (Information Flows) identifies transparency as one of the most powerful system interventions. If divergences can occur without explanation, the governance record becomes unreliable, directly threatening the DAO's capacity to compound trust over generational timescales.",
+        "corpusGrounding": [
+          {
+            "source": "tier-2-civic/ostrom-commons-principles.txt",
+            "relevance": "Principle 4 requires monitors accountable to resource users. Unexplained divergences violate monitoring accountability.",
+            "citedPassage": "Monitors who actively audit resource conditions and user behavior must be present. Monitors should be accountable to or be the resource users themselves."
+          },
+          {
+            "source": "tier-2-civic/ostrom-commons-principles.txt",
+            "relevance": "Principle 5 establishes graduated sanctions. The first step is documentation, which requires explanation.",
+            "citedPassage": "A single divergence is documented but carries no penalty. A pattern of divergences creates a public record that erodes trust. The transparency obligation IS the sanction mechanism."
+          },
+          {
+            "source": "tier-3-systems/meadows-leverage-points.txt",
+            "relevance": "Information flow integrity is a high-leverage intervention point. Incomplete divergence records degrade information flow quality.",
+            "citedPassage": "Adding or changing information flows is one of the most powerful and cost-effective interventions in a system. Making governance reasoning visible changes governance quality."
+          }
+        ],
+        "relatedDecisions": [
+          4
+        ],
+        "estimatedEffort": "small",
+        "riskOfInaction": "Sets a precedent that divergences need not be explained, undermining the entire accountability architecture. Future observers reviewing the governance record will find an unexplained gap, reducing trust in the system. This is the DAO's first divergence \u2014 how it is handled establishes norms for all future divergences.",
+        "traceabilityChain": "Unexplained divergence \u2192 degraded transparency \u2192 reduced trust in governance record \u2192 weakened accountability mechanism \u2192 inability to compound institutional trust \u2192 failure to create self-sustaining governance systems \u2192 Maxim violation"
+      },
+      {
+        "id": 2,
+        "description": "Prioritize and sequence the Proposal #009 (Security Hardening) execution by unblocking the dependency chain: execute Issue #45 (deploy Gnosis Safe multisig) first, then #46 (TimelockController), then #47 (AccessControl roles), then #48 (ownership transfer). Establish explicit milestone gates between phases.",
+        "priority": "critical",
+        "type": "proposal",
+        "maximAlignmentScore": 90,
+        "rationale": "Four of the P009 execution issues are marked 'blocked', indicating a stalled critical path. Security hardening directly protects the DAO's on-chain assets and governance integrity. The DAO currently operates with a single EOA controlling the smart contract \u2014 this is the highest-risk single point of failure. Every day without multisig and timelock increases exposure to key compromise, which could be catastrophic. The DAO survey literature explicitly identifies security as a foundational concern for all blockchain-based organizations.",
+        "corpusGrounding": [
+          {
+            "source": "tier-3-systems/dao-survey-2022.txt",
+            "relevance": "Security is identified as one of the three fundamental attributes of blockchain systems alongside decentralization and scalability.",
+            "citedPassage": "the three important attributes of blockchain systems, including decentralization, security, and scalability, cannot be fulfilled altogether"
+          },
+          {
+            "source": "tier-3-systems/dao-survey-2022.txt",
+            "relevance": "The DAO hack demonstrates catastrophic consequences of security vulnerabilities in smart contract systems.",
+            "citedPassage": "the attacker was able to steal about 3.6 million ETH, worth about $50 million at the time of the attack"
+          },
+          {
+            "source": "tier-3-systems/meadows-leverage-points.txt",
+            "relevance": "Physical infrastructure (Leverage Point 10) constrains system behavior. Smart contract security is the physical infrastructure of on-chain governance.",
+            "citedPassage": "Physical infrastructure constrains behavior... Physical structure is often the least flexible part of a system, which is why it is a low-leverage intervention point despite its importance."
+          }
+        ],
+        "relatedDecisions": [
+          10
+        ],
+        "estimatedEffort": "large",
+        "riskOfInaction": "Single EOA controls all on-chain governance acts. Key compromise would allow an attacker to submit fraudulent proposals, record false decisions, or upgrade the contract to a malicious implementation. This is an existential risk to the DAO's on-chain record integrity.",
+        "traceabilityChain": "Single EOA vulnerability \u2192 catastrophic key compromise risk \u2192 loss of on-chain governance integrity \u2192 destruction of immutable audit trail \u2192 inability to demonstrate trustworthy governance \u2192 failure to create sovereign, self-sustaining system \u2192 Maxim violation"
+      },
+      {
+        "id": 3,
+        "description": "Implement follow-on recommendation rate-limiting and de-duplication (Issues #31 and #30) before the next strategic review cycle, to prevent recommendation sprawl from overwhelming execution capacity.",
+        "priority": "high",
+        "type": "proposal",
+        "maximAlignmentScore": 85,
+        "rationale": "The DAO currently has 10 CEO follow-on recommendations in pending-review status across proposals #008 and #009. The recommendation pipeline is generating issues faster than the Human Executor can process them. Without rate-limiting and de-duplication, each new proposal evaluation will add more recommendations, creating an ever-growing backlog that dilutes attention from critical work. This is a positive feedback loop (Meadows Leverage Point 7) \u2014 recommendation generation drives issue creation, which creates noise, which makes it harder to identify truly important work, which leads to more recommendations about the same gaps. Ostrom's Principle 2 requires rules congruent with local conditions \u2014 a single-member DAO cannot process unlimited recommendations.",
+        "corpusGrounding": [
+          {
+            "source": "tier-3-systems/meadows-leverage-points.txt",
+            "relevance": "Unchecked positive feedback loops drive systems toward collapse. The recommendation-to-issue pipeline is a positive feedback loop that needs gain reduction.",
+            "citedPassage": "Positive feedback loops are self-reinforcing \u2014 compound interest, arms races, epidemic spread, network effects. Left unchecked, they drive exponential growth or collapse. The leverage is in slowing the gain."
+          },
+          {
+            "source": "tier-2-civic/ostrom-commons-principles.txt",
+            "relevance": "Governance rules must be calibrated to the DAO's actual scale and operational context.",
+            "citedPassage": "Rules governing use (appropriation) and contribution (provision) must be adapted to local conditions rather than imposed as uniform templates."
+          }
+        ],
+        "relatedDecisions": [
+          9
+        ],
+        "estimatedEffort": "medium",
+        "riskOfInaction": "Recommendation backlog continues to grow with each evaluation cycle, creating governance noise that obscures genuine priorities. The Human Executor becomes overwhelmed by issue triage rather than substantive execution. The DAO's governance pipeline becomes its own bottleneck.",
+        "traceabilityChain": "Unchecked recommendation generation \u2192 backlog overwhelms execution capacity \u2192 critical actions delayed \u2192 governance pipeline becomes noise rather than signal \u2192 system loses self-sustaining capability \u2192 Maxim violation"
+      },
+      {
+        "id": 4,
+        "description": "Unblock and execute Financial Infrastructure Phase 2 (Issues #9, #10, #11 \u2014 Dell, Amazon, Staples business accounts) which are currently blocked, then proceed to Phase 3 credit applications (Issues #12, #13).",
+        "priority": "high",
+        "type": "issue",
+        "maximAlignmentScore": 82,
+        "rationale": "The DAO's 90-Day Financial Infrastructure Roadmap (Proposal #003) has stalled at Phase 2. Three business account issues are blocked. Financial infrastructure is the operational foundation that enables all future DAO activities. Without business credit and vendor accounts, the DAO cannot efficiently procure services, build credit history, or establish the financial identity needed for operational autonomy. Buffett's emphasis on financial strength and self-sufficiency \u2014 'extreme fiscal conservatism is a corporate pledge' \u2014 applies directly: the DAO needs robust financial infrastructure to weather uncertainty.",
+        "corpusGrounding": [
+          {
+            "source": "tier-1-governance/buffett-letters/2023.txt",
+            "relevance": "Financial self-sufficiency is the foundation of organizational resilience.",
+            "citedPassage": "Berkshire does not currently pay dividends, and its share repurchases are 100% discretionary. Annual debt maturities are never material. Your company also holds a cash and U.S. Treasury bill position far in excess of what conventional wisdom deems necessary."
+          },
+          {
+            "source": "tier-1-governance/buffett-letters/2024.txt",
+            "relevance": "Long-term compounding requires sustained reinvestment capability, which requires functional financial infrastructure.",
+            "citedPassage": "Berkshire shareholders during the same 1965-2024 period received only one cash dividend... continuous reinvestment... enabled the company to build its taxable income."
+          }
+        ],
+        "relatedDecisions": [
+          3
+        ],
+        "estimatedEffort": "medium",
+        "riskOfInaction": "The 90-day clock on financial infrastructure continues to tick. Delayed credit history building compounds over time \u2014 every month without business credit accounts is a month of lost credit aging. The DAO cannot procure services efficiently without vendor accounts, increasing operational friction and cost.",
+        "traceabilityChain": "Blocked financial infrastructure \u2192 no business credit history \u2192 limited operational autonomy \u2192 cannot procure services independently \u2192 cannot compound operational capability \u2192 failure to build self-sustaining system \u2192 Maxim violation"
+      },
+      {
+        "id": 5,
+        "description": "Execute the Publication & Launch announcement (Issue #16) with revisions informed by the CEO content review (Issue #44), establishing the DAO's public presence and transparency interface.",
+        "priority": "high",
+        "type": "issue",
+        "maximAlignmentScore": 88,
+        "rationale": "The DAO has built substantial governance infrastructure but has not yet publicly announced its existence. Radical transparency \u2014 the DAO's core paradigm \u2014 requires an audience. Ostrom's Principle 4 (Monitoring) is meaningless without external observers. Meadows' Leverage Point 6 (Information Flows) only works when information reaches stakeholders. The governance record, constitutional corpus, and on-chain attestations have no accountability value if no one outside the DAO can observe them. Issue #44 indicates the all-platforms draft requires revision, suggesting the content review identified issues that need addressing before publication.",
+        "corpusGrounding": [
+          {
+            "source": "tier-3-systems/meadows-leverage-points.txt",
+            "relevance": "Transparency as a governance mechanism requires public information flows.",
+            "citedPassage": "Making pollution data public changes polluter behavior. Making government spending transparent changes spending patterns. Making governance reasoning visible changes governance quality."
+          },
+          {
+            "source": "tier-2-civic/ostrom-commons-principles.txt",
+            "relevance": "Monitoring requires observers. Public launch creates the observer base.",
+            "citedPassage": "Self-monitoring communities are more effective than externally monitored ones because members have direct knowledge and direct incentives. Monitoring must be credible \u2014 users must believe that rule violations will be detected."
+          }
+        ],
+        "relatedDecisions": [
+          7
+        ],
+        "estimatedEffort": "medium",
+        "riskOfInaction": "The DAO operates in an accountability vacuum. Without external observers, the transparency infrastructure serves no governance purpose. The paradigm shift \u2014 'governance should be transparent, algorithmically evaluated, and constitutionally constrained' \u2014 cannot demonstrate its value if no one witnesses it. Delayed launch also delays potential community formation and membership expansion.",
+        "traceabilityChain": "No public presence \u2192 no external observers \u2192 transparency has no audience \u2192 accountability mechanism is inert \u2192 governance quality cannot be externally validated \u2192 system cannot demonstrate trustworthiness \u2192 cannot attract future members \u2192 cannot scale to compound human agency \u2192 Maxim violation"
+      },
+      {
+        "id": 6,
+        "description": "Establish the multisig signer independence criteria (Issue #54, P009-rec-1) by documenting who the multisig signers are, their relationship to the DAO, and the criteria for signer selection, before the Gnosis Safe deployment.",
+        "priority": "high",
+        "type": "proposal",
+        "maximAlignmentScore": 86,
+        "rationale": "The security hardening plan calls for a 2-of-3 Gnosis Safe multisig, but the identities and independence criteria for signers have not been established. Deploying a multisig without defined signer criteria creates a security structure that may be illusory \u2014 if all three signers are controlled by the same person, 2-of-3 provides no additional security over a single EOA. This must be resolved before Issue #45 (deploy multisig) can be meaningfully executed. Ostrom's Principle 1 (Clearly Defined Boundaries) requires that governance roles be explicitly defined.",
+        "corpusGrounding": [
+          {
+            "source": "tier-2-civic/ostrom-commons-principles.txt",
+            "relevance": "Boundary clarity is the precondition for all other governance principles. Signer roles must be clearly defined.",
+            "citedPassage": "Who is a member and who is not must be unambiguous... Boundary clarity is the precondition for all other principles."
+          },
+          {
+            "source": "tier-3-systems/dao-survey-2022.txt",
+            "relevance": "Security and economic vulnerabilities combine to create existential risks for DAOs.",
+            "citedPassage": "Failure of security attributes, such as anonymity, can destroy DAOs because economic attacks can be considered security attacks. The danger is not the vulnerabilities themselves, but the combination of an attack on software and an attack on the economy."
+          }
+        ],
+        "relatedDecisions": [
+          10
+        ],
+        "estimatedEffort": "small",
+        "riskOfInaction": "Deploying a multisig without independence criteria creates security theater \u2014 the appearance of distributed control without the substance. If all signers are compromised through a single vector (e.g., same person, same device, same custody solution), the multisig provides no additional protection.",
+        "traceabilityChain": "Undefined signer criteria \u2192 potentially illusory security \u2192 false sense of protection \u2192 single point of failure persists \u2192 catastrophic compromise risk remains \u2192 governance integrity threatened \u2192 system not self-sustaining \u2192 Maxim violation"
+      },
+      {
+        "id": 7,
+        "description": "Develop a hash migration specification for canonical JSON serialization (Issue #55, P009-rec-2) to ensure all future hashing operations produce deterministic, reproducible results without breaking existing governance records.",
+        "priority": "medium",
+        "type": "proposal",
+        "maximAlignmentScore": 79,
+        "rationale": "The governance pipeline depends on cryptographic hashes to link evaluations to decisions to on-chain records. If hashing is non-deterministic (e.g., JSON key ordering varies), the integrity verification chain breaks. Issue #52 (canonical JSON serialization) is the implementation, but Issue #55 (the specification) must come first. This is a technical debt issue that becomes harder to resolve as more records accumulate. The Wyoming UETA provides the legal framework for electronic records, but those records must be verifiable to be legally meaningful.",
+        "corpusGrounding": [
+          {
+            "source": "tier-4-wyoming/wyoming-ueta.txt",
+            "relevance": "Electronic records must remain accessible and accurately reflect the original information \u2014 which requires deterministic serialization.",
+            "citedPassage": "If a law requires that a record be retained, the requirement is satisfied by retaining an electronic record of the information in the record which: Accurately reflects the information set forth in the record after it was first generated in its final form"
+          },
+          {
+            "source": "tier-4-wyoming/wyoming-ueta.txt",
+            "relevance": "Security procedures for verifying electronic records require deterministic hashing.",
+            "citedPassage": "'Security procedure' means a procedure employed for the purpose of verifying that an electronic signature, record or performance is that of a specific person or for detecting changes or errors in the information in an electronic record."
+          }
+        ],
+        "relatedDecisions": [
+          10
+        ],
+        "estimatedEffort": "medium",
+        "riskOfInaction": "Non-deterministic hashing undermines the integrity verification chain. As more governance records accumulate, migrating to canonical JSON becomes increasingly complex and risky. Early standardization prevents compounding technical debt.",
+        "traceabilityChain": "Non-deterministic hashing \u2192 unverifiable governance records \u2192 broken integrity chain \u2192 on-chain attestations cannot be validated \u2192 transparency infrastructure unreliable \u2192 trust cannot compound \u2192 Maxim violation"
+      },
+      {
+        "id": 8,
+        "description": "Establish the annual Wyoming corpus maintenance schedule (Issue #17) with specific triggers tied to the Wyoming legislative session calendar, and assign monitoring responsibility.",
+        "priority": "medium",
+        "type": "issue",
+        "maximAlignmentScore": 76,
+        "rationale": "The DAO's tier-4-wyoming corpus contains 6 files covering the LLC Act, DUNA, Digital Assets, and UETA. Wyoming's legislative sessions can modify any of these statutes. Without a scheduled review process tied to the legislative calendar, the corpus may become stale without anyone noticing. Ostrom's Principle 2 requires rules adapted to local conditions \u2014 which change when the legislature acts. The corpus is the constitutional foundation for all governance evaluations; stale law in the corpus means evaluations may reference superseded provisions.",
+        "corpusGrounding": [
+          {
+            "source": "tier-2-civic/ostrom-commons-principles.txt",
+            "relevance": "Rules must be adapted to local conditions, which change over time as legislatures act.",
+            "citedPassage": "Rules governing use (appropriation) and contribution (provision) must be adapted to local conditions rather than imposed as uniform templates."
+          },
+          {
+            "source": "tier-4-wyoming/wyoming-duna.txt",
+            "relevance": "The DUNA statute demonstrates Wyoming's active legislative posture toward decentralized organizations \u2014 new provisions may be enacted.",
+            "citedPassage": "This act shall be known and may be cited as the 'Wyoming Decentralized Unincorporated Nonprofit Association Act.'"
+          }
+        ],
+        "relatedDecisions": [
+          8
+        ],
+        "estimatedEffort": "small",
+        "riskOfInaction": "Corpus becomes stale as Wyoming statutes are amended. Governance evaluations reference outdated law. The DAO may unknowingly violate new statutory requirements. This risk compounds annually \u2014 the longer the corpus goes unreviewed, the greater the divergence from current law.",
+        "traceabilityChain": "No corpus maintenance schedule \u2192 stale statutory references \u2192 evaluations based on outdated law \u2192 governance decisions misaligned with legal reality \u2192 potential statutory violations \u2192 legal entity at risk \u2192 system not self-sustaining \u2192 Maxim violation"
+      },
+      {
+        "id": 9,
+        "description": "Conduct a corpus gap analysis focusing on tier-3-systems, which currently has only 4 files (189KB) \u2014 assess whether additional systems thinking, mechanism design, or organizational theory sources would strengthen governance evaluation quality.",
+        "priority": "medium",
+        "type": "investigation",
+        "maximAlignmentScore": 73,
+        "rationale": "The corpus is heavily weighted toward tier-1-governance (3.7MB, 148 files) and tier-2-civic (1.2MB, 88 files), while tier-3-systems has only 4 files. The systems tier provides the theoretical frameworks (Meadows, Ostrom, quadratic funding, DAO survey) that ground governance reasoning in first principles. As the DAO's governance decisions become more complex \u2014 security architecture, financial infrastructure, membership expansion \u2014 a thin systems corpus limits the depth of reasoning available. The Buterin-Hitzig-Weyl quadratic funding paper and the DAO survey provide valuable frameworks, but the DAO would benefit from additional sources on mechanism design, organizational resilience, and adaptive governance.",
+        "corpusGrounding": [
+          {
+            "source": "tier-3-systems/meadows-leverage-points.txt",
+            "relevance": "Systems thinking frameworks are the highest-leverage governance tools \u2014 more such frameworks would strengthen evaluation quality.",
+            "citedPassage": "The highest leverage point is the capacity to operate beyond any single paradigm \u2014 to recognize that all paradigms are models, not reality, and to hold them lightly."
+          },
+          {
+            "source": "tier-3-systems/buterin-hitzig-weyl-quadratic-funding.txt",
+            "relevance": "Mechanism design literature provides rigorous frameworks for future governance decisions around membership, voting, and resource allocation.",
+            "citedPassage": "We propose a design for philanthropic or publicly-funded seeding to allow (near) optimal provision of a decentralized, self-organizing ecosystem of public goods."
+          }
+        ],
+        "relatedDecisions": [
+          2
+        ],
+        "estimatedEffort": "medium",
+        "riskOfInaction": "Governance evaluations draw from a narrow range of systems thinking sources. As decisions become more complex, the thin tier-3 corpus may produce evaluations that are legally grounded but theoretically shallow. Adversarial diversity in the corpus \u2014 a stated design goal \u2014 requires breadth in systems thinking sources.",
+        "traceabilityChain": "Thin systems corpus \u2192 limited theoretical frameworks for evaluation \u2192 shallower governance reasoning \u2192 suboptimal governance decisions \u2192 reduced system adaptability \u2192 system less self-sustaining \u2192 Maxim violation"
+      },
+      {
+        "id": 10,
+        "description": "Add Maxim Alignment Scoring to the recommend.py output schema (Issue #27, P008-rec-1) so that all strategic recommendations generated by the governance pipeline carry explicit Maxim traceability, matching the system prompt specification.",
+        "priority": "medium",
+        "type": "proposal",
+        "maximAlignmentScore": 80,
+        "rationale": "This strategic review includes Maxim Alignment Scores because the system prompt requires them, but the underlying recommend.py tool may not enforce this in its schema. Without schema-level enforcement, future reviews could omit scores or generate them inconsistently. Meadows' Leverage Point 3 (Goals) identifies the system's goal as the most powerful determinant of behavior \u2014 the Maxim Alignment Score is the mechanism that makes the Root Thesis Maxim operationally visible in every governance act. Without it, the Maxim becomes aspirational rather than operational.",
+        "corpusGrounding": [
+          {
+            "source": "tier-3-systems/meadows-leverage-points.txt",
+            "relevance": "The goal of the system determines all subordinate behavior. Maxim Alignment Scoring makes the goal visible and measurable.",
+            "citedPassage": "The goal of a system \u2014 what it is optimizing for \u2014 determines where all the feedback loops, rules, and information flows point... Changing the goal of a system changes everything beneath it."
+          },
+          {
+            "source": "tier-2-civic/ostrom-commons-principles.txt",
+            "relevance": "The Maxim Alignment Score functions as a monitoring metric that external observers can evaluate over time.",
+            "citedPassage": "The Maxim Alignment Score provides a self-assessment metric that external observers can evaluate over time."
+          }
+        ],
+        "relatedDecisions": [
+          9
+        ],
+        "estimatedEffort": "small",
+        "riskOfInaction": "Strategic recommendations lack systematic Maxim traceability. Over time, governance decisions drift from the Root Thesis Maxim without a measurable indicator. The DAO loses the ability to assess whether its decisions are actually aligned with its stated purpose.",
+        "traceabilityChain": "No schema-enforced Maxim scoring \u2192 inconsistent traceability \u2192 governance drift from Root Thesis Maxim \u2192 system optimizes for unstated goals \u2192 loss of purpose alignment \u2192 system not self-sustaining toward intended ends \u2192 Maxim violation"
+      }
+    ]
+  }
+}

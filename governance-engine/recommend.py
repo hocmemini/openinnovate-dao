@@ -78,16 +78,22 @@ def get_on_chain_counts():
     """Read proposal and decision counts from on-chain contract."""
     contract = "0x3efDCccF7b141B5dA4B21478221B0bf0cfdF7536"
     rpc = "https://mainnet.base.org"
+    # Ensure foundry binaries are on PATH
+    env = os.environ.copy()
+    foundry_bin = Path.home() / ".foundry" / "bin"
+    if foundry_bin.exists():
+        env["PATH"] = str(foundry_bin) + ":" + env.get("PATH", "")
     counts = {}
     for name, sig in [("proposalCount", "proposalCount()(uint256)"),
                       ("decisionCount", "decisionCount()(uint256)")]:
         try:
             result = subprocess.run(
                 ["cast", "call", contract, sig, "--rpc-url", rpc],
-                capture_output=True, text=True, check=True
+                capture_output=True, text=True, check=True, env=env
             )
             counts[name] = int(result.stdout.strip())
-        except (subprocess.CalledProcessError, FileNotFoundError, ValueError):
+        except (subprocess.CalledProcessError, FileNotFoundError, ValueError) as e:
+            print(f"  WARNING: on-chain query for {name} failed: {e}")
             counts[name] = None
     return counts
 

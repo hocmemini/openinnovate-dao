@@ -11,6 +11,7 @@ Usage:
 """
 
 import argparse
+import difflib
 import json
 import subprocess
 import sys
@@ -56,6 +57,20 @@ def issue_exists(canonical_key):
         if canonical_key in issue.get("title", ""):
             return issue["number"]
     return None
+
+
+def find_similar_open_issue(description, threshold=0.65):
+    """Check if an open issue with a similar description already exists."""
+    issues = list_issues(state="open")
+    desc_lower = description.lower()
+    for issue in issues:
+        title = issue.get("title", "")
+        # Strip canonical key prefix for comparison
+        clean = title.split("]", 1)[-1].strip().lower() if "]" in title else title.lower()
+        ratio = difflib.SequenceMatcher(None, desc_lower[:80], clean[:80]).ratio()
+        if ratio >= threshold:
+            return issue["number"], title
+    return None, None
 
 
 def create_issue(title, body, labels):
@@ -294,6 +309,13 @@ def create_issues_from_decision(decision_path, proposal_path):
             existing = issue_exists(key)
             if existing:
                 print(f"  SKIP: {key} already exists as #{existing}")
+                skipped += 1
+                continue
+
+            # Check for semantically similar open issues to avoid duplicates
+            similar_num, similar_title = find_similar_open_issue(desc)
+            if similar_num:
+                print(f"  SKIP: {key} similar to #{similar_num} ({similar_title[:60]})")
                 skipped += 1
                 continue
 
