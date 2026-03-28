@@ -1,0 +1,12 @@
+{
+  "date": "2026-03-28T19:57:10.854095+00:00",
+  "model": "claude-opus-4-6",
+  "inputTokens": 105338,
+  "outputTokens": 10851,
+  "systemPromptChars": 5289,
+  "stateContextChars": 10222,
+  "supplementalContextChars": 79879,
+  "corpusContextChars": 301449,
+  "corpusDocsSelected": 7,
+  "responseChars": 45238
+}
