@@ -464,6 +464,123 @@ export default function Home() {
         </div>
       </header>
 
+      {/* What is OpenInnovate? */}
+      <section className="mb-10">
+        <h2 className="text-xl md:text-2xl font-bold tracking-tight mb-4">
+          What is OpenInnovate?
+        </h2>
+        <div className="space-y-4 text-sm text-neutral-300 leading-relaxed">
+          <p>
+            OpenInnovate is a{" "}
+            <strong className="text-neutral-100">
+              Wyoming-registered DAO LLC
+            </strong>{" "}
+            that uses an AI governance engine to make every organizational
+            decision transparent, constitutional, and on-chain verifiable.
+          </p>
+          <p>
+            Most organizations make decisions behind closed doors and justify
+            them after the fact. OpenInnovate inverts this: every proposal is
+            evaluated by an{" "}
+            <strong className="text-neutral-100">Algorithmic Manager</strong>{" "}
+            (Claude, developed by Anthropic) against a{" "}
+            <strong className="text-neutral-100">
+              148-document constitutional corpus
+            </strong>{" "}
+            — drawing from the Federalist Papers, Warren Buffett&apos;s
+            shareholder letters, Elinor Ostrom&apos;s commons governance,
+            Wyoming DAO statutes, and systems thinking frameworks. The AI
+            produces a scored reasoning tree. A human executor acts on it. If
+            the human disagrees with the AI, the divergence is recorded on-chain
+            with a legal citation.
+          </p>
+          <p>
+            The result is an organization where you can audit every decision back
+            to its constitutional basis — who proposed it, what the AI
+            recommended, what score it received, whether the human agreed, and
+            the exact corpus passages that informed the judgment.
+          </p>
+        </div>
+      </section>
+
+      {/* How it works */}
+      <section className="mb-10">
+        <h2 className="text-lg font-bold mb-4 pb-2 border-b border-neutral-800">
+          How It Works
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          {[
+            {
+              step: "1",
+              title: "Propose",
+              desc: "A human submits a proposal as structured JSON — describing what the DAO should do and why.",
+            },
+            {
+              step: "2",
+              title: "Evaluate",
+              desc: "The AI evaluates the proposal against the weighted constitutional corpus, producing a reasoning tree with a Maxim Alignment Score (0-100).",
+            },
+            {
+              step: "3",
+              title: "Decide & Record",
+              desc: "The human executor reviews the AI\u2019s recommendation, acts on it (or formally diverges), and the decision is hashed and recorded on Base L2.",
+            },
+          ].map((s) => (
+            <div
+              key={s.step}
+              className="border border-neutral-800 bg-neutral-950 p-4"
+            >
+              <div className="flex items-center gap-2 mb-2">
+                <span className="text-blue-400 font-bold font-mono text-lg">
+                  {s.step}
+                </span>
+                <span className="font-medium">{s.title}</span>
+              </div>
+              <p className="text-xs text-neutral-500 leading-relaxed">
+                {s.desc}
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Why this matters */}
+      <section className="mb-10">
+        <h2 className="text-lg font-bold mb-4 pb-2 border-b border-neutral-800">
+          Why This Matters
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs text-neutral-400">
+          {[
+            {
+              title: "Constitutional AI governance",
+              desc: "Decisions aren\u2019t based on vibes or authority — they\u2019re grounded in a curated corpus of governance, legal, civic, and systems thinking literature.",
+            },
+            {
+              title: "Full transparency",
+              desc: "Every reasoning tree, corpus citation, and alignment score is public. The dashboard below shows every decision this DAO has ever made.",
+            },
+            {
+              title: "Human override with accountability",
+              desc: "The human can always override the AI. But when they do, the divergence is recorded on-chain with the reasoning and legal basis — no quiet vetoes.",
+            },
+            {
+              title: "On-chain verification",
+              desc: "Decision hashes are recorded on Base L2 via a UUPS upgradeable contract with RBAC and a 7-day timelock on administrative changes.",
+            },
+          ].map((item) => (
+            <div
+              key={item.title}
+              className="border border-neutral-800 bg-neutral-950 p-4"
+            >
+              <p className="text-neutral-200 font-medium text-sm mb-1">
+                {item.title}
+              </p>
+              <p className="leading-relaxed">{item.desc}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
       {/* Maxim */}
       <div className="border border-neutral-800 bg-neutral-950 p-6 mb-8">
         <p className="text-[10px] text-neutral-600 uppercase tracking-widest mb-2">

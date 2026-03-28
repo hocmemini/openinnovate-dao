@@ -40,6 +40,8 @@ on:
       - "governance-engine/system-prompt-*.md"
 
   schedule:
+    # Weekly state of the DAO — Fridays at noon UTC
+    - cron: "0 12 * * 5"
     # Annual governance heartbeat — prevents W.S. 17-31-114 dissolution
     # Runs Feb 1 each year, well before any anniversary deadline
     - cron: "0 12 1 2 *"
@@ -262,19 +264,28 @@ jobs:
       - name: Run CEO strategic review
         id: recommend
         run: |
-          # Schedule trigger always creates issues; dispatch respects the input
           if [ "${{ github.event_name }}" = "schedule" ]; then
-            ARGS="--create-issues"
+            # Annual heartbeat (Feb 1) creates issues; weekly (Fridays) is state-only
+            MONTH=$(date +%m)
+            DAY=$(date +%d)
+            if [ "$MONTH" = "02" ] && [ "$DAY" -le "3" ]; then
+              echo "Annual governance heartbeat — full review with issue creation"
+              ARGS="--create-issues"
+            else
+              echo "Weekly state summary — no API call"
+              ARGS="--state-only"
+            fi
           elif [ "${{ github.event.inputs.create_issues }}" = "true" ]; then
             ARGS="--create-issues"
           else
             ARGS="--dry-run"
           fi
 
+          echo "mode=$ARGS" >> "$GITHUB_OUTPUT"
           python governance-engine/recommend.py $ARGS 2>&1 | tee /tmp/recommend-output.txt
 
       - name: Commit recommendations
-        if: github.event.inputs.create_issues == 'true' || github.event_name == 'schedule'
+        if: steps.recommend.outputs.mode == '--create-issues'
         run: |
           git config user.name "OpenInnovate Governance Bot"
           git config user.email "governance-bot@openinnovate.dao"
@@ -288,11 +299,17 @@ jobs:
 
       - name: Summary
         run: |
-          echo "## CEO Strategic Review" >> "$GITHUB_STEP_SUMMARY"
+          MODE="${{ steps.recommend.outputs.mode }}"
+          if [ "$MODE" = "--state-only" ]; then
+            echo "## Weekly State of the DAO" >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "## CEO Strategic Review" >> "$GITHUB_STEP_SUMMARY"
+          fi
           echo "" >> "$GITHUB_STEP_SUMMARY"
           echo "- **Trigger:** ${{ github.event_name }}" >> "$GITHUB_STEP_SUMMARY"
+          echo "- **Mode:** $MODE" >> "$GITHUB_STEP_SUMMARY"
           if [ -f /tmp/recommend-output.txt ]; then
             echo '```' >> "$GITHUB_STEP_SUMMARY"
-            tail -20 /tmp/recommend-output.txt >> "$GITHUB_STEP_SUMMARY"
+            tail -30 /tmp/recommend-output.txt >> "$GITHUB_STEP_SUMMARY"
             echo '```' >> "$GITHUB_STEP_SUMMARY"
           fi
