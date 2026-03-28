@@ -30,6 +30,11 @@ MANIFEST_FILE = CORPUS_DIR / "manifest.json"
 REPO = "hocmemini/openinnovate-dao"
 
 
+def canonical_json(obj):
+    """Produce canonical JSON for deterministic hashing."""
+    return json.dumps(obj, sort_keys=True, separators=(",", ":"), ensure_ascii=True)
+
+
 # ---------------------------------------------------------------------------
 # Verification checks
 # ---------------------------------------------------------------------------
@@ -223,14 +228,24 @@ def verify_execution_record(execution_path):
     return results
 
 
-def verify_decision_hash(decision_path):
+def verify_decision_hash(decision_path, include_canonical=False):
     """Verify a decision file's hash for on-chain comparison."""
     path = ROOT / decision_path if not Path(decision_path).is_absolute() else Path(decision_path)
     if not path.exists():
         return [VerificationResult("decision_hash", False, f"not found: {path}")]
 
     file_hash = "0x" + keccak256(path.read_bytes()).hexdigest()
-    return [VerificationResult("decision_hash", True, f"keccak256: {file_hash}")]
+    results = [VerificationResult("decision_hash", True, f"keccak256 (raw): {file_hash}")]
+
+    if include_canonical:
+        data = json.loads(path.read_text())
+        canonical = canonical_json(data)
+        canonical_hash = "0x" + keccak256(canonical.encode()).hexdigest()
+        results.append(VerificationResult(
+            "decision_hash_canonical", True, f"keccak256 (canonical): {canonical_hash}"
+        ))
+
+    return results
 
 
 # ---------------------------------------------------------------------------
@@ -379,6 +394,8 @@ def main():
     parser.add_argument("--check-hash", action="store_true", help="Compute and display decision hash")
     parser.add_argument("--file-exists", help="Check if a file exists at path")
     parser.add_argument("--hash-match", nargs=2, metavar=("PATH", "HASH"), help="Check file hash against expected")
+    parser.add_argument("--canonical", action="store_true",
+                        help="Include canonical JSON hash alongside raw file hash")
     parser.add_argument("--check-issues", action="store_true",
                         help="Post verification results as comments on matching GitHub issues")
     parser.add_argument("--proposal-id", type=int,
@@ -400,7 +417,7 @@ def main():
     elif args.decision and args.check_hash:
         print(f"Computing hash for: {args.decision}")
         print("=" * 60)
-        results = verify_decision_hash(args.decision)
+        results = verify_decision_hash(args.decision, include_canonical=args.canonical)
 
     elif args.file_exists:
         results = [verify_file_exists(args.file_exists)]

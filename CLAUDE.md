@@ -17,9 +17,10 @@ forge test     # run the Foundry test suite
 ## Contract
 
 - **Chain:** Base (Chain ID 8453)
-- **Contract:** `0x3efDCccF7b141B5dA4B21478221B0bf0cfdF7536` (OpenInnovateGovernance — UUPS upgradeable)
+- **Contract:** `0x3efDCccF7b141B5dA4B21478221B0bf0cfdF7536` (OpenInnovateGovernanceV2 — UUPS upgradeable, AccessControl RBAC)
+- **TimelockController:** `0x554B8DBda3F9BDc08228531B7f28e05d857545B9` (7-day delay, gates upgrades and role changes)
 - **Token:** OpenInnovateToken (OIT) — ERC-20 votes token
-- **Owner:** `0xC91ED1978a1b89D0321fcF6BFf919a0f785d5EC7`
+- **HE Wallet:** `0xC91ED1978a1b89D0321fcF6BFf919a0f785d5EC7` (retains operational roles: PROPOSAL_SUBMITTER, DECISION_RECORDER, EXECUTION_ATTESTER, DIVERGENCE_RECORDER)
 - **RPC:** `https://mainnet.base.org`
 - **Explorer:** `https://basescan.org/address/0x3efDCccF7b141B5dA4B21478221B0bf0cfdF7536`
 
@@ -115,6 +116,28 @@ cast call $CONTRACT "getDivergence(uint256)((uint256,bytes32,string,address,uint
 # Check if attested (executionHash != 0x000...0)
 cast call $CONTRACT "getAttestation(uint256)((bytes32,address,uint256))" <decisionId> --rpc-url $RPC
 ```
+
+## Canonical JSON Hashing
+
+All new governance records (after 2026-03-28) use canonical JSON hashing for deterministic, reproducible on-chain hashes. See `governance/HASH-MIGRATION.md` for the full specification.
+
+```python
+# Canonical format
+json.dumps(obj, sort_keys=True, separators=(",", ":"), ensure_ascii=True)
+```
+
+```bash
+# Compute canonical hash for on-chain recording
+HASH=$(python3 -c "
+import json
+from hashlib import sha3_256 as keccak256
+data = json.load(open('governance/decisions/XXX-name.json'))
+canonical = json.dumps(data, sort_keys=True, separators=(',',':'), ensure_ascii=True)
+print('0x' + keccak256(canonical.encode()).hexdigest())
+")
+```
+
+Existing records (Decisions #1-10) retain their raw-file hashes. The pipeline outputs both during the transition.
 
 ## Governance Pipeline (evaluate.py)
 

@@ -33,6 +33,11 @@ from hashlib import sha3_256 as keccak256
 ROOT = Path(__file__).resolve().parent.parent
 CORPUS_DIR = ROOT / "corpus"
 WEIGHTS_FILE = CORPUS_DIR / "weights.json"
+
+
+def canonical_json(obj):
+    """Produce canonical JSON for deterministic hashing."""
+    return json.dumps(obj, sort_keys=True, separators=(",", ":"), ensure_ascii=True)
 REVIEWS_DIR = ROOT / "governance" / "reviews"
 PROMPT_FILE = Path(__file__).resolve().parent / "system-prompt-review-v1.0.md"
 
@@ -297,6 +302,7 @@ Return ONLY the JSON review object."""
         "systemPromptVersion": "review-v1.0",
         "reviewedAt": datetime.now(timezone.utc).isoformat(),
         "contentHash": "0x" + keccak256(content.encode()).hexdigest(),
+        "canonicalContentHash": "0x" + keccak256(canonical_json(review).encode()).hexdigest(),
         "corpusDocsUsed": len(selected),
     }
 

@@ -365,6 +365,22 @@ def extract_json_from_response(text):
 # Issue creation
 # ---------------------------------------------------------------------------
 
+def compute_aggregate_score(recommendations):
+    """Compute weighted average Maxim Alignment Score across recommendations."""
+    PRIORITY_WEIGHTS = {"critical": 4, "high": 3, "medium": 2, "low": 1}
+    total_weight = 0
+    weighted_sum = 0
+    for rec in recommendations:
+        score = rec.get("maximAlignmentScore", 0)
+        if not isinstance(score, (int, float)):
+            continue
+        priority = rec.get("priority", "medium")
+        w = PRIORITY_WEIGHTS.get(priority, 2)
+        weighted_sum += score * w
+        total_weight += w
+    return round(weighted_sum / total_weight) if total_weight > 0 else 0
+
+
 def create_recommendation_issues(recommendations):
     """Create GitHub issues from CEO strategic recommendations."""
     VALID_PRIORITIES = {"critical", "high", "medium", "low"}
@@ -547,6 +563,12 @@ Return ONLY the JSON strategic review object."""
         print("Raw response saved to /tmp/recommend-raw-response.txt")
         return
 
+    # Compute aggregate Maxim Alignment Score
+    review = result.get("strategicReview", result)
+    recs = review.get("recommendations", [])
+    aggregate_score = compute_aggregate_score(recs)
+    review["aggregateMaximAlignmentScore"] = aggregate_score
+
     # Save output
     output_path = Path(args.output) if args.output else ROOT / "governance" / "recommendations" / f"strategic-review-{datetime.now().strftime('%Y%m%d')}.json"
     output_path.parent.mkdir(parents=True, exist_ok=True)
@@ -554,13 +576,13 @@ Return ONLY the JSON strategic review object."""
         json.dump(result, f, indent=2)
     print(f"\nStrategic review saved to: {output_path}")
 
-    # Print summary
-    review = result.get("strategicReview", result)
-    recs = review.get("recommendations", [])
+    # Print summary — sorted by score descending
+    recs_sorted = sorted(recs, key=lambda r: r.get("maximAlignmentScore", 0), reverse=True)
     print(f"\n{'='*40}")
     print(f"Strategic Review — {len(recs)} recommendations")
+    print(f"Aggregate Maxim Alignment Score: {aggregate_score}/100")
     print(f"{'='*40}")
-    for rec in recs:
+    for rec in recs_sorted:
         rid = rec.get("id", "?")
         desc = rec.get("description", "")[:70]
         priority = rec.get("priority", "?")
