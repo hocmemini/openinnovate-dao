@@ -76,6 +76,35 @@ def get_open_issues():
         return []
 
 
+def get_recommendation_outcomes():
+    """Fetch past CEO recommendation outcomes for quality feedback loop."""
+    try:
+        result = subprocess.run(
+            ["gh", "issue", "list", "--repo", REPO, "--state", "all",
+             "--label", "ceo-recommendation", "--limit", "100",
+             "--json", "number,title,labels,state,closedAt"],
+            capture_output=True, text=True, check=True, cwd=ROOT
+        )
+        issues = json.loads(result.stdout)
+        outcomes = {"executed": [], "deferred": [], "open": [], "duplicate": []}
+        for issue in issues:
+            labels = [l["name"] for l in issue.get("labels", [])]
+            num = issue["number"]
+            title = issue["title"][:80]
+            if issue["state"] == "CLOSED":
+                if "duplicate" in title.lower() or any("duplicate" in l for l in labels):
+                    outcomes["duplicate"].append({"number": num, "title": title})
+                else:
+                    outcomes["executed"].append({"number": num, "title": title})
+            elif "deferred" in labels:
+                outcomes["deferred"].append({"number": num, "title": title})
+            else:
+                outcomes["open"].append({"number": num, "title": title})
+        return outcomes
+    except (subprocess.CalledProcessError, FileNotFoundError, json.JSONDecodeError):
+        return None
+
+
 def get_on_chain_counts():
     """Read proposal and decision counts from on-chain contract."""
     contract = "0x3efDCccF7b141B5dA4B21478221B0bf0cfdF7536"
@@ -141,6 +170,14 @@ def gather_state():
     on_chain = get_on_chain_counts()
     print(f"  On-chain: {on_chain.get('proposalCount', '?')} proposals, {on_chain.get('decisionCount', '?')} decisions")
 
+    rec_outcomes = get_recommendation_outcomes()
+    if rec_outcomes:
+        total = sum(len(v) for v in rec_outcomes.values())
+        print(f"  Recommendation outcomes: {total} total — "
+              f"{len(rec_outcomes['executed'])} executed, "
+              f"{len(rec_outcomes['deferred'])} deferred, "
+              f"{len(rec_outcomes['open'])} open")
+
     return {
         "gatheredAt": datetime.now(timezone.utc).isoformat(),
         "proposals": proposals,
@@ -150,6 +187,7 @@ def gather_state():
         "openIssues": open_issues,
         "corpusSummary": corpus_summary,
         "onChainCounts": on_chain,
+        "recommendationOutcomes": rec_outcomes,
     }
 
 
@@ -226,6 +264,30 @@ def format_state_context(state):
     oc = state["onChainCounts"]
     lines.append(f"  Proposals: {oc.get('proposalCount', '?')}")
     lines.append(f"  Decisions: {oc.get('decisionCount', '?')}")
+
+    # Recommendation outcomes (feedback loop)
+    rec = state.get("recommendationOutcomes")
+    if rec:
+        lines.append("\n## PAST RECOMMENDATION OUTCOMES (quality feedback)")
+        lines.append(f"  Executed/closed: {len(rec['executed'])}")
+        for r in rec["executed"]:
+            lines.append(f"    #{r['number']}: {r['title']}")
+        lines.append(f"  Deferred (blocked/not actionable): {len(rec['deferred'])}")
+        for r in rec["deferred"]:
+            lines.append(f"    #{r['number']}: {r['title']}")
+        lines.append(f"  Still open (pending action): {len(rec['open'])}")
+        for r in rec["open"]:
+            lines.append(f"    #{r['number']}: {r['title']}")
+        if rec["duplicate"]:
+            lines.append(f"  Duplicates (wasted effort): {len(rec['duplicate'])}")
+            for r in rec["duplicate"]:
+                lines.append(f"    #{r['number']}: {r['title']}")
+        total = sum(len(v) for v in rec.values())
+        exec_rate = len(rec["executed"]) / total * 100 if total > 0 else 0
+        lines.append(f"  Execution rate: {exec_rate:.0f}% ({len(rec['executed'])}/{total})")
+        lines.append("  NOTE: Use these outcomes to calibrate recommendation quality.")
+        lines.append("  High deferred/duplicate rates suggest recommendations that are")
+        lines.append("  too narrow, redundant, or not actionable by the current team.")
 
     return "\n".join(lines)
 
