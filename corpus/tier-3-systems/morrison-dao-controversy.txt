@@ -1,0 +1,865 @@
+# The DAO Controversy: The Case for a New Species of Corporate Governance?
+# Authors: Robbie Morrison, Natalie Claire Mazey, Stephen C. Wingreen
+# Date: 2020
+# Source: https://www.frontiersin.org/journals/blockchain/articles/10.3389/fbloc.2020.00025/full
+# License: CC BY 4.0 (Creative Commons Attribution 4.0 International)
+# DOI: 10.3389/fbloc.2020.00025
+# Included in OpenInnovate DAO constitutional corpus under CC BY 4.0 terms.
+#
+
+Frontiers | The DAO Controversy: The Case for a New Species of Corporate Governance?
+
+Frontiers in Blockchain About usAbout usWho we are
+Mission and values
+History
+Leadership
+Awards
+Impact and progress
+Frontiers' impact
+Our annual reports
+Thought leadership
+Publishing model
+How we publish
+Open access
+Peer review
+Research integrity
+Research Topics
+FAIR² Data Management
+Fee policy
+Services
+Societies
+National consortia
+Institutional partnerships
+Collaborators
+More from Frontiers
+Frontiers Forum
+Frontiers Planet Prize
+Press office
+Sustainability
+Career opportunities
+Contact us
+All journalsAll articlesSubmit your researchSearchFrontiers in Blockchain SectionsSectionsBlockchain Economics
+Blockchain Security and Privacy
+Blockchain Technologies
+Blockchain for Good
+Blockchain for Science
+Blockchain for Web3 and the Metaverse
+Blockchain in Industry
+Financial Blockchain
+Smart Contracts
+ArticlesResearch TopicsEditorial board About journalAbout journalScope
+Field chief editors
+Mission & scope
+Facts
+Journal sections
+Open access statement
+Copyright statement
+Quality
+For authors
+Why submit?
+Article types
+Author guidelines
+Editor guidelines
+Publishing fees
+Submission checklist
+Contact editorial office
+ About usAbout usWho we are
+Mission and values
+History
+Leadership
+Awards
+Impact and progress
+Frontiers' impact
+Our annual reports
+Thought leadership
+Publishing model
+How we publish
+Open access
+Peer review
+Research integrity
+Research Topics
+FAIR² Data Management
+Fee policy
+Services
+Societies
+National consortia
+Institutional partnerships
+Collaborators
+More from Frontiers
+Frontiers Forum
+Frontiers Planet Prize
+Press office
+Sustainability
+Career opportunities
+Contact us
+All journalsAll articlesSubmit your researchFrontiers in Blockchain SectionsSectionsBlockchain Economics
+Blockchain Security and Privacy
+Blockchain Technologies
+Blockchain for Good
+Blockchain for Science
+Blockchain for Web3 and the Metaverse
+Blockchain in Industry
+Financial Blockchain
+Smart Contracts
+ArticlesResearch TopicsEditorial board About journalAbout journalScope
+Field chief editors
+Mission & scope
+Facts
+Journal sections
+Open access statement
+Copyright statement
+Quality
+For authors
+Why submit?
+Article types
+Author guidelines
+Editor guidelines
+Publishing fees
+Submission checklist
+Contact editorial office
+Frontiers in Blockchain SectionsSectionsBlockchain Economics
+Blockchain Security and Privacy
+Blockchain Technologies
+Blockchain for Good
+Blockchain for Science
+Blockchain for Web3 and the Metaverse
+Blockchain in Industry
+Financial Blockchain
+Smart Contracts
+ArticlesResearch TopicsEditorial board About journalAbout journalScope
+Field chief editors
+Mission & scope
+Facts
+Journal sections
+Open access statement
+Copyright statement
+Quality
+For authors
+Why submit?
+Article types
+Author guidelines
+Editor guidelines
+Publishing fees
+Submission checklist
+Contact editorial office
+Submit your researchSearchPOLICY AND PRACTICE REVIEWS article
+
+Front. Blockchain, 27 May 2020
+
+ Sec. Smart Contracts
+
+Volume 3 - 2020 | https://doi.org/10.3389/fbloc.2020.00025
+
+Published inFrontiers in Blockchain 
+
+Smart Contracts
+
+2.4 impact factor
+5.6 citescore
+Editor & Reviewers
+
+Edited by
+
+VSVolker Skwarek
+
+Hamburg University of Applied Sciences, Germany
+
+Reviewed by
+
+DSDr. Sven Hildebrandt
+
+Consultant, Germany
+
+GFGilbert Fridgen
+
+Interdisciplinary Centre for Security, Reliability and Trust, University of Luxembourg, Luxembourg
+
+Outline 
+
+Abstract
+
+Introduction
+
+Overview
+
+The DAO: a Case for a New Species of Corporate Governance?
+
+Discussion
+
+Conclusions: Implications and Opportunities for the Future
+
+Author contributions
+
+Acknowledgments
+
+Conflict of interest
+
+References
+
+Figures and Tables Figure 1
+
+View in article 
+Table 1
+
+Summary of opportunities for future research, and type of research.
+
+View in article 
+POLICY AND PRACTICE REVIEWS article
+
+Front. Blockchain, 27 May 2020
+
+ Sec. Smart Contracts
+
+Volume 3 - 2020 | https://doi.org/10.3389/fbloc.2020.00025
+
+The DAO Controversy: The Case for a New Species of Corporate Governance?
+
+RMRobbie Morrison 1
+
+NCNatasha C. H. L. Mazey 2
+
+SCStephen C. Wingreen 2*
+
+1. School of Law, College of Business and Law, University of Canterbury, Christchurch, New Zealand
+
+2. Department of Accounting and Information Systems, School of Business, College of Business and Law, University of Canterbury, Christchurch, New Zealand
+
+ Article metrics 
+
+View detailsAbstract
+
+This paper reviews the recent case of The DAO “hack” in June 2016 and analyzes The DAO's response in its time of crisis, and its implications for corporate and IT governance. There was no human-led governance in The DAO. Instead, The DAO placed its trust in the smart contract they had built together on the blockchain, which became its governance mechanism. The events that follow allow us to see hitherto unobservable organizational behaviors that are unique to trustless organizations, and hence The DAO gives us a glimpse at a new species of corporate governance. This paper explores the implications of these ideas: we propose the emergence of a spectrum of organizations based on the alienation of trust, we consider the economic impact and legality of decentralized autonomous organizations (DAOs), smart contracts, work and job design, and what happens when corporate governance is managed solely by IT governance.
+
+Introduction
+
+This paper examines the curious case of “The DAO,” a decentralized autonomous organization established on the Ethereum blockchain in 2016 (DuPont, 2017; Leonhard, 2017). Because of a contentious solution that was proposed to fix a “hack” of its “smart contract,” the case of The DAO serves as an exemplar of a new species of corporate governance, which is likely to have many unforeseen implications for 21st century firms that seek to decentralize their organization and governance using blockchain and other emerging technologies (Kshetri, 2018; Mendling et al., 2018). In particular, The DAO, has a radically decentralized, “trustless” governance structure which operates without the need for any executive decision-makers (DuPont, 2017).
+
+The DAO is an investment company which takes its name from, and is not to be confused with, the generic acronym for “decentralized autonomous organizations,” also called “DAOs.” The DAO uses a smart contract on the Ethereum blockchain network to manage its trustless environment and make corporate, management or governance decisions (DuPont, 2017). Smart contracts are a set of pre-determined rules and logic coded into machine or computer software which can be automatically executed to make decisions and perform actions (Jentzsch, 2016a; Hsieh et al., 2017; Leonhard, 2017; Mendling et al., 2018; Murray et al., 2019). In the case of The DAO, a smart contract both granted investors voting rights according to their level of investment and managed their subsequent votes on investment proposals accordingly. All decisions regarding the distribution and management of its $150 million dollar fund, risk, residual claims, voting rights, and voting itself, is achieved through the consensus of the investing community (Jentzsch, 2016a; DuPont, 2017), the details of which will be discussed later in this paper. Therefore, The DAO is a unique case of a company whose corporate governance consists entirely of information technology (IT) governance.
+
+The DAO story is about many things, but one of the most significant of them is how technological advancements may have enabled the genesis of a new species of corporate governance based on smart contracts, heretofore unseen and unanticipated. Until now, IT governance has typically been subordinate to the larger goals and strategies of corporate governance. The DAO is revolutionary and unique because its governance consists entirely of rules written in the computer code of the Ethereum blockchain. The DAO has no board of directors or managers, only entrepreneurs and a CEO whose authority is mostly ceremonial. Moreover, all members agree that their participation in The DAO is entirely subject to the code as it is implemented on the Ethereum blockchain, a concept known as “Lex Cryptographia,” or, the “code is law” (Jentzsch, 2016a; DuPont, 2017).
+
+The DAO poses an interesting case from a governance and strategy perspective, since the problems that occurred highlight the unique characteristics of this new trustless species of corporation with no board or managers who make decisions. As such, the case of The DAO is a marker for an evidently emerging path in corporate governance theory, and begs the question of whether The DAO and other blockchain applications for organizations may really be decentralized, trustless systems, and whether trusted authorities still matter.
+
+Decentralized governance organizations are not new, but in their current forms they have all relied on some level of trust in human agents and are organized by means of the usual system of implicit and explicit contracts. However, DAOs and related trustless organizations differ in a number of ways: (1) there are no trusted human executives since the organization is governed and operated by smart contracts, hence trust is “alienated” from the organization (2) the smart contracts which form their governance are written and executed as computer code, (3) monitoring and enforcement of smart contracts are likewise by computer algorithms, (4) there are weak or non-existent mechanisms for dispute resolution, since the “code is law,” and all participants have agreed in advance to abide by the code of the smart contract(s).
+
+Proponents of blockchain technology and smart contracting see the mathematical certainty and irrevocable nature of a smart contract as a desirable design feature, since it does not require people to act in good faith or legal systems and authorities to resolve disputes (Atzori, 2016; Garrod, 2016; Leonhard, 2017; Hsieh et al., 2018; Kshetri, 2018). However, The DAO case highlights some very salient legal, ethical, and governance issues that strike at the foundations of the core blockchain philosophy as a decentralized, immutable, trustless system while at the same time revealing a glimpse of a potentially new type of autonomous organization built on, and operated by the blockchain technology.
+
+Although The DAO case is principally about the use of blockchain-enabled smart contracts in governance, smart contracts have potential applications in many other areas of business as well, including identity and access management, work contracts, privacy and security, Internet of Things, supply chain management, and property and title management (Kshetri, 2018). Consequently, lessons from The DAO case may have far-reaching implications wherever smart contracts may be used with, or instead of, the natural language contracts that are commonly used in work environments. This paper will review The DAO case with the dual goals of considering its implications for the future of governance and work design. Our main contribution is a set of forward-looking perspectives suggested by the case of The DAO that primarily relate to the alienation of trust from the owners and managers of the firm. We do not approach The DAO as an empirical case study with the goal of developing new theory. Instead, we articulate a perspective intended to advance our understanding of The DAO's general relevance for future empirical theory development and professional practice. Our purpose is more like that of a zoologist who has a need to examine and describe a new species of animal before theorizing about what the new species can contribute to zoological theory.
+
+Overview
+
+“Decentralized autonomous organizations” (DAOs) are established and governed according to rules that are coded in computer software, sometimes called a “smart contract,” which may be implemented by blockchain technology. Blockchain technology provides a secure, peer-to-peer, distributed, “trustless” ledger of transactions, which stands in contrast to the common centralized ledgers that require a trusted central authority to clear transactions and maintain the ledger (Hsieh et al., 2018). This makes blockchain useful for a variety of applications, beside virtual currencies like Bitcoin and Ethereum, and DAOs are one recent and very significant application of blockchain-enabled smart contracts (Jentzsch, 2016a; DuPont, 2017; Gudkov, 2017; Hsieh et al., 2017; Leonhard, 2017; Mendling et al., 2018).
+
+In The DAO, all members were owners who functioned also as managers, bonded through their shared contract in The DAO, but not necessarily through their shared interests or vision for the organization. The blockchain became the mechanism to manage trust, and therefore participants had no need to trust anyone else except the system. This was, in fact, the purpose of its design as a “trustless” system. However, current governance theories do not account for this alienation of trust between parties nor the marriage of ownership and control when a number of stakeholders with competing interests exist. For example, Agency Theory poses an ideal case where a single “entrepreneur-manager” makes optimal decisions, then executes them, acting as both principal and agent in his own interest. In the case where there are multiple principals and agents, with the absence of any incentives, agents will pursue their own interests separate to the interests of the principals (Fama and Jensen, 1983; Shapiro, 2005). The DAO raises the possibility of a “next-best-case” of Agency Theory, where there are multiple entrepreneur-managers who have no need to trust each other, yet may function as a single-minded entrepreneur-manager.
+
+Despite the transparency provided by the blockchain, a large number of information asymmetries existed between participants in The DAO. Participants did not know who each other were, their ambitions or motivations to invest in The DAO, or their values and priorities. It is evident that some were unable to trust the various proposed solutions to their problem in a way that would allow them to effectively and efficiently vote in favor of or against it. Their priorities and values did not align and there were no contingencies to define, manage, or control these conflicts. The consequence was chaos in a time of crisis and the splitting of an organization. Further efforts are needed to fully understand this new phenomenon, to articulate its implications for corporate governance, and examine how organizations may overcome these new challenges in the future.
+
+The Notion of the Smart Contract
+
+The idea of a “smart contract” was first developed by Szabo (1997), who gave the example of a vending machine designed to facilitate the transfer of food items for money as a physical embodiment of a contract because it is physically designed to sell food according to specified rules. Szabo (1997) envisioned the spirit of the vending machine being expanded to a world of “self-executing electronic instructions drafted in computer code.” These contracts would be “smart” because computers would read and enforce their terms when certain conditions are met, without human intervention (Buterin, 2014; Atzori, 2016; Leonhard, 2017; Mendling et al., 2018). Commentators have argued that variations of smart contracts, such as transaction processing systems, have existed for decades. However, the concept has recently re-captured the attention of the business world with the advent of Bitcoin and its technological platform, blockchain (Halaburda, 2018).
+
+Blockchain technology may be used for more than cryptocurrency. The blockchain may store information and execute computer code. Smart contracts in this context are software scripts which exist and are executed on a blockchain network. The DAO was founded by Christoph Jentzsch as an organization embodied by a set of smart contracts operating on the blockchain platform called Ethereum (Jentzsch, 2016a).
+
+Smart contracts on a blockchain network work in the same way as Szabo's intelligent vending machines, but with the advantages of blockchain technology. Similar to written contracts, smart contracts define the terms and penalties of a contract, but may also monitor, execute, and enforce the contract terms over the blockchain (Atzori, 2016; DuPont, 2017). Like their written counterparts, smart contracts are incompletely specified (Murray et al., 2019), a shortcoming that will feature in the failure of The DAO. Additionally, computers on the blockchain network verify the execution of smart contracts to ensure trustworthiness and irrevocably record the transaction history. The transparency of the blockchain means alteration to the code is obvious since changes require community consensus. Therefore, smart contracts promise clarity and predictability in business agreements (Atzori, 2016; Leonhard, 2017; Mendling et al., 2018). Thus, smart contracts on a blockchain earn the distinction of being “trustless,” since the parties to a smart contract need not trust each other or a third-party mediator to execute the contract, only the code of the smart contract and the blockchain's ability to enforce its terms.
+
+If the firm is a nexus of contracts, as some theories propose (e.g., Coase, 1937; Jensen and Meckling, 1976), then smart contracts may become a transformative force for modern firms, and deserve some additional theoretical considerations. In theory, contracts may be implicit or explicit, and may involve all assets of the firm, including work and job design (Lee and Wingreen, 2010). Smart contracts may be particularly effective for work contracts that may be explicitly specified by computer code, and do not require “soft” skills for monitoring or enforcement of the contract, such as it is with most implicit contracts.
+
+Work contracts serve as a mechanism to distribute risk and decision rights between principals and agents in a firm, and may be implicit or explicit depending how trust is shared between parties. Explicit contracts are those where the terms are specified in written language and the parties to the contract must trust another authority, typically a legal system, to resolve disputes. An implicit work contract is where parties must trust each other to act as agreed, without a mechanism to ensure that the predetermined work is being accomplished. An untrustworthy person is “not good on his word” to honor an implicit contract, and an explicit contract is “not worth the paper it's written on” in an untrustworthy legal environment. Parties may agree to code an explicit work contract by means of a smart contract instead of specifying their agreement in written language.
+
+Therefore, smart contracts may represent a new class of explicit work contracts where parties agree to code their agreement into the blockchain, instead of specifying their agreement in writing. It is possible for some implicit work contracts to be made explicit using smart contracts when both parties agree to place their trust in the code of a smart contract instead of trusting each other, or a third party mediator, to act in good faith through some type of understanding. Smart contracts may be coded as a substitute for explicit, written contracts in easy-to-monitor work and as an alternative for some implicit work contracts in not-so-easy-to-monitor work. As a new type of explicit work contract, this is also likely to have both theoretical and practical implications for 21st century corporations.
+
+Blockchain
+
+Blockchain is a peer-to-peer information system that uses math and cryptography to process and manage transactions. The blockchain is a database structured as a ledger that enforces double-entry accounting principles by design since it was primarily invented to solve the double-spending problem of financial ledgers. As such, a blockchain is a digital record of any movement of data shared across a network of participants, who can all view the same history of transactions, and which updates itself to reflect changes to the network. Changes may include monetary transactions, contracts, or recognition of real or intellectual property ownership. Adding new blocks may require either immense computing power if blocks are authenticated by “proof-of-work,” or immense investment if blocks are authenticated by “proof-of-stake,” but checking the authenticity of existing blocks is computationally trivial. New records are represented by new data blocks added to the bottom of the ledger which contain a reference to the blocks preceding it, and so giving rise to the analogy of a “chain.” Verifying and chaining blocks together involve solving a cryptographic puzzle performed by network participants (Nakamoto, 2008; Atzori, 2016; DuPont, 2017; Leonhard, 2017; Kshetri, 2018). Figure 1 represents how this is accomplished with the blockchain implemented by Bitcoin. New blocks are added by authenticating a hash consisting of the previous transaction and the key of the next owner and appending them to the end of the block; the chain of ownership may be verified by the chain of digital signatures (Nakamoto, 2008).
+
+Figure 1
+
+A blockchain as implemented by Bitcoin.
+
+A blockchain's immutability refers to how “proof of work” produces a reliable and trustworthy transaction record, since changing a block requires changes to every subsequent block, and the further down the blockchain one goes, the less likely previous blocks are to change. After about 1,000 or so layers, the blockchain is practically immutable (Nakamoto, 2008; Leonhard, 2017). The concept of consensus is a defining characteristic of immutability, since it enables a network of unrelated, unknown computers to agree on a common database without the need for trust in any party, and results in the existence of one single authoritative blockchain (Nakamoto, 2008; DuPont, 2017; Leonhard, 2017; Kshetri, 2018). Any tampering or changes to the code without collective authorization of the community would be immediately evident. For a successful attack, a hacker would need to infiltrate a majority of computers on the network, all at the same time, in order to ensure they are all updated to the same hacked version. This would be nearly impossible, given that the system becomes more secure as the number of participants increases.
+
+Because the ledger is distributed and updated simultaneously it is easier to confirm the accuracy of information and increase the security. There is a consensus across the network of the true record. This has been a highly secure method; in the 12 years since Bitcoin was developed, no one has found a practical way to launch a cyber-attack.
+
+Before the blockchain was developed, smart contracts were unable to control or secure assets and faced the fundamental problem of requiring trust in another party's computer to execute the contract and disallow double-spending of assets. Blockchain solves these problems. As a distributed, decentralized ledger it removes the need for a trusted third party to validate transactions (for example a bank). No individual owns or controls it, or may manipulate it, on their own. Transactions are verified by other participating users using the proof of work process to ensure a transaction is valid. Moreover, there are no transaction fees, which creates opportunities for global transactions and business (Atzori, 2016; Leonhard, 2017; Kshetri, 2018; Mendling et al., 2018).
+
+Corporate Governance, IT Governance, and Trust
+
+Corporate governance and organizational structures are bound together through the distribution of risk and decision rights, and residual claims. Generally, governance is concerned with the appropriate division and allocation of decision rights to individuals who act as agents for an entity, who bear the risks associated with these decisions (Baker and Anderson, 2010). Decision-makers bear reputational, professional, and financial risk for poor decisions, but are rewarded for good decisions by the distribution of residual claims by means of property rights (Fama and Jensen, 1983; Coles et al., 2006; Baker and Anderson, 2010). Effective governance controls the incentives of decision-makers to ensure that their decisions align to the goals of the corporation and its owners (Parker, 2002). In theory, contracts and governance are complementary aspects of the same thing; the contract is an operational instantiation of governance, and collectively the firm is defined as the sum of its contracts (Coase, 1937).
+
+Whereas, corporate governance is concerned with the allocation of decision rights and accountability to align decisions with strategic objectives (Baker and Anderson, 2010; Hsieh et al., 2017), Weill and Ross (2005) argue that corporate governance must work in tandem with IT governance. Proper alignment of corporate and IT governance is necessary, since IT will help deliver, guide, and shape corporate organizational activities, and is therefore critical for organizations to operate effectively and meet their strategic goals. IT governance is consistent with corporate governance and strategy because it distributes risk and decision rights within the realm of the firm's IT function. However, Weill and Ross (2005) do not directly consider the possibility of a firm whose governance consists entirely of IT governance. No such firms had existed in 2005 when Weill and Ross were doing their research, and there was no reason to consider their eventual emergence. The DAO now gives us an opportunity to reflect on this.
+
+There are several species of governance which seek to establish a theoretical ideal based on the distribution of decision rights, risk, and residual claims, as well as complementary organizational structures. However, all known species of corporate governance exhibit some form of division between ownership and control, often driven by how residual claims and property rights are distributed (Baker and Anderson, 2010). This division is necessary if individuals within an organization are to be trusted to act on behalf of the owners, since decision makers are generally trusted only when there is some known incentive to motivate them to act in the interests of the owners and to the benefit of the organization (Jensen and Meckling, 1976; Coles et al., 2006). The various forms of governance are designed to manage the lack of trust between individuals charged with decision-making and monitoring by creating mechanisms to enable trust, for example, technological solutions that facilitate collaboration (Kolbjørnsrud, 2017). To this end, a large body of literature has emphasized the need for trust between the owners and management of the firm (Brown et al., 2012; Guiso et al., 2015).
+
+Incentives, the distribution of risk and decision rights, and the distribution of residual claims are all operationally managed by the use of both implicit and explicit contracts, which in the case of DAOs the contracts are “trustless” smart contracts. The central, underlying issue at stake is how smart contracts differ from their counterparts written in natural language. Smart contracts are embodied and executed in computer code and require no “trust,” whereas the natural language contracts that currently form the foundations of modern corporations require “trusted” parties for their interpretation, monitoring, and enforcement because of the inherent subjectivity of the natural language used to write them. Therefore, smart contracts ideally do not require interpretation, monitoring, and enforcement, and hence there should also be no need for conflict resolution, all of which are important elements in current theories of corporate governance (however some of these assumptions are challenged by the case of The DAO as we shall see later). This makes solving disputes or managing unforeseen events involving smart contracts difficult since there is no central governance or legal framework available. As The DAO shows, this can create a serious threat to an organization's ability to react and survive crisis situations where time may be precious.
+
+Trust, or the lack thereof, is therefore assumed to be the underlying issue dictating how organizations organize themselves in order for actors to be made trustworthy. But, what if trust was not an issue, as it is supposed to be in “trustless” organizations? What would such an organization look like? How would such an ideal organization function? How would it distribute risk, decision rights and residual claims, and how would it be structured? Is it even possible to achieve this theoretical ideal, or may such a species exist?
+
+The DAO: a Case for a New Species of Corporate Governance?
+
+Although we examine the case of The DAO as a forward-looking perspective rather than a case study, we adopted some case methods to achieve our goals. Because of its open, transparent nature and charter The DAO had made public a great deal of information about itself, including its source code, terms of service, smart contracts, mission, purpose, discussion, and message boards dedicated to its daily operations and investment opportunities, and related services and information. Almost everything a case researcher would need was available publically. We gathered and organized the data that was available to identify material that highlighted the uniqueness of The DAO's organizational structure compared to traditional organizational structures already known to scholars and practitioners. We did not conduct interviews or formally code and analyze documents using a rigorous protocol typically adopted by case research. Rather we adopted a critical and analytical judgment approach to identify and interpret relevant documents and information to inform various perspectives which we challenged and debated in several rounds.
+
+The DAO is a name of a particular decentralized autonomous organization designed by the technology start up, Slock.it, effectively as a system of smart contracts built on the Ethereum blockchain network. The DAO adopted a radically decentralized governance structure, which operates without any human agents who make corporate, management, or governance decisions. Instead, all decisions regarding the distribution and management of its $150 million-dollar fund is achieved through the consensus of the investing community by means of smart contracts. The code of the smart contract gives all investors voting rights and establishes a flat model of governance which is the right and duty of all participants (Jentzsch, 2016a; DuPont, 2017; Leonhard, 2017). Since their decision-making structure is implemented and managed solely by the code, The DAO is an interesting case study for corporate governance and strategy because the issues introduced by DAOs in general stem from the “digital democratization of business” (Wright and de Filippi, 2015; Atzori, 2016; Garrod, 2016; Fenwick et al., 2017; Leonhard, 2017).
+
+It is also worth noting that most members of The DAO likely did not possess the necessary expertise to understand the source code underlying the smart contract. The alternative would be that they did possess the expertise, but neglected to read the contract before agreeing to it, which is less likely given the amount of money involved. This may have legal implications, which will be discussed later.
+
+The DAO was intended to operate as an investment hub where smart contracts distributed voting rights to investors (owners) in relation to their shares in The DAO (DuPont, 2017). Investors could vote on proposals which were submitted by “contractors” and approved by “curators” who checked the legality and authenticity of the proposals, but had no decision authority. Theoretically, by placing governance directly in the hands of the owners, The DAO denied managers the opportunity to misdirect or waste investor funds (Jentzsch, 2016a; DuPont, 2017). In doing so, they removed the need for any mechanisms of trust to motivate and control decision-making. Owners no longer needed to trust decision makers; they became the decision makers, and only the smart contract at the core of The DAO needed to be trusted. Everything was visible. Everyone was immutably accountable.
+
+A centralized organizational structure is “top down” by nature. Decision-making rights are allocated to a select few who make decisions for all (Jensen and Meckling, 1976). This may be advantageous in that it promises a single, unified voice of action which should be consistent with the overall direction and activities of the business or organization. On the other hand, a decentralized organizational structure spreads decision-making rights to a diverse range of people and empowers the collective of individuals to make decisions (Leonhard, 2017). The DAO was especially decentralized because of its reliance on blockchain technology to govern itself. Within a couple weeks of launching, The DAO was worth over $150 million in May 2016 (Leonhard, 2017). Yet, the most prominent investor owned <4% of The DAO and the top 100 holders shared <50% total ownership (Del Castillo, 2016).
+
+But, is such a radically decentralized governance structure for an organization like The DAO a good thing? Decentralized forms of governance may improve decision-making and lead to improved firm capabilities which more effectively support shareholder interests (Pirson and Turnbull, 2015; Atzori, 2016; Kolbjørnsrud, 2017). However, traditional governance doctrine proposes that flat hierarchies of decision-making are only possible in smaller organizations or individual units within larger organizations. When decision-making rights are spread too thin throughout an organization without hierarchy, the efficiency and effectiveness of governance may fail (Ghiselli and Johnson, 1970). In The DAO's case, the complexity of the smart contract code meant the features designed to support its decentralized decision-making framework were in fact its Achilles' Heel. The rapid deployment of such complex code meant it behaved sporadically and in ways that were not intended. The risks this created were then exacerbated by its decentralized decision-making model which, in effect, was slow and cumbersome in responding to the threats which were subsequently realized.
+
+The DAO Hack
+
+For The DAO, the risks posed by its complex code and decentralized decision-making framework came to fruition in June 2016 when The DAO was anonymously “hacked” and $60 million US dollars was stolen (Levine, 2016; Price, 2016; DuPont, 2017; Leonhard, 2017). The hack exploited the way The DAO's smart contracts were coded on the blockchain. However, whether this was even a “hack” is contentious. In its technical sense, the code was on the blockchain and therefore managed, agreed to, and kept secure by all members of The DAO. Technically, it would have been virtually impossible to hack The DAO because it would have been necessary to infiltrate the majority of its networked computers all at the same time in order to unilaterally make and validate changes to the code.
+
+The “hacker” of The DAO exploited a “recursive splitting function” to divert digital currency to themselves (DuPont, 2017). By analogy, consider an ATM withdrawal where a person has $50 in their bank account. The person goes to an ATM and requests $50. Before the ATM provides the money, it checks if the balance is over $50. After determining that $50 or more exists in credit, the machine debits $50 from their account and dispenses the cash. The machine then asks the customer if they would like to process another transaction. If the person selects yes and attempts to withdraw another $50, the ATM will refuse since there are insufficient funds. In the case of The DAO, however, a loophole existed in the ATM's code that made it possible to continue withdrawing $50 cash before the machine could record the new balance. The ATM would only realize that the person was significantly in debt after they logged out and disappeared. In this manner, the perpetrator was able to repeatedly execute a transaction and withdraw $60 million in US dollars before anyone really knew what was happening (Levine, 2016; Price, 2016; DuPont, 2017; Leonhard, 2017).
+
+Some attempts were made to stop the cryptocurrency from being taken, but the required consensus of votes could not be obtained from the collective in such a short time (Price, 2016; DuPont, 2017). Had an effective system of governance been in place, an Incident Response Plan (IRP) could have given people in key managerial positions the ability to quickly freeze funds and patch the code. However, no such plan existed; The DAO had no managers who could take action and it was unclear what an appropriate response (if any) would have been. Any corrective action taken by The DAO must, by agreement of its members, be part and parcel of the smart contract code.
+
+The Eventual Response
+
+Eventually, a majority of the investors who made up The DAO agreed to introduce what is called a “hard fork” to return the funds, where many users agreed to alter their copy of the blockchain to a new version where the “hack” had never happened (Leonhard, 2017; Mendling et al., 2018). This created a parallel blockchain where there had been no money stolen and the bug had been patched (DuPont, 2017; Leonhard, 2017; Mendling et al., 2018). In response to the hack, Vitalik Buterin, one of the founders of Ethereum (the cryptocurrency used by The DAO), stated:
+
+“Separate from the discussion of whether a hard fork because of The DAO [hack] is a good or a bad idea, the very fact, that the Ethereum community (…) has come together, often setting personal opinions aside, and successfully managed a hard fork in this situation is truly remarkable. Given the time constraint, the fact that we were able to come to consensus on this matter is an outstanding accomplishment” (Jentzsch, 2016b).
+
+This is a non-sensical response. Reaching a majority opinion was unlikely to have been much of a challenge since the majority of investors faced losing their investment otherwise. The proposal of a hard fork exposed a range of radically different cultural and political beliefs about how The DAO should be governed in response to the hack, and there was opposition to the solution of a hard fork. Without managers to decide and enforce a decision once and for all, some participants refused to adopt the hard fork. Consequently, The DAO was forced to split in two. One instance of The DAO exists where the consequence of the hack exists on its ledger. The other states that the hack never happened (DuPont, 2017; Leonhard, 2017). This has left The DAO in an ambiguous, difficult situation. It also casts doubt on the viability of such a radical governance structure in the future if a smart contract may be nullified by a majority voting simply to fork the blockchain.
+
+The obvious difficulty is exposed when one considers that The DAO community had nothing to lose by voting to fork, and everything to gain. A decision needed to be made in a brief period of time. Did short-term circumstances and goals drive investors to make an unnecessary or uninformed decision? Would consensus have been reached without the threat of losing substantial amounts of money, or if more time were available? The DAO hack reveals the danger of cultural misalignment in corporate governance due to conflicting stakeholder priorities. For The DAO, the problems associated with the separation of ownership and control had come to life (Berle and Means, 1932; Jensen and Meckling, 1976; Fama, 1980). Or, should we consider whether this may be normal behavior for DAOs?
+
+Legal and Ethical Perspectives on the Response
+
+For many, the purpose of The DAO was to fund agreed-upon projects. In their opinion, the perpetrator stole money from investors by exploiting a bug and taking money that was meant for investment in project-based ventures. Many others do not consider the situation a “hack” at all (Levine, 2016). Rather, one member found a loophole in the rules that, ethics aside, he was entitled to exploit. The terms of the smart contract dictate that the code itself and the members of The DAO community all agreed to be bound exclusively by the code of the smart contract. Under this logic, anyone who utilizes the code was merely exercising their rights under the contract (DuPont, 2017). This is what the “hacker” argued in an open letter published after the attack:
+
+“I have carefully examined the code of The DAO and decided to participate after finding the feature where splitting is rewarded with additional ether. I have made use of this feature and have rightfully claimed 3,641,694 ether, and would like to thank The DAO for this reward…
+
+I am disappointed by those who are characterizing the use of this intentional feature as “theft.” I am making use of this explicitly coded feature as per the smart contract terms and my law firm has advised me that my action is fully compliant with United States criminal and tort law…” (Anonymous, 2016).
+
+Arguably, this seems reasonable. The DAO left the entirety of its governance operations to an algorithm which became The DAO's sole governance mechanism. It operated as it was instructed and according to previously-agreed rules. Considering this, many would argue the hard fork was the only scam, and the community breached The DAO's smart contract by taking cryptocurrency which was rightfully owned by the anonymous perpetrator. To circumvent the rules of The DAO by a hard fork is to undermine the principles of immutability, trust, and decentralization which are core tenets of the blockchain and its smart contracts. The DAO's terms of service were written in a way to make it explicitly clear that all parties intended to be bound by its terms as encoded on the blockchain of the Ethereum network:
+
+“Nothing in this explanation of terms or in any other document or communication may modify or add any additional obligations or guarantees beyond those set forth in The DAO's code…
+
+Any and all explanatory terms or descriptions are merely offered for educational purposes and do not supersede or modify the express terms of The DAO's code set forth on the blockchain; to the extent you believe there to be any conflict or discrepancy between the descriptions offered here and the functionality of The DAO's code at 0xbb9bc244d798123fde783fcc1c72d3bb8c189413, The DAO's code controls and sets forth all terms of The DAO Creation” (Anonymous, 2016).
+
+This makes it difficult to argue against the view that The DAO intended to remove managers from the governance equation, and that the code was law. There were no “bugs,” “hackers,” or “stolen funds.” The intent of the agreement was recorded in the smart contract and all of what happened flowed from that. At worst, the hack was a perfectly valid but unethical maneuver, at best it was not even unethical. Many would still argue that The DAO's solution to the problem was the only unethical behavior in evidence.
+
+It remains to be seen what the courts will say to resolve disputes like The DAO's “hack” and the other undoubted issues which will arise from similar DAO governance structures in the future (Wright and de Filippi, 2015). If a contract explicitly states the rules and both parties have capacity, they are free to sign a contract to that effect. “Capacity,” in this context likely would not include a member's inability to read the source code of the smart contract, but rather the member's ability to educate himself about the code. The courts require legal justification to interfere with the private agreements between consenting adults. But, as Buterin noted, “Although some do question the analogy ‘code is law', I do not. We just found out that we have a supreme court, the community!” (Jentzsch, 2016b).
+
+Ironically, Buterin seems to have missed the point by arguing that The DAO is ruled by a majority which has no regard for the rules it established. Even worse, research shows the blockchain community believes that one of the highest “laws” of the blockchain is its “algorithmic authority.” In other words, they believe the principle of Lex Cryptographia, or “code is law,” is moral and just (Lustig and Nardi, 2015; DuPont, 2017).
+
+It is difficult for any court, in any country, to go beyond the express wording of a contract. However, some legal principles are so fundamental to the regulation of economic activity that courts will be reluctant to declare them inactionable, such as cases of fraud or undue influence. It is possible a court could find individual parties contracted on some basis other than those stipulated in terms of the smart contract embodied by The DAO, taking intent into consideration instead (Hinkes, 2016; Gudkov, 2017). Aside from a legal determination of capacity, a court could find the code did not reflect what was “agreed” and the community was deceived into agreeing to a flawed investment, but for which many courts would require evidence of intent to deceive. The ambiguity of the natural language upon which smart contracts tend to be based will also make legal interpretation difficult since words of a written legal contract cannot easily be “translated” directly into the computer code of a smart contract, even by expert lawyers or developers (Wright and de Filippi, 2015).
+
+Whether or not the The DAO perpetrator pursues the matter, the courts will eventually have to deal with this legal uncertainty if more DAOs emerge, and will be forced to consider the role of blockchain code in the corporate governance of DAOs. If smart contracts are to stay true to their theoretical underpinnings, then a legally binding agreement should not be found in anything other than the code. First of course, courts will have to decide whether DAOs are protected by any legal jurisdiction and, if so, what is the legal standing of the entity (Hinkes, 2016; Gudkov, 2017).
+
+Discussion
+
+The Anarchy of Accountability in Trustless Systems
+
+The DAO raises legitimate questions about whether someone should be accountable in DAOs, whether trustless systems are really “trustless,” and what organizations like The DAO will look like in the future when and if the details of governance, legalities, ethicalities, and the logic flaws in the code are corrected. No one is individually morally culpable for group decisions, but this may be different from legal culpability. Legal accountability and liability is often shared in partnership entities and in many types of governance mechanisms (Hinkes, 2016). Therefore, it seems reasonable that members of DAO communities should be held jointly liable for losses, as they are jointly rewarded for gains.
+
+A key issue that arises by removing governance from people and placing it in the hands of a smart contract is the inability to hold individuals accountable when things go wrong (Jensen and Meckling, 1976; DuPont, 2017). In May 2016, before the incident, The DAO was promoting itself to potential investors as offering greater returns on investment because of its “clear payment terms” (Hinkes, 2016). A case could be made that the risks of smart contracts were not adequately emphasized to investors. But, the “trustless,” radically flat organizational structure of The DAO means that no individual or group of individuals may be held accountable by a tort of negligence for not communicating this relevant information (Wright and de Filippi, 2015; DuPont, 2017). The transparency of the blockchain supposedly undergirds the trustworthiness of DAOs (Fenwick et al., 2017), however, the absence of any real accountability would seem to nullify this as it did in The DAO case. Instead, The DAO was managed by the voting consensus of the collective community. One of the benefits of good governance is not only clarity about who makes decisions, but also about who is accountable for those decisions (Jensen and Meckling, 1976; Fama, 1980). Yet, despite The DAO's “transparency,” nobody was accountable when something went wrong since the decision-making on the blockchain is decentralized by design.
+
+Perhaps Buterin should be accountable? Buterin said he supported a hard fork for The DAO because it was still in a developmental state and wasn't fully formed, and as The DAO matures and grows, the certainty, and reliability of the code's logic will increase as changes become harder to do (Buterin, 2014; Jentzsch, 2016b). Does this imply Buterin, who presented it to investors as a safe and secure vehicle for investment, should be accountable? Many would see it as unethical and illegal to persuade people to invest large amounts of money in a product whose key selling point is its immutability, then when it goes wrong to claim that it wasn't ready for release and needed to be changed.
+
+Or, since The DAO was controlled strictly by code and its “governance” is a set of pre-coded responses to system behaviors, should Christoph Jentzsch, who wrote the code, be held accountable (Waters, 2016)? On the other hand, many would argue the investors bore their own responsibility for vetting Buterin's claims of immutability. One thing is certain—The DAO is a flat organization governed by smart contracts, which may make no claims of its own for which it may be held accountable. Whatever the case, it is apparent that there was an anarchy of accountability in The DAO that will likely be shared by other DAOs at least until the necessary legal frameworks are developed.
+
+Implications for Corporate Governance
+
+Recent scholarly debate indicates that there is an opportunity to re-think corporate governance for the 21st century (Baker and Anderson, 2010). The DAO presents new challenges for corporate governance. It introduces trustless systems and trustless organizations, as well as the jointure of ownership and control of many individuals with differing interests, which have not been seen before in traditional mechanisms of corporate governance. If the case of The DAO is not merely a special case, but the genesis of a new species of corporate governance, it calls to question the adequacy of our current theories of corporate governance.
+
+Berle and Means (1932) theorized that the owners of corporations, or shareholder principals, surrender their wealth and control when they invest in corporations, even though they maintain private ownership. In particular, owners surrender their right that the governance and management of the organization be in their best interests, because as the number of owners increased, the agents would receive greater returns by their efforts as agents rather than through their capital investments. However, The DAO was intentionally designed to enable continued private ownership and control, within the bounds of certain agreed rules, in an organization which was jointly shared and controlled by many owners who were enabled to act also as agents. Likewise, The DAO was a participative community where the owners exercised control by means of their voting rights. The DAO therefore may present an unforeseen form of organization that was not considered by Berle and Means.
+
+Agency Theory posits that principals (owners) and agents (corporate decision makers) suffer from information asymmetry and misaligned goals, and that agents are opportunistic and driven by self-interest. Therefore, principals must monitor agents to keep them accountable, and agents must provide sufficient assurances that they are acting appropriately (Shapiro, 2005). Agency Theory assumes that principals and agents are two separate entities, and that all principals have the same interests and values (Fama and Jensen, 1983; Shapiro, 2005). Agency Theory assumes both the existence of trust and mechanisms to manage trust between principals and agents, and it accounts for a separation of ownership and control but not the separation or alienation of trust.
+
+The DAO, however, was a collective of principals who acted as their own agents. They were bonded through their shared contract in The DAO, but not necessarily through their shared vision for the organization. The blockchain became the mechanism to manage trust, and participants had no need to trust anyone else except the system. Agency Theory does not account for this alienation of trust between parties, nor the marriage of ownership and control between stakeholders with competing interests. Instead, Agency Theory poses an ideal case where optimal decisions are made by an “entrepreneur-manager” who is both principal and agent acting perfectly in his own interest, but where there are multiple principals and agents, absent any incentives, agents will pursue their own interests instead of the interests of the principals (Fama and Jensen, 1983; Shapiro, 2005). With that in mind, DAOs appear to be a new form of collaborative governance, as proposed by recent research (Kolbjørnsrud, 2017), but with very strict rules for collaboration that are enforced by smart contracts. Perhaps it should be considered “normal” for a DAO to resolve conflict by “forking” its blockchain?
+
+Agency Theory favors an organization with a tightly-focused mission and principals who share more-or-less the same information about the firm. However, The DAO was designed with a loosely-focused mission, and because of its distributed, trustless environment a large number of information asymmetries existed between its members. Therefore we propose that the degree of distributed-ness and the degree to which trust is alienated are both related to how tightly an organization may focus its mission. If this is true, DAOs in the future may prefer loosely-focused missions because of their ability to accommodate information asymmetry and radically flat organizational structures. Further efforts are needed to fully understand this new phenomenon, to properly articulate its implications for firm governance, and to explore how organizations may overcome the challenges it poses.
+
+Implications for IT Governance Theory
+
+The DAO is an unanticipated exception to Weill and Ross (2005), and as such deserves some special attention, since The DAO's corporate governance and IT governance were one and the same. Weill and Ross (2005) argued that corporate governance must work in tandem with IT governance since IT governance helps to manage the distribution of risk and decision rights in accordance with corporate governance and strategy. However, the modern firm is so completely infused with the IT function that it is now reasonable to ask whether a meaningful distinction should be made between IT governance and the overall corporate governance and strategy. The DAO's failure in a time of crisis sheds further light on Weill and Ross' IT governance theory, suggesting that it may not be complete. Like Agency Theory, Weill and Ross (2005) made an implicit assumption about trust, and therefore they did not theorize whether it would be possible for decision makers to exist where they have no need to trust each other or work together.
+
+The DAO empowered the collective of decision makers to pursue their own self-interests and made decisions based on majority rules. They assumed the collective could always be held accountable, and that this would help control decision makers' behaviors and align them to the long-term interests of the organization. Although The DAO gave all decision makers equal voting rights and was designed for perfect transparency, in doing so it also hid members from individual accountability. This creates a dilemma for IT governance theory in the context of DAOs and blockchain, since IT governance theory relies on the accountability of decision makers to manage the distribution of risk and decision rights (Weill and Ross, 2005). Endowing the curators with limited decision authority, perhaps something equivalent to a “pause” button on transaction executions, might have prevented most of the damage and presented at least a partial solution to the problem. Greater understanding of how governance operates in DAOs and how the impact of such a decentralized, autonomous environment impacts individuals and their decision-making is necessary. Specifically, what happens when corporate governance and IT governance are one and the same, when risk is managed and investor decisions are implemented by computer algorithms rather than people, as may be the case for DAOs?
+
+A Special Case of Corporate Governance, or a New Species?
+
+The DAO case serves to emphasize a few unique points that argue in favor of its status as a new species of corporate governance, rather than a special case of corporate governance. First of all, The DAO is a unique case where IT governance and corporate governance are one and the same. This differs from all other known forms of corporate governance where governance of the IT function is subordinate to the overall corporate governance. Secondly, The DAO illustrates how the use of blockchain and smart contracts to form a trustless organization leads to a separation or alienation of trust in governance. By comparison, all other known forms of corporate governance are characterized by their separation of ownership and control. Thirdly, The DAO is an almost completely flat organization with no governing board, executive leaders, or executive functions beyond the vote of investors. This differs from all other known forms of corporate governance, which structure themselves in various configurations of ownership and control and have clearly-defined governing boards, executives, and executive functions.
+
+It is reasonable to expect that different types of trustless DAOs will require different configurations of the separation of trust depending on their distribution of decision rights, risk, and residual claims in much the same way as trust-ful firms exhibit various configurations of the separation of ownership and control. As more DAOs emerge, we are likely to see flat, trustless, species of open DAOs, professional partnership DAOs, financial mutual DAOs, and non-profit DAOs. These new forms of governance will require some kind of separation of ownership and control, but their most distinguishing characteristic will be how they alienate trust from the owners and managers of the organization. We should also expect a “trust spectrum” of organizational designs that is similar to the spectrum of organizations that are characterized by their separation of ownership and control.
+
+Smart Contracts, Work, and Work Design
+
+DAOs present a new form of explicit work contract using blockchain-enabled smart contracts, and The DAO is a living embodiment of an explicit, smart work contract, which many would say is rather extreme. Agreements were coded on the blockchain as a smart contract and were made completely transparent and publicly available for all participants. The DAO followed a strictly controlled set of logical rules to govern decision-making and manage the execution of organizational actions. It was designed to remove the risk that a party to the contract might deviate from the original intentions of the contract or act in an unpredictable or undesirable manner. Generally speaking, The DAO succeeded in is goal of transparency, although questions about immutability are raised because of the need to fork the blockchain in order to fix the smart contract's logic.
+
+At the other end of the spectrum, implicit contracts depend on good faith and trust between parties to maintain agreements and ensure that outcomes are appropriate. No formal mechanisms exist to control outcomes and reduce the risk of undesirable actions or results. However, if The DAO's system had not failed, the members would have had no need to trust each other to perform as contracted, because the use of smart contracts eliminated the need for any additional implicit work contracts. It is rare that circumstances such as these might exist, where work is organized only by means of explicit contracts.
+
+Therefore, The DAO forces us to reconsider the design of work, because it shows that the sole use of smart contracts may effectively manage organizational decisions and work. However, this desirable outcome lasted only as long as The DAO's operating conditions remained stable. Since smart contacts follow a set of predetermined rules and logic, and make assumptions about the business' operating environment, it is difficult to design them explicitly for all possible contingencies, as mentioned previously in our discussion on the difficulties of specifying smart contracts. The DAO had no implicit work contracts in place to back up failing or inoperable explicit smart contracts. This suggests that long term organizational success for DAOs may hinge on the existence of implicit work contracts as a fail-safe mechanism in the event of adverse circumstances, or organizational crisis.
+
+Organizations risk ineffective governance in times of crisis unless explicit work contracts may be designed to identify when the organization may no longer be operating efficiently, and organizational conditions have become unstable or unpredictable. However, it is difficult for organizations like The DAO to establish the conditions under which an explicit work contract might be temporarily nullified, since the thresholds are unlikely to be clear cut, black, and white. The design of the explicit contract should enable the organization to continue operating in adverse or unstable conditions, however undesirable it may be, so as to maintain confidence in the explicit contract. Consequently, it seems reasonably necessary for an implicit contract to accompany the explicit contract.
+
+The case of The DAO questions whether explicit work contracts may effectively exist without the support of implicit work contracts. It is widely accepted among computer scientists that completely-specified computer code cannot be written except for the most trivial circumstances, which would certainly exclude most or all business applications, including smart contracts (Murray et al., 2019). If this is true, then we must consider how to design explicit contracts with contingencies for implicit contracts to be triggered, without undermining their desirable qualities: trustlessness, immutability, and transparency. Alternatively, if explicit work contracts will require accompanying implicit work contracts, then implicit work contracts should also be designed so as to maintain trust in the explicit contract. Earlier we suggested the possibility of endowing the curators with some form of limited decision authority, which may be one means of implementing such an implicit contract; in the case of The DAO, this might have been as simple as allowing a curator to “pause” the transactions until the entire community could be informed of the situation. Whatever the answer, this new understanding of explicit work contracts will result in alterations to the design of work.
+
+Of Mythical Entrepreneur-Managers, Philosophers' Zombies, and Robots
+
+Philosophers and theoreticians alike will often employ ideal cases as thought experiments to illustrate their ideas. The mythical entrepreneur-manager is a theoretically-ideal case of an owner who makes his own decisions and does his own work, thereby nullifying all possibility of adverse agency effects such as those proposed by Agency Theory (Jensen and Meckling, 1976; Fama and Jensen, 1983). Philosophers use p-zombies, which have all the external appearance and behaviors of a human but are not conscious, as a theoretical device to examine the qualities of human consciousness and sentience (Chalmers, 1996). Turing and Searle use similar devices in their discussions of machine intelligence (Turing, 1950; Searle, 1980) because they are useful to illustrate abstract theoretical concepts. For our discussion, we will refer to t-firms and t-zombies. A t-firm is a trustless firm, and a t-zombie is a trustless agent that “works” in the t-firm, under contract by a smart trustless contract. A t-zombie may be an autonomous software agent, a robot that is animated by smart contracts, or it could even be a human who behaves as if governed by a smart contract—all perfectly performing work as their smart contracts specify, without the need to trust one another to do their jobs. Because of their reliance on blockchain and smart contracts, they are “trustless.”
+
+Our theoretically-ideal t-firm employs t-zombies, and all firm governance, work, and job design is specified by smart contracts. All contracts in a t-firm are explicit contracts, specified by computer code as a smart contract. Governance and work need not be monitored, since monitoring is only necessary because there is a lack of trust, so there will be none of the usual monitoring costs associated with Agency Theory. Neither will there be any bonding costs, since bonding costs are only necessary for work that is difficult to monitor, and by definition a smart contract may only be coded for work that is understood well-enough to be coded into software; t-zombies will have no need to demonstrate that their work is done in good faith in the best interest of the t-firm. Residual losses are costs that are related to the behavior of agents who are not acting in the best interests of the firm, so in theory a t-firm should have no residual losses. In summary, it seems that trust, or lack thereof, lies at the heart of all agency problems, and therefore a theoretically ideal t-firm should have no agency problems. T-firms, though they may be governed by many t-zombies working as a collective governed by their smart contracts, behave as though they are governed by a single mythical entrepreneur-manager, who makes all decisions and performs all work according to his own interests. Agency Theory does not imagine the possibility of t-firms or t-zombies because trust is assumed.
+
+However, do all blockchain-coded t-firms need to be completely flat, as The DAO, or may there be hierarchically-organized t-firms also? Although blockchain technology is designed as a distributed peer-to-peer transaction ledger, there is nothing that requires smart contracts managed by a blockchain ledger to organize work contracts into a flat organizational structure. Do some forms of work imply the necessity that some t-zombies govern the work of other t-zombies? Current theories of the organization explain job design and governance in terms of the distribution of risk, decision rights and authority, specialization, job complexity, and a number of other factors (Lee and Wingreen, 2010). To the extent that we may expect a variety of t-zombies to be implemented, with some more sophisticated than others, some more specialized, and so on, then we may also anticipate hierarchical organizational structures to emerge in t-firms, and DAOs might be one type of t-firm among many.
+
+A t-firm with a hierarchically- or centrally-organized structure may be called a “centralized autonomous organization,” or “CAO.” One advantage of a CAO may be the capability to delegate autonomous decision authority to an “executive” t-zombie to act in the event of a failure such as happened to The DAO. If The DAO had even one t-zombie whose smart contract specified the authority to act in the case of a system failure, as we have suggested for the curator role, The DAO may have been able to avoid the hard fork it was forced to implement as a solution to its crisis of trust.
+
+The t-firm and its t-zombies is a theoretically ideal case that serves to help us imagine what may happen to governance and work design, but may never exist in the wild, so to speak. Specifically, in all known species of organization, trust between principals and agents or the lack thereof is assumed, and inalienable. Human agents are bound to the organization through a combination of both implicit and explicit work contracts; likewise job designs have both implicit and explicit contractual terms. However, in future DAOs and CAOs, we may expect an alienation of trust to affect the structure of the organization and consequently the design of work within the organization. For example, agents and their associated job designs may be structured according to whether they are governed by an explicit or an implicit contract, with t-zombies working under explicit smart contracts and human agents working under implicit contracts.
+
+Conclusions: Implications and Opportunities for the Future
+
+This curious case of The DAO highlights the role of trust in current governance structures and identifies it as an underlying assumption in key governance theories; trust, or the lack thereof, is revealed to be the underlying issue dictating how organizations organize themselves in order for actors to be made trustworthy. Specifically, we argue that The DAO represents a new species of governance characterized by the alienation of trust from the ownership and control of the organization.
+
+The DAO was designed to be trustless and for a brief time operated successfully without need of trust, thus raising legitimate questions about the adequacy of current governance theories. The DAO's failure does not invalidate trustless organizations, but rather highlights the challenges that must be solved if trustless organizations are to succeed, and the need to reconsider and expand current governance theories to account for the role of trust. While The DAO's governance may have failed, other DAOs will learn from this and solve the problems encountered by The DAO.
+
+The DAO raises the possibility of a wide range and variety of organizational structures and work design in autonomous organizations that are governed all or in part by smart contracts implemented on a blockchain. We envision a spectrum of organizations based on blockchain technology and smart contracts, with new species of “trustless” organizations that wholly alienate trust by the use of explicit work contracts at one end of the spectrum, and more traditional organizations that do not alienate trust by using a combination of implicit and explicit work contracts in their governance structure at the other end of the spectrum. We foresee the possibility of “CAOs” that are governed by centralized, hierarchically-organized smart contracts.
+
+Lastly, this paper questions whether explicit smart work contracts may be sufficient on their own in the design of work, or whether they will remain a purely theoretical concept that does not exist “in the wild,” so to speak. The DAO was governed solely by explicit work contracts, but it is unclear whether additional implicit work contracts are needed as contingencies for adverse or unstable conditions. Organizations that are structured and governed as one of the already-known species will also learn lessons from The DAO as they seek to incorporate blockchain and smart contracts into their strategy and operations.
+
+Future research could follow many paths, as the perspectives we present here are merely markers along the trail, so to speak. It is not likely that any time soon there will be enough DAOs to study with large-sample methods, so the primary research opportunities will be formal case studies. There will also be a need for legal and design science research, perhaps experimentation, and eventually new theory building. Table 1 summarizes the opportunities for future research that may arise from the perspectives presented here.
+
+Table 1
+
+OpportunityType of research1) Confirm the spectrum of organizational design that emerges from the alienation of trust by blockchain and smart contracts when used for firm governanceMultiple cases, theory building2) Explore legal accountability in DAOsLegal cases and opinion3) Determine the optimum structure of decision rights in firms where IT governance and firm governance are one and the sameDesign science, experimentation, theory building4) Define and explore the role of curators with limited decision rights across the spectrum of trustless organizationsDesign science, cases, theory building5) Define and explore the proper balance of implicit and explicit work contracts and their relation to the design of work in DAOsDesign science, experimentation, theory building6) Develop and explore the use of autonomous agents (t-zombies) coded by means of smart contracts in t-firms, and possibly CAOsDesign science, cases, theory building7) Relationship between mission focus, information asymmetry, and alienation of trustMultiple cases, theory building, experimentationSummary of opportunities for future research, and type of research.
+
+Whatever the eventual outcomes will be, whether The DAO will be an exceptional oddity that proves the rule of existing theories of corporate governance, or the holotype for a new species of corporate governance, the curious case of The DAO will remain as a marker along the path to the future of blockchain, smart contracts, and the corporations of the 21st century.
+
+Statements
+
+Author contributions
+
+This paper is RM's research project, with revisions and contributions by NM. SW supervised with revisions and contributions.
+
+Acknowledgments
+
+The paper was proof-read by Paula Wingreen.
+
+Conflict of interest
+
+The authors declare that the research was conducted in the absence of any commercial or financial relationships that could be construed as a potential conflict of interest.
+
+References
+
+1
+
+Anonymous (2016). An Open Letter to the DAO and the Ethereum Community. Avaliable online at: https://pastebin.com/CcGUBgDG (accessed July 18, 2016).
+
+Google Scholar
+
+2
+
+AtzoriM. (2016). Blockchain Technology and Decentralized Governance: Is the State Still Necessary? Available online at: https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2709713 (accessed January 2, 2016).
+
+Google Scholar
+
+3
+
+BakerH. K.AndersonR. (2010). Corporate Governance: A Synthesis of Theory, Research, and Practice. Hoboken, NJ: Wiley.
+
+Google Scholar
+
+4
+
+BerleA.MeansG. (1932). The Modern Corporation and Private Property.New York, NY: Macmillan.
+
+Google Scholar
+
+5
+
+BrownS.GoetzmannW.LiangB.SchwarzC. (2012). Trust and delegation. J. Financ. Econ.103, 221–23410.1016/j.jfineco.2011.09.004
+
+CrossRef 
+Google Scholar
+
+6
+
+ButerinV. (2014). A next generation smart contract & decentralized application platform. Ethereum White Paper. Available online at: https://www.weusecoins.com/assets/pdf/library/Ethereum_white_paper-a_next_generation_smart_contract_and_decentralized_application_platform-vitalik-buterin.pdf (accessed May 14, 2020).
+
+Google Scholar
+
+7
+
+ChalmersD. (1996): The Conscious Mind. New York, NY: Oxford University Press.
+
+Pubmed Abstract
+Google Scholar
+
+8
+
+CoaseR. H. (1937). The nature of the firm. Economica. New Series, IV, 386–405.
+
+Google Scholar
+
+9
+
+ColesJ. L.DanielN. D.NaveenL. (2006). Managerial incentives and risk-taking. J. Financ. Econ.79, 431–468. 10.1016/j.jfineco.2004.09.004
+
+CrossRef 
+Google Scholar
+
+10
+
+Del CastilloM. (2016). The DAO: Or How a Leaderless Ethereum-Based Organization Raised $50 Million (even though no one know quite knows what it is). Avaliable online at: http://www.coindesk.com/the-dao-just-raised-50-million-but-what-is-it/ (accessed January 11, 2019).
+
+Google Scholar
+
+11
+
+DuPontQ. (2017). Experiments in Algorithmic Governance: A History and Ethnography of ‘The DAO,' a Failed Decentralized Autonomous Organization. Bitcoin and Beyond: Cryptocurrencies, Blockchains and Global Governance (forthcoming).
+
+Google Scholar
+
+12
+
+FamaE. F. (1980). Agency problems and the theory of the firm. J. Politic. Econ.88, 288–307. 10.1086/260866
+
+CrossRef 
+Google Scholar
+
+13
+
+FamaE. F.JensenM. C. (1983). Separation of ownership and control. J. Law Econ.26, 301–325. 10.1086/467037
+
+CrossRef 
+Google Scholar
+
+14
+
+FenwickM.KaalW. A.VermeulenE. P. M. (2017). The “unmediated” and “tech-driven” corporate governance of today's winning companies. In How to Organise Now for Success Tomorrow – Version, 7. Available online at: https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2922176
+
+Google Scholar
+
+15
+
+GarrodJ. Z. (2016). The real world of the decentralized autonomous society. tripleC14, 62–77. 10.31269/triplec.v14i1.692
+
+CrossRef 
+Google Scholar
+
+16
+
+GhiselliE. P.JohnsonD. A. (1970). Need satisfaction, managerial success, and organizational structure. Pers. Psychol.23, 569–576. 10.1111/j.1744-6570.1970.tb01373.x
+
+CrossRef 
+Google Scholar
+
+17
+
+GudkovA. (2017). Legal Aspects of the Decentralized Autonomous Organization. Available online at: https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2911498 (accessed February 5, 2017).
+
+Google Scholar
+
+18
+
+GuisoL.SapienzaP.ZingalesL. (2015). The value of corporate culture. J. Financ. Econ.117, 60–76. 10.1016/j.jfineco.2014.05.010
+
+CrossRef 
+Google Scholar
+
+19
+
+HalaburdaH. (2018). Blockchain revolution without the blockchain?Commun. ACM61, 27–29. 10.1145/3225619
+
+CrossRef 
+Google Scholar
+
+20
+
+HinkesA. (2016). The Law of the DAO. Avaliable online at: https://www.coindesk.com/the-law-of-the-dao/ (accessed May 19, 2016).
+
+Google Scholar
+
+21
+
+HsiehY.VergneJ.WangS. (2017). The Internal and External Governance of Blockchain-Based Organizations: Evidence From Cryptocurrencies. Available online at: https://ssrn.com/abstract=2966973.
+
+Google Scholar
+
+22
+
+HsiehY. Y.VergneJ. P.AndersonP.LakhaniK.ReitzigM. (2018). Bitcoin and the rise of decentralized autonomous organizations. J. Organ. Des.7:14. 10.1186/s41469-018-0038-1
+
+CrossRef 
+Google Scholar
+
+23
+
+JensenM.MecklingW. (1976). Theory of the firm: managerial behaviour, agency costs and ownership structure. J. Financ. Econ.3, 305–360. 10.1016/0304-405X(76)90026-X
+
+CrossRef 
+Google Scholar
+
+24
+
+JentzschC. (2016a). Decentralized Autonomous Organization to Automate Governance: Final Draft – Under Review. Avaliable online at: https://lawofthelevel.lexblogplatformthree.com/wp-content/uploads/sites/187/2017/07/WhitePaper-1.pdf (accessed December 20, 2018).
+
+Google Scholar
+
+25
+
+JentzschC. (2016b). What an Accomplishment! Avaliable online at: https://blog.slock.it/what-an-accomplishment-3e7ddea8b91d (accessed January 11, 2019).
+
+Google Scholar
+
+26
+
+KolbjørnsrudV. (2017). Agency problems and governance mechanisms in collaborative communities. Strateg. Organ.15, 141–173. 10.1177/1476127016653727
+
+CrossRef 
+Google Scholar
+
+27
+
+KshetriN. (2018). Blockchain could be the answer to cybersecurity. Maybe. the technology has a lot going for it, but first it has to clear some major hurdles. Wall Street J. Available online at: https://www.wsj.com/articles/blockchain-could-be-the-answer-to-cybersecurity-maybe-1527645960 (accessed May 14, 2020).
+
+Google Scholar
+
+28
+
+LeeC. K.WingreenS. C. (2010). Transferability of knowledge, skills, and abilities along IT career paths: an agency theory perspective. J. Org. Comp. Elect. Com.20, 23–44. 10.1080/10919390903482382
+
+CrossRef 
+Google Scholar
+
+29
+
+LeonhardR. D. (2017). Corporate Governance on Ethereum's Blockchain. Available online at: https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2977522 (accessed June 3, 2017).
+
+Google Scholar
+
+30
+
+LevineM. (2016). Blockchain Company's Smart Contracts Were Dumb. Avaliable online at: https://www.bloomberg.com/view/articles/2016-06-17/blockchain-company-s-smart-contracts-were-dumb (accessed December 20, 2018).
+
+Google Scholar
+
+31
+
+LustigC.NardiB. (2015). Algorithmic authority: the case of Bitcoin. 48th Hawaii International Conference on System Sciences (HICSS) 2015, Hawaii, USA, from 5-8 January 2015
+
+Google Scholar
+
+32
+
+MendlingJ.WeberI.van der AalstW. (2018). Blockchains for business process management - challenges and opportunities. ACM Trans. Inf. Syst.9, 1–20. 10.1145/3183367
+
+CrossRef 
+Google Scholar
+
+33
+
+MurrayA.KubanS.JosefyM.AndersonJ. (2019). Contracting in theSmart Era: The Implications of Blockchain and Decentralized Autonomous Organizations for Contracting and Corporate Governance. Academy of Management Perspectives. Published online. 10.5465/amp.2018.0066
+
+CrossRef 
+Google Scholar
+
+34
+
+NakamotoS. (2008). Bitcoin: a Peer-To-Peer Electronic Cash System. Avaliable online at: https://bitcoin.org/en/bitcoin-paper.
+
+Google Scholar
+
+35
+
+ParkerC. (2002). The Open Corporation: Effective Self-Regulation and Democracy. Cambridge, UK: Cambridge University Press.
+
+Google Scholar
+
+36
+
+PirsonM. A.TurnbullC. S. S. (2015). Decentralized governance structures are able to handle CSR induced complexity better. Business Soc.57, 1–45. 10.2139/ssrn.2709413
+
+CrossRef 
+Google Scholar
+
+37
+
+PriceR. (2016). Digital Currency Ethereum is Cratering amid Claims of $50 Million Hack. Avaliable online at: https://www.businessinsider.com.au/dao-hacked-ethereum-crashing-in-value-tens-of-millions-allegedly-stolen-2016-6?r=UK&IR=T (accessed January 11, 2019).
+
+Google Scholar
+
+38
+
+SearleJ. (1980). Minds, brains and programs. Behav. Brain Sci.3, 417–457. 10.1017/S0140525X00005756
+
+CrossRef 
+Google Scholar
+
+39
+
+ShapiroS. P. (2005). Agency theory. Ann. Rev. Sociol.21, 263–284. 10.1146/annurev.soc.31.041304.122159
+
+CrossRef 
+Google Scholar
+
+40
+
+SzaboN. (1997). Formalizing and securing relationships on public networks. First Monday2. 10.5210/fm.v2i9.548
+
+CrossRef 
+Google Scholar
+
+41
+
+TuringA. (1950). Computing machinery and intelligence. MindLIX, 433–460. 10.1093/mind/LIX.236.433
+
+CrossRef 
+Google Scholar
+
+42
+
+WatersR. (2016). Automated Company Raises Equivalent of $120m in Digital Currency. Avaliable online at: http://www.cnbc.com/2016/05/17/automated-company-raises-equivalent-of-120-million-in-digital-currency.html (accessed December 20, 2018).
+
+Google Scholar
+
+43
+
+WeillP.RossJ. (2005). A matrixed approach to designing IT governance. MITSloan Mange. Rev.46, 26–34.
+
+Google Scholar
+
+44
+
+WrightA.de FilippiP. (2015). Decentralized blockchain Technology and the Rise of Lex Cryptographia. Available online at: https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2580664 (accessed March 20, 2015).
+
+Google Scholar
+
+Summary
+
+Keywords
+
+IS governance, blockchain, DAOs, decentralized autonomous organizations, smart contracts, trust, trustless systems
+
+Citation
+
+Morrison R, Mazey NCHL and Wingreen SC (2020) The DAO Controversy: The Case for a New Species of Corporate Governance?. Front. Blockchain 3:25. doi: 10.3389/fbloc.2020.00025
+
+Received
+
+18 February 2020
+
+Accepted
+
+29 April 2020
+
+Published
+
+27 May 2020
+
+Volume
+
+3 - 2020
+
+Edited by
+
+ Volker Skwarek, Hamburg University of Applied Sciences, Germany
+
+Reviewed by
+
+ Sven Hildebrandt, Consultant, Germany; Gilbert Fridgen, University of Luxembourg, Luxembourg
+
+Updates
+
+Check for updates
+
+ Copyright 
+
+© 2020 Morrison, Mazey and Wingreen. 
+
+This is an open-access article distributed under the terms of the Creative Commons Attribution License (CC BY). The use, distribution or reproduction in other forums is permitted, provided the original author(s) and the copyright owner(s) are credited and that the original publication in this journal is cited, in accordance with accepted academic practice. No use, distribution or reproduction is permitted which does not comply with these terms.
+
+*Correspondence: Stephen C. Wingreen stephen.wingreen@canterbury.ac.nz
+
+This article was submitted to Smart Contracts, a section of the journal Frontiers in Blockchain
+
+Disclaimer
+
+ All claims expressed in this article are solely those of the authors and do not necessarily represent those of their affiliated organizations, or those of the publisher, the editors and the reviewers. Any product that may be evaluated in this article or claim that may be made by its manufacturer is not guaranteed or endorsed by the publisher. 
+
+ Article metrics 
+
+View details Download 
+
+PDF
+
+ Download other formats 
+
+ReadCube
+EPUB
+XML
+Cite articleShare articleFrontiers' quality
+
+How do we build trust in science?
+
+Behind each Frontiers journal is an editorial board committed to upholding research integrity and scientific quality
+
+Learn morePDF
+
+ Download other format 
+
+ReadCube
+EPUB
+XML
+
+Outline
+Figures
+Cite
+Share
+Metrics
+More
+ Outline
+
+ Figures
+
+ Cite article
+
+Copy to clipboard
+
+Copy citation
+Export citation file
+
+BibTex
+EndNote
+Reference Manager
+Simple Text file
+
+ Share article
+
+Facebook
+X
+LinkedIn
+Email
+WeChat
+Share on WeChat
+
+Scan with WeChat to share this article
+
+ Article metrics
+
+GuidelinesAuthor guidelines
+Services for authors
+Policies and publication ethics
+Editor guidelines
+Fee policy
+
+ExploreArticles
+Research Topics 
+Journals
+How we publish
+
+OutreachFrontiers Forum 
+Frontiers Policy Labs 
+Frontiers for Young Minds
+Frontiers Planet Prize
+
+ConnectHelp center
+Emails and alerts 
+Contact us 
+Submit
+Career opportunities
+
+Follow us© 2026 Frontiers Media SA. All rights reserved.Privacy policy | Terms and conditions | Accessibility statement

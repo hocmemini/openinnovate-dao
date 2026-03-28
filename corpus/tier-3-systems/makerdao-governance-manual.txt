@@ -1,0 +1,425 @@
+# MakerDAO Governance Manual (Selected Sections)
+# Source: https://github.com/makerdao/governance-manual
+# License: CC0-1.0 (Creative Commons Zero 1.0 Universal — Public Domain)
+# Included in OpenInnovate DAO constitutional corpus under CC0 terms.
+#
+
+
+============================================================
+FILE: SUMMARY.md
+============================================================
+
+# Table of Contents
+
+* [Maker Operational Manual](README.md)
+
+## Governance Elements
+  * [Atlas](governance/atlas.md)
+  * [Scopes and Artifacts](governance/scopes-and-artifacts.md)
+  * [Scope Advisory Councils](governance/scope-advisory-councils.md)
+  
+## Resources
+  * [Status and Dashboards](protocol-status/protocol-and-dao-status.md)
+  * [Common Abbreviations and Acronyms](protocol-status/acronyms.md)
+  * [Discord Servers](misc/discords.md)
+  * [MakerDAO Calls Calendar](protocol-status/calls-calendar.md)
+  * [MakerDAO Governance Calendar](protocol-status/governance-calendar.md)
+  * [Easy Governance Frontend](governance/easy-governance-frontend.md)
+
+## Governance Processes
+* Governance Cycle
+  * [Monthly Governance Cycle](governance/monthly-governance-cycle.md)
+  * [Weekly Governance Cycle](governance/weekly-governance-cycle.md)
+* [Voting](governance/voting-in-makerdao.md)
+  * [Practical Guide to Voting](governance/practical-guide-voting.md)
+  * [Gasless Poll Voting](governance/gasless-poll-voting.md)
+  * [On-Chain Governance](governance/on-chain-governance.md)
+  * [Approval Voting Guide](governance/approval-voting-guide.md)
+  * [Video Guide To Voting In The Maker Protocol](governance/how-to-vote.md)
+* Executive Vote Considerations
+  * [Executive Audit](governance/executive-audit.md)
+  * [Executive Transactions](governance/executive-transaction-verification.md)
+  * [GSM Exceptions](governance/gsm-exceptions.md)
+* Off-Chain
+  * [Off-Chain Governance](governance/off-chain-governance.md)
+  * [Impact Estimations](governance/impact-estimations.md)
+* [Emergency Shutdown](governance/emergency-shutdown.md)  
+
+## Delegation
+* Overview
+  * [What is delegation](delegation/what-is-delegation.md)
+* Entities
+  * [Alignment Conservers](delegation/alignment-conservers.md)
+  * [Aligned Voter Committees](delegation/avc.md)
+  * [Aligned Delegates](delegation/aligned-delegates.md) 
+* For MKR Holders
+  * [MKR Holders Guide to Delegation](delegation/mkr-holder-guide.md)
+  * [Delegate Metric Tracking](delegation/delegate-metric-tracking.md)
+* [Delegate Contract Migration](delegation/delegate-expiration.md)
+  
+## Parameter Index
+
+* Core
+  * [Governance Pause Delay](parameter-index/core/param-gsm-pause-delay.md)
+  * [Maximum System Surplus](parameter-index/core/param-system-surplus-buffer.md)
+  * [Dai Savings Rate](parameter-index/core/param-dai-savings-rate.md)
+  * [Global Liquidation Limit](parameter-index/core/param-global-liquidation-limit.md)
+  * [Global Debt Ceiling](parameter-index/core/param-global-debt-ceiling.md)
+* Vault Risk
+  * [Stability Fee](parameter-index/vault-risk/param-stability-fee.md)
+  * [Debt Ceiling](parameter-index/vault-risk/param-debt-ceiling.md)
+  * [Liquidation Ratio](parameter-index/vault-risk/param-liquidation-ratio.md)
+  * [Liquidation Penalty](parameter-index/vault-risk/param-liquidation-penalty.md)
+  * [Debt Floor](parameter-index/vault-risk/param-debt-floor.md)
+  * [RWA Agreement](parameter-index/vault-risk/param-rwa-agreement.md)
+* Smart Burn Engine
+  * [Smart Burn Engine Lot Size](parameter-index/surplus-auction/param-surplus-lot-size.md)
+  * [Smart Burn Engine Cooldown](parameter-index/surplus-auction/param-surplus-cooldown.md)
+  * [Smart Burn Engine Slippage Tolerance](parameter-index/surplus-auction/param-surplus-slippage-tolerance.md)
+* Collateral Auction
+  * [Auction Price Function](parameter-index/collateral-auction/param-auction-price-function.md)
+  * [Auction Price Multiplier](parameter-index/collateral-auction/param-auction-price-multiplier.md)
+  * [Local Liquidation Limit](parameter-index/collateral-auction/param-local-liquidation-limit.md)
+  * [Max Auction Drawdown](parameter-index/collateral-auction/param-max-auction-drawdown.md)
+  * [Max Auction Duration](parameter-index/collateral-auction/param-max-auction-duration.md)
+  * [Breaker Price Tolerance](parameter-index/collateral-auction/param-breaker-price-tolerance.md)
+  * [Proportional Kick Incentive](parameter-index/collateral-auction/param-proportional-kick-incentive.md)
+  * [Flat Kick Incentive](parameter-index/collateral-auction/param-flat-kick-incentive.md)
+* Debt Auction
+  * [Debt Auction Minimum Bid Decrease](parameter-index/debt-auction/param-min-bid-decrease-flop.md)
+  * [Debt Auction Duration](parameter-index/debt-auction/param-auction-duration-flop.md)
+  * [Debt Auction Bid Duration](parameter-index/debt-auction/param-bid-duration-flop.md)
+  * [Debt Auction Delay](parameter-index/debt-auction/param-debt-auction-delay.md)
+  * [Debt Auction Bid Size](parameter-index/debt-auction/param-bid-size.md)
+  * [Debt Auction Initial Lot Size](parameter-index/debt-auction/param-initial-lot-size.md)
+  * [Debt Auction Lot Size Increase](parameter-index/debt-auction/param-lot-size-increase.md)
+
+
+## Module Index
+* [Peg Stability](module-index/module-psm.md)
+* [Debt Ceiling Instant Access](module-index/module-dciam.md)
+* [Token Streaming](module-index/module-token-streaming.md)
+* [DAI Direct Deposit](module-index/module-dai-direct-deposit.md)
+* [Flash Mint](module-index/module-flash-mint-module.md)
+* [Linear Interpolation](module-index/module-lerp.md)
+* [Emergency Shutdown](module-index/module-emergency-shutdown.md)
+
+
+============================================================
+FILE: governance/on-chain-governance.md
+============================================================
+
+# On-chain Governance 
+There are two main types of on-chain governance activities: Governance Polls and Executive Votes. 
+
+### Governance Polls
+
+Governance Polls occur on-chain and are used to measure the sentiment of MKR voters. Polls often run concurrently, allowing voters to participate in any number of them at the same time. Polls may have different formats like Binary Voting, [Instant Run-Off Voting](https://en.wikipedia.org/wiki/Ranked_voting), or [Approval Voting](https://en.wikipedia.org/wiki/Approval_voting) depending on the topic. The current schedule calls for polls to go live each week on Monday at 16:00 UTC.
+
+MKR holders may be asked to:
+
+- Determine governance and DAO processes outside the technical layer of the Maker Protocol.
+- Form consensus on important community goals and targets.
+- Determine which proposals should proceed to a future Executive Vote.
+- Ratify governance proposals originating from MakerDAO Core Unit Facilitators.
+- Determine which values certain system parameters should be set to before those values are then confirmed in an executive vote.
+- Ratify risk parameters for new collateral types.
+
+Here is [an example](https://vote.makerdao.com/polling/Qmeac95W?network=mainnet#poll-detail) of a governance poll on the Governance Portal.
+
+#### How long is the voting period of a Governance Poll?
+The voting period of a given Governance Poll varies. Recurring polls of the same type are usually standardized and have the same duration. The most common are three and fourteen day periods. Concurrently posted polls do not necessarily have the same voting periods.
+
+#### Where can I find on-chain Governance Polls?
+Live and historic polls can be found on the [polling page](https://vote.makerdao.com/polling) of the Governance Portal.
+
+#### How can I create an on-chain Governance Poll?
+The on-chain Governance Poll smart contracts are permissionless, meaning anyone can trigger a poll. However, there is no creation or voting UI provided for user-generated polls. Polls created by arbitrary Ethereum addresses **are not** displayed on the official governance portal.
+
+Currently, only Governance Facilitators are able to put up polls that display on the official [Governance Portal](https://vote.makerdao.com), and they do so on behalf of the rest of MakerDAO. This helps to ensure a level of standardization and quality of presentation.
+
+### Executive Votes
+Executive Votes occur on-chain and can be accessed through the [executive page](https://vote.makerdao.com/executive) in the Governance Portal.
+
+Executive Votes execute technical changes to the Maker Protocol. When active, each Executive Vote has a proposed set of changes being made to the Maker Protocol's smart contracts. Executive Votes use a Continuous Approval Voting model.
+
+Executive Votes can occur at any time, but the current schedule calls for Executive Votes to go live on Wednesdays. The exact time varies but is almost always after 14:00 UTC.
+
+Executive Votes can be used to do the following (among other things):
+- Add or remove Vault types.
+- Adjust system parameters.
+- Replace modular smart contracts.
+
+Here is [an example](https://vote.makerdao.com/executive/template-executive-vote-parameter-changes-wsteth-a-onboarding-october-22-2021?network=mainnet#proposal-detail) of an executive vote on the Governance Portal.
+
+Anyone can create an on-chain Executive Vote using the MakerDAO governance contracts; however, there is no non-technical UI available to do this. Users can create proposals, also known as [slates](https://docs.makerdao.com/smart-contract-modules/governance-module/chief-detailed-documentation), through this [experimental portal](https://chief.makerdao.com/), or by interacting directly with the smart contracts.
+
+Under the normal schedule, an Executive Vote's contents are determined collaboratively by relevant Core Units that consider changes that are both approved by governance and ready for safe implementation. Once the contents have been determined, the proposal smart contract is created by the Protocol Engineering Core Unit.
+
+Regularly scheduled proposals created by the Protocol Engineering Core Unit have the following properties: 
+* They execute a single set of changes exactly once. 
+* They are deactivated for safety reasons if they have not been passed within 30 days.
+
+#### How is the voting calculated?
+Executive Votes are calculated through Continuous Approval Voting. In such a system, competing proposals may be introduced at any time.
+
+An active proposal may be executed if it has more votes in its favor than any other proposal. If MKR token holders do not agree with a new proposal, then they should cast their votes for the inactive proposal with the most vote-weight (usually the last proposal to successfully pass.)
+
+The highest vote-weight proposal is sometimes referred to as the 'hat' proposal.
+
+There are three aspects to consider about Continuous Approval Voting:
+- Vote-weight present on the 'hat' proposal sets the 'victory threshold' for new proposals.
+- Vote-weight may move from the 'hat' proposal to any new proposal, this both reduces the 'victory threshold' _and_ contributes to the new proposal's vote-weight.
+- Vote-weight is meant to remain in the system on the 'hat' proposal to help secure it from any "rogue" proposals.
+
+### Auditability
+
+#### New votes
+The public is encouraged to self-audit the code for each vote. There is an accessible guide on how to do so [here](governance/executive-audit.md). 
+
+#### Voting record
+The voter's current vote is displayed on a given proposal page in the [Governance Portal](https://vote.makerdao.com/). Historical voting records are also available on the governance portal.
+
+>Page last reviewed: 2022-10-25  
+>Next review due: 2023-10-25  
+
+
+
+============================================================
+FILE: governance/off-chain-governance.md
+============================================================
+
+# Off-Chain Governance
+
+{% hint style="info" %}
+Since subDAOs can arbitrarily set up their own forms of internal off-chain governance, this article will restrict itself to the off-chain governance of Maker Core.
+{% endhint %}
+
+Off-chain governance is a form of governance that does not involve tokens or blockchain interaction. It allows more people to participate in improving the protocol by freely exchanging ideas and gathering feedback. This can be used  to support and inform future on-chain governance.
+
+Off-chain governance can be conducted in:
+
+- The [MakerDAO forum](forum.makerdao.com/), usually under the [Ecosystem Discussion category](https://forum.makerdao.com/c/ecosystem-discussions/89). The forum also allows for creation of polls to gauge community sentiment.
+- The [MakerDAO Discord server](https://discord.gg/RBRumCpEDH).
+
+When engaging in off-chain governance, it is important to prioritize courtesy and common sense. MakerDAO encourages respectful and inclusive discussions, and constructive feedback.
+
+
+>Page last reviewed: 2023-05-23  
+>Next review due: 2023-07-23  
+
+
+============================================================
+FILE: governance/voting-in-makerdao.md
+============================================================
+
+# Introduction to voting in MakerDAO
+MakerDAO is a decentralized autonomous organization whose governance process controls various aspects of the Maker Protocol. On-chain voting requires MKR tokens. MKR holders have the sole authority to enact changes to the system through voting. 
+
+Voting is calculated by a weighted voting system, where voting power is proportional to the amount of MKR tokens cast. For example, if 50 stakeholders hold a total of 600 MKR and vote for proposal A, while 100 stakeholders hold a total of 400 MKR and vote for proposal B, then Proposal A would win with 60% of the vote. The number of stakeholders who voted for a proposal does not change the result.
+
+Off-chain voting takes place on the [Maker Forum](https://forum.makerdao.com) and on-chain voting takes place on the [Governance Portal](https://vote.makerdao.com/). 
+
+>Page last reviewed: 2022-09-29  
+>Next review due: 2023-09-29  
+
+
+============================================================
+FILE: governance/monthly-governance-cycle.md
+============================================================
+
+# Monthly Governance Cycle
+
+The Monthly Governance Cycle is defined in [MIP51](https://mips.makerdao.com/mips/details/MIP51) and provides a predictable monthly cadence by which governance decisions are made.
+
+The Monthly Governance Cycle is predominantly used for the introduction of new MIPs or MIP subproposals into the Maker Protocol. Examples of such changes could include:
+
+* The addition of a new Core Unit to the Maker Protocol
+* The adjustment of an existing Core Unit's operating budget
+
+Proposals submitted into the Monthly Governance Cycle must follow the guidelines defined in [MIP0](https://mips.makerdao.com/mips/details/MIP0).
+
+## Governance Cycle Overview
+
+![Gov Cycle](https://user-images.githubusercontent.com/53664591/114054203-8c7de580-9887-11eb-90da-0431b051fff3.png)
+
+*Note: Time is inclusive and based on UTC (Coordinated Universal Time) and the Gregorian calendar.*
+
+## Governance Cycle Breakdown ([MIP51c1](https://mips.makerdao.com/mips/details/MIP51#MIP51c1))
+
+The first Monday of each calendar month marks the beginning of the Monthly Governance Cycle.
+
+### Week 1
+
+**Week 1, Monday through Wednesday**
+
+- MIP Authors move their proposals to **Formal Submission**. This phase lasts for 3 days.
+- Proposals must be moved into the [Formal Submission](https://forum.makerdao.com/c/mips/fs/16) subcategory on the MakerDAO forums under the [Maker Improvement Proposal](https://forum.makerdao.com/c/mips/14) category.
+- MIP Authors should inform [MIP Editors](https://forum.makerdao.com/g/MIP-Editors) of the status change via commonly used communications channels.
+
+**Week 1, Thursday**
+
+- Governance Facilitators perform the **Submission Review** as part of the weekly Governance and Risk meeting and communicate which of the proposed MIPs are in accordance with guidelines (defined in the [MIP0](https://mips.makerdao.com/mips/details/MIP0) Framework).
+- The Governance Facilitators must come to consensus on whether each submission should move forward to a Ratification Poll.
+  - Governance Facilitators may consider blocking a proposal if they believe that moving forward to a Ratification Poll would negatively affect community cohesion.
+    - If the Governance Facilitators prevent a proposal from moving to a Ratification Poll, they must clearly communicate their reasons for doing so via the official [forum](https://forum.makerdao.com).
+    - In the event the Governance Facilitators abuse this power **they should be removed from their positions via any method Maker Governance determines is appropriate**.
+- MIPs that meet the guidelines and are not found objectionable by Governance Facilitators will continue to the Ratification Poll stage.
+
+### Week 2
+
+**Week 2, Monday**
+
+- The Governance Facilitators publish the set of **Ratification Polls**. The format of these is defined in [MIP51c2](https://mips.makerdao.com/mips/details/MIP51#MIP51c2).
+- Ratification Polls are published to the [community GitHub](https://github.com/makerdao/community/tree/master/governance/polls), submitted on-chain and appear on the official [voting portal](https://vote.makerdao.com/).
+- Ratification Polls will run for two weeks.
+
+### Week 4
+
+**Week 4, Monday**
+
+- The Ratification polls conclude, and each proposal or set of proposals is marked as either Accepted or Rejected by the MIP Editors.
+
+**Week 4, Thursday**
+
+- The Governance Facilitators do a **Governance Cycle Review** as part of the weekly Governance and Risk meeting in which they summarize and discuss the Governance Cycle with the community.
+- The Governance Facilitators also discuss the upcoming Governance Cycle and potential submissions with the community.
+
+---
+
+### Calendar Exceptions ([MIP51c4](https://mips.makerdao.com/mips/details/MIP51#MIP51c4))
+
+Due to the multitude of cultural and religious holidays occurring in and around the month of December, there will be no Monthly Governance Cycle in December.
+
+>Page last reviewed: 2022-10-25  
+>Next review due: 2023-10-25  
+
+============================================================
+FILE: governance/weekly-governance-cycle.md
+============================================================
+
+# The Weekly Governance Cycle
+
+The Weekly Governance Cycle is formalized by [MIP16](https://mips.makerdao.com/mips/details/MIP16) and provides a predictable weekly framework for Maker Governance decisions.
+
+The Weekly Governance Cycle works in conjunction with the Monthly Governance Cycle ([MIP51](https://mips.makerdao.com/mips/details/MIP51)). It permits recurring decisions to be made that require quicker action than is allowed by the Monthly Governance Cycle.
+
+### Weekly Governance Cycle Overview
+
+![weekly_monthly-gov](https://github.com/makerdao/mips/blob/master/MIP16/weekly_governance_cycle.png?raw=true)
+
+### Weekly Governance Cycle Definitions ([MIP16c1](https://mips.makerdao.com/mips/details/MIP16#MIP16c1)) 
+
+- A **Weekly Poll** is a non-binding Governance Poll that determines the weekly Executive Vote contents. Weekly Polls cannot change system parameters independently; they merely dictate what will be included in the next Executive Vote.
+- A **Non-Standard Weekly Poll** is a non-binding Weekly Poll that contains arbitrary time-sensitive decisions. These polls need to be expedited through the Maker governance process via a separate vote. The use of Non-Standard Weekly Polls is exclusive to Facilitators, given that they have already established a high level of trust with the community. The use of Non-Standard Weekly Polls is limited to situations where the Weekly Governance Cycle is determined to operate too slowly to be usable. An example of such a poll might be the Risk Core Unit ([RISK-001](https://mips.makerdao.com/mips/details/MIP39c2SP2)) Facilitator proposing urgent parameter changes for a collateral type due to an abrupt change in market conditions, or a vulnerability that has been detected.
+- Ratified Facilitators (a list can be found [here](https://mips.makerdao.com/mips/details/MIP38#MIP38c2)) are authorized by Maker Governance to interact with the Weekly Cycle. Facilitators may submit Non-Standard Weekly Polls that are related to their Core Unit Mandate. If necessary, and if it is related to their Core Unit Mandate, Facilitators can skip the Non-Standard Weekly Polls and include logic directly into the weekly Executive Vote.
+
+---
+
+### Weekly Governance Cycle Breakdown ([MIP16c2](https://mips.makerdao.com/mips/details/MIP16#MIP16c2)) 
+
+**Monday, week 1**
+
+- Every Monday, the weekly cycle begins and includes standard recurring decisions proposed in the form of a weekly poll. The poll will run for three days.
+
+**Friday, week 1**
+
+- The Arbitration or Ecosystem Facilitators will confirm the Executive Vote contents and deliver the spell copy to the Governance Security Advisory Council. The Governance Security Advisory Council will prepare and review a spell on the Goerli testnet.
+
+**Monday, week 2**
+
+- The Governance Security Advisory Council will deploy the Goerli spell and begin writing the mainnet spell.
+
+**Tuesday, week 2**
+
+- The Governance Security Advisory Council will deploy the mainnet spell.
+
+**Wednesday, week 2**
+
+- The Arbitration or Ecosystem Facilitators will add the Executive Vote to the voting portal and communicate this to the MakerDAO Community. The Weekly Executive Vote has an expiration of thirty days.
+
+>Page last reviewed: 2023-07-13  
+>Next review due: 2024-07-13  
+
+
+============================================================
+FILE: governance/emergency-shutdown.md
+============================================================
+
+# Emergency Shutdown
+
+## Overview
+
+An important security feature of the Maker Protocol is the ability to perform an Emergency Shutdown of the protocol. This allows the system to shut down gracefully and makes underlying collateral available for redemption by DAI holders and vault owners in a fair manner. The main goals of Emergency Shutdown are to ensure that 
+1. Vault owners with excess collateral in their vaults are able to fully withdraw that excess collateral. 
+2. DAI holders are then entitled to a pro-rata share of remaining collateral assets. Depending on what the protocol's total assets are worth, each unit of DAI may be worth less than $1. 
+3. Race conditions are avoided so that no matter when DAI holders and Vault owners choose to redeem their collateral, the collateral they are entitled to remains unchanged.
+
+{% hint style="warning" %}
+
+While all reasonable effort has been made to ensure the accuracy and currency of this page, the authors are not smart contract developers, and changes to the Emergency Shutdown procedure may be made by Maker Governance at any time (subject to the GSM Pause Delay).
+
+{% endhint %}
+
+## Activation
+
+Emergency Shutdown is a last-resort measure that shuts down the protocol. Example situations where it can be used is to defend the protocol against a high-severity attack or if MKR holders believe the protocol cannot be made solvent through debt auctions.
+
+The process of Emergency Shutdown starts with MKR holders depositing MKR into the [Emergency Shutdown Module (ESM)](../module-index/module-emergency-shutdown.md). Emergency Shutdown is triggered when MKR deposited to the ESM exceeds the minimum threshold parameter. 
+
+The protocol may also be shut down through a regular Executive Vote. Unlike triggering the ESM, this type of shutdown would be subject to the [GSM Pause Delay](../parameter-index/core/param-gsm-pause-delay.md) imposed by the Governance Security Module and is more likely to be used in the case of major technical upgrades.
+
+## Sequence of events
+
+1. Once Emergency Shutdown has been activated, the following items take effect immediately:
+    * The ability to create vaults, generate DAI from existing vaults, or repay borrowed DAI to vaults is disabled. 
+    * All debt and surplus auctions can be permisionlessly disabled. 
+    * The DAI Savings Rate and all stability fees are set to zero. 
+    * All price oracles are frozen to their current reference prices. 
+    * Vault owners may still withdraw any excess collateral from their vaults but cannot repay DAI debt to retrieve the remaining collateral. 
+2. Once Emergency Shutdown has been activated, a cooldown period is needed to allow any ongoing collateral auctions to conclude. Once all collateral auctions finish, the system can calculate the collateral that can be assigned to the remaining DAI in circulation.
+3. Each unit of DAI is entitled to withdraw a pro-rata share of collateral from each collateral type. Users may either continue to hold their DAI or transfer it to other wallets until it is used to redeem the underlying basket of collateral. 
+
+## Redeployment
+
+Since the Maker Protocol is open source and decentralized, anyone can redeploy the system. Ideally, the parameters of redeployment should depend on the reason for the Emergency Shutdown, and should not be altered unilaterally and arbitrarily. 
+
+It is likely that the Maker Community will decide on whether redeployment is appropriate and if so, MKR holders will vote on a redeployment with the appropriate configuration.
+
+## Considerations
+
+DAI is no longer soft pegged to 1 USD after Emergency Shutdown, as it is now tied to the value of a fixed amount of underlying collateral. Such a depegging could result in significant disruption across the wide DeFi ecosystem due to many other dapps that use DAI with the assumption that it is pegged to 1 USD.
+
+DAI holders need to manually redeem their DAI for the underlying collateral. The process is not automatic. It is likely that there will be secondary markets where DAI can be traded for specific assets rather than the underlying basket of collateral.  
+
+Vault owners must manually withdraw any excess collateral from their vaults.
+
+MKR tokens may or may not have value after the system is shut down. If the protocol is relaunched and the community decides to do so, existing MKR holders, including those who burned their MKR by depositing them into the ESM, may receive governance tokens of the relaunched protocol. The relaunched protocol may even continue to use existing MKR tokens.
+
+Real-world Assets are represented by RWA tokens and DAI holders may redeem DAI for the RWA tokens. The RWA tokens represent a fractional share of the corresponding real-world asset.
+
+## Detailed Documentation
+
+Additional technical documentation about how Emergency Shutdown works can be found in the following links.
+* [Emergency Shutdown Module documentation](https://docs.makerdao.com/smart-contract-modules/emergency-shutdown-module)
+* [End - Detailed Documentation](https://docs.makerdao.com/smart-contract-modules/shutdown/end-detailed-documentation)
+* [MakerDAO Technical Docs](https://docs.makerdao.com/).
+
+>Page last reviewed: 2022-12-11  
+>Next review due: 2023-12-11  
+
+
+============================================================
+FILE: delegation/what-is-delegation.md
+============================================================
+
+# What is Delegation?
+
+{% hint style="info" %}
+Sorry! We haven't been able to publish documentation on this topic yet. Please check back soon.
+{% endhint %}
+
+
+>Page last reviewed: 2023-08-26      
+>Next review due: 2023-10-26 
+
