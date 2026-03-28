@@ -1,0 +1,8 @@
+{
+  "decisionId": 11,
+  "proposalId": "010-corpus-expansion-tier3",
+  "executionSummary": "Downloaded and added 7 openly licensed documents to corpus/tier-3-systems/. MakerDAO Governance Manual (CC0), Vitalik Buterin: Moving Beyond Coin Voting (WTFPL), Kivilo et al.: Token Economy Design (CC BY 4.0), Morrison et al.: The DAO Controversy (CC BY 4.0), Vitalik Buterin: Plutocracy Is Still Bad (WTFPL), ENS DAO Governance Docs (CC0), ethereum.org Governance (CC BY 4.0). Corpus manifest updated, verify.py passes 311/311 checks. Commit e43cd55.",
+  "conditions": "All sources verified openly licensed (CC0, CC BY 4.0, or WTFPL). Attribution headers added to each file. Manifest updated with SHA-256 hashes.",
+  "executedBy": "0xC91ED1978a1b89D0321fcF6BFf919a0f785d5EC7",
+  "date": "2026-03-28"
+}
