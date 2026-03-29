@@ -485,7 +485,7 @@ export default function Home() {
             <strong className="text-neutral-100">Algorithmic Manager</strong>{" "}
             (Claude, developed by Anthropic) against a{" "}
             <strong className="text-neutral-100">
-              148-document constitutional corpus
+              155-document constitutional corpus
             </strong>{" "}
             — drawing from the Federalist Papers, Warren Buffett&apos;s
             shareholder letters, Elinor Ostrom&apos;s commons governance,
@@ -579,6 +579,59 @@ export default function Home() {
             </div>
           ))}
         </div>
+      </section>
+
+      {/* Services */}
+      <section className="mb-10">
+        <h2 className="text-lg font-bold mb-4 pb-2 border-b border-neutral-800">
+          Services
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          {[
+            {
+              title: "Governance Health Check",
+              price: "Free",
+              desc: "A 30-minute assessment of your DAO\u2019s governance structure, decision-making processes, and constitutional gaps. We run your governance documents through our evaluation engine and deliver a summary of findings.",
+              cta: "Book a call",
+            },
+            {
+              title: "Governance Audit",
+              price: "From $1,500",
+              desc: "A comprehensive AI-powered evaluation of your governance framework. You get a structured report: constitutional assessment, decision quality analysis, gap identification, and corpus-grounded recommendations with full reasoning trees.",
+              cta: "Request an audit",
+            },
+            {
+              title: "Governance-as-a-Service",
+              price: "From $500/mo",
+              desc: "Ongoing AI governance for your organization. Every proposal evaluated against your constitutional corpus, reasoning trees published, decisions recorded on-chain. Monthly strategic reviews and continuous governance intelligence.",
+              cta: "Get started",
+            },
+          ].map((s) => (
+            <div
+              key={s.title}
+              className="border border-neutral-800 bg-neutral-950 p-5 flex flex-col"
+            >
+              <div className="flex items-center justify-between mb-2">
+                <span className="font-medium text-sm">{s.title}</span>
+                <span className="text-blue-400 font-mono text-xs">{s.price}</span>
+              </div>
+              <p className="text-xs text-neutral-500 leading-relaxed flex-1">
+                {s.desc}
+              </p>
+              <a
+                href="mailto:jonathan@openinnovate.org"
+                className="mt-4 text-center text-xs text-blue-400 border border-blue-400/30 py-2 hover:bg-blue-400/5 transition-colors"
+              >
+                {s.cta}
+              </a>
+            </div>
+          ))}
+        </div>
+        <p className="text-[10px] text-neutral-600 mt-3">
+          All services powered by the same governance engine that runs
+          OpenInnovate. You get the same constitutional rigor we use on
+          ourselves.
+        </p>
       </section>
 
       {/* Maxim */}
