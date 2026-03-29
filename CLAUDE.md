@@ -212,7 +212,7 @@ openinnovate-dao/
     tier-3-systems/       # Meadows, systems thinking
     tier-4-wyoming/       # Wyoming DAO statutes
     weights.json          # Document weight configuration
-    manifest.json         # File manifest with hashes (149 files, 5.6MB)
+    manifest.json         # File manifest with hashes (155 files, 5.9MB)
   governance/
     proposals/            # Proposal JSONs (input to evaluate.py)
     decisions/            # Reasoning tree JSONs (output of evaluate.py)
@@ -293,6 +293,13 @@ See `governance/DIVERGENCE-WORKFLOW.md` for full divergence label/state lifecycl
   "date": "YYYY-MM-DD"
 }
 ```
+
+## Proposal Naming Convention
+
+- **`proposalId`** in JSON files MUST be a plain integer matching the on-chain sequential ID (e.g., `10`, not `"010-corpus-expansion-tier3"`)
+- **`title`** should be concise (e.g., "Corpus Expansion — Tier-3 Systems"), not a full sentence — the `summary` field carries the detail
+- **Filename** uses the slug format: `XXX-short-name.json` (e.g., `010-corpus-expansion-tier3.json`)
+- The frontend extracts the numeric prefix from `proposalId` for display as `#010`
 
 ## Rules
 

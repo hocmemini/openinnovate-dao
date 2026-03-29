@@ -223,7 +223,7 @@ function DecisionCard({
       >
         <div className="flex items-center gap-3 flex-wrap">
           <span className="text-neutral-600 font-mono text-sm">
-            #{String(d.proposalId).padStart(3, "0")}
+            #{String(d.proposalId).match(/^\d+/)?.[0]?.padStart(3, "0") ?? d.proposalId}
           </span>
           <span className="font-medium flex-1 min-w-0">{d.title}</span>
           <RecBadge rec={d.recommendation} />
