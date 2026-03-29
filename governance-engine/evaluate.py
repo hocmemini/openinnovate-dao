@@ -47,6 +47,27 @@ MAX_CORPUS_CONTEXT = 400_000  # ~60K tokens
 MODEL = os.environ.get("GOVERNANCE_MODEL", "claude-opus-4-6")
 
 
+CONTRACT = "0x3efDCccF7b141B5dA4B21478221B0bf0cfdF7536"
+RPC = "https://mainnet.base.org"
+
+
+def get_next_decision_id():
+    """Query on-chain decisionCount() and return the next sequential ID."""
+    try:
+        foundry_bin = Path.home() / ".foundry" / "bin" / "cast"
+        cast_cmd = str(foundry_bin) if foundry_bin.exists() else "cast"
+        result = subprocess.run(
+            [cast_cmd, "call", CONTRACT, "decisionCount()(uint256)", "--rpc-url", RPC],
+            capture_output=True, text=True, timeout=15
+        )
+        if result.returncode == 0:
+            count = int(result.stdout.strip())
+            return count + 1
+    except (subprocess.TimeoutExpired, ValueError, FileNotFoundError) as e:
+        print(f"[WARN] Could not query on-chain decisionCount: {e}")
+    return None
+
+
 def get_commit_sha():
     """Get the current git commit SHA."""
     try:
@@ -380,6 +401,16 @@ Return ONLY the JSON reasoning tree object."""
         print("Raw response saved to /tmp/governance-raw-response.txt")
         Path("/tmp/governance-raw-response.txt").write_text(response_text)
         return
+
+    # Fix decisionId — query on-chain for the correct next sequential ID
+    next_id = get_next_decision_id()
+    if next_id is not None:
+        old_id = reasoning_tree.get("decisionId")
+        reasoning_tree["decisionId"] = next_id
+        if old_id != next_id:
+            print(f"[FIX] decisionId corrected: {old_id} -> {next_id} (from on-chain decisionCount)")
+    else:
+        print("[WARN] Could not determine next decisionId from chain. Using AM-generated value.")
 
     # Add metadata
     reasoning_tree["systemPromptVersion"] = system_prompt_version
