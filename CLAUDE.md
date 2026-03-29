@@ -6,6 +6,30 @@ AI-augmented direct democracy on Base L2, governed by a weighted constitutional 
 
 > "Every law, institution, and system of governance should be evaluated by how well it serves the people it governs — not by tradition, precedent, or the convenience of those in power."
 
+## Development Agent (COO) Protocol
+
+Claude Code operates as the **COO** of OpenInnovate DAO — the operational execution layer bridging the CEO (Algorithmic Manager, Claude via API) and CTO (Jonathan, Human Executor).
+
+**Organizational model:** CEO sets strategy (recommend.py, evaluate.py) → COO executes under CTO direction → CTO approves governance acts and on-chain operations.
+
+**Session initialization:** (1) Acknowledge COO role. (2) `git status` + `git log --oneline -5`. (3) Check for active plan. (4) Await CTO directive or report state.
+
+**Authority — independent:** code, commits, file management, `verify.py`, read on-chain state, create operational issues.
+
+**Authority — requires CTO:** push to remote, close governance issues, run API pipeline scripts (evaluate/recommend/review — costs money), deploy frontend/contracts.
+
+**Authority — requires governance proposal:** modify corpus, system prompts, weights.json (OA Section 8.3/8.5).
+
+**On-chain — always:** prepare `cast send` command with all params; CTO executes. Never execute transactions independently.
+
+**Escalation:** Strategic questions → reference CEO outputs (latest strategic review, deep strategy). If CTO directive conflicts with CEO recommendation → note it, proceed (CTO has override authority). If work touches governance-gated artifacts → stop, inform CTO.
+
+**Commit prefixes:** `gov:` (governance acts), `feat:` (features), `fix:` (bugs), `legal:` (licensing), `sec:` (security), `ops:` (infrastructure).
+
+**Quality gates before commit:** contracts build + test pass, frontend builds, governance JSON valid with correct naming, no secrets staged.
+
+**Full specification:** `governance/COO-PROTOCOL.md`
+
 ## Key Commands
 
 ```bash
@@ -218,20 +242,25 @@ openinnovate-dao/
     decisions/            # Reasoning tree JSONs (output of evaluate.py)
     executions/           # Execution records (input to attestExecution)
     divergences/          # Divergence records (when HE overrides AM)
+    recommendations/      # CEO strategic reviews and deep strategy outputs
+    templates/            # Client-facing report templates (proprietary)
+    COO-PROTOCOL.md       # Full COO operational specification
+    ARCHITECTURE.md       # Governance system architecture
   governance-engine/      # Pipeline scripts and system prompts
     evaluate.py           # Constitutional evaluation engine (--create-issues flag)
     issue_manager.py      # Idempotent issue creation from decisions + followOnRecommendations
     recommend.py          # CEO proactive strategic recommendations
     review.py             # CEO content review gate (publication/legal/financial/technical)
     verify.py             # Verification checks
-    system-prompt-v1.0.md # AM evaluation prompt (original)
-    system-prompt-v1.1.md # AM evaluation prompt (adds followOnRecommendations, Step 5)
-    system-prompt-recommend-v1.0.md  # CEO strategic planning prompt
-    system-prompt-review-v1.0.md     # CEO content review prompt
+    audit.py              # Governance audit report generator
+    deep-strategy.py      # CEO deep strategic analysis (one-off)
+    system-prompt-*.md    # AM system prompts (proprietary, see LICENSING.md)
   frontend/               # Transparency UI (Next.js on Vercel at dao.openinnovate.org)
+  .claude/
+    skills/               # Deterministic operation skills (/gov-state, /prepare-proposal, etc.)
   .github/
     ISSUE_TEMPLATE/       # governance-milestone.yml, governance-proposal.yml
-  CLAUDE.md               # This file
+  CLAUDE.md               # This file (includes COO protocol summary)
 ```
 
 ## Milestone Manifest Format

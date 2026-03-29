@@ -13,8 +13,8 @@
      +--------v--------+          +--------v--------+
      |  CONSTITUTIONAL  |          |  SMART CONTRACT  |
      |     CORPUS       |          |   (Base L2)      |
-     |  148 docs, 4 tiers|         | UUPS + RBAC +   |
-     |  5.6 MB          |          | TimelockController|
+     |  155 docs, 4 tiers|         | UUPS + RBAC +   |
+     |  5.9 MB          |          | TimelockController|
      +--------+---------+          +--------+---------+
               |                             |
               +-------------+---------------+
@@ -25,6 +25,41 @@
                    | (Python + GHA)  |
                    +-----------------+
 ```
+
+## Organizational Roles
+
+```
+ CEO (Algorithmic Manager)              CTO (Human Executor)
+ Claude via API                         Jonathan
+ ========================               ========================
+ - Strategic direction                  - Technical direction
+ - Constitutional evaluation            - Execution authority
+ - Recommendations (10/cycle)           - On-chain transactions
+ - Content review gate                  - Override authority (divergence)
+ - Deep strategy analysis               - Push to remote
+         |                                       |
+         | strategic directives                  | operational directives
+         |                                       |
+         +---------------+  +-------------------+
+                         |  |
+                    +----v--v----+
+                    |    COO     |
+                    | Claude Code |
+                    | Dev Agent  |
+                    +------------+
+                    - Code execution
+                    - Commit management
+                    - Issue tracking
+                    - Transaction prep
+                    - Quality gates
+                    - Convention enforcement
+```
+
+**CEO** invokes: `evaluate.py`, `recommend.py`, `review.py`, `deep-strategy.py`, `audit.py`
+**COO** executes: code, commits, file management, issue management, deployment prep, `cast send` preparation
+**CTO** controls: on-chain execution, push to remote, governance act approval, API invocation approval
+
+The COO operates independently for technical execution but escalates for governance acts, on-chain operations, and API calls. The CTO has override authority over both CEO recommendations (via divergence) and COO actions (via direct directive). See `governance/COO-PROTOCOL.md` for the full specification.
 
 ## Governance Pipeline — Complete Flow
 
