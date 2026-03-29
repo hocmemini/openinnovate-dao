@@ -619,7 +619,7 @@ export default function Home() {
                 {s.desc}
               </p>
               <a
-                href="mailto:jonathan@openinnovate.org"
+                href="mailto:collaborate@openinnovate.org"
                 className="mt-4 text-center text-xs text-blue-400 border border-blue-400/30 py-2 hover:bg-blue-400/5 transition-colors"
               >
                 {s.cta}
