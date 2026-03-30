@@ -1,0 +1,171 @@
+{
+  "decisionId": 12,
+  "proposalId": 11,
+  "title": "Governance Record Correction \u2014 Decision ID Mapping",
+  "algorithmicManager": "Claude (Anthropic API)",
+  "model": "claude-sonnet-4-6",
+  "systemPromptVersion": "1.1",
+  "date": "2026-03-29",
+  "maximAlignmentScore": 88,
+  "recommendation": "APPROVE",
+  "reasoningTree": {
+    "inputs": {
+      "proposalId": 11,
+      "type": "governance-correction",
+      "submittedBy": "0xC91ED1978a1b89D0321fcF6BFf919a0f785d5EC7",
+      "affectedRecords": 9,
+      "totalDecisions": 11,
+      "rootCause": "evaluate.py delegated decisionId assignment to AM without on-chain state query",
+      "correctionActions": 3,
+      "milestonesComplete": 2,
+      "milestonesPending": 1
+    },
+    "corpusSources": [
+      {
+        "source": "tier-2-civic/ostrom-commons-principles.txt",
+        "tier": "tier-2-civic",
+        "weight": 266.67,
+        "relevance": "Ostrom's Principle 4 (Monitoring) and Principle 5 (Graduated Sanctions) directly govern how governance systems should handle errors in their audit trail. The on-chain transparency requirement and the response to discovering discrepancies map to these principles.",
+        "citedPassage": "Principle 4: 'On-chain transparency serves as an automated monitoring mechanism. Every governance act is hashed and recorded on the blockchain, creating an immutable audit trail.' Principle 5: 'The transparency obligation IS the sanction mechanism \u2014 accumulated divergence records, visible to all, create reputational consequences proportional to the frequency and severity of departures from algorithmic governance.'"
+      },
+      {
+        "source": "tier-3-systems/meadows-leverage-points.txt",
+        "tier": "tier-3-systems",
+        "weight": 198.85,
+        "relevance": "Meadows' Leverage Point 6 (Structure of Information Flows) and Leverage Point 4 (Power to Self-Organize) are central here. The decisionId error is an information flow structural defect. The fix (get_next_decision_id()) is a self-organization improvement at the infrastructure layer.",
+        "citedPassage": "Leverage Point 6: 'Information does not change physical infrastructure, but it changes how every actor in the system behaves.' Leverage Point 4: 'A system that can change its own rules, add new feedback loops, or restructure its information flows is far more resilient than one locked into a fixed structure.'"
+      },
+      {
+        "source": "tier-3-systems/morrison-dao-controversy.txt",
+        "tier": "tier-3-systems",
+        "weight": 138.34,
+        "relevance": "The DAO controversy demonstrates what happens when governance systems operate without adequate error correction mechanisms and without transparency about failures. This proposal is the correct response \u2014 transparent acknowledgment rather than concealment.",
+        "citedPassage": "'The DAO raises legitimate questions about whether someone should be accountable in DAOs' and the lesson that immutable systems require transparent acknowledgment of their limitations rather than attempts to alter records. The hard fork controversy illustrates the risks of post-hoc correction versus transparent acknowledgment."
+      },
+      {
+        "source": "tier-4-wyoming/wyoming-ueta.txt",
+        "tier": "tier-4-wyoming",
+        "weight": 192.03,
+        "relevance": "Wyoming UETA governs the legal validity of electronic records. W.S. 40-21-112 (retention of electronic records) and 40-21-110 (effect of change or error) are directly applicable to the immutability constraint and the appropriate response to discovered errors in electronic governance records.",
+        "citedPassage": "W.S. 40-21-112(a): An electronic record satisfies retention requirements if it 'accurately reflects the information set forth in the record after it was first generated in its final form' and 'remains accessible for later reference.' W.S. 40-21-110: 'If a change or error in an electronic record occurs... the following rules apply' \u2014 establishing that error correction procedures must be explicitly governed."
+      },
+      {
+        "source": "tier-3-systems/makerdao-governance-manual.txt",
+        "tier": "tier-3-systems",
+        "weight": 241.48,
+        "relevance": "MakerDAO's governance manual establishes precedent for how on-chain governance systems handle the relationship between off-chain documentation and on-chain records. The concept of canonical on-chain records as the authoritative source while off-chain materials serve supplementary purposes is directly relevant.",
+        "citedPassage": "From on-chain-governance.md: 'The public is encouraged to self-audit the code for each vote' \u2014 establishing the principle that governance transparency serves external auditability. The distinction between on-chain canonical records and off-chain supplementary materials maps directly to the URI-as-canonical-link structure described in this proposal."
+      }
+    ],
+    "analysis": [
+      {
+        "step": 1,
+        "description": "Corpus Consultation \u2014 Characterizing the Nature of the Error",
+        "reasoning": "The decisionId mismatch error is a metadata integrity failure, not a substantive governance failure. The proposal correctly identifies the precise scope: 9 of 11 local decision files contain incorrect decisionId field values, while (a) on-chain hashes remain valid, (b) on-chain URIs remain canonical, and (c) the substantive content of the governance decisions is unaffected. Under Ostrom's Principle 4, the monitoring mechanism (on-chain hash recording) functioned correctly \u2014 it is the indexing layer that failed. Under Wyoming UETA W.S. 40-21-112(a), the on-chain records 'accurately reflect the information set forth in the record after it was first generated in its final form' because the URI linkage and hash integrity are intact. The decisionId field in local JSON files is a human-readable convenience field, not the canonical record. The error is analogous to a mislabeled filing cabinet drawer in an otherwise intact and cryptographically secured archive: inconvenient and requiring correction, but not a substantive governance compromise. Meadows' Leverage Point 6 (Information Flows) identifies this as an information structural defect \u2014 the decisionId was generated without access to on-chain state, creating an information gap that produced incorrect values. The fix (querying decisionCount() before file write) directly addresses this structural defect at the appropriate leverage level."
+      },
+      {
+        "step": 2,
+        "description": "Option Analysis \u2014 Evaluate Available Responses to the Error",
+        "reasoning": "Four options were available to the DAO upon discovery of the decisionId mismatch: (A) Ignore/conceal the discrepancy; (B) Modify local files to correct decisionId values; (C) Deploy an amend function to the smart contract; (D) This proposal \u2014 transparent public acknowledgment with canonical mapping documentation and infrastructure fix. Option A (Ignore) is entirely inconsistent with the Root Thesis Maxim and Ostrom's transparency principles. A governance system that discovers errors in its own records and conceals them undermines the trust foundation required for 'sovereign, self-sustaining systems.' Maxim Alignment Score: 5/100. Option B (Modify local files) is explicitly constrained: modifying local decision files would break hash integrity between files and on-chain records, destroying the cryptographic audit trail that is the primary value of the on-chain governance system. Under Wyoming UETA W.S. 40-21-112(a)(i), modified files would no longer 'accurately reflect the information set forth in the record after it was first generated in its final form.' This option would trade a metadata error for a substantive integrity violation. Maxim Alignment Score: 15/100. Option C (Deploy amend function) is not available \u2014 the proposal correctly notes that OpenInnovateGovernanceV2 contains no amend function. Even if available, amending immutable on-chain records would raise deeper constitutional questions under the Constitutional Hierarchy (Smart Contract preempts Articles). This option is foreclosed. Option D (This proposal) correctly: (1) acknowledges the error transparently, (2) documents the canonical mapping in a persistent DECISION-ID-MAP.md, (3) fixes the root cause in evaluate.py, and (4) records the correction on-chain as a permanent transparent acknowledgment. This approach is consistent with Ostrom's Principle 4 (monitoring creates accountability), Principle 5 (transparency IS the sanction), and Meadows' Leverage Point 4 (self-organization through infrastructure improvement). Maxim Alignment Score: 88/100."
+      },
+      {
+        "step": 3,
+        "description": "Root Cause Assessment \u2014 Adequacy of Diagnosis and Fix",
+        "reasoning": "The proposal's root cause diagnosis is accurate and complete: 'evaluate.py delegated decisionId assignment to the AM system prompt without providing on-chain state. The AM generated plausible but incorrect values.' This is a classic AI system failure mode \u2014 the model was asked to generate a value (decisionId) that requires external state it did not have access to, and produced hallucinated or contextually-inferred values. The error compounded because there was no reconciliation step between file creation and on-chain recording. The proposed fix (get_next_decision_id() querying on-chain decisionCount() and overwriting AM-generated values before file write) is technically sound and directly addresses the root cause. It removes the AM from the critical path for a value that should be deterministically derived from on-chain state. The fix represents Meadows' Leverage Point 4 (self-organization): the pipeline is restructuring its own information flows to prevent recurrence. Under Ostrom's Principle 4, this strengthens the monitoring mechanism by ensuring file-level records are synchronized with on-chain state before persistence. One limitation to note: the proposal does not address whether DECISION-ID-MAP.md will be maintained as future decisions are recorded, or whether it is a one-time artifact for the 11 affected decisions. Future governance pipeline changes should ensure ongoing synchronization. This is a minor gap that does not undermine the proposal but warrants a follow-on recommendation."
+      },
+      {
+        "step": 4,
+        "description": "Legal and Constitutional Analysis \u2014 Immutability Constraints and Correct Response",
+        "reasoning": "The Constitutional Hierarchy (Smart Contract > Articles > Operating Agreement) means that the immutability of on-chain records is not merely a technical choice but a constitutional constraint. The smart contract is the supreme governance instrument. The absence of an amend function in OpenInnovateGovernanceV2 is therefore a feature of the constitutional architecture, not a bug. This proposal correctly operates within those constraints: it does not attempt to modify on-chain records, does not modify local files (which would break hash integrity), and instead uses the governance pipeline itself to create a transparent acknowledgment record. Under Wyoming UETA W.S. 40-21-107, 'a record or signature may not be denied legal effect or enforceability solely because it is in electronic form.' This cuts both ways: the original (incorrect) local files have legal effect as they were recorded, but so does this correction proposal once recorded on-chain. The approach of creating a canonical mapping document (DECISION-ID-MAP.md) and recording it through the governance pipeline is legally sound under Wyoming UETA \u2014 it creates a new electronic record that accurately describes the relationship between prior records, without attempting to alter those records. The Morrison/DAO controversy analysis is instructive: the lesson of The DAO is not that immutability should be violated when errors are discovered, but that governance systems must be designed with sufficient error-handling capacity from the outset. This proposal is the post-hoc equivalent of that lesson \u2014 acknowledging that the pipeline lacked a reconciliation step and fixing it."
+      },
+      {
+        "step": 5,
+        "description": "Maxim Traceability \u2014 Alignment with Root Thesis Maxim",
+        "reasoning": "The Root Thesis Maxim requires 'maximizing the creation of sovereign, self-sustaining systems that compound human agency over generational timescales.' This proposal advances the Maxim through four direct mechanisms: (1) HONESTY AS SYSTEM INTEGRITY: A governance system that acknowledges and documents its own errors is more trustworthy than one that conceals them. Trust is the foundation of sovereign, self-sustaining systems. Systems that cannot survive scrutiny of their own failures cannot compound value over generational timescales. (2) INFRASTRUCTURE IMPROVEMENT: The get_next_decision_id() fix removes a class of AI hallucination errors from the governance pipeline. This improves the long-term reliability of the AM-assisted governance system, making it more self-sustaining. (3) INFORMATION FLOW CORRECTION: The DECISION-ID-MAP.md creates accurate information about the relationship between on-chain and off-chain records, improving the auditability of all 11 prior decisions. Under Meadows' Leverage Point 6, better information flows improve system behavior for all future actors who rely on governance records. (4) PRECEDENT SETTING: Recording this correction on-chain establishes a precedent that the DAO treats errors as governance events requiring formal acknowledgment, not problems to be quietly fixed. This precedent strengthens the accountability framework that makes sovereign self-governance possible. The minor deduction from a perfect score (88 rather than 90+) reflects: (a) the error itself represents a governance pipeline weakness that occurred 9 times before detection, suggesting monitoring gaps; and (b) the proposal does not fully address long-term maintenance of DECISION-ID-MAP.md for future decisions."
+      }
+    ],
+    "followOnRecommendations": [
+      {
+        "description": "Establish a recurring governance pipeline integrity audit \u2014 a lightweight automated check that verifies alignment between local decision file decisionId values and on-chain decisionCount() after each governance recording. This should run as part of the evaluate.py post-recording step and produce a verification log.",
+        "priority": "high",
+        "type": "issue",
+        "rationale": "Ostrom's Principle 4 requires that 'monitors who actively audit resource conditions and user behavior must be present.' The current pipeline discovered a 9-decision discrepancy only when deliberately investigated. An automated post-recording verification would catch future mismatches immediately. This directly strengthens the monitoring infrastructure that underpins the DAO's accountability system.",
+        "relatedCorpusSources": [
+          "tier-2-civic/ostrom-commons-principles.txt",
+          "tier-3-systems/meadows-leverage-points.txt"
+        ]
+      },
+      {
+        "description": "Draft a Governance Pipeline Integrity Policy document that formally specifies: (1) which fields in decision files are canonical (on-chain state) vs. derived (AM-generated), (2) the reconciliation requirements before file write, and (3) the procedure for discovering and correcting future metadata errors. This policy should be ratified as a governance proposal and added to the Constitutional Corpus.",
+        "priority": "high",
+        "type": "proposal",
+        "rationale": "Meadows' Leverage Point 5 (Rules of the System) identifies explicit rules as high-leverage interventions. The absence of a formal policy about which fields require on-chain state queries created the conditions for this error. Codifying the distinction between canonical and derived fields as an explicit governance rule prevents the same class of error from recurring in fields other than decisionId. This also creates clear guidance for future AM system prompt updates.",
+        "relatedCorpusSources": [
+          "tier-3-systems/meadows-leverage-points.txt",
+          "tier-2-civic/ostrom-commons-principles.txt",
+          "tier-4-wyoming/wyoming-ueta.txt"
+        ]
+      },
+      {
+        "description": "Investigate whether the 9 affected decisions (on-chain IDs 3-11) have any downstream dependencies \u2014 execution records, condition verifications, or external references \u2014 that used the incorrect file-level decisionId values rather than on-chain IDs. If such dependencies exist, they should be documented in DECISION-ID-MAP.md or a supplementary reference document.",
+        "priority": "medium",
+        "type": "investigation",
+        "rationale": "The proposal states that 'execution records already use correct on-chain IDs (created after on-chain recording),' which provides partial assurance. However, if any external system, integration, or human-readable reference used the file-level decisionId values, those references now point to incorrect identifiers. Ostrom's Principle 4 requires that the audit trail be complete and accurate \u2014 a partial correction that leaves dangling incorrect references would undermine the transparency goal of this proposal.",
+        "relatedCorpusSources": [
+          "tier-2-civic/ostrom-commons-principles.txt",
+          "tier-4-wyoming/wyoming-ueta.txt"
+        ]
+      },
+      {
+        "description": "Review the AM system prompt (this document) to identify any other fields that are currently generated by the AM without access to on-chain state that should instead be derived deterministically from contract state. Candidate fields include proposalId sequencing, timestamp verification, and any cross-reference fields. Produce an issue tracking any identified gaps.",
+        "priority": "medium",
+        "type": "investigation",
+        "rationale": "The decisionId error is an instance of a broader pattern: assigning the AM responsibility for generating values that require external state it cannot access. Meadows' Leverage Point 4 (self-organization) and the principle that resilient systems identify structural vulnerabilities before they compound suggest a proactive audit is warranted. The AM is well-suited to identify its own limitations when given appropriate framing \u2014 this investigation should be conducted by evaluating the system prompt against on-chain contract ABI to enumerate fields that require state queries.",
+        "relatedCorpusSources": [
+          "tier-3-systems/meadows-leverage-points.txt",
+          "tier-3-systems/morrison-dao-controversy.txt"
+        ]
+      },
+      {
+        "description": "Consider whether DECISION-ID-MAP.md should be a living document updated with each new decision, or whether the get_next_decision_id() fix renders it obsolete after the initial 11-decision mapping. If it is to be maintained, establish a formal update procedure. If it is a one-time artifact, document its scope explicitly to prevent future confusion about its completeness.",
+        "priority": "low",
+        "type": "issue",
+        "rationale": "Ostrom's Principle 2 (Congruence between rules and local conditions) requires that governance artifacts be calibrated to their actual operational context. A DECISION-ID-MAP.md that stops at decision 11 will become misleading as the DAO grows. Clarifying whether this document is a historical correction artifact or an ongoing canonical reference prevents future ambiguity about whether it represents complete state.",
+        "relatedCorpusSources": [
+          "tier-2-civic/ostrom-commons-principles.txt"
+        ]
+      }
+    ],
+    "alternativesConsidered": [
+      {
+        "option": "Ignore the discrepancy",
+        "description": "Take no governance action; allow the mismatch between file-level decisionId values and on-chain IDs to persist undocumented.",
+        "maximAlignmentScore": 5,
+        "rejection": "Directly contradicts the Root Thesis Maxim by undermining system integrity. Violates Ostrom's Principle 4 (monitoring creates accountability). Creates a hidden information asymmetry that degrades the trustworthiness of governance records over time. A sovereign, self-sustaining system cannot be built on undisclosed errors in its own audit trail."
+      },
+      {
+        "option": "Modify local decision files to correct decisionId values",
+        "description": "Update the 9 affected JSON files to replace incorrect decisionId values with correct on-chain IDs.",
+        "maximAlignmentScore": 15,
+        "rejection": "Explicitly constrained by hash integrity requirements. Modifying local files would invalidate the cryptographic linkage between files and on-chain hash records, transforming a metadata error into a substantive integrity violation. Under Wyoming UETA W.S. 40-21-112(a)(i), modified files would no longer accurately reflect the record as first generated. This option trades a cosmetic problem for a constitutional one."
+      },
+      {
+        "option": "Deploy an amend function to the smart contract",
+        "description": "Upgrade OpenInnovateGovernanceV2 to add an amend() function, then use it to update on-chain decisionId metadata.",
+        "maximAlignmentScore": 30,
+        "rejection": "Foreclosed by the current contract \u2014 no amend function exists. Even if available via a UUPS upgrade, this approach raises significant concerns: (1) it sets a precedent that on-chain governance records can be retroactively altered, undermining the immutability guarantee that provides the system's trustworthiness; (2) it would require a governance vote to authorize a contract upgrade, which is a higher-order action than the error warrants; (3) Morrison/DAO analysis shows that retroactive alteration of blockchain records is deeply controversial and potentially counterproductive to legitimacy."
+      },
+      {
+        "option": "This proposal (APPROVED)",
+        "description": "Transparent acknowledgment via governance pipeline, canonical mapping documentation, and infrastructure fix.",
+        "maximAlignmentScore": 88,
+        "rejection": "Not rejected \u2014 recommended for approval."
+      }
+    ],
+    "traceabilityChain": "RECOMMENDATION (APPROVE) \u2192 The proposal creates a permanent transparent record of a governance infrastructure error and its resolution, implements a root cause fix that prevents recurrence, and documents the canonical mapping between affected records. \u2192 OSTROM PRINCIPLE 4 (Monitoring): On-chain transparency as accountability mechanism requires that errors in the audit trail be formally acknowledged, not concealed. \u2192 OSTROM PRINCIPLE 5 (Graduated Sanctions): Transparency IS the accountability mechanism \u2014 the public record of this error and its resolution is proportionate to the severity (metadata-only, no substantive governance impact). \u2192 MEADOWS LEVERAGE POINT 6 (Information Flows): Correcting the information structure (DECISION-ID-MAP.md + get_next_decision_id()) improves system behavior for all future actors relying on governance records. \u2192 MEADOWS LEVERAGE POINT 4 (Self-Organization): The pipeline is restructuring its own information flows to prevent recurrence \u2014 this is the highest-value form of system adaptation. \u2192 WYOMING UETA W.S. 40-21-112: The electronic record retention framework requires that governance records accurately reflect what was created \u2014 the canonical mapping document satisfies this requirement for the affected records without violating immutability. \u2192 ROOT THESIS MAXIM: 'Maximize the creation of sovereign, self-sustaining systems that compound human agency over generational timescales.' A governance system that acknowledges and corrects its own errors transparently, fixes the root cause, and builds monitoring infrastructure to prevent recurrence is MORE sovereign (trustworthy), MORE self-sustaining (self-correcting), and MORE capable of compounding human agency over generational timescales than one that conceals errors or is unable to evolve its infrastructure in response to discovered failures."
+  },
+  "evaluatedAt": "2026-03-30T01:28:09.514451+00:00",
+  "weightsHash": "d74eda5bd35cbd6cfaaa6148b329aeb7f9f95b54aa52b9458c8fb4d7c8317498",
+  "commitSha": "af951c553e36ddd94663a93cc8534810fcfe3ec0",
+  "proposalUri": "https://raw.githubusercontent.com/hocmemini/openinnovate-dao/af951c553e36ddd94663a93cc8534810fcfe3ec0/governance/proposals/011-decision-id-correction.json"
+}
