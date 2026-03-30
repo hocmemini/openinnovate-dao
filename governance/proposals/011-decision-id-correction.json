@@ -1,0 +1,79 @@
+{
+  "proposalId": 11,
+  "title": "Governance Record Correction — Decision ID Mapping",
+  "type": "governance-correction",
+  "date": "2026-03-29",
+  "submittedBy": "0xC91ED1978a1b89D0321fcF6BFf919a0f785d5EC7",
+  "summary": "Publicly acknowledge and document that 9 of 11 on-chain decision records contain local decision files with incorrect decisionId values. The on-chain hashes and URIs remain valid — the error is confined to the decisionId field within the JSON files themselves. This proposal records the canonical mapping on-chain and documents the root cause fix applied to evaluate.py.",
+  "rationale": "The Algorithmic Manager (evaluate.py) previously generated decisionId values without querying on-chain state. The AM would hallucinate or reuse IDs (e.g., 5001, 6001, 1) because it had no knowledge of the contract's sequential counter. Since on-chain records are immutable (no amend function in OpenInnovateGovernanceV2) and modifying local files would break hash integrity, the only governance-aligned fix is transparent acknowledgment. Per our Root Thesis Maxim: governance systems must serve their participants through honesty, not convenience.",
+  "affectedRecords": {
+    "totalDecisions": 11,
+    "correctMappings": 2,
+    "incorrectMappings": 9,
+    "mapping": [
+      {"onChainId": 1, "file": "001-ratify-operating-agreement.json", "fileDecisionId": 1, "correct": true},
+      {"onChainId": 2, "file": "002-ratify-constitutional-corpus.json", "fileDecisionId": 2, "correct": true},
+      {"onChainId": 3, "file": "002-ratify-constitutional-corpus-v2.json", "fileDecisionId": 1, "correct": false},
+      {"onChainId": 4, "file": "003-financial-infrastructure.json", "fileDecisionId": 3, "correct": false},
+      {"onChainId": 5, "file": "004-condition-verification-protocol.json", "fileDecisionId": 4, "correct": false},
+      {"onChainId": 6, "file": "005-governance-execution-tracking.json", "fileDecisionId": 5001, "correct": false},
+      {"onChainId": 7, "file": "006-governance-pipeline-integrity.json", "fileDecisionId": 6001, "correct": false},
+      {"onChainId": 8, "file": "007-expand-wyoming-corpus.json", "fileDecisionId": 1, "correct": false},
+      {"onChainId": 9, "file": "008-ceo-executive-expansion.json", "fileDecisionId": 9, "correct": false},
+      {"onChainId": 10, "file": "009-security-hardening.json", "fileDecisionId": 9, "correct": false},
+      {"onChainId": 11, "file": "010-corpus-expansion-tier3.json", "fileDecisionId": 7, "correct": false}
+    ]
+  },
+  "rootCause": "evaluate.py delegated decisionId assignment to the AM system prompt without providing on-chain state. The AM generated plausible but incorrect values. The error compounded because on-chain recording happened after file creation, and no reconciliation step existed.",
+  "correctionActions": [
+    {
+      "action": "document",
+      "description": "Created governance/DECISION-ID-MAP.md with canonical on-chain-to-file mapping",
+      "status": "complete",
+      "commit": "2318c3c"
+    },
+    {
+      "action": "fix",
+      "description": "Added get_next_decision_id() to evaluate.py — queries on-chain decisionCount() and overwrites AM-generated decisionId before file write",
+      "status": "complete",
+      "commit": "2318c3c"
+    },
+    {
+      "action": "record",
+      "description": "Submit this proposal through the governance pipeline and record on-chain, establishing a permanent transparent acknowledgment of the error and its resolution",
+      "status": "pending"
+    }
+  ],
+  "constraints": [
+    "On-chain decision records are immutable — no update or amend function exists in the contract",
+    "Local decision files cannot be modified without breaking their on-chain hash integrity",
+    "Execution records already use correct on-chain IDs (created after on-chain recording)",
+    "The on-chain URI field remains the canonical link between files and chain records"
+  ],
+  "milestones": [
+    {
+      "id": 1,
+      "domain": "governance",
+      "description": "DECISION-ID-MAP.md created with canonical mapping for all 11 decisions",
+      "phase": 1,
+      "dependencies": [],
+      "verificationType": "deterministic"
+    },
+    {
+      "id": 2,
+      "domain": "infrastructure",
+      "description": "evaluate.py patched with get_next_decision_id() to query on-chain state before writing decisionId",
+      "phase": 1,
+      "dependencies": [],
+      "verificationType": "deterministic"
+    },
+    {
+      "id": 3,
+      "domain": "governance",
+      "description": "Correction proposal evaluated by AM and decision recorded on-chain as transparent public acknowledgment",
+      "phase": 2,
+      "dependencies": [1, 2],
+      "verificationType": "attestation"
+    }
+  ]
+}
