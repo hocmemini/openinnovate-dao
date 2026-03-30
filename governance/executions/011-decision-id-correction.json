@@ -1,0 +1,8 @@
+{
+  "decisionId": 12,
+  "proposalId": "011-decision-id-correction",
+  "executionSummary": "Milestones 1-2 complete: DECISION-ID-MAP.md documents canonical mapping for all 11 decisions (commit 2318c3c). evaluate.py patched with get_next_decision_id() to query on-chain decisionCount before writing decisionId (commit 2318c3c). Milestone 3 complete: correction proposal P011 evaluated (88/100 APPROVE) and decision D012 recorded on-chain. prompt-hashes.json updated to match licensing headers (commit af951c5).",
+  "conditions": "All 3 milestones satisfied: (1) DECISION-ID-MAP.md created, (2) evaluate.py fix applied and verified — D012 is the first decision with correct on-chain-sourced decisionId, (3) correction recorded on-chain as transparent public acknowledgment.",
+  "executedBy": "0xC91ED1978a1b89D0321fcF6BFf919a0f785d5EC7",
+  "date": "2026-03-29"
+}
