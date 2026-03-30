@@ -26,10 +26,11 @@ The `decisionId` field in local decision JSON files does not reliably match the 
 | 9 | P8 | 008-ceo-executive-expansion.json | 9 | 82 | Yes |
 | 10 | P9 | 009-security-hardening.json | 9 | 91 | Yes |
 | 11 | P10 | 010-corpus-expansion-tier3.json | 7 | 82 | Yes |
+| **12** | **P11** | **011-decision-id-correction.json** | **12** | **88** | **Yes** |
 
-## Correct decisionId: 2 of 11
+## Correct decisionId: 3 of 12
 
-Only decisions #1 and #2 have `decisionId` values in their JSON files that match the on-chain sequential ID.
+Decisions #1, #2, and #12 have `decisionId` values in their JSON files that match the on-chain sequential ID. Decision #12 is the first to use the `get_next_decision_id()` fix applied to evaluate.py.
 
 ## Unattested Decision
 
@@ -67,3 +68,4 @@ Execution records use the correct on-chain `decisionId` values because they are 
 | 008-ceo-executive-expansion.json | 9 |
 | 009-security-hardening.json | 10 |
 | 011-corpus-expansion-tier3.json | 11 |
+| 011-decision-id-correction.json | 12 |
