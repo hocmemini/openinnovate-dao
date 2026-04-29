@@ -1,0 +1,177 @@
+{
+  "decisionId": 13,
+  "proposalId": 12,
+  "title": "Site Repositioning \u2014 Academic Research Framing",
+  "algorithmicManager": "Claude (Anthropic API)",
+  "model": "claude-sonnet-4-6",
+  "systemPromptVersion": "1.1",
+  "date": "2026-04-29",
+  "maximAlignmentScore": 81,
+  "recommendation": "APPROVE",
+  "reasoningTree": {
+    "inputs": {
+      "proposalId": 12,
+      "proposalType": "communications-strategy",
+      "submittedBy": "0xC91ED1978a1b89D0321fcF6BFf919a0f785d5EC7",
+      "estimatedCost": "$0 direct cost, ~$0.10-0.50 in API cost",
+      "reversibility": "high \u2014 all changes are code-level edits to frontend/src/app/page.tsx, fully reversible via git history",
+      "currentAmbiguity": "Site simultaneously presents live governance experiment AND commercial consulting services at $0/$1,500/$500/mo",
+      "proposedResolution": "Collapse dual positioning entirely in favor of research-artifact framing; remove commercial services section; add Research Questions section"
+    },
+    "corpusSources": [
+      {
+        "source": "tier-3-systems/meadows-leverage-points.txt",
+        "tier": "tier-3-systems",
+        "weight": 384.78,
+        "relevance": "The proposal operates at Leverage Point 6 (structure of information flows) and Leverage Point 2 (paradigm). Repositioning the site restructures who perceives OpenInnovate as what \u2014 shifting external information flows from 'commercial consulting product' to 'reference implementation and research artifact.' Meadows identifies information flow restructuring as among the most powerful and cost-effective systemic interventions.",
+        "citedPassage": "Adding or changing information flows is one of the most powerful and cost-effective interventions in a system. Making governance reasoning visible changes governance quality. Information does not change physical infrastructure, but it changes how every actor in the system behaves."
+      },
+      {
+        "source": "tier-2-civic/ostrom-commons-principles.txt",
+        "tier": "tier-2-civic",
+        "weight": 541.81,
+        "relevance": "Ostrom's Principle 1 (clearly defined boundaries) and Principle 4 (monitoring) bear directly on this proposal. The current site conflates two incompatible institutional identities \u2014 a commons governance experiment and a commercial consulting practice. Clear boundary definition is the precondition for all other principles. Repositioning clarifies what OpenInnovate IS, making monitoring by external observers (including journal reviewers, regulators, and the broader research community) more meaningful.",
+        "citedPassage": "The boundaries of the resource system and the individuals or households with rights to use the resource must be clearly defined... Without clear boundaries, free-riders cannot be excluded, and contributors have no assurance that they will capture the benefits of their efforts. Boundary clarity is the precondition for all other principles."
+      },
+      {
+        "source": "tier-3-systems/morrison-dao-controversy.txt",
+        "tier": "tier-3-systems",
+        "weight": 515.4,
+        "relevance": "Morrison et al. establish that the research value of DAO governance experiments derives from their transparency and documentation of novel governance behaviors. The paper describes The DAO as 'a glimpse at a new species of corporate governance' \u2014 value that was realized precisely because it operated as a documented experiment, not a commercial product. OpenInnovate's claim to research significance is stronger when it occupies the same epistemic position.",
+        "citedPassage": "The DAO gives us a glimpse at a new species of corporate governance... Our purpose is more like that of a zoologist who has a need to examine and describe a new species of animal before theorizing about what the new species can contribute to zoological theory."
+      },
+      {
+        "source": "tier-3-systems/dao-survey-2022.txt",
+        "tier": "tier-3-systems",
+        "weight": 417.92,
+        "relevance": "Liu et al. identify the gap in DAO scholarship: end-to-end empirical documentation of live governance experiments is missing. OpenInnovate's constitutional corpus, on-chain provenance, published reasoning trees, and divergence log constitute precisely the kind of empirical artifact the research community lacks. Academic positioning maximizes the chance this artifact contributes to the literature gap the survey identifies.",
+        "citedPassage": "We find that a comprehensive survey towards the state-of-the-art studies of DAO is still missing... future effort can be devoted to improving DAO from a better balance of decentralization, security and scalability. We look forward to a new integration of both social and organizational structure of DAO in the context of blockchain technologies."
+      },
+      {
+        "source": "tier-3-systems/makerdao-governance-manual.txt",
+        "tier": "tier-3-systems",
+        "weight": 485.78,
+        "relevance": "MakerDAO's governance manual demonstrates the institutional legitimacy that comes from treating governance infrastructure as a public research artifact \u2014 publishing reasoning, documenting processes, and making governance accessible to external observers. OpenInnovate's research positioning is consistent with what makes DAO governance credible to external audiences.",
+        "citedPassage": "The public is encouraged to self-audit the code for each vote. There is an accessible guide on how to do so."
+      },
+      {
+        "source": "tier-3-systems/buterin-moving-beyond-coin-voting.txt",
+        "tier": "tier-3-systems",
+        "weight": 478.08,
+        "relevance": "Buterin's work on governance legitimacy emphasizes that credible neutrality and verifiable mechanisms \u2014 not marketing polish \u2014 create durable governance institutions. OpenInnovate's defensible moat (verifiable reasoning provenance, constitutional corpus, divergence log) maps directly to what Buterin identifies as the substrate of legitimate governance. Academic framing better communicates this substrate than product marketing.",
+        "citedPassage": "Coin voting is attractive because it feels credibly neutral... In practice, however, coin voting may well only appear secure today precisely because of the imperfections in its neutrality. We should stay very wary of the idea that current forms of coin voting are 'safe defaults'."
+      }
+    ],
+    "analysis": [
+      {
+        "step": 1,
+        "description": "Corpus Consultation \u2014 Identifying Relevant Frameworks",
+        "reasoning": "This proposal is a communications-strategy decision about institutional identity positioning. The primary corpus frameworks bearing on it are: (1) Meadows' leverage points, which help assess where this intervention sits in the system's causal hierarchy; (2) Ostrom's commons principles, which address what makes a governance commons legible and durable to external observers; (3) Morrison et al. and Liu et al. on DAO research value, which establish what conditions make a DAO a useful research artifact; and (4) MakerDAO and Buterin on governance credibility, which identify the substrates of legitimate and durable decentralized governance. The constitutional corpus does not contain a direct analog for 'communications strategy' proposals, but the Root Thesis Maxim's emphasis on 'sovereign, self-sustaining systems that compound human agency over generational timescales' provides the evaluative axis: does academic positioning better serve the long-arc compounding value of this project than commercial positioning? The answer requires assessing (a) near-term revenue foreclosed vs. (b) long-term credibility, defensibility, and canonical status compounded."
+      },
+      {
+        "step": 2,
+        "description": "Option Analysis \u2014 Current State: Dual Positioning",
+        "reasoning": "The current site simultaneously presents OpenInnovate as (a) a live constitutional AI governance experiment with on-chain provenance and a 155-document corpus, and (b) a commercial consulting practice offering Governance Health Checks (free), Governance Audits ($1,500), and Governance-as-a-Service ($500/mo). Maxim alignment assessment for the status quo: Score 45-50. Risks of continued dual positioning: (1) Credibility dilution \u2014 journal reviewers, academic collaborators, and serious governance researchers will dismiss the project as a consulting practice using research language as marketing. This forecloses the most durable value-creation path \u2014 becoming the canonical reference implementation for AI governance transparency. (2) Employer-optics risk \u2014 a public site advertising paid governance services is materially harder to characterize as 'intellectual contribution / personal research project' in a primary-employer context. This creates existential risk to the Human Executor's economic stability, which is the foundational resource that enables the project to exist at all. The Maxim's concern with 'sovereign, self-sustaining systems' requires the HE to remain economically stable. (3) Competitive positioning failure \u2014 marketing-first competitors (cited: DAO UBO) who define the 'AI governance as a service' narrative space first will make OpenInnovate appear to be a late and inferior commercial entrant, rather than the research infrastructure on which any credible governance service would eventually be built. (4) Internal incoherence \u2014 the site's two jobs dilute each other. Product CTAs undermine research credibility; research positioning undermines commercial conversion. Neither job is well-executed. Ostrom Principle 1 (boundary clarity) confirms: the precondition for all other governance principles is knowing what the institution IS."
+      },
+      {
+        "step": 3,
+        "description": "Option Analysis \u2014 Proposed State: Academic Research Framing",
+        "reasoning": "The proposed repositioning removes the Services section, reframes the tagline and lead paragraph as research-experiment language, and replaces the Services section with a 'Research Questions' section. Maxim alignment assessment for the proposed state: Score 81-85. Gains: (1) Canonical reference implementation status \u2014 academic framing positions OpenInnovate to become the first documented, on-chain-provenance, constitutionally-constrained AI governance experiment. This is a generationally durable position that compounds in value as AI governance becomes an increasingly important research and policy domain. The Morrison et al. paper describes this exact research gap ('a new species of corporate governance'). The Liu et al. survey confirms the gap in empirical DAO governance documentation. Being the reference implementation in an emerging field is a sovereign, compounding asset; being a consulting practice is not. (2) Journal submission path \u2014 MIT Technology Review, Nature Machine Intelligence, and HBR treat research artifacts differently from product pages. The site is the first external signal reviewers encounter. The current dual positioning is disqualifying for serious venues. Academic framing opens publication paths that create durable, citeable, compounding credibility. (3) Competitive defensibility \u2014 Meadows Leverage Point 6 (information flow structure) explains why this matters: changing how external observers categorize OpenInnovate changes how every actor in the surrounding ecosystem behaves toward it. Research artifact status creates a different, more defensible moat than service offering status, particularly against marketing-first competitors who have no verifiable infrastructure. (4) Employer-optics resolution \u2014 the proposal explicitly addresses HE economic stability, which is the foundational resource enabling the project. Removing commercial service advertising reduces the surface area of potential employer conflict. This is directly Maxim-relevant: 'sovereign, self-sustaining systems' require the human executor to be economically stable and professionally sustainable. Risks: (1) Revenue path foreclosed \u2014 the Health Check / Audit / GaaS offerings are removed. However, the proposal notes these were already gated behind system stability per prior CTO directive. The actual revenue foregone is $0 in realized revenue, not a functioning revenue stream being shut off. This is a material distinction. The proposal forecloses a potential future revenue path, not a current one. (2) Future commercial re-entry \u2014 if a 'verifiable AI governance' product category emerges and OpenInnovate wants to re-enter, the site would need to be updated. However: (a) reversibility is high \u2014 all changes are code-level, fully restorable from git history; (b) research positioning does not prevent future commercial offerings \u2014 it just means the site currently reads as a research artifact, not a product page. Many influential research projects (Ethereum, MakerDAO) have both research credibility and commercial ecosystems built on top. (3) Inbound buyer reduction \u2014 academic framing may reduce inbound from buyers ready to transact. This is real but currently moot, as the services were not ready to sell. The proposal notes this itself."
+      },
+      {
+        "step": 4,
+        "description": "Option Analysis \u2014 Rejected Alternative: Modify Rather Than Remove (Partial Reframe)",
+        "reasoning": "An alternative approach would be to keep the Services section but soften commercial language, or to add the Research Questions section without removing Services. This fails for the following reasons: (1) It preserves the dual-positioning problem. Ostrom Principle 1 requires clear boundaries. A site that is 'mostly research but also has some services' creates the same credibility dilution as the current state \u2014 perhaps worse, because it signals an attempt to have it both ways. Journal reviewers are sophisticated enough to see through partial reframes. (2) The employer-optics risk is not resolved by softening commercial language. The issue is the presence of priced service offerings on a public site associated with the HE. A '$1,500 Governance Audit' with softer language is still a '$1,500 Governance Audit.' (3) Meadows Leverage Point 2 (paradigm) suggests that the intervention needs to be clean and complete. Half-measures at the paradigm level create incoherence rather than resolution. Score for this alternative: 55-60. Not recommended."
+      },
+      {
+        "step": 5,
+        "description": "Reversibility, Implementation Risk, and Scope Assessment",
+        "reasoning": "The proposal correctly characterizes reversibility as high. All proposed changes are edits to a single file (frontend/src/app/page.tsx), with a two-phase implementation (copy/structure changes, then review-and-deploy). The milestones are deterministic and attestation-based. The $0 direct cost and minimal API cost ($0.10-0.50) make this among the lowest-cost governance acts possible. The proposal appropriately scopes out corpus changes, smart contract changes, and off-site communications \u2014 these would require separate proposals. The review.py publication-category review (Milestone 5) before deployment is a sound quality gate. The Human Executor retains final authority under the Divergence Protocol. There are no irreversible elements. This should not be evaluated with the same caution as an irreversible governance act. The key uncertainty is the wording of the candidate tagline ('A governance experiment: can a constitutionally constrained AI govern a legal entity more transparently than any human-led organization?') \u2014 'any human-led organization' is an empirically ambitious claim that could invite criticism. The proposal appropriately flags that 'Final wording subject to AM review.' This review recommends the final tagline be more modest: e.g., 'A governance experiment: can a constitutionally constrained AI make organizational decisions more transparently and accountably than conventional governance?' This scope issue does not affect the APPROVE recommendation but should be reflected in the execution record."
+      },
+      {
+        "step": 6,
+        "description": "Root Thesis Maxim Application \u2014 Traceability Assessment",
+        "reasoning": "The Root Thesis Maxim: 'Maximize the creation of sovereign, self-sustaining systems that compound human agency over generational timescales.' Three key terms require analysis: (1) 'Sovereign' \u2014 academic positioning increases OpenInnovate's sovereignty relative to the competitive landscape. A reference implementation occupies a unique, hard-to-displace position. A consulting practice competes on price and marketing, which are not sovereign advantages. (2) 'Self-sustaining' \u2014 the proposal does not directly address long-term financial sustainability, but it preserves the HE's economic stability (primary employment) and opens publication paths that create non-monetary compounding value (citations, reputation, collaborations). The services removed were not generating revenue. The research positioning creates conditions for future funding paths (grants, fellowships, institutional partnerships) that are more aligned with the project's actual value proposition than consulting. (3) 'Compound human agency over generational timescales' \u2014 this is the most directly relevant term. A well-documented, on-chain-provenance research artifact about constitutionally constrained AI governance has generational value if it becomes a canonical reference. A consulting practice's value does not compound generationally. The question 'Can a constitutionally grounded AI produce more transparent organizational decisions than a human board?' \u2014 explicitly proposed as a Research Question in this proposal \u2014 is exactly the kind of question whose documented, empirical answer compounds human agency over time by informing how humans design governance institutions. The Maxim alignment is strong. The score of 81 reflects genuine uncertainty about the long-term financial sustainability path and the foreclosed (though currently unrealized) revenue stream, while strongly crediting the compounding credibility and canonical positioning effects."
+      }
+    ],
+    "followOnRecommendations": [
+      {
+        "description": "Draft and submit a Research Questions section wording proposal to the governance pipeline before Phase 2 deployment. The current proposal authorizes the section but not the specific wording. The AM recommends the final question set explicitly include: (1) the accountability question, (2) the divergence log as research artifact question, (3) the maxim alignment score as decision-quality predictor question, and (4) a question about the conditions under which human divergence from algorithmic recommendation is epistemically justified. These four questions map directly to the corpus gaps identified in Liu et al. and Morrison et al.",
+        "priority": "high",
+        "type": "proposal",
+        "rationale": "Liu et al. identify the research gap this project could fill: empirically grounded, end-to-end documentation of live DAO governance with explicit decision provenance. The Research Questions section is the primary mechanism by which the repositioned site signals its contribution to that gap. Vague or weak research questions undermine the entire repositioning. This is traceable to the Maxim via the 'compounding human agency' arm: well-framed research questions increase the probability of publication and citation, which are the primary compounding mechanisms in academic knowledge production.",
+        "relatedCorpusSources": [
+          "tier-3-systems/dao-survey-2022.txt",
+          "tier-3-systems/morrison-dao-controversy.txt"
+        ]
+      },
+      {
+        "description": "Commission a separate proposal to define a non-commercial sustainability strategy for OpenInnovate that is compatible with the academic research framing. Potential paths include: (a) academic grant applications (NSF, Ethereum Foundation, or similar); (b) open-source sponsorship models (GitHub Sponsors, OpenCollective); (c) institutional research partnerships with law schools or governance research centers; (d) conference paper submissions with associated honoraria. This proposal removes the only current revenue path \u2014 a replacement sustainability investigation should be initiated promptly, even if revenue is not currently being generated.",
+        "priority": "high",
+        "type": "investigation",
+        "rationale": "The Maxim requires 'self-sustaining systems.' The current proposal correctly observes that the removed services were generating $0 in revenue, but the DAO will eventually need a sustainability model. Academic and open-source paths may be more aligned with the research positioning than consulting. Ostrom Principle 2 (congruence between appropriation and provision rules and local conditions) requires that the financial model be congruent with the DAO's actual governance structure and value proposition.",
+        "relatedCorpusSources": [
+          "tier-2-civic/ostrom-commons-principles.txt",
+          "tier-3-systems/meadows-leverage-points.txt"
+        ]
+      },
+      {
+        "description": "Initiate a proposal to create a formal Academic Collaborators section or Research Network page on the site, distinct from a services offering. This would invite researchers, law professors, governance scholars, and blockchain researchers to engage with the governance corpus and reasoning trees as research subjects, not as consulting clients. The divergence log and reasoning trees are exactly the kind of primary source material that governance researchers lack.",
+        "priority": "medium",
+        "type": "proposal",
+        "rationale": "Morrison et al. explicitly identify future research opportunities in DAO governance that require primary empirical sources. Liu et al. call for 'new integration of both social and organizational structure of DAO in the context of blockchain technologies.' OpenInnovate's governance artifacts could serve as primary sources for multiple research streams. Creating a formal Research Network engagement mechanism converts the research positioning from a passive rebranding to an active research infrastructure. This is traceable to the Maxim via the 'compound human agency' mechanism: a research network multiplies the impact of the governance artifact across multiple academic communities.",
+        "relatedCorpusSources": [
+          "tier-3-systems/morrison-dao-controversy.txt",
+          "tier-3-systems/dao-survey-2022.txt",
+          "tier-2-civic/ostrom-commons-principles.txt"
+        ]
+      },
+      {
+        "description": "Issue a governance tracking task to monitor whether the proposed tagline candidate ('A governance experiment: can a constitutionally constrained AI govern a legal entity more transparently than any human-led organization?') requires modification before deployment. The phrase 'any human-led organization' is empirically overclaimed \u2014 OpenInnovate has not demonstrated superiority to any specific organization, and the claim invites academic and journalistic challenge. The AM recommends softening to 'more transparently than conventional human governance structures' or similar. The Human Executor should attest to final tagline wording in the execution record.",
+        "priority": "medium",
+        "type": "issue",
+        "rationale": "Meadows Leverage Point 2 (paradigm) warns that paradigm-level interventions must be clean and credible. An overclaimed tagline that is easily falsified or challenged by reviewers would undermine the academic positioning more than it advances it. The corpus's commitment to honesty about uncertainty (system prompt: 'You must disclose uncertainty') applies to the DAO's own public communications. The Maxim's 'generational timescales' framing requires that the site's claims be durable, not vulnerable to early falsification.",
+        "relatedCorpusSources": [
+          "tier-3-systems/meadows-leverage-points.txt",
+          "tier-3-systems/morrison-dao-controversy.txt"
+        ]
+      },
+      {
+        "description": "Investigate whether the removal of the Services section and associated mailto CTAs requires any notification to parties who may have been in prior communication about those services. If any inbound inquiries were received at collaborate@openinnovate.org referencing the Health Check, Audit, or GaaS offerings, a brief communication acknowledging the repositioning would be consistent with good-faith dealing. This is a minor operational check, not a governance-significant issue, but failure to handle prior inbound contacts appropriately could create reputational friction at the moment the repositioned site launches.",
+        "priority": "low",
+        "type": "issue",
+        "rationale": "Ostrom Principle 6 (conflict-resolution mechanisms) and Principle 5 (graduated sanctions) establish that governance institutions must maintain good faith with all actors who have engaged with them. If any prior contacts exist, a brief communication is consistent with the DAO's transparency obligations and avoids the reputational cost of appearing to have quietly abandoned prior commitments.",
+        "relatedCorpusSources": [
+          "tier-2-civic/ostrom-commons-principles.txt"
+        ]
+      }
+    ],
+    "alternativesConsidered": [
+      {
+        "option": "Reject \u2014 Maintain current dual positioning",
+        "maximAlignmentScore": 47,
+        "rationale": "Preserves the theoretical future revenue path but perpetuates the credibility dilution, employer-optics risk, and competitive positioning failure. The two jobs the site currently performs dilute each other without accomplishing either. The revenue preserved is $0 (services not currently generating income). The costs \u2014 credibility damage, journal-submission disqualification, employer-optics risk \u2014 are ongoing and compounding. Rejected."
+      },
+      {
+        "option": "Modify \u2014 Partial reframe (keep Services, add Research Questions, soften language)",
+        "maximAlignmentScore": 58,
+        "rationale": "Addresses the research positioning goal partially but fails on employer-optics (priced services remain visible), journal credibility (reviewers will see the commercial section), and Ostrom boundary clarity (the institution remains ambiguously defined). A half-measure at the paradigm level creates incoherence. Rejected."
+      },
+      {
+        "option": "Defer \u2014 Wait for further competitive intelligence before repositioning",
+        "maximAlignmentScore": 52,
+        "rationale": "The proposal identifies three time-sensitive factors: journal submission preparation, employer-optics risk, and competitive narrative formation. All three are degraded by delay, not improved by it. The reversibility of the proposed changes is high, so the cost of acting and later revising is low. The cost of inaction is continuing credibility dilution and employer-optics risk. Defer is not warranted. Rejected."
+      },
+      {
+        "option": "Approve with modification \u2014 Approve the reframe but require tagline revision before deployment",
+        "maximAlignmentScore": 83,
+        "rationale": "Preferred by the AM. The proposal already anticipates AM review of final tagline wording. The APPROVE recommendation incorporates this: the Human Executor should attest to final tagline wording in the execution record, with the recommendation to soften 'any human-led organization' to a less overclaimed formulation. This is addressed in Follow-On Recommendation 4."
+      }
+    ],
+    "traceabilityChain": "RECOMMENDATION (APPROVE site repositioning to academic research framing) \u2192 removes commercial dual-positioning that dilutes credibility and creates employer-optics risk \u2192 clears path for journal submission to MIT Technology Review, Nature Machine Intelligence, HBR \u2192 publication establishes OpenInnovate as canonical reference implementation for constitutionally constrained AI governance \u2192 canonical reference implementation status is a generationally compounding asset that multiplies human understanding of AI governance transparency \u2192 compounding human understanding of AI governance design increases collective human agency over AI systems at generational timescales \u2192 MAXIM ('Maximize the creation of sovereign, self-sustaining systems that compound human agency over generational timescales'). Secondary chain: RECOMMENDATION \u2192 removes employer-optics conflict \u2192 preserves Human Executor economic stability \u2192 preserves foundational resource enabling the project to continue \u2192 MAXIM (self-sustaining systems require the human executor to be economically sustainable). Meadows Leverage Point 6 (information flow restructuring) operationalizes the mechanism: changing how external observers categorize OpenInnovate changes how every actor in the governance research ecosystem engages with it, without requiring any change to the underlying governance infrastructure."
+  },
+  "evaluatedAt": "2026-04-29T15:41:49.215767+00:00",
+  "weightsHash": "d74eda5bd35cbd6cfaaa6148b329aeb7f9f95b54aa52b9458c8fb4d7c8317498",
+  "commitSha": "561de7b8ede2e45404833a38a292f141a254ce01",
+  "proposalUri": "https://raw.githubusercontent.com/hocmemini/openinnovate-dao/561de7b8ede2e45404833a38a292f141a254ce01/governance/proposals/012-site-repositioning-academic.json"
+}
