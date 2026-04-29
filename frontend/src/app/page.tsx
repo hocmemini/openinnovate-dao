@@ -838,8 +838,8 @@ export default function Home() {
             governance scholars, and legal or compliance practitioners. It does
             not offer commercial services, financial products, or paid
             consulting. Substantive correspondence may be addressed to{" "}
-            <a href="mailto:research@openinnovate.org">
-              research@openinnovate.org
+            <a href="mailto:collaborate@openinnovate.org">
+              collaborate@openinnovate.org
             </a>
             .
           </p>
