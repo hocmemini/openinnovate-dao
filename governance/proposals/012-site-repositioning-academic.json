@@ -1,0 +1,163 @@
+{
+  "proposalId": 12,
+  "title": "Site Repositioning — Academic Research Framing",
+  "type": "communications-strategy",
+  "date": "2026-04-29",
+  "submittedBy": "0xC91ED1978a1b89D0321fcF6BFf919a0f785d5EC7",
+  "summary": "Reposition the public-facing site (dao.openinnovate.org) from a commercial governance-services product page to an academic research artifact and reference implementation. Remove the Services section (Governance Health Check, Governance Audit at $1,500, Governance-as-a-Service at $500/mo) and associated CTAs/mailto links. Reframe the tagline and 'What is OpenInnovate?' lead paragraph from product/company language to research-experiment language. Replace the removed Services section with a 'Research Questions' section articulating the open questions this experiment is designed to answer. Apply a consistent research-artifact tone across remaining copy.",
+  "rationale": "The site currently performs two incompatible jobs: (a) presenting a live governance experiment with on-chain provenance, published reasoning trees, a 155-document constitutional corpus, and a public divergence log; and (b) selling consulting services priced as if OpenInnovate were a product company. The strategic environment now favors collapsing this duality in favor of (a). Three reasons: (1) Defensibility — competitors entering the 'AI governance as a service' narrative space (e.g., DAO UBO) compete on marketing polish, not verifiable infrastructure. The defensible moat for OpenInnovate is rigor, not service offerings. (2) Credibility for journal submission — venues such as MIT Technology Review, Nature Machine Intelligence, and Harvard Business Review treat content from product pages with higher skepticism than research artifacts. The site is the first thing reviewers will land on. (3) Optics for the human executor — a clear separation between 'intellectual contribution / research experiment' and 'side business selling services' is required to keep this project compatible with the HE's primary employment.",
+  "context": {
+    "currentState": {
+      "siteFile": "frontend/src/app/page.tsx",
+      "tagline": "AI-augmented direct democracy on Base L2, governed by a weighted constitutional corpus.",
+      "leadParagraph": "OpenInnovate is a Wyoming-registered DAO LLC that uses an AI governance engine to make every organizational decision transparent, constitutional, and on-chain verifiable.",
+      "servicesSection": {
+        "location": "page.tsx lines 584-635",
+        "offerings": [
+          {"title": "Governance Health Check", "price": "Free", "cta": "Book a call"},
+          {"title": "Governance Audit", "price": "From $1,500", "cta": "Request an audit"},
+          {"title": "Governance-as-a-Service", "price": "From $500/mo", "cta": "Get started"}
+        ],
+        "ctaTarget": "mailto:collaborate@openinnovate.org",
+        "footerCopy": "All services powered by the same governance engine that runs OpenInnovate. You get the same constitutional rigor we use on ourselves."
+      }
+    },
+    "strategicEnvironment": [
+      "Competitors are entering the 'AI governance as a service' narrative space with marketing-first, product-later approaches — polished sites, no verifiable infrastructure.",
+      "OpenInnovate's defensible advantage is verifiable rigor: on-chain provenance, published reasoning trees, the 155-document constitutional corpus, and the live divergence log — not service packaging.",
+      "Long-term value of this project compounds as the reference implementation for AI governance transparency — an academic and research artifact, not a consulting practice.",
+      "Employer optics require clear separation between 'intellectual contribution / research experiment' and 'side business selling services.'",
+      "Journal submission credibility (MIT Technology Review, Nature Machine Intelligence, HBR) requires the site to read as a research project, not a product page."
+    ]
+  },
+  "proposedChanges": [
+    {
+      "action": "remove",
+      "target": "frontend/src/app/page.tsx — Services section (approx. lines 584-635)",
+      "description": "Delete the full Services section: section header, the three service cards (Governance Health Check, Governance Audit, Governance-as-a-Service), the mailto:collaborate@openinnovate.org CTA links, and the footer line ('All services powered by the same governance engine...').",
+      "phase": 1
+    },
+    {
+      "action": "reframe",
+      "target": "frontend/src/app/page.tsx — tagline (header subtitle, approx. line 447-450)",
+      "description": "Replace the current tagline ('AI-augmented direct democracy on Base L2, governed by a weighted constitutional corpus.') with research-framing copy. Candidate: 'A governance experiment: can a constitutionally constrained AI govern a legal entity more transparently than any human-led organization?' Final wording subject to AM review.",
+      "phase": 1
+    },
+    {
+      "action": "reframe",
+      "target": "frontend/src/app/page.tsx — 'What is OpenInnovate?' lead paragraph (approx. lines 467-504)",
+      "description": "Reframe the opening paragraph from company description to research-experiment description. Lead with 'OpenInnovate DAO LLC is a live governance experiment...' rather than 'OpenInnovate is a Wyoming-registered DAO LLC that uses an AI governance engine...'. Preserve the factual content (Wyoming registration, AM, 155-document corpus, divergence recording) but recast the framing as documentation of an experiment, not a product description.",
+      "phase": 1
+    },
+    {
+      "action": "add",
+      "target": "frontend/src/app/page.tsx — new 'Research Questions' section (replaces the removed Services section)",
+      "description": "Insert a new section in the same location titled 'Research Questions' or 'Open Questions This Experiment Is Designed to Answer.' Articulate the substantive questions: e.g., 'Can a constitutionally grounded AI produce more transparent organizational decisions than a human board?' / 'Does on-chain reasoning provenance change accountability dynamics?' / 'When humans diverge from the AI, is the divergence log itself a useful research artifact?' / 'How does maxim alignment scoring track against post-hoc evaluation of decision quality?' Final question set to be drafted in implementation; this proposal authorizes the section, not the wording.",
+      "phase": 1
+    },
+    {
+      "action": "audit",
+      "target": "frontend/src/app/page.tsx — full page copy review",
+      "description": "Audit all remaining copy (header, How It Works, Why This Matters, Maxim, footer) for residual product/commercial framing. Adjust phrasing to consistently position OpenInnovate as a research artifact and reference implementation. No new sections; tone and word-choice only.",
+      "phase": 1
+    }
+  ],
+  "milestones": [
+    {
+      "id": 1,
+      "domain": "frontend",
+      "description": "Services section (and footer copy / mailto CTAs) removed from page.tsx",
+      "phase": 1,
+      "dependencies": [],
+      "verificationType": "deterministic"
+    },
+    {
+      "id": 2,
+      "domain": "frontend",
+      "description": "Tagline and 'What is OpenInnovate?' lead paragraph reframed to research-experiment language",
+      "phase": 1,
+      "dependencies": [],
+      "verificationType": "deterministic"
+    },
+    {
+      "id": 3,
+      "domain": "frontend",
+      "description": "'Research Questions' section added in place of removed Services section, with at least 3 substantive open questions articulated",
+      "phase": 1,
+      "dependencies": [1],
+      "verificationType": "deterministic"
+    },
+    {
+      "id": 4,
+      "domain": "frontend",
+      "description": "Full-page copy audit for residual commercial framing complete; remaining copy aligned with research-artifact positioning",
+      "phase": 1,
+      "dependencies": [2, 3],
+      "verificationType": "manual"
+    },
+    {
+      "id": 5,
+      "domain": "communications",
+      "description": "Reframed site reviewed via review.py with category=publication before deployment, output recorded under governance/reviews/",
+      "phase": 2,
+      "dependencies": [4],
+      "verificationType": "attestation"
+    },
+    {
+      "id": 6,
+      "domain": "frontend",
+      "description": "Site rebuilt and redeployed to dao.openinnovate.org; Vercel deployment URL recorded in execution record",
+      "phase": 2,
+      "dependencies": [5],
+      "verificationType": "attestation"
+    }
+  ],
+  "implementationPhases": {
+    "phase1": {
+      "name": "Copy and structure changes",
+      "deliverables": [
+        "Services section removed",
+        "Tagline and lead paragraph reframed",
+        "Research Questions section added",
+        "Full-page copy audit"
+      ]
+    },
+    "phase2": {
+      "name": "Review and deploy",
+      "deliverables": [
+        "review.py publication-category review",
+        "Vercel redeploy"
+      ]
+    }
+  },
+  "evaluationConsiderations": [
+    "Does removing commercial positioning strengthen or weaken the maxim goal of 'maximizing the creation of sovereign, self-sustaining systems that compound human agency over generational timescales'?",
+    "Does academic positioning better serve the long-term compounding value of this project as personal brand and reputation capital for the human executor?",
+    "Risk: removing $0/$1,500/$500-per-month service offerings forecloses a near-term revenue path. Per existing CTO directive (build-before-sell), this revenue was already gated behind system stability — what is actually being lost?",
+    "Gain: credibility and defensibility against marketing-first competitors entering the same narrative space; suitability for academic/journal review.",
+    "Optics: separation between research experiment and side business is required for compatibility with the HE's primary employment — what is the maxim weight of preserving the HE's economic stability?",
+    "Reversibility: removing the Services section is fully reversible in code. Does the proposal warrant the same caution as an irreversible governance act, or should it be evaluated as a routine communications change?"
+  ],
+  "riskAssessment": {
+    "risksOfApproval": [
+      "Forecloses a documented, designed revenue stream (Health Check / Audit / GaaS).",
+      "If competitors fail and a 'verifiable AI governance' product category emerges later, the site no longer signals commercial intent — would need to be re-added.",
+      "Academic framing may reduce inbound from buyers who arrive ready to transact."
+    ],
+    "risksOfRejection": [
+      "Continued ambiguity between research artifact and consulting practice undermines journal-submission credibility.",
+      "Employer-optics risk persists: a public site advertising paid governance services is harder to defend as 'intellectual contribution' than a research artifact.",
+      "Marketing-first competitors define the narrative space first; OpenInnovate is read as a late entrant rather than a reference implementation.",
+      "The site's two jobs (live experiment + product page) continue to dilute each other."
+    ],
+    "reversibility": "high — all changes are code-level edits to frontend/src/app/page.tsx. A future proposal can restore the Services section verbatim from git history."
+  },
+  "outOfScope": [
+    "Changes to corpus, system prompts, or weights.json (would require separate constitutional-amendment proposals).",
+    "Changes to the on-chain contract or governance pipeline.",
+    "Changes to LinkedIn, Paragraph, or other off-site communications channels — this proposal addresses dao.openinnovate.org only.",
+    "Decisions about whether to ever offer paid services in the future — this proposal removes the current offerings; future revenue strategy is a separate question."
+  ],
+  "estimatedCost": "$0 direct cost. ~1 hour of edit work; ~$0.10-0.50 in API cost if review.py is run on the reframed copy.",
+  "externalDependencies": "None. Vercel deployment uses existing pipeline."
+}
