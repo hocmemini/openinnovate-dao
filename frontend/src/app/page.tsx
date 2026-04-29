@@ -445,8 +445,9 @@ export default function Home() {
           OpenInnovate DAO LLC
         </h1>
         <p className="text-neutral-500 text-sm mb-4">
-          AI-augmented direct democracy on Base L2, governed by a weighted
-          constitutional corpus.
+          A live governance experiment: can a constitutionally constrained
+          AI make organizational decision-making more transparent than any
+          human-led organization?
         </p>
         <div className="flex flex-wrap gap-x-4 gap-y-1 text-xs text-neutral-600">
           <a href={BASESCAN} className="text-blue-400 hover:underline" target="_blank">
@@ -471,17 +472,18 @@ export default function Home() {
         </h2>
         <div className="space-y-4 text-sm text-neutral-300 leading-relaxed">
           <p>
-            OpenInnovate is a{" "}
-            <strong className="text-neutral-100">
-              Wyoming-registered DAO LLC
-            </strong>{" "}
-            that uses an AI governance engine to make every organizational
-            decision transparent, constitutional, and on-chain verifiable.
+            OpenInnovate DAO LLC is a{" "}
+            <strong className="text-neutral-100">live governance experiment</strong>:
+            a Wyoming-registered legal entity whose material operational
+            decisions are evaluated by a constitutionally constrained AI,
+            with the full reasoning tree, corpus citations, alignment score,
+            and any human override published publicly in real time and
+            cryptographically anchored on Base L2.
           </p>
           <p>
             Most organizations make decisions behind closed doors and justify
-            them after the fact. OpenInnovate inverts this: every proposal is
-            evaluated by an{" "}
+            them after the fact. This experiment inverts that: every proposal
+            is evaluated by an{" "}
             <strong className="text-neutral-100">Algorithmic Manager</strong>{" "}
             (Claude, developed by Anthropic) against a{" "}
             <strong className="text-neutral-100">
@@ -495,10 +497,11 @@ export default function Home() {
             with a legal citation.
           </p>
           <p>
-            The result is an organization where you can audit every decision back
-            to its constitutional basis — who proposed it, what the AI
+            The artifact is an organization where every decision can be audited
+            back to its constitutional basis — who proposed it, what the AI
             recommended, what score it received, whether the human agreed, and
-            the exact corpus passages that informed the judgment.
+            the exact corpus passages that informed the judgment. This site is
+            the public record of that experiment.
           </p>
         </div>
       </section>
@@ -581,56 +584,49 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Services */}
+      {/* Research Questions */}
       <section className="mb-10">
         <h2 className="text-lg font-bold mb-4 pb-2 border-b border-neutral-800">
-          Services
+          Research Questions
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <p className="text-xs text-neutral-600 mb-4">
+          The open questions this experiment is designed to answer. The
+          governance record below is the data.
+        </p>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs text-neutral-400">
           {[
             {
-              title: "Governance Health Check",
-              price: "Free",
-              desc: "A 30-minute assessment of your DAO\u2019s governance structure, decision-making processes, and constitutional gaps. We run your governance documents through our evaluation engine and deliver a summary of findings.",
-              cta: "Book a call",
+              title: "Can a constitutionally constrained AI produce more transparent organizational decisions than a human board?",
+              desc: "Every reasoning tree, corpus citation, and alignment score is published. The comparison set is any organization that publishes its decision-making rationale and allows external audit. The hypothesis is that constitutional AI governance produces a more auditable record than standard corporate governance.",
             },
             {
-              title: "Governance Audit",
-              price: "From $1,500",
-              desc: "A comprehensive AI-powered evaluation of your governance framework. You get a structured report: constitutional assessment, decision quality analysis, gap identification, and corpus-grounded recommendations with full reasoning trees.",
-              cta: "Request an audit",
+              title: "Does on-chain reasoning provenance change accountability dynamics?",
+              desc: "Decision hashes recorded on Base L2 mean reasoning cannot be retroactively edited. The hypothesis is that immutable provenance shifts how decisions are made in the first place \u2014 not just how they are reviewed.",
             },
             {
-              title: "Governance-as-a-Service",
-              price: "From $500/mo",
-              desc: "Ongoing AI governance for your organization. Every proposal evaluated against your constitutional corpus, reasoning trees published, decisions recorded on-chain. Monthly strategic reviews and continuous governance intelligence.",
-              cta: "Get started",
+              title: "Is the divergence log itself a useful research artifact?",
+              desc: "Every time the human executor overrides the AI, the divergence is recorded with reasoning and legal basis. The log is a public dataset of where constitutional AI judgment and human judgment disagree, and why.",
             },
-          ].map((s) => (
+            {
+              title: "How does Maxim Alignment Score track against post-hoc evaluation of decision quality?",
+              desc: "The AI assigns a 0\u2013100 alignment score to every decision against a stated root thesis maxim. Whether that score predicts long-run decision quality is an empirical question this experiment is designed to surface, not assume.",
+            },
+          ].map((q) => (
             <div
-              key={s.title}
-              className="border border-neutral-800 bg-neutral-950 p-5 flex flex-col"
+              key={q.title}
+              className="border border-neutral-800 bg-neutral-950 p-4"
             >
-              <div className="flex items-center justify-between mb-2">
-                <span className="font-medium text-sm">{s.title}</span>
-                <span className="text-blue-400 font-mono text-xs">{s.price}</span>
-              </div>
-              <p className="text-xs text-neutral-500 leading-relaxed flex-1">
-                {s.desc}
+              <p className="text-neutral-200 font-medium text-sm mb-2 leading-snug">
+                {q.title}
               </p>
-              <a
-                href="mailto:collaborate@openinnovate.org"
-                className="mt-4 text-center text-xs text-blue-400 border border-blue-400/30 py-2 hover:bg-blue-400/5 transition-colors"
-              >
-                {s.cta}
-              </a>
+              <p className="leading-relaxed">{q.desc}</p>
             </div>
           ))}
         </div>
         <p className="text-[10px] text-neutral-600 mt-3">
-          All services powered by the same governance engine that runs
-          OpenInnovate. You get the same constitutional rigor we use on
-          ourselves.
+          OpenInnovate DAO LLC is a reference implementation, not a product.
+          The corpus, reasoning trees, divergence log, and contracts are
+          public artifacts intended for research, replication, and critique.
         </p>
       </section>
 
@@ -788,6 +784,12 @@ export default function Home() {
             GitHub
           </a>
           .
+        </p>
+        <p className="mt-3 text-[10px] text-neutral-700 leading-relaxed">
+          OpenInnovate DAO LLC does not issue tokens, solicit investment, or
+          offer financial returns. This site is a public governance research
+          artifact. Nothing on this site constitutes investment advice, a
+          securities offering, or a solicitation of funds.
         </p>
       </footer>
     </div>

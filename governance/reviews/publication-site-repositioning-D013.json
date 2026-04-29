@@ -1,0 +1,134 @@
+{
+  "review": {
+    "category": "publication",
+    "recommendation": "REVISE",
+    "summary": "The content is well-written, transparent, and largely aligned with the DAO's mission and constitutional corpus. However, there are several factual claims that need verification or qualification, one potential unauthorized commitment, and some regulatory sensitivity concerns that should be addressed before publication.",
+    "checklistResults": {
+      "Factual accuracy": {
+        "pass": false,
+        "note": "The claim of a '155-document constitutional corpus' is unverifiable from the provided corpus context (only 10 documents provided for review). If this number is not precisely accurate, it must be corrected. Additionally, the specific corpus sources listed (Federalist Papers, Buffett shareholder letters, Ostrom commons governance, Wyoming DAO statutes, systems thinking frameworks) should be verified to confirm all are actually included. The claim that 'every decision can be audited back to its constitutional basis' should be qualified \u2014 this is the design intent, not a guaranteed property, as it depends on system uptime, correct implementation, and the AI's faithfulness to the corpus."
+      },
+      "Tone": {
+        "pass": true,
+        "note": "Tone is serious, transparent, research-oriented, and non-promotional. The framing as a 'reference implementation, not a product' is appropriate and consistent with the DAO's identity."
+      },
+      "No unauthorized commitments": {
+        "pass": false,
+        "note": "The tagline asks 'can a constitutionally constrained AI govern a legal entity more transparently than any human-led organization?' \u2014 the phrase 'govern a legal entity' overstates the AI's role. The Algorithmic Manager's review is advisory; the Human Executor retains decision authority. The AI does not 'govern' the entity. This could be construed as misrepresenting the governance structure. Additionally, 'every operational decision is evaluated' may be an overstatement if some operational decisions (e.g., routine administrative tasks) are not run through the proposal pipeline."
+      },
+      "No misrepresentation": {
+        "pass": false,
+        "note": "Multiple concerns: (1) The tagline and opening paragraph describe the AI as governing the entity, when it is an advisory governance layer with human override. (2) 'whose every operational decision is evaluated by a constitutionally constrained AI' \u2014 if any decisions bypass the pipeline, this is inaccurate. (3) The description of on-chain recording ('published on-chain in real time') should specify what exactly is on-chain \u2014 the full reasoning tree or a hash of it? The later section clarifies 'Decision hashes are recorded on Base L2' which suggests only hashes go on-chain, but the earlier language implies the full reasoning is on-chain. This inconsistency must be resolved."
+      },
+      "Corpus alignment": {
+        "pass": true,
+        "note": "The content strongly aligns with Ostrom's commons principles (transparency as monitoring, clear boundaries), Meadows' leverage points (information flows as high-leverage intervention, goal-level interventions), the Morrison et al. DAO governance analysis (addressing accountability gaps identified in The DAO case), and Buterin's critique of plutocracy (human override with accountability rather than pure algorithmic governance). The research framing and emphasis on transparency, constitutional constraint, and generational timescales are well-aligned with the Root Thesis Maxim."
+      },
+      "Regulatory sensitivity": {
+        "pass": false,
+        "note": "The phrase 'reference implementation' is appropriate and helps distance from product/securities framing. However, the content should be reviewed for any implication that participation in the DAO constitutes an investment opportunity. The mention of 'Maxim Alignment Score' and 'decision quality' could, in a stretch, be interpreted as implying measurable returns. The content does not mention tokens or financial returns, which is good, but the absence of any explicit disclaimer about the DAO's non-investment nature is a gap given the regulatory environment around DAOs."
+      }
+    },
+    "issues": [
+      {
+        "severity": "critical",
+        "description": "The tagline and opening paragraph misrepresent the AI's role by stating it 'governs' the legal entity. The Algorithmic Manager is advisory; the Human Executor holds decision authority. This is a fundamental misrepresentation of the governance structure that could create legal exposure and public misunderstanding.",
+        "location": "Tagline and first paragraph of 'What is OpenInnovate?'",
+        "suggestedRevision": "Tagline: 'A live governance experiment: can a constitutionally constrained AI make organizational decision-making more transparent than any human-led organization?' Opening: change 'whose every operational decision is evaluated by a constitutionally constrained AI' to 'whose operational decisions are evaluated by a constitutionally constrained AI, with the full reasoning tree...' (removing 'every' unless verifiably true).",
+        "corpusBasis": "The Operating Agreement and system prompt establish the AI as advisory with human override. Morrison et al. (tier-3-systems/morrison-dao-controversy.txt) extensively discusses the dangers of misrepresenting the locus of governance authority in DAOs."
+      },
+      {
+        "severity": "critical",
+        "description": "Inconsistency between 'published on-chain in real time' (paragraph 1) and 'Decision hashes are recorded on Base L2' (How It Works / Why This Matters). The first implies full reasoning trees are on-chain; the second correctly indicates only hashes are on-chain. This inconsistency could be construed as misrepresentation of the transparency mechanism.",
+        "location": "First paragraph of 'What is OpenInnovate?' vs. 'How It Works' Step 3 and 'Why This Matters' bullet 4",
+        "suggestedRevision": "First paragraph: change 'published on-chain in real time' to 'published publicly in real time, with cryptographic hashes recorded on-chain'. This accurately describes the two-layer architecture: full data published off-chain (presumably on the dashboard/site), integrity verified on-chain via hashes.",
+        "corpusBasis": "Ethereum governance documentation (tier-3-systems/ethereum-org-governance.txt) distinguishes between on-chain and off-chain governance artifacts. Precision about what is on-chain vs. off-chain is a fundamental accuracy requirement for any blockchain-related publication."
+      },
+      {
+        "severity": "major",
+        "description": "The claim '155-document constitutional corpus' is a specific factual claim that cannot be verified from the review context. If the actual number differs, this is a factual error on a prominent, frequently-cited detail.",
+        "location": "Second paragraph of 'What is OpenInnovate?'",
+        "suggestedRevision": "Verify the exact document count before publication. If the count may change as the corpus evolves, consider 'a constitutional corpus of over 150 documents' or link to a canonical document list.",
+        "corpusBasis": "General factual accuracy requirement. The corpus is a central claim of the DAO's governance legitimacy; an inaccurate count undermines credibility."
+      },
+      {
+        "severity": "major",
+        "description": "The phrase 'every operational decision' appears twice and implies 100% coverage of all decisions through the AI evaluation pipeline. If any operational decisions (routine administration, emergency actions, or decisions below a materiality threshold) bypass the pipeline, this is inaccurate.",
+        "location": "Tagline, first paragraph of 'What is OpenInnovate?'",
+        "suggestedRevision": "If not all decisions go through the pipeline, qualify: 'whose material operational decisions are evaluated by a constitutionally constrained AI'. If truly every decision goes through, retain but be prepared to defend the claim.",
+        "corpusBasis": "Ostrom's Principle 4 (monitoring) from tier-2-civic/ostrom-commons-principles.txt emphasizes that monitoring claims must be credible. Overstating monitoring coverage undermines trust when exceptions are discovered."
+      },
+      {
+        "severity": "major",
+        "description": "No disclaimer or statement about the non-investment, non-securities nature of the DAO or its tokens (if any). Given regulatory scrutiny of DAOs, the absence of any regulatory disclaimer on an external-facing publication is a gap.",
+        "location": "End of document / missing section",
+        "suggestedRevision": "Add a brief disclaimer at the bottom: 'OpenInnovate DAO LLC does not issue tokens, solicit investment, or offer financial returns. This is a governance research project. Nothing on this site constitutes investment advice, a securities offering, or a solicitation of funds.' Adjust language based on actual token/investment status.",
+        "corpusBasis": "Morrison et al. (tier-3-systems/morrison-dao-controversy.txt) extensively discusses the legal ambiguity of DAOs and the importance of clear communication about legal status. Buterin (tier-3-systems/buterin-plutocracy-still-bad.txt) discusses the risks of financial incentive structures in governance. Wyoming DAO statute compliance requires clarity about the entity's nature."
+      },
+      {
+        "severity": "minor",
+        "description": "The phrase 'UUPS upgradeable contract with RBAC and a 7-day timelock on administrative changes' in 'Why This Matters' is technical jargon that may not serve the intended audience of a public-facing website. While accurate, it could benefit from a brief parenthetical explanation or link.",
+        "location": "'Why This Matters' bullet 4",
+        "suggestedRevision": "Consider: 'Decision hashes are recorded on Base L2 via an upgradeable smart contract with role-based access controls and a 7-day delay on administrative changes \u2014 meaning no one can silently alter the system.' Or link 'UUPS', 'RBAC', and 'timelock' to explanatory resources.",
+        "corpusBasis": "Meadows (tier-3-systems/meadows-leverage-points.txt) Leverage Point 6 discusses the importance of information flow structure. Information that is technically present but practically inaccessible due to jargon fails to serve the transparency function."
+      },
+      {
+        "severity": "minor",
+        "description": "The research question 'Can a constitutionally constrained AI produce more transparent organizational decisions than a human board?' sets up a comparison ('The comparison set is every other organization') that is unfalsifiable as stated. No mechanism is described for actually comparing against other organizations' decision transparency.",
+        "location": "Research Questions, first bullet",
+        "suggestedRevision": "Qualify: 'The comparison set is any organization that publishes its decision-making rationale and allows external audit. The hypothesis is that constitutional AI governance produces a more auditable record than standard corporate governance.' This is more honest about the comparison methodology.",
+        "corpusBasis": "The Root Thesis Maxim values systems that 'compound human agency over generational timescales' \u2014 overstating research claims undermines long-term credibility, which is antithetical to the maxim."
+      },
+      {
+        "severity": "note",
+        "description": "The content does not mention the DAO's Wyoming filing reference, EIN, or legal formation details. For a publication-category piece (website copy), this may be intentional to keep the copy clean. However, if the site has no 'Legal' or 'About' page where this information appears, it should be added somewhere on the site for transparency.",
+        "location": "General / missing",
+        "suggestedRevision": "Consider adding a footer or linked 'Legal Entity' page with: 'OpenInnovate DAO LLC, a Wyoming Decentralized Autonomous Organization, Filing Reference 2026-001929314, EIN 41-5085693.'",
+        "corpusBasis": "Ostrom Principle 1 (tier-2-civic/ostrom-commons-principles.txt): clearly defined boundaries. The legal identity of the entity is a boundary-defining element."
+      },
+      {
+        "severity": "note",
+        "description": "The content correctly positions the DAO as a 'reference implementation, not a product' \u2014 this is well-aligned with regulatory sensitivity and corpus principles. This framing should be preserved in any revision.",
+        "location": "Final paragraph before Root Thesis Maxim",
+        "suggestedRevision": "No change needed. Flagging as a positive observation.",
+        "corpusBasis": "Morrison et al. (tier-3-systems/morrison-dao-controversy.txt) discusses the importance of clear organizational purpose communication. Kivilo et al. (tier-3-systems/kivilo-token-economy-design.txt) emphasizes stakeholder clarity about system functions."
+      }
+    ],
+    "corpusSources": [
+      {
+        "source": "tier-2-civic/ostrom-commons-principles.txt",
+        "relevance": "Principles 1 (boundary clarity), 4 (monitoring credibility), and 5 (graduated sanctions via transparency) directly inform the review of claims about transparency, on-chain recording, and governance structure accuracy."
+      },
+      {
+        "source": "tier-3-systems/meadows-leverage-points.txt",
+        "relevance": "Leverage Point 6 (information flows) validates the transparency-as-governance approach but also requires that information be genuinely accessible, not merely technically present. Leverage Point 3 (goals) validates the Root Thesis Maxim framing."
+      },
+      {
+        "source": "tier-3-systems/morrison-dao-controversy.txt",
+        "relevance": "The DAO case study demonstrates the critical importance of accurately representing governance authority, accountability mechanisms, and the locus of decision-making power. Directly relevant to the misrepresentation concerns about the AI 'governing' the entity."
+      },
+      {
+        "source": "tier-3-systems/buterin-plutocracy-still-bad.txt",
+        "relevance": "Buterin's critique of governance capture and the importance of aligning governance mechanisms with stated principles informs the review of whether the content accurately represents the DAO's governance model."
+      },
+      {
+        "source": "tier-3-systems/kivilo-token-economy-design.txt",
+        "relevance": "TEDM framework emphasizes stakeholder clarity, governance area definition, and the importance of accurately communicating system functions \u2014 all relevant to reviewing external-facing content about a DAO."
+      },
+      {
+        "source": "tier-3-systems/ethereum-org-governance.txt",
+        "relevance": "Ethereum's distinction between on-chain and off-chain governance artifacts provides the standard for precise communication about what is recorded on-chain vs. published off-chain."
+      }
+    ]
+  },
+  "reviewMetadata": {
+    "contentFile": "site-copy-reframed.md",
+    "category": "publication",
+    "model": "claude-opus-4-6",
+    "systemPromptVersion": "review-v1.0",
+    "reviewedAt": "2026-04-29T15:55:39.923193+00:00",
+    "contentHash": "0xca56b1f10e118d26ccc4d035f240b8deac3eb572270b7eec96f0a186dd591811",
+    "canonicalContentHash": "0xdde3eb456f23921970111424a4e5ce1efff4b2139af6cd34aa5c980211321783",
+    "corpusDocsUsed": 10
+  }
+}
