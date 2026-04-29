@@ -4,9 +4,9 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "OpenInnovate DAO — AI-Augmented Governance on Base L2",
+  title: "OpenInnovate DAO LLC — A Live Governance Experiment",
   description:
-    "A Wyoming DAO LLC using AI constitutional governance. Every decision is evaluated against a 148-document corpus, scored for alignment, and recorded on-chain. Full transparency by default.",
+    "A Wyoming-registered legal entity whose material operational decisions are evaluated by a constitutionally constrained AI against a 155-document corpus. Reasoning trees, alignment scores, and human overrides are published in real time and cryptographically anchored on Base L2. A research artifact, not a product.",
 };
 
 export default function RootLayout({
